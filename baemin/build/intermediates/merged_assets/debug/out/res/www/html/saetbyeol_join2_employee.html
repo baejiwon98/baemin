@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Hello! Mobile!</title>
+  <link rel="stylesheet" href="../css/morpheus-style.css" />
+  <link rel="stylesheet" href="../css/swiper.min.css" />
+  <link rel="stylesheet" href="../css/muikit.css" />
+</head>
+<!-- employee join -->
+<body>
+<div class="wrapper">
+  <header class="header line">
+    <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+    <!-- 하단에 라인이 있는경우 class="line"추가 -->
+    <h1>
+      회원가입
+    </h1>
+    <button type="button" class="btn-back l-fix" id="back-btn">
+      뒤로가기
+    </button>
+  </header>
+  <div class="container">
+    <div class="cont-wrap pd">
+      <div class="info-wrap">
+        <h2 class="sub-tit">
+          사장님 본인인증
+        </h2>
+        <div class="step">
+          <ul>
+            <li class="ok">
+              1
+              <!-- class="on"추가:해당 단계 / class="ok"추가:완료 단계 -->
+            </li>
+            <li class="on">
+              2
+            </li>
+            <li>
+              3
+            </li>
+            <li>
+              4
+            </li>
+          </ul>
+        </div>
+        <div class="logo none">
+          <img src="../img/logo-header.png" alt="Education"/>
+        </div>
+      </div>
+      <div class="ipt-wrap">
+        <div class="ipt-form-type1">
+						<span>
+							사업자등록번호
+						</span>
+          <div class="ipt-form-col">
+            <input type="number" id="employee-num" pattern="[^0-9]" />
+          </div>
+        </div>
+        <div class="ipt-form-type1">
+						<span>
+							사업주명
+						</span>
+          <div class="ipt-form-col">
+            <input type="text" id="employee-name" placeholder="사업주명 입력"/>
+          </div>
+        </div>
+        <div class="ipt-form-type1">
+						<span>
+							상호명
+						</span>
+          <div class="ipt-form-col">
+            <input type="text" id="store-name" placeholder="상호명 입력"/>
+          </div>
+        </div>
+        <div class="ipt-form-type1">
+						<span>
+							사업자 주소
+						</span>
+          <div class="ipt-form-col">
+            <input type="text" id="store-addr" placeholder="사업자 주소 입력"/>
+          </div>
+        </div>
+
+        <div class="ipt-form-type2">
+          <div class="ipt-form-phone">
+						<span>
+							휴대폰 번호(숫자만)
+						</span>
+            <div class="ipt-form-row">
+              <input type="number" id="employee-phone" pattern="[^0-9]" maxlength ="11" placeholder="예)01022334455"/>
+              <button class="btn-line" id="phone-con">
+                인증
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="ipt-form-type1">
+						<span>
+							운영시간
+						</span>
+          <div class="ipt-form-row">
+            <input type="time" id="store-start-time" /> 
+            <input type="time" id="store-end-time" />
+          </div>
+        </div>
+        <div class="ipt-form-type1">
+						<span>
+							운영전화번호
+						</span>
+          <div class="ipt-form-col">
+            <input type="number" id="store-phone" pattern="[^0-9]" maxlength ="11" placeholder="예)01022334455"/>
+          </div>
+        </div>
+
+        <!--<div class="ipt-form-type2">
+          <div class="ipt-form-email">
+						<span>
+							이메일
+						</span>
+            <div class="ipt-form-row">
+              <input type="text" id="employee-email" placeholder="예)edu@education.co.kr"/>
+              <button class="btn-line" id="email-con">
+                인증
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="ipt-form-type1">
+						<span>
+							아이디
+						</span>
+          <div class="ipt-form-col">
+            <input type="text" id="employee-id" placeholder="아이디 입력"/>
+          </div>
+        </div>
+        <div class="ipt-form-type1">
+						<span>
+							비밀번호
+						</span>
+          <div class="ipt-form-col">
+            <input type="password" id="employee-pw" />
+          </div>
+        </div>-->
+        
+        <div class="ipt-form-type1">
+						<span>
+							최소주문금액
+						</span>
+          <div class="ipt-form-col">
+            <input type="number" id="least-price" />
+          </div>
+        </div>
+        <div class="ipt-form-type1">
+						<span>
+							휴무일
+						</span>
+          <div class="ipt-form-row">
+            <input type="date" id="start-holiday" /> 
+            <input type="date" id="end-holiday" />
+          </div>
+        </div>
+        <div class="ipt-form-type1">
+						<span>
+							주문가능지역
+						</span>
+          <div class="ipt-form-col">
+            <input type="text" id="order-area" />
+          </div>
+        </div>
+        <div class="ipt-form-type1">
+						<span>
+							배달팁
+						</span>
+          <div class="ipt-form-col">
+            <input type="number" id="delivery-price" />
+          </div>
+        </div>
+
+        <div class="btn-wrap pd">
+          <button type="button" id="next-btn" class="btn-point-color">
+            다음
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+<script type="text/javascript" src="../js/mcore.min.js"></script>
+<script type="text/javascript" src="../js/ui/join2.js"></script>
+</html>
