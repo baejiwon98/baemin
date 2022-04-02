@@ -23,7 +23,7 @@
       this.els.$monthIpt = $('#month');
       this.els.$dateIpt = $('#date');
       this.els.$cellphoneIpt = $('#cellPhone');
-      this.els.$nextBtn = $('#nextBtn');
+      this.els.$nextBtn = $('#next-btn');
       this.els.$genderSelected = $("input[name=gender]");
       this.els.$backBtn = $('#backBtn');
     },
@@ -37,7 +37,7 @@
       var self = this;
 
       this.els.$nextBtn.on('click', function () {
-        self.next();
+        M.page.html('./join3.html');
       });
 
       this.els.$backBtn.on('click', function () {

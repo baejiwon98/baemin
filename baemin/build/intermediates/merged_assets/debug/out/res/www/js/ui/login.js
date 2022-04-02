@@ -35,7 +35,7 @@
       // Dom Event 바인딩
       var self = this;
       this.els.$loginBtn.on('click', function () {
-        self.login();
+        M.page.html("./saetbyeol_main_member.html")
       });
       this.els.$findIdBtn.on('click', function () {
         M.page.html({

@@ -17,7 +17,7 @@
     },
     data: {},
     init: function init() {
-      this.els.$nextBtn = $('#nextBtn');
+      this.els.$nextBtn = $('#next-btn');
       this.els.$allchkBtn = $('#chk1');
 
       this.els.$chk2 = $('#chk2');
@@ -36,7 +36,7 @@
       var self = this;
 
       this.els.$nextBtn.on('click', function () {
-        self.next();
+        M.page.html('./saetbyeol_join2_delivery.html');
       });
 
       this.els.$allchkBtn.on('click', function () {
@@ -60,28 +60,6 @@
       });
 
     },
-
-    next: function () {
-      var self = this;
-      var ischecked1 = this.els.$chk2.prop('checked');
-      var ischecked2 = this.els.$chk3.prop('checked');
-
-
-      if (ischecked1) {} else { // 첫번째 체크박스가 체크 되어있지 않은 경우
-        alert("필수 첫번째 항목을 체크 해주세요.")
-        return false;
-      }
-
-      if (ischecked2) {} else { // 두번째 체크박스가 체크 되어있지 않은 경우
-        alert("필수 두번째 항목을 체크 해주세요.");
-        return false;
-      }
-
-      M.page.html('./join2.html');
-
-    }
-
-
   };
 
   window.__page__ = page;

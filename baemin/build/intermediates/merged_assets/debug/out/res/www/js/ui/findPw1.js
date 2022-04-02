@@ -30,10 +30,10 @@
       var self = this;
 
       this.els.$findPwBtn.on('click', function () {
-        self.findPw();
+        M.page.html("./goeun_findPw2.html");
       });
       this.els.$backBtn.on('click', function () {
-        M.page.back();
+        M.page.html("./goeun_login.html");
       });
     },
 

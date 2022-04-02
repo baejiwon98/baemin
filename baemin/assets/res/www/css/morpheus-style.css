@@ -13,6 +13,102 @@
 
 /*====== Content ======*/
 /** Intro */
+
+/* 은진 morpheus-common.css */
+.btn-line{height:4.5rem;background-color:#fff;color:#ffeb9d;border:1px solid #ffeb9d;} /* 인증버튼 색 노랑노랑 */
+/*.store-time-start{overflow:hidden;width:100%;}
+.ipt-form-type2 .store-time input{width:48.99999%;}*/
+.switch{width:6.1rem;height:5rem;background:url(../img/ipt-switch.png) no-repeat 0 0;background-size:100%;}
+.switch:checked{background-position:0 -4.9rem;}
+.ipt-form-type2 .chk-wrap-switch{padding-bottom:.9rem; width: 100%;}
+.ipt-form-type2 .chk-wrap-switch .delivery-switch{float: left; width: 50%;}
+.ipt-form-type2 .chk-wrap-switch .pickup-switch{float: left; width: 50%;}
+.ipt-form-type2 .chk-wrap-switch label{font-weight:400;font-size:1.4rem;}
+.review-ipt-wrap > div{margin-bottom:2.5rem;}
+.ipt-form-type2 .chk-wrap-time{padding-bottom:.9rem; width: 100%;}
+.ipt-form-type2 .chk-wrap-time .open-time{float: left; width: 50%;}
+.ipt-form-type2 .chk-wrap-time .closed-time{float: left; width: 50%; margin-bottom: 1em;}
+.ipt-form-type1 span{font-weight:bold;}
+.ipt-form-type2 span{font-weight:bold;}
+.cart-price-cont p {font-size:1.6rem;}
+.cart-total-price-number {float:right;}
+.cart-object-container {border:1px solid #ffeb9d;}
+.cart-delete-img {float:right;width:10%;height:10%}
+.cart-object-qty {float:right; font-size:2rem; padding-right:15px;}
+.cart-object-price {padding-top:20px; padding-bottom:30px;}
+.cart-object-price strong{font-size:1.8rem;font-weight:bold;}
+.cart-object-name {padding-top:30px;}
+.cart-object-name strong{font-size:1.8rem;font-weight:bold;}
+.empty-container {padding:2px;background-color:#ffeb9d;}
+.cart-object-img{float:left;width:100px;height:100px;margin:1rem;}
+.cart-object-img-detail {width:100%; height:100%;border-radius:10%;}
+.cart-price-cont {padding:1rem 1.5rem;}
+.cart-price-tit {padding:1rem 1.5rem;border:2px solid #ffeb9d;}
+.cart-price-tit p{font-size:1.8rem;line-height:1.8;font-weight:bold;}
+.cart-detail-tit{padding:1rem 1.5rem;border:1px solid #ffeb9d;}
+.cart-detail-tit p{font-size:1.8rem;line-height:1.8;font-weight:bold;}
+.cart-detail-tit p span{font-size:inherit;font-weight:400;}
+.cart-detail-tit > span{font-size:1.3rem;font-weight:400;color:#666;}
+.btn-store-category {float:left;width:4rem;height:4rem;background:url(../img/america.png) no-repeat;background-size:100%;text-indent:-9999rem;margin-top:0px;}
+.btn-employee{float:left;width:4rem;height:4rem;background:url(../img/employee-icon.png) no-repeat;background-size:100%;text-indent:-9999rem;}
+.review-employee-name strong{font-size:1.5rem;font-weight:bold;padding-left:10px;}
+.btn-delete{width:30px; height:30px}/* 삭제 버튼 크기 조절 */
+.btn-orderList-delete{width:20px; height:20px}/* 삭제 버튼 크기 조절 */
+.orderList-object-price {padding-top:20px; padding-bottom:20px;}
+.orderList-object-name {padding-top:20px; }
+.orderList-menu-name {padding-top:20px; padding-right: 3em;}
+.orderList-object-qty {float:right; font-size:2rem; padding-right:15px;}
+.orderList-object-img{float:left;width:100px;height:100px;margin:1rem; margin-bottom:15px; float: center;}
+.orderList-object-img-detail {width:100%; height:100%;border-radius:10%; margin-bottom:15px;}
+.orderList-wrap{border-top:1px solid #ebebeb}
+.orderList-wrap li{padding:1em 0;font-weight:400;border-bottom:1px solid #ebebeb; padding-bottom: 3em;}
+.btn-write-wrap{overflow:hidden;width:100%;}
+.btn-write-wrap.pd{padding:0.5rem;}
+.btn-delete{width:30px; height:30px}/* 삭제 버튼 크기 조절 */
+.main-menu-box.type04 li:nth-child(1){background:url(../img/ico-menu-05.png) no-repeat center 2.1rem;background-size:3.1rem;} /*마이페이지 내정보*/
+.main-menu-box.type04 li:nth-child(2){background:url(../img/ico-cart.png) no-repeat center 2rem;background-size:3.5rem;} /* 마이페이지 주문 목록 */
+.main-menu-box.type04 li:nth-child(3){background:url(../img/ico-menu-03.png) no-repeat center 2.1rem;background-size:2.3rem;}/* 마이페이지 내 리뷰 : 은진 */
+.metro-wrap li{position:relative;float:left;margin-top:1rem;width:49%;/*height:14.5rem;*/border:1px solid #e0e0e0;}
+input[type=number]:disabled{background-color:#ffeb9d;font-weight:400;}
+
+/* 리뷰 작성 별점 별 */
+.star-rating {
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:1.5em;
+  justify-content:space-around;
+  padding:0 .2em;
+  text-align:center;
+  width:5em;
+}
+
+.star-rating input {display:none;}
+.star-rating label {color:#ccc;cursor:pointer;}
+.star-rating :checked ~ label {color:#f90;}
+.star-rating label:hover,
+.star-rating label:hover ~ label {color:#fc0;}
+.star-rating {width:50%;}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* 은진 morpheus-style.css */
+.main-menu-box-eunjin {overflow:hidden;}
+.main-menu-box-eunjin li{float:left;width:33.3333%;color:#fff;}
+.main-menu-box-eunjin li:nth-child(1){background:#00b2f0 url(../img/ico-edu-01.png) no-repeat center 35%;background-size:2.4rem;}
+.main-menu-box-eunjin li:nth-child(2){background:#0081c7 url(../img/ico-edu-02.png) no-repeat center 30%;background-size:1.7rem;}
+.main-menu-box-eunjin li:nth-child(3){background:#55ba47 url(../img/ico-edu-03.png) no-repeat center 35%;background-size:1.9rem;}
+.main-menu-box-eunjin.type04 {border:1px solid #ffffff;border-bottom:0;background-color:#fff;text-align:center;}
+.main-menu-box-eunjin.type04 li{padding:5.4rem 0 1.5rem;background-color:#fff;color:#333;font-size:1.4rem;font-weight:400;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;}
+.main-menu-box-eunjin.type04 li:nth-child(3n){border-right:0;}
+.main-menu-box-eunjin.type04 li:nth-child(1){background:url(../img/ico-menu-05.png) no-repeat center 2.1rem;background-size:3.1rem;} /*마이페이지 내 정보*/
+.main-menu-box-eunjin.type04 li:nth-child(2){background:url(../img/ico-cart.png) no-repeat center 2rem;background-size:3.5rem;} /* 마이페이지 주문 목록 */
+.main-menu-box-eunjin.type04 li:nth-child(3){background:url(../img/ico-menu-03.png) no-repeat center 2.1rem;background-size:2.3rem;}/* 마이페이지 내 리뷰*/
+.pw-wrap span{position:relative; float:left; display:inline-block;width:22.75%;height:5rem;/*height:1.5rem;*/color:#333;}
+.metro-wrap li{position:relative;float:left;margin-top:1rem;width:49%;/*height:14.5rem;*/border:1px solid #e0e0e0;}
+
+/*은진 끝*/
+
+
 .wrapper.intro{min-height:41rem;text-align:center;}
 .intro .logo,
 .login .logo{margin:0 auto;width:16.4rem;height:9.75rem;text-indent:-999rem;background:url(../img/logo.png) no-repeat;background-size:100%;}
@@ -24,7 +120,7 @@
 .progress .txt-info{font-size:1.3rem;font-weight:400;}
 .prg-bg{margin:.8rem 0 2rem;width:100%;height:.5rem;background-color:#eee;}
 .prg-bg-r{overflow:hidden;margin:.8rem 0 2rem;width:100%;height:.5rem;background-color:#eee;border-radius:.5rem;}
-.prg-bg-r .prg-bar{width:38%;height:100%;background-color:#0081c7;border-top-left-radius: .5rem;border-bottom-left-radius:.5rem;}
+.prg-bg-r .prg-bar{width:38%;height:100%;background-color:#ffeb9d;border-top-left-radius: .5rem;border-bottom-left-radius:.5rem;}
 .prg-bg .prg-bar{width:38%;height:100%;background-color:#0081c7;}
 .copy-wrap{padding:1.5rem 0;font-size:1rem;font-weight:400;}
 .progress.spinner > div{position:relative;}
@@ -171,10 +267,6 @@ li.txt-btn .btn-txt{position:absolute;right:1.5rem;display:inline-block;color:#9
 /** Main-menu-box **/
 /* type01 */
 .main-menu-box{overflow:hidden;}
-.main-menu-box li{float:left;width:33.3333%;color:#fff;}
-.main-menu-box li:nth-child(1){background:#00b2f0 url(../img/ico-edu-01.png) no-repeat center 35%;background-size:2.4rem;}
-.main-menu-box li:nth-child(2){background:#0081c7 url(../img/ico-edu-02.png) no-repeat center 30%;background-size:1.7rem;}
-.main-menu-box li:nth-child(3){background:#55ba47 url(../img/ico-edu-03.png) no-repeat center 35%;background-size:1.9rem;}
 .main-menu-box.type01 li{padding:4.5rem 0 1.2rem 0;height:7rem;text-align:center;}
 /* type02 */
 .main-menu-box.type02 li{position:relative;float:none;width:100%;height:6rem;padding-left:20%;line-height:6rem;}
@@ -252,12 +344,17 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 
 
 /* 결제 할때 결제수단 -- 지원 */
-.main-menu-box.type-payment{border:1px solid #ffffff;border-bottom:0;background-color:#fff;text-align:center;}
-.main-menu-box.type-payment li{padding:5.4rem 0 1.5rem;background-color:#fff;color:#333;font-size:1.4rem;font-weight:400;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;}
-.main-menu-box.type-payment li:nth-child(3n){border-right:0;}
-.main-menu-box.type-payment li:nth-child(1){background:url(../img/cash.png) no-repeat center 2.1rem;background-size:2rem;}
-.main-menu-box.type-payment li:nth-child(2){background:url(../img/card.PNG) no-repeat center 2.1rem;background-size:2.3rem;}
-.main-menu-box.type-payment li:nth-child(3){background:url(../img/confidence.png) no-repeat center 2.1rem;background-size:1.9rem;}
+.main-menu-box-jiwon {overflow:hidden;}
+.main-menu-box-jiwon li{float:left;width:33.3333%;color:#fff;}
+.main-menu-box-jiwon li:nth-child(1){background:#00b2f0 url(../img/ico-edu-01.png) no-repeat center 35%;background-size:2.4rem;}
+.main-menu-box-jiwon li:nth-child(2){background:#0081c7 url(../img/ico-edu-02.png) no-repeat center 30%;background-size:1.7rem;}
+.main-menu-box-jiwon li:nth-child(3){background:#55ba47 url(../img/ico-edu-03.png) no-repeat center 35%;background-size:1.9rem;}
+.main-menu-box-jiwon.type-payment{border:1px solid #ffffff;border-bottom:0;background-color:#fff;text-align:center;}
+.main-menu-box-jiwon.type-payment li{padding:5.4rem 0 1.5rem;background-color:#fff;color:#333;font-size:1.4rem;font-weight:400;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;}
+.main-menu-box-jiwon.type-payment li:nth-child(3n){border-right:0;}
+.main-menu-box-jiwon.type-payment li:nth-child(1){background:url(../img/cash.png) no-repeat center 2.1rem;background-size:2rem;}
+.main-menu-box-jiwon.type-payment li:nth-child(2){background:url(../img/card.PNG) no-repeat center 2.1rem;background-size:2.3rem;}
+.main-menu-box-jiwon.type-payment li:nth-child(3){background:url(../img/confidence.png) no-repeat center 2.1rem;background-size:1.9rem;}
 
 .employee-review-buttons {position:absolute;padding-left:215px;margin-top:-15px;}
 .review-buttons {padding-left:270px;padding-top:7px;position:absolute;}

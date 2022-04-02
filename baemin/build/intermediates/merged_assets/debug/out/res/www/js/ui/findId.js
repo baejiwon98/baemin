@@ -35,7 +35,7 @@
 
       this.els.$findPwBtn.on('click', function () {
         M.page.html({
-          url: './findPw1.html',
+          url: './goeun_findPw1.html',
         });
       });
 

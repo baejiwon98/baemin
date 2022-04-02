@@ -42,11 +42,7 @@
       });
 
       this.els.$joinBtn.on('click', function () {
-        if (dulStatus == 'N') {
-          self.join();
-        } else {
-          alert("다시 중복체크 하세요.");
-        }
+        M.page.html('./join4.html');
       });
 
       this.els.$backBtn.on('click', function () {
