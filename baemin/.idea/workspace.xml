@@ -1,287 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Key" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74ed69c0-9853-4c9b-bfa4-a76e302cc75d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/baemin.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_Info_delivery.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_Info_employee.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_changePw.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_employeeMyOrderList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_info_member.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_orderDetail_delivery.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_orderDetail_employee.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_orderDetail_member.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_orderList_employee.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_orderList_member.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_orderlist_delivery.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_reviewWrite_employee.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_reviewWrite_member.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/img/bigLogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/img/btn-review.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/img/chinese.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/img/delivery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/img/deliveryComplete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/img/deliveryRequest.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/img/ico-order-check.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/img/japanese.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/img/korean.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/img/packing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/img/paymentCompleted.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/img/reviewManagement.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/img/store Management.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/img/western.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/cart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/member_main1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/member_main2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/object-detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/payment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/payment_ok.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/store_list_delivery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/store_menu_list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_info_member.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/arm64-v8a/libDaumMapEngineApi.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/armeabi-v7a/libDaumMapEngineApi.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/libDaumMapAndroid.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/baemin.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/css/morpheus-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/css/morpheus-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/intro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/list_cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/list_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_menulist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/list_detail_modify.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_category_modify.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/list_object_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_object_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/list_store_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/list_storelist.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_storelist_delivery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/lsit_storelist_takeout.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_storelist_takeout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/main-bm-delivery.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_main_delivery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/main-bm-employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_main_employee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/main-bm-member.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_main_member.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/main-bm-member2.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_main_member2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/map-bm.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_map.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/mypage_employee_review.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_userInfo_reviewlist_employee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/mypage_reivew.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_userInfo_reviewlist_member.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/object_review.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_reviewlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/object_write.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_object_write.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_payment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/payment_ok.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_payment_ok.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_join3.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/join3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_join4.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/join4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/img/ico-cart.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/img/ico-cart.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/img/ico-menu-03.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/img/ico-menu-03.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/img/ico-menu-05.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/img/ico-menu-05.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/img/ipt-switch.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/img/ipt-switch.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/img/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/img/sprite-ico-footmenu.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/img/sprite-ico-footmenu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/detail.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/findId.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/findId.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/findPw1.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/findPw1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/findPw2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/join1.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/join1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/join2.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/join2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/join3.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/join3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/join4.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/join4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/list.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/write.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/blame/res/debug/multi-v2/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/blame/res/debug/multi-v2/debug.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/blame/res/debug/multi-v2/values.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/blame/res/debug/multi-v2/values.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_main_member.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_main_member.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_map.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/member_main1.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/member_main1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/blame/res/debug/single/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/blame/res/debug/single/debug.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/bundle_manifest/debug/bundle-manifest/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/bundle_manifest/debug/bundle-manifest/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/dex/debug/mergeDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/dex/debug/mergeDexDebug/classes.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/dex_archive_input_jar_hashes/debug/out" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/dex_archive_input_jar_hashes/debug/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/external_libs_dex/debug/mergeExtDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/external_libs_dex/debug/mergeExtDexDebug/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeJavaRes/merge-state" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/6jMxzkxaO3AmrXLHLKCoi8vl0cs=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/9m6YP4G+9QfWraLFgo6o6pca55E=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/AQ_jmpTuRm2tOHBW8QDOFFNzpMw=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/Ei81WEANw2hG1OtyXSPvMa1HkRo=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/N5sPX78t3FTGeoZPacadsduj3+o=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/WBB9QEcG9mw0NKEP1UHhn6Xj3LI=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/Y+cPzijpwNcNMc6_lbDrkEzmKec=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/_J4qSc7B3k7bBv_xpGGhzXV7d0Q=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/jOsVLCEvfiPk8VLEOGXdb+jdKgY=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/wD_TojhrEsgJcGX9p+1ZfTQhyQ8=" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeNativeLibs/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeNativeLibs/merge-state" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/6jMxzkxaO3AmrXLHLKCoi8vl0cs=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/9m6YP4G+9QfWraLFgo6o6pca55E=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/AQ_jmpTuRm2tOHBW8QDOFFNzpMw=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/Ei81WEANw2hG1OtyXSPvMa1HkRo=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/N5sPX78t3FTGeoZPacadsduj3+o=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/WBB9QEcG9mw0NKEP1UHhn6Xj3LI=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/Y+cPzijpwNcNMc6_lbDrkEzmKec=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/_J4qSc7B3k7bBv_xpGGhzXV7d0Q=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/jOsVLCEvfiPk8VLEOGXdb+jdKgY=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/wD_TojhrEsgJcGX9p+1ZfTQhyQ8=" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/merger.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugShaders/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugShaders/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/javaResources0" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/javaResources0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/instant_app_manifest/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/instant_app_manifest/debug/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/css/morpheus-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/css/morpheus-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/intro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/list_cart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/list_detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/list_detail_modify.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/list_object_detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/list_store_detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/list_storelist.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/lsit_storelist_takeout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/main-bm-delivery.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/main-bm-employee.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/main-bm-member.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/main-bm-member2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/map-bm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/mypage_employee_review.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/mypage_reivew.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/object_review.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/object_write.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/payment.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/payment_ok.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_join3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_join4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/img/ico-cart.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/img/ico-cart.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/img/ico-menu-03.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/img/ico-menu-03.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/img/ico-menu-05.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/img/ico-menu-05.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/img/ipt-switch.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/img/ipt-switch.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/img/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/img/sprite-ico-footmenu.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/img/sprite-ico-footmenu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/detail.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/findId.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/findId.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/findPw1.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/findPw1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/findPw2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/join1.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/join1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/join2.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/join2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/join3.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/join3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/join4.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/join4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/list.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/write.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/merged_java_res/debug/out.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_java_res/debug/out.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/project_dex_archive/debug/out/mcore/edu/baemin/Startup.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/project_dex_archive/debug/out/mcore/edu/baemin/Startup.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_fade_in.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_fade_in.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_fade_out.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_fade_out.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_hold.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_hold.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_none_in.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_none_in.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_none_out.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_none_out.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_bottom_in.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_bottom_in.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_bottom_out.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_bottom_out.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_left_in.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_left_in.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_left_out.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_left_out.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_right_in.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_right_in.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_right_out.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_right_out.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_top_in.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_top_in.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_top_out.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_slide_top_out.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_zoom_enter.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_zoom_enter.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_zoom_exit.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_zoom_exit.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_zoom_in.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_zoom_in.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_zoom_out.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim_core_zoom_out.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_cancel_n.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_cancel_n.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_cancel_s.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_cancel_s.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_list_n.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_list_n.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_list_s.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_list_s.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_record_n.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_record_n.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_record_s.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_record_s.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_stop_n.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_stop_n.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_stop_s.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_stop_s.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_popup_recoding_bg.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_popup_recoding_bg.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_record_bg.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_record_bg.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_record_bg_shadow.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_record_bg_shadow.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_record_menu_bg.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_record_menu_bg.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_record_mike.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_record_mike.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_general_title_btn_before.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_general_title_btn_before.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_icon.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_icon.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_notice_list_bg.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_notice_list_bg.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_tab_shadow.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-hdpi_tab_shadow.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-ldpi_icon.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-ldpi_icon.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-mdpi_icon.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-mdpi_icon.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_btn_crop_operator.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_btn_crop_operator.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_btn_crop_pressed.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_btn_crop_pressed.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_camera_crop_height.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_camera_crop_height.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_camera_crop_width.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_camera_crop_width.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_ic_rotate_left.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_ic_rotate_left.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_ic_rotate_right.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_ic_rotate_right.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_indicator_autocrop.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_indicator_autocrop.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_selector_crop_button.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_selector_crop_button.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_record_bg.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_record_bg.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_record_menu_bg.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_record_menu_bg.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_record_mike.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_record_mike.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_ic_cancel.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_ic_cancel.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_ic_fullscreen_shrink.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_ic_fullscreen_shrink.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_ic_fullscreen_stretch.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable-xhdpi_ic_fullscreen_stretch.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_media_rec_btn_cancel.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_media_rec_btn_cancel.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_media_rec_btn_list.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_media_rec_btn_list.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_media_rec_btn_record.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_media_rec_btn_record.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_media_rec_btn_stop.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_media_rec_btn_stop.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_down_btn.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_down_btn.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_down_disabled.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_down_disabled.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_down_disabled_focused.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_down_disabled_focused.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_down_normal.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_down_normal.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_down_pressed.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_down_pressed.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_down_selected.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_down_selected.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_input.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_input.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_input_disabled.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_input_disabled.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_input_normal.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_input_normal.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_input_pressed.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_input_pressed.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_input_selected.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_input_selected.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_up_btn.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_up_btn.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_up_disabled.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_up_disabled.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_up_disabled_focused.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_up_disabled_focused.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_up_normal.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_up_normal.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_up_pressed.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_up_pressed.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_up_selected.9.png.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_addon_popup_picker_up_selected.9.png.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_start_bg.jpg.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable_start_bg.jpg.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout-xlarge_addon_media_audiorecorder.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout-xlarge_addon_media_audiorecorder.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_activity_imagelist.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_activity_imagelist.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_activity_imagelist2.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_activity_imagelist2.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_activity_media_player.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_activity_media_player.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_addon_media_audiorecorder.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_addon_media_audiorecorder.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_addon_media_crop_cropimage.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_addon_media_crop_cropimage.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_addon_net_progressnetworkdialoglayout.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_addon_net_progressnetworkdialoglayout.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_addon_popup_date_picker.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_addon_popup_date_picker.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_addon_popup_date_picker_dialog.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_addon_popup_date_picker_dialog.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_addon_popup_number_picker.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_addon_popup_number_picker.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_batchone.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_batchone.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_batchtwo.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_batchtwo.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_core_progressdialoglayout.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_core_progressdialoglayout.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_gridview_item.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_gridview_item.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_gridview_item2.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_gridview_item2.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_image_details_activity.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_image_details_activity.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_image_folder_list.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_image_folder_list.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_image_list.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_image_list.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_image_list_item.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_image_list_item.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_listitem.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_listitem.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_listitemtitle.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_listitemtitle.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_main.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_main.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_mapview.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_mapview.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_nativelist.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_nativelist.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_sample.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_sample.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_sample2.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_sample2.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values_values.arsc.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values_values.arsc.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/xml_mcore_provider_paths.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/xml_mcore_provider_paths.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_manifests/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_manifests/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/processed_res/debug/out/resources-debug.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/processed_res/debug/out/resources-debug.ap_" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/xml_network_security_config.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/xml_network_security_config.xml.flat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/outputs/apk/debug/baemin-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/outputs/apk/debug/baemin-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mcore/edu/baemin/Startup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mcore/edu/baemin/Startup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/xml/network_security_config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/res/xml/network_security_config.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,18 +100,19 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/res/www/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/armeabi-v7a" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\git\baemin\baemin\libs\armeabi-v7a" />
+      <recent name="C:\Users\user\git\baemin\baemin\libs\arm64-v8a" />
+      <recent name="C:\Users\user\git\baemin\baemin\libs" />
       <recent name="C:\Users\user\git\baemin\baemin\assets\res\www\img" />
       <recent name="C:\Users\user\git\baemin\baemin\assets\res\www\html" />
-      <recent name="C:\Users\user\git\baemin\baemin\assets\res\www\js\ui" />
-      <recent name="C:\Users\user\Downloads\win32.x86_64\win32.win32.x86_64\Morpheus\workspace\baemin\assets\res\www\html" />
-      <recent name="C:\Users\user\Downloads\win32.x86_64\win32.win32.x86_64\Morpheus\workspace\baemin\assets\res\www\img" />
     </key>
   </component>
   <component name="RunManager">

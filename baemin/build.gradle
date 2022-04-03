@@ -99,7 +99,7 @@ repositories {
 
 dependencies {
 	implementation fileTree(dir: 'mcoreLibs', include: '*.jar')
-	
+	implementation files('libs/libDaumMapAndroid.jar')
 	
 	/**
 	* ==========================================

@@ -11,248 +11,260 @@
 9-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml
 10
 11    <queries>
-11-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:33:2-37:12
+11-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:39:2-43:12
 12        <intent>
-12-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:34:3-36:12
+12-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:40:3-42:12
 13            <action android:name="android.media.action.IMAGE_CAPTURE" />
-13-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:35:4-64
-13-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:35:12-61
+13-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:41:4-64
+13-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:41:12-61
 14        </intent>
 15    </queries>
 16
 17    <uses-feature
-17-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:38:2-85
+17-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:44:2-85
 18        android:name="android.hardware.telephony"
-18-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:38:16-57
+18-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:44:16-57
 19        android:required="false" />
-19-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:38:58-82
+19-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:44:58-82
 20
 21    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
-21-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:39:2-72
-21-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:39:19-69
+21-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:45:2-72
+21-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:45:19-69
 22    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
-22-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:40:2-81
-22-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:40:19-78
+22-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:46:2-81
+22-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:46:19-78
 23    <uses-permission android:name="android.permission.VIBRATE" />
-23-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:41:2-63
-23-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:41:19-60
+23-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:47:2-63
+23-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:47:19-60
 24    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-24-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:42:2-77
-24-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:42:19-74
+24-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:48:2-77
+24-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:48:19-74
 25    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-25-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:43:2-78
-25-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:43:19-75
+25-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:49:2-78
+25-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:49:19-75
 26    <uses-permission android:name="android.permission.GET_TASKS" />
-26-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:44:2-65
-26-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:44:19-62
+26-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:50:2-65
+26-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:50:19-62
 27    <uses-permission android:name="android.permission.WAKE_LOCK" />
-27-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:45:2-65
-27-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:45:19-62
+27-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:51:2-65
+27-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:51:19-62
 28    <uses-permission
-28-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:46:2-99
+28-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:52:2-99
 29        android:name="android.permission.READ_PHONE_STATE"
-29-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:46:46-96
+29-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:52:46-96
 30        android:maxSdkVersion="29" />
-30-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:46:19-45
+30-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:52:19-45
 31    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
-31-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:47:2-74
-31-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:47:19-71
+31-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:53:2-74
+31-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:53:19-71
 32    <uses-permission android:name="android.permission.INTERNET" />
-32-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:48:2-64
-32-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:48:19-61
+32-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:54:2-64
+32-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:54:19-61
 33    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-33-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:49:2-76
-33-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:49:19-73
+33-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:55:2-76
+33-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:55:19-73
 34    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-34-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:50:2-73
-34-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:50:19-70
+34-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:56:2-73
+34-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:56:19-70
 35    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-35-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:51:2-73
-35-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:51:19-70
+35-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:57:2-73
+35-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:57:19-70
 36    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-36-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:52:2-78
-36-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:52:19-75
+36-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:58:2-78
+36-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:58:19-75
 37
 38    <uses-feature android:name="android.hardware.camera" />
-38-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:53:2-57
-38-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:53:16-54
+38-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:59:2-57
+38-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:59:16-54
 39
 40    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-40-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:54:2-68
-40-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:54:19-65
+40-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:60:2-68
+40-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:60:19-65
 41    <uses-permission android:name="android.permission.CAMERA" />
-41-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:55:2-62
-41-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:55:19-59
+41-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:61:2-62
+41-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:61:19-59
 42    <uses-permission android:name="android.permission.FLASHLIGHT" />
-42-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:56:2-66
-42-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:56:19-63
-43    <!-- requestLegacyExternalStorage 관련 오류 발생시, Properties 에서 Android의 project Build Target을  Android 10 으로 지정 하거나, requestLegacyExternalStorage 를 삭제 -->
-44    <application
-44-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:4:2-32:16
-45        android:name="mcore.edu.baemin.implementation.ExtendApplication"
-45-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:4:106-154
-46        android:allowBackup="false"
-46-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:4:15-42
-47        android:debuggable="true"
-48        android:icon="@drawable/icon"
-48-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:4:43-72
-49        android:label="@string/app_name"
-49-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:4:73-105
-50        android:networkSecurityConfig="@xml/network_security_config"
-50-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:4:155-215
-51        android:testOnly="true" >
-52
-53        <!-- 에러 발생시, ${applicationId} 를 packagename 으로 변경 -->
-54        <provider
-54-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:6:3-8:14
-55            android:name="android.support.v4.content.FileProvider"
-55-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:6:121-175
-56            android:authorities="mcore.edu.baemin.provider"
-56-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:6:13-60
-57            android:exported="false"
-57-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:6:61-85
-58            android:grantUriPermissions="true" >
-58-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:6:86-120
-59            <meta-data
-59-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:7:4-113
-60                android:name="android.support.FILE_PROVIDER_PATHS"
-60-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:7:15-65
-61                android:resource="@xml/mcore_provider_paths" />
-61-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:7:66-110
-62        </provider>
-63
-64        <activity
-64-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:9:3-14:14
-65            android:name="mcore.edu.baemin.Startup"
-65-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:9:13-36
-66            android:theme="@android:style/Theme.Black.NoTitleBar" >
-66-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:9:37-90
-67            <intent-filter>
-67-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:10:4-13:20
-68                <action android:name="android.intent.action.MAIN" />
-68-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:11:5-57
-68-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:11:13-54
-69
-70                <category android:name="android.intent.category.LAUNCHER" />
-70-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:12:5-65
-70-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:12:15-62
-71            </intent-filter>
-72        </activity>
-73        <activity
-73-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:15:3-163
-74            android:name="mcore.edu.baemin.BaseActivity"
-74-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:15:132-160
-75            android:configChanges="locale|keyboardHidden|orientation|screenSize"
-75-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:15:13-81
-76            android:imeOptions="actionSend|flagNoEnterAction" />
-76-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:15:82-131
-77        <activity
-77-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:16:3-136
-78            android:name="mcore.edu.baemin.samples.activity.ImageList1Activity"
-78-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:16:82-133
-79            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
-79-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:16:13-81
-80        <activity
-80-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:17:3-136
-81            android:name="mcore.edu.baemin.samples.activity.ImageList2Activity"
-81-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:17:82-133
-82            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
-82-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:17:13-81
-83        <activity
-83-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:18:3-138
-84            android:name="mcore.edu.baemin.samples.activity.ImageDetailsActivity"
-84-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:18:82-135
-85            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
-85-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:18:13-81
-86        <activity
-86-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:19:3-131
-87            android:name="mcore.edu.baemin.samples.activity.StartActivity"
-87-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:19:82-128
-88            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
-88-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:19:13-81
-89        <activity
-89-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:20:3-132
-90            android:name="mcore.edu.baemin.samples.activity.SampleActivity"
-90-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:20:82-129
-91            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
-91-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:20:13-81
-92        <activity
-92-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:21:3-133
-93            android:name="mcore.edu.baemin.samples.activity.SampleActivity2"
-93-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:21:82-130
-94            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
-94-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:21:13-81
-95        <activity
-95-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:22:3-135
-96            android:name="mcore.edu.baemin.samples.activity.BatchTempActivity"
-96-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:22:82-132
-97            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
-97-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:22:13-81
-98        <activity
-98-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:23:3-142
-99            android:name="mcore.edu.baemin.samples.activity.SampleNativeListActivity"
-99-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:23:82-139
-100            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
-100-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:23:13-81
-101        <activity
-101-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:24:3-141
-102            android:name="mcore.edu.baemin.samples.activity.SampleNativeMapActivity"
-102-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:24:82-138
-103            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
-103-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:24:13-81
-104        <activity
-104-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:25:3-157
-105            android:name="mcore.edu.baemin.samples.activity.ShowPushPopup"
-105-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:25:13-59
-106            android:screenOrientation="portrait"
-106-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:25:60-96
-107            android:windowSoftInputMode="adjustUnspecified|adjustPan" />
-107-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:25:97-154
-108        <activity
-108-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:26:3-197
-109            android:name="m.client.android.library.core.view.MainActivity"
-109-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:26:132-194
-110            android:configChanges="locale|keyboardHidden|orientation|screenSize"
-110-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:26:13-81
-111            android:imeOptions="actionSend|flagNoEnterAction" />
-111-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:26:82-131
-112
-113        <provider
-113-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:27:3-136
-114            android:name="m.client.android.library.core.managers.LocalFileContentProvider"
-114-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:27:55-133
-115            android:authorities="@string/app_package" />
-115-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:27:13-54
-116
-117        <uses-library
-117-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:28:3-82
-118            android:name="org.apache.http.legacy"
-118-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:28:17-54
-119            android:required="false" />
-119-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:28:55-79
-120
-121        <activity
-121-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:29:3-138
-122            android:name="m.client.library.addon.media.AudioRecoderActivity"
-122-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:29:71-135
-123            android:configChanges="locale|keyboardHidden|orientation" />
-123-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:29:13-70
-124        <activity
-124-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:30:3-193
-125            android:name="m.client.library.addon.media.MediaPlayActivity"
-125-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:30:75-136
-126            android:configChanges="keyboardHidden|orientation|screenSize"
-126-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:30:13-74
-127            android:theme="@android:style/Theme.Black.NoTitleBar" />
-127-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:30:137-190
-128        <activity
-128-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:31:3-198
-129            android:name="m.client.library.addon.media.crop.CropImageActivity"
-129-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:31:75-141
-130            android:configChanges="keyboardHidden|orientation|screenSize"
-130-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:31:13-74
-131            android:theme="@android:style/Theme.Black.NoTitleBar" />
-131-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:31:142-195
-132    </application>
-133
-134</manifest>
+42-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:62:2-66
+42-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:62:19-63
+43    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+43-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:63:2-76
+43-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:63:19-73
+44    <!-- requestLegacyExternalStorage 관련 오류 발생시, Properties 에서 Android의 project Build Target을  Android 10 으로 지정 하거나, requestLegacyExternalStorage 를 삭제 -->
+45    <application
+45-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:4:2-38:16
+46        android:name="mcore.edu.baemin.implementation.ExtendApplication"
+46-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:7:3-51
+47        android:allowBackup="false"
+47-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:4:15-42
+48        android:debuggable="true"
+49        android:icon="@drawable/icon"
+49-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:5:3-32
+50        android:label="@string/app_name"
+50-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:6:3-35
+51        android:networkSecurityConfig="@xml/network_security_config"
+51-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:9:3-63
+52        android:testOnly="true"
+53        android:usesCleartextTraffic="true" >
+53-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:8:3-38
+54
+55        <!-- 에러 발생시, ${applicationId} 를 packagename 으로 변경 -->
+56        <provider
+56-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:11:3-13:14
+57            android:name="android.support.v4.content.FileProvider"
+57-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:11:121-175
+58            android:authorities="mcore.edu.baemin.provider"
+58-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:11:13-60
+59            android:exported="false"
+59-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:11:61-85
+60            android:grantUriPermissions="true" >
+60-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:11:86-120
+61            <meta-data
+61-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:12:4-113
+62                android:name="android.support.FILE_PROVIDER_PATHS"
+62-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:12:15-65
+63                android:resource="@xml/mcore_provider_paths" />
+63-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:12:66-110
+64        </provider>
+65
+66        <activity
+66-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:14:3-19:14
+67            android:name="mcore.edu.baemin.Startup"
+67-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:14:13-36
+68            android:theme="@android:style/Theme.Black.NoTitleBar" >
+68-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:14:37-90
+69            <intent-filter>
+69-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:15:4-18:20
+70                <action android:name="android.intent.action.MAIN" />
+70-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:16:5-57
+70-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:16:13-54
+71
+72                <category android:name="android.intent.category.LAUNCHER" />
+72-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:17:5-65
+72-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:17:15-62
+73            </intent-filter>
+74        </activity>
+75        <activity
+75-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:20:3-163
+76            android:name="mcore.edu.baemin.BaseActivity"
+76-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:20:132-160
+77            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+77-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:20:13-81
+78            android:imeOptions="actionSend|flagNoEnterAction" />
+78-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:20:82-131
+79        <activity
+79-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:21:3-136
+80            android:name="mcore.edu.baemin.samples.activity.ImageList1Activity"
+80-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:21:82-133
+81            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
+81-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:21:13-81
+82        <activity
+82-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:22:3-136
+83            android:name="mcore.edu.baemin.samples.activity.ImageList2Activity"
+83-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:22:82-133
+84            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
+84-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:22:13-81
+85        <activity
+85-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:23:3-138
+86            android:name="mcore.edu.baemin.samples.activity.ImageDetailsActivity"
+86-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:23:82-135
+87            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
+87-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:23:13-81
+88        <activity
+88-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:24:3-131
+89            android:name="mcore.edu.baemin.samples.activity.StartActivity"
+89-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:24:82-128
+90            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
+90-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:24:13-81
+91        <activity
+91-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:25:3-132
+92            android:name="mcore.edu.baemin.samples.activity.SampleActivity"
+92-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:25:82-129
+93            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
+93-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:25:13-81
+94        <activity
+94-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:26:3-133
+95            android:name="mcore.edu.baemin.samples.activity.SampleActivity2"
+95-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:26:82-130
+96            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
+96-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:26:13-81
+97        <activity
+97-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:27:3-135
+98            android:name="mcore.edu.baemin.samples.activity.BatchTempActivity"
+98-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:27:82-132
+99            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
+99-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:27:13-81
+100        <activity
+100-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:28:3-142
+101            android:name="mcore.edu.baemin.samples.activity.SampleNativeListActivity"
+101-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:28:82-139
+102            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
+102-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:28:13-81
+103        <activity
+103-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:29:3-141
+104            android:name="mcore.edu.baemin.samples.activity.SampleNativeMapActivity"
+104-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:29:82-138
+105            android:configChanges="locale|keyboardHidden|orientation|screenSize" />
+105-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:29:13-81
+106        <activity
+106-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:30:3-157
+107            android:name="mcore.edu.baemin.samples.activity.ShowPushPopup"
+107-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:30:13-59
+108            android:screenOrientation="portrait"
+108-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:30:60-96
+109            android:windowSoftInputMode="adjustUnspecified|adjustPan" />
+109-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:30:97-154
+110        <activity
+110-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:31:3-197
+111            android:name="m.client.android.library.core.view.MainActivity"
+111-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:31:132-194
+112            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+112-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:31:13-81
+113            android:imeOptions="actionSend|flagNoEnterAction" />
+113-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:31:82-131
+114
+115        <provider
+115-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:32:3-136
+116            android:name="m.client.android.library.core.managers.LocalFileContentProvider"
+116-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:32:55-133
+117            android:authorities="@string/app_package" />
+117-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:32:13-54
+118
+119        <uses-library
+119-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:33:3-82
+120            android:name="org.apache.http.legacy"
+120-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:33:17-54
+121            android:required="false" />
+121-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:33:55-79
+122
+123        <activity
+123-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:34:3-138
+124            android:name="m.client.library.addon.media.AudioRecoderActivity"
+124-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:34:71-135
+125            android:configChanges="locale|keyboardHidden|orientation" />
+125-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:34:13-70
+126        <activity
+126-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:35:3-193
+127            android:name="m.client.library.addon.media.MediaPlayActivity"
+127-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:35:75-136
+128            android:configChanges="keyboardHidden|orientation|screenSize"
+128-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:35:13-74
+129            android:theme="@android:style/Theme.Black.NoTitleBar" />
+129-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:35:137-190
+130        <activity
+130-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:36:3-198
+131            android:name="m.client.library.addon.media.crop.CropImageActivity"
+131-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:36:75-141
+132            android:configChanges="keyboardHidden|orientation|screenSize"
+132-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:36:13-74
+133            android:theme="@android:style/Theme.Black.NoTitleBar" />
+133-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:36:142-195
+134
+135        <meta-data
+135-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:37:3-100
+136            android:name="com.kakao.sdk.AppKey"
+136-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:37:14-49
+137            android:value="c31534dfe96f8f9d548594a51ff9f31d" />
+137-->C:\Users\user\git\baemin\baemin\AndroidManifest.xml:37:50-98
+138    </application>
+139
+140</manifest>
