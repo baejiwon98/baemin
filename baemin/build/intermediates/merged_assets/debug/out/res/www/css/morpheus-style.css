@@ -14,8 +14,11 @@
 /*====== Content ======*/
 /** Intro */
 
+
+.map-search-img {float:left;width:10000%;height:10000%;background:url(../img/ico-arrow-down.png) no-repeat;background-size:100%;text-indent:-9999rem;margin-top:0px;}
+
 /* 은진 morpheus-common.css */
-.btn-line{height:4.5rem;background-color:#fff;color:#ffeb9d;border:1px solid #ffeb9d;} /* 인증버튼 색 노랑노랑 */
+.btn-line{height:4.5rem;background-color:#fff;color:#ff7987;border:1px solid #ff7987} /* 인증버튼 색 */
 /*.store-time-start{overflow:hidden;width:100%;}
 .ipt-form-type2 .store-time input{width:48.99999%;}*/
 .switch{width:6.1rem;height:5rem;background:url(../img/ipt-switch.png) no-repeat 0 0;background-size:100%;}
@@ -120,7 +123,7 @@ input[type=number]:disabled{background-color:#ffeb9d;font-weight:400;}
 .progress .txt-info{font-size:1.3rem;font-weight:400;}
 .prg-bg{margin:.8rem 0 2rem;width:100%;height:.5rem;background-color:#eee;}
 .prg-bg-r{overflow:hidden;margin:.8rem 0 2rem;width:100%;height:.5rem;background-color:#eee;border-radius:.5rem;}
-.prg-bg-r .prg-bar{width:38%;height:100%;background-color:#ffeb9d;border-top-left-radius: .5rem;border-bottom-left-radius:.5rem;}
+.prg-bg-r .prg-bar{width:38%;height:100%;background-color:#ff7987;border-top-left-radius: .5rem;border-bottom-left-radius:.5rem;}
 .prg-bg .prg-bar{width:38%;height:100%;background-color:#0081c7;}
 .copy-wrap{padding:1.5rem 0;font-size:1rem;font-weight:400;}
 .progress.spinner > div{position:relative;}
@@ -491,8 +494,8 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .foot-menu-wrap{overflow:hidden;padding:1rem;background-color:#33373e;}
 .foot-menu-wrap li{float:left;width:23.5%;margin-right:2%;padding:.6rem 0;text-align:center;color:#ccc;font-weight:400;border:1px solid rgba(255,255,255,.2);}
 .foot-menu-wrap li:last-child{margin-right:0}
-.footer .sns-wrap{background-color:#474a50;padding:.5rem 0 1rem;}
-.copyright{color:#c2c2c2;font-size:1.2rem;font-weight:400;}
+.footer .sns-wrap{background-color:#ff7987;padding:.5rem 0 1rem;}
+.copyright{color:#ffffff;font-size:1.2rem;font-weight:400;}
 .scroll-view{position:relative;width:100%;overflow-x:auto !important;white-space:nowrap;-webkit-overflow-scrolling:touch;padding-bottom:5px;}
 .scroll-view li{margin:0;float:none;display:inline-block;width:43%;}
 .metro-wrap.scroll-view li:nth-child(2n){margin-left:0;}

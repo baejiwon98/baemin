@@ -9,7 +9,9 @@
  * 3. color/font/line-height/text/letter-spacing/vertical-align/white-spacing/word-spacing
  * 4. etc/background/border
  */
-
+.map {width:95%;height:80%;text-align:center;display: flex; margin:1rem;}
+.area {width:50%; margin:10px 0;}
+.map-search-txt{white-space: nowrap;overflow: hidden; text-overflow: ellipsis;width:50%;margin-left:23.2%;padding:0;text-align:center;border:0px solid #333}
 
 /* 샛별 */
 /* join1 회원가입 - 사장님, 고객, 라이더 라디오 버튼 */
@@ -20,9 +22,9 @@
 .ipt-form-user label:nth-of-type(3){margin:0% 2%;}
 .btn-wrap.pd.pa{padding:0}
 /* main search */
-.ipt-form-type0 .ipt-form-row .map-search-txt{text-overflow: ellipsis;width:50%;margin-left:23.2%;padding:0;text-align:center;border:0px solid #333}
+
 .ipt-form-type0 .ipt-form-row .map-search-img{width:3.5%; margin:2rem 0;}
-/*.ipt-form-type0 .ipt-form-row .map-search-txt{width:70%;margin-left:10%;text-align:center;border:0px solid #333}
+/*.ipt-form-type0 .ipt-form-row .{width:70%;margin-left:10%;text-align:center;border:0px solid #333}
 .ipt-form-type0 .ipt-form-row .map-search-img{width:5%; margin-top:2rem;}*/
 .ipt-form-type0 .ipt-form-row{margin:.3rem 0 .3rem 0;}
 .ipt-form-type0 .ipt-form-row .img-search{width:95%;margin:0 2%;}
@@ -379,10 +381,10 @@ input[type=number]{padding:0 1rem;height:4rem;border:1px solid #ddd;}
 .btn-alarm{background:url(../img/ico-alarm.png) no-repeat;background-size:100%}
 .btn-alarm.wit{background:url(../img/ico-alarm-wit.png) no-repeat;background-size:100%}
 .btn-close-b{background:url(../img/btn-close-black.png) no-repeat;background-size:100%}
-.btn-point-color{background-color:#ffeb9d;color:#fff;font-size:1.5rem;font-weight:bold;}
+.btn-point-color{background-color:#ff7987;color:#fff;font-size:1.5rem;font-weight:bold;}
 .btn-sub-color{background-color:#333;color:#fff;}
 .btn-type1{margin-left: 1%;width: 32.6666%;height: 4rem;}
-.btn-line{height:4.5rem;background-color:#fff;color:#ffeb9d;border:1px solid #ffeb9d;}
+.btn-line{height:4.5rem;background-color:#fff;color:#ff7987;border:1px solid #ff7987;}
 .btn-line.small{padding:.4rem 1rem;font-size:1.2rem;width:auto;height:auto;}
 .btn-line-02{width:5rem;height:2.5rem;line-height:2.5rem;border:1px solid #ddd;font-weight:400;}
 .btn-line-03{border:1px solid #e0e0e0;color:#666;}
