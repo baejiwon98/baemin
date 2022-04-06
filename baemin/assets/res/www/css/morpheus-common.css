@@ -15,7 +15,7 @@
 /* join1 회원가입 - 사장님, 고객, 라이더 라디오 버튼 */
 .ipt-form-user label{width:30%;height:4rem;text-align:center;line-height:4rem;border:1px solid #ddd;font-weight:400;color:#bbb;font-size:1.4rem;}
 .ipt-form-user input[type="radio"]{width:0;}
-.ipt-form-user input[type="radio"]:checked + label{border:1px solid #ffeb9d;color:#333;}
+.ipt-form-user input[type="radio"]:checked + label{border:1px solid #ff7987;color:#ff7987;}
 .ipt-form-user label:first-of-type{margin:0% 2%;}
 .ipt-form-user label:nth-of-type(3){margin:0% 2%;}
 .btn-wrap.pd.pa{padding:0}
@@ -334,7 +334,7 @@ input[type=number]{padding:0 1rem;height:4rem;border:1px solid #ddd;}
 .ipt-form-type2  .ipt-form-col input + input{margin-top:.5rem;}
 .ipt-form-type2 .chk-wrap{padding-bottom:.9rem;}
 .ipt-form-type2 .chk-wrap label{font-weight:400;font-size:1.4rem;}
-.ipt-line{;border-bottom:1px solid #bbb !important;border-top:0 !important;border-left:0 !important;border-right:0 !important;width:90%;}
+.ipt-line{border-bottom:1px solid #bbb !important;border-top:0 !important;border-left:0 !important;border-right:0 !important;width:90%;}
 .ipt-form-type3 > *{float:left;}
 .ipt-form-type3 span {padding-top: 1rem; padding-left: 1rem; padding-right: 1rem; width: 10%; text-align: center;}
 .ipt-form-type3 input[type="text"] {width: 45%;}
@@ -346,9 +346,9 @@ input[type=number]{padding:0 1rem;height:4rem;border:1px solid #ddd;}
 .chk:checked{background-position:0 -2.2rem;}
 .chk-02{width:2.2rem;height:2.2rem;background:url(../img/ipt-chk2.png) no-repeat;background-size:100%;}   
 .chk-02:checked{background-position:0 -2.2rem;}
-.chk-03{width:2.2rem;height:2.2rem;background:url(../img/ipt-chk3.png)no-repeat;background-size:100%;}
+.chk-03{width:2.2rem;height:2.2rem;background:url(../img/ipt-chk3.png) no-repeat;background-size:100%;}
 .chk-03:checked{background-position:0 -2.2rem;}
-.chk-04{width:4.4rem;height:4.4rem;background:url(../img/ipt-chk3.png)no-repeat;background-size:100%;}
+.chk-04{width:4.4rem;height:4.4rem;background:url(../img/ipt-chk3.png) no-repeat;background-size:100%;}
 .chk-04:checked{background-position:0 -4.4rem;}
 /* Radio Button */
 .radio{width:2.2rem;height:2.2rem;background:url(../img/ipt-radio.png) no-repeat;background-size:100%;}
@@ -379,7 +379,7 @@ input[type=number]{padding:0 1rem;height:4rem;border:1px solid #ddd;}
 .btn-alarm{background:url(../img/ico-alarm.png) no-repeat;background-size:100%}
 .btn-alarm.wit{background:url(../img/ico-alarm-wit.png) no-repeat;background-size:100%}
 .btn-close-b{background:url(../img/btn-close-black.png) no-repeat;background-size:100%}
-.btn-point-color{background-color:#ffeb9d;color:#fff;font-size:1.5rem;font-weight:bold;}
+.btn-point-color{background-color:#ff7987;color:#fff;font-size:1.5rem;font-weight:bold;}
 .btn-sub-color{background-color:#333;color:#fff;}
 .btn-type1{margin-left: 1%;width: 32.6666%;height: 4rem;}
 .btn-line{height:4.5rem;background-color:#fff;color:#ffeb9d;border:1px solid #ffeb9d;}
@@ -392,14 +392,14 @@ input[type=number]{padding:0 1rem;height:4rem;border:1px solid #ddd;}
 .btn-star2{text-indent:-9999rem;width:2rem;height:4rem !important;background:url(../img/btn-star2.png) no-repeat;background-size:100%;margin-left:-.2rem;}
 .btn-star2.on{background-position:0 -4rem;}
 .btn-share{text-indent:-9999rem;width:2rem;height:4rem !important;background:url(../img/btn-share.png) no-repeat center center;background-size:1.5rem;}
-.btn-top{position:fixed;bottom:1.5rem;right:1.5rem;width: 4.5rem;height:4.5rem;text-indent:-9999rem;border-radius:50%;background:url(../img/btn-top.png)no-repeat;background-size:100%;box-shadow:3px 3px 15px rgba(0,0,0,.5);}
+.btn-top{position:fixed;bottom:1.5rem;right:1.5rem;width: 4.5rem;height:4.5rem;text-indent:-9999rem;border-radius:50%;background:url(../img/btn-top.png) no-repeat;background-size:100%;box-shadow:3px 3px 15px rgba(0,0,0,.5);}
 .btn-more{font-size:1.5rem;font-weight:bold;border-top:1px solid #e0e0e0;}
-.btn-more::after{content:'';display:inline-block;width:3.1rem;height:.6rem;background:url(../img/ico-arrow-down2.png)no-repeat;background-size:100%;}
+.btn-more::after{content:'';display:inline-block;width:3.1rem;height:.6rem;background:url(../img/ico-arrow-down2.png) no-repeat;background-size:100%;}
 .btn-buy{position:absolute;top:-1.8rem;left:50%;margin-left:-4rem;width:8rem;height:1.8rem;text-indent:-9999rem;background:#fff url(../img/ico-arrow-up.png) no-repeat center center;background-size:4.1rem;border-top-right-radius:8px;border-top-left-radius:8px;box-shadow:0px -2px 14px 0px rgba(0,0,0,.1);}
 .btn-cart,
 .btn-like{width:4rem;height:4rem;text-indent:-9999rem;border:1px solid #e0e0e0;}
-.btn-cart{background:#fff url(../img/ico-cart.png)no-repeat center;background-size:2rem;}
-.btn-like{background:#fff url(../img/btn-like.png)no-repeat 0 0;background-size:100%;}
+.btn-cart{background:#fff url(../img/ico-cart.png) no-repeat center;background-size:2rem;}
+.btn-like{background:#fff url(../img/btn-like.png) no-repeat 0 0;background-size:100%;}
 .btn-like.on{background-position:0 -3.8rem;}
 .btn-search{width:4rem;height:4rem;text-indent:-9999rem;background:url(../img/ico-search.png) no-repeat center;background-size:2rem;}
 .btn-search2{text-indent:-9999rem;background:url(../img/ico-search.png) no-repeat center center;background-size:1.8rem;}
@@ -411,7 +411,7 @@ input[type=number]{padding:0 1rem;height:4rem;border:1px solid #ddd;}
 .step ul li{position:relative;float:left;width:2.2rem;height:2.2rem;line-height:2.2rem;font-size:1.2rem;font-weight:bold;color:#bbb;border:1px solid #ddd; border-radius:50%;margin:.5rem;}
 .step ul li::after{content:'';display:inline-block;position:absolute;top:50%;right:-1.1rem; width:1rem;height:1px;background-color:#e0e0e0}
 .step ul li:last-child::after{display:none;}
-.step ul li.on{border-color:#ffeb9d ;color:#ffeb9d;}
+.step ul li.on{border-color:#ff7987 ;color:#ff7987;}
 .step ul li.ok{text-indent:-9999rem;border:0; background:url(../img/ico-check.png) no-repeat;background-size:100%;}    
 
 /* Tab Menu */

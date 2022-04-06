@@ -81,7 +81,7 @@
   </component>
   <component name="RunManager">
     <configuration name="baemin" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="baemin" />
+      <module name="baemin.baemin" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
