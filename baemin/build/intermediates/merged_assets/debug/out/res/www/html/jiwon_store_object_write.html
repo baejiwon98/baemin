@@ -1,0 +1,114 @@
+<!-- 카테고리 들어가서 가게 상세 페이지 : 배달 -->
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Hello! Mobile!</title>
+  <link rel="stylesheet" href="../css/morpheus-style.css" />
+  <link rel="stylesheet" href="../css/swiper.min.css" />
+  <link rel="stylesheet" href="../css/muikit.css" />
+</head>
+
+<body>
+<div class="wrapper">
+  <header class="header">
+    <!-- 하단에 라인이 있는경우 class="line"추가 -->
+    <h1>
+      메뉴 작성하기
+    </h1>
+    <button type="button" class="btn-back l-fix">
+      뒤로가기
+    </button>
+  </header>
+  <section>
+    <section class="object-main-detail">
+      <div class="container">
+        <div class="cont-wraps pd">
+          <div class="info-wrap" />
+          <div class="ipt-wrap">
+            <div class="ipt-form-type2">
+            <span>
+              메뉴 이름
+            </span>
+              <div class="ipt-form-col">
+                <input type="text" placeholder="메뉴 이름(50자까지)" maxlength="50" />
+              </div>
+            </div>
+            <div class="ipt-form-type1">
+            <span>
+              원산지
+            </span>
+              <div class="ipt-form-col">
+                <input type="text" placeholder="원산지(50자까지)" maxlength="50" />
+              </div>
+            </div>
+            <div class="ipt-form-type1">
+            <span>
+              메뉴 설명
+            </span>
+              <div class="ipt-form-col">
+                <input type="text" placeholder="메뉴 설명(50자까지)" maxlength="50" />
+              </div>
+            </div>
+            <div>
+            <div class="ipt-form-type-left">
+            <span>
+              재고
+            </span>
+              <div class="ipt-form-col">
+                <input type="text" placeholder="5" maxlength="3" />
+              </div>
+            </div>
+            <div class="ipt-form-type-right">
+            <span>
+              가격
+            </span>
+              <div class="ipt-form-col">
+                <input type="text" placeholder="39900"/>
+              </div>
+            </div>
+            </div>
+            <div class="ipt-form-type2">
+            <span>
+              첨부 이미지
+            </span>
+              <div class="ipt-form-row">
+                <input type="text" id="file" readonly placeholder="이미지 파일명 (자동입력)" />
+                <button type="button" id="fileBtn" class="btn-line">
+                  이미지 선택
+                </button>
+              </div>
+              <div class="ipt-form-col">
+                <img src="" />
+              </div>
+            </div>
+          </div>
+        </div>
+<!--        <div>-->
+<!--          <div class="object-image-add">-->
+<!--          <div class="object-image-del">-->
+<!--            <img src="../img/btn-close-black.png" class="btn-delete"/>-->
+<!--          </div>-->
+<!--            <img src="../img/curry.png" alt=""/>-->
+<!--          </div>-->
+<!--        </div>-->
+    </section>
+  </section>
+  <div class="btn-wrap pd count2">
+    <button type="button" id="modiBtn" class="btn-point-color">
+      확인
+    </button>
+    <button type="button" id="delBtn" class="btn-line" class="btn-point-color">
+      삭제
+    </button>
+  </div>
+</div>
+</body>
+
+<script type="text/javascript" src="../js/mcore.min.js"></script>
+<script type="text/javascript" src="../js/ui/list.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</html>
