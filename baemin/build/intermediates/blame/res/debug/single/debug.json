@@ -44,12 +44,12 @@
         "source": "C:\\Users\\user\\git\\baemin\\baemin\\res\\drawable\\addon_popup_picker_input_normal.9.png"
     },
     {
-        "merged": "C:\\Users\\user\\git\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\layout_addon_media_crop_cropimage.xml.flat",
-        "source": "C:\\Users\\user\\git\\baemin\\baemin\\res\\layout\\addon_media_crop_cropimage.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\git\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\layout_addon_popup_date_picker.xml.flat",
         "source": "C:\\Users\\user\\git\\baemin\\baemin\\res\\layout\\addon_popup_date_picker.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\git\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\layout_addon_media_crop_cropimage.xml.flat",
+        "source": "C:\\Users\\user\\git\\baemin\\baemin\\res\\layout\\addon_media_crop_cropimage.xml"
     },
     {
         "merged": "C:\\Users\\user\\git\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_addon_media_record_menu_bg.png.flat",
@@ -60,12 +60,12 @@
         "source": "C:\\Users\\user\\git\\baemin\\baemin\\res\\layout\\main.xml"
     },
     {
-        "merged": "C:\\Users\\user\\git\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\xml_mcore_provider_paths.xml.flat",
-        "source": "C:\\Users\\user\\git\\baemin\\baemin\\res\\xml\\mcore_provider_paths.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\git\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\drawable_addon_popup_picker_up_normal.9.png.flat",
         "source": "C:\\Users\\user\\git\\baemin\\baemin\\res\\drawable\\addon_popup_picker_up_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\git\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\xml_mcore_provider_paths.xml.flat",
+        "source": "C:\\Users\\user\\git\\baemin\\baemin\\res\\xml\\mcore_provider_paths.xml"
     },
     {
         "merged": "C:\\Users\\user\\git\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\anim_core_none_in.xml.flat",
