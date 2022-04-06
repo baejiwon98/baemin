@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Hello! Mobile!</title>
+  <link rel="stylesheet" href="../css/morpheus-style.css" />
+  <link rel="stylesheet" href="../css/swiper.min.css" />
+  <link rel="stylesheet" href="../css/muikit.css" />
+</head>
+
+<body>
+<div class="wrapper">
+  <header class="header line">
+    <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+    <!-- 하단에 라인이 있는경우 class="line"추가 -->
+    <h1>
+      마이 페이지
+    </h1>
+    <button type="button" class="btn-back l-fix" id="backBtn">
+      뒤로가기
+    </button>
+  </header>
+  <div class="container">
+    <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+    <div class="cont-wrap">
+      <!-- 태블릿에서 볼때 왼쪽에 정렬될 내용 -->
+      <div>
+        <table class="tbl-ipt">
+          <colgroup>
+            <col style="width:30%" />
+            <col style="width:70%" />
+          </colgroup>
+          <thead>
+          <ul class="main-menu-box-eunjin type04">
+            <li>
+              내 정보
+            </li>
+            <li>
+              주문 목록
+            </li>
+            <li data-more id="notice-btn">
+              내 리뷰
+            </li>
+          </ul>
+          </thead>
+        </table>
+          <div class="object-review-list">
+            <ul>
+              <li>
+                <div class="arrow_box">
+                  <div class="review-buttons">
+                    <a>
+                      수정
+                    </a>
+                    |
+                    <a>
+                      삭제
+                    </a>
+                  </div>
+                  <div class="review-info">
+                    <div class="review-user-img">
+                      <button type="button" class="btn-user">
+                        usericon
+                      </button>
+                    </div>
+                    <div class="review-user-info">
+                      <div class="review-name">
+                        <strong>
+                          닉네임
+                        </strong>
+                      </div>
+                      <div class="review-detail">
+                        <div class="fa review-counting-stars">
+                          <div class="fa fa-star checked" id="stars"></div>
+                          <div class="fa fa-star checked" id="stars"></div>
+                          <div class="fa fa-star checked" id="stars"></div>
+                          <div class="fa fa-star-half-o" id="stars"></div>
+                          <div class="fa fa-star-o" id="stars"></div>
+                        </div>
+                        <div class="fa review-date">
+                          2022-03-31
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="review-content">
+                    <div class="review-user-img">
+                      <img src="../img/curry.png" alt=""/>
+                    </div>
+                    <div class="review-user-content">
+                      <p>
+                        리뷰 내용ㅁㄴㅇ라ㅓㅁㄴ이람ㄴㅇ리ㅏㅓㄻㅇ나ㅣㅓㅁㄴㅇ라ㅣㅓㅁㄴㅇ리ㅓㄴㄻ이ㅓㄴㅇ리ㅏ
+                        리뷰 내용ㅁㄴㅇ라ㅓㅁㄴ이람ㄴㅇ리ㅏㅓㄻㅇ나ㅣㅓㅁㄴㅇ라ㅣㅓㅁㄴㅇ리ㅓㄴㄻ이ㅓㄴㅇ리ㅏ
+                        리뷰 내용ㅁㄴㅇ라ㅓㅁㄴ이람ㄴㅇ리ㅏㅓㄻㅇ나ㅣㅓㅁㄴㅇ라ㅣㅓㅁㄴ
+                      </p>
+                    </div>
+                  </div>
+                  <div class="arrow_box1">
+                    <div class="review-info">
+                      <div class="review-user-img">
+                        <button type="button" class="btn-employee">
+                          employeeicon
+                        </button>
+                      </div>
+                      <div class="review-employee-info">
+                        <div class="review-employee-name">
+                          <strong>
+                            사장님
+                          </strong>
+                        </div>
+                        <div class="fa review-employee-date">
+                          2022-03-31
+                        </div>
+                      </div>
+                    </div>
+                    <div class="review-content">
+                      <div class="review-employee-content">
+                        <p>
+                          나는 사장리뷰쓰 흠
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </li>
+              <li>
+                <div class="arrow_box">
+                  <div class="review-buttons">
+                    <a>
+                      수정
+                    </a>
+                    |
+                    <a>
+                      삭제
+                    </a>
+                  </div>
+                  <div class="review-info">
+                    <div class="review-user-img">
+                      <button type="button" class="btn-user">
+                        usericon
+                      </button>
+                    </div>
+                    <div class="review-user-info">
+                      <div class="review-name">
+                        <strong>
+                          닉네임
+                        </strong>
+                      </div>
+                      <div class="review-detail">
+                        <div class="fa review-counting-stars">
+                          <div class="fa fa-star checked" id="stars"></div>
+                          <div class="fa fa-star checked" id="stars"></div>
+                          <div class="fa fa-star checked" id="stars"></div>
+                          <div class="fa fa-star-half-o" id="stars"></div>
+                          <div class="fa fa-star-o" id="stars"></div>
+                        </div>
+                        <div class="fa review-date">
+                          2022-03-31
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="review-content">
+                    <div class="review-user-img">
+                      <!--                <img src="../img/curry.png" alt=""/>-->
+                    </div>
+                    <div class="review-user-content">
+                      <p>
+                        리뷰 내용ㅁㄴㅇ라ㅓㅁㄴ이람ㄴㅇ리ㅏㅓㄻㅇ나ㅣㅓㅁㄴㅇ라ㅣㅓㅁㄴㅇ리ㅓㄴㄻ이ㅓㄴㅇ리ㅏ
+                        리뷰 내용ㅁㄴㅇ라ㅓㅁㄴ이람ㄴㅇ리ㅏㅓㄻㅇ나ㅣㅓㅁㄴㅇ라ㅣㅓㅁㄴㅇ리ㅓㄴㄻ이ㅓㄴㅇ리ㅏ
+                        리뷰 내용ㅁㄴㅇ라ㅓㅁㄴ이람ㄴㅇ리ㅏㅓㄻㅇ나ㅣㅓㅁㄴㅇ라ㅣㅓㅁㄴ
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="arrow_box">
+                  <div class="review-buttons">
+                    <a>
+                      수정
+                    </a>
+                    |
+                    <a>
+                      삭제
+                    </a>
+                  </div>
+                  <div class="review-info">
+                    <div class="review-user-img">
+                      <button type="button" class="btn-user">
+                        usericon
+                      </button>
+                    </div>
+                    <div class="review-user-info">
+                      <div class="review-name">
+                        <strong>
+                          닉네임
+                        </strong>
+                      </div>
+                      <div class="review-detail">
+                        <div class="fa review-counting-stars">
+                          <div class="fa fa-star checked" id="stars"></div>
+                          <div class="fa fa-star checked" id="stars"></div>
+                          <div class="fa fa-star checked" id="stars"></div>
+                          <div class="fa fa-star-half-o" id="stars"></div>
+                          <div class="fa fa-star-o" id="stars"></div>
+                        </div>
+                        <div class="fa review-date">
+                          2022-03-31
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="review-content">
+                    <div class="review-user-img">
+                      <!--                <img src="../img/curry.png" alt=""/>-->
+                    </div>
+                    <div class="review-user-content">
+                      <!--                <p>-->
+                      <!--                  리뷰 내용ㅁㄴㅇ라ㅓㅁㄴ이람ㄴㅇ리ㅏㅓㄻㅇ나ㅣㅓㅁㄴㅇ라ㅣㅓㅁㄴㅇ리ㅓㄴㄻ이ㅓㄴㅇ리ㅏ-->
+                      <!--                  리뷰 내용ㅁㄴㅇ라ㅓㅁㄴ이람ㄴㅇ리ㅏㅓㄻㅇ나ㅣㅓㅁㄴㅇ라ㅣㅓㅁㄴㅇ리ㅓㄴㄻ이ㅓㄴㅇ리ㅏ-->
+                      <!--                  리뷰 내용ㅁㄴㅇ라ㅓㅁㄴ이람ㄴㅇ리ㅏㅓㄻㅇ나ㅣㅓㅁㄴㅇ라ㅣㅓㅁㄴ-->
+                      <!--                </p>-->
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="arrow_box">
+                  <div class="review-buttons">
+                    <a>
+                      수정
+                    </a>
+                    |
+                    <a>
+                      삭제
+                    </a>
+                  </div>
+                  <div class="review-info">
+                    <div class="review-user-img">
+                      <button type="button" class="btn-user">
+                        usericon
+                      </button>
+                    </div>
+                    <div class="review-user-info">
+                      <div class="review-name">
+                        <strong>
+                          닉네임
+                        </strong>
+                      </div>
+                      <div class="review-detail">
+                        <div class="fa review-counting-stars">
+                          <div class="fa fa-star checked" id="stars"></div>
+                          <div class="fa fa-star checked" id="stars"></div>
+                          <div class="fa fa-star checked" id="stars"></div>
+                          <div class="fa fa-star-half-o" id="stars"></div>
+                          <div class="fa fa-star-o" id="stars"></div>
+                        </div>
+                        <div class="fa review-date">
+                          2022-03-31
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="review-content">
+                    <div class="review-user-img">
+                      <img src="../img/curry.png" alt=""/>
+                    </div>
+                    <div class="review-user-content">
+                      <!--                <p>-->
+                      <!--                  리뷰 내용ㅁㄴㅇ라ㅓㅁㄴ이람ㄴㅇ리ㅏㅓㄻㅇ나ㅣㅓㅁㄴㅇ라ㅣㅓㅁㄴㅇ리ㅓㄴㄻ이ㅓㄴㅇ리ㅏ-->
+                      <!--                  리뷰 내용ㅁㄴㅇ라ㅓㅁㄴ이람ㄴㅇ리ㅏㅓㄻㅇ나ㅣㅓㅁㄴㅇ라ㅣㅓㅁㄴㅇ리ㅓㄴㄻ이ㅓㄴㅇ리ㅏ-->
+                      <!--                  리뷰 내용ㅁㄴㅇ라ㅓㅁㄴ이람ㄴㅇ리ㅏㅓㄻㅇ나ㅣㅓㅁㄴㅇ라ㅣㅓㅁㄴ-->
+                      <!--                </p>-->
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+
+<script type="text/javascript" src="../js/mcore.min.js"></script>
+<script type="text/javascript" src="../js/ui/userInfo.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</html>
