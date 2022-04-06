@@ -13,12 +13,15 @@
       $storeDetailBtn: null,
       $storeReviewBtn: null,
       $storeObject:null,
+      $backBtn : null
     },
     data: {},
     init: function init() {
       this.els.$storeDetailBtn = $('#store-detail-btn');
       this.els.$storeReviewBtn = $('#store-review-btn');
       this.els.$storeObject = $('#store-object');
+      this.els.$backBtn = $('#backBtn');
+
     },
 
     initView: function initView() {
@@ -27,17 +30,18 @@
     },
     initEvent: function initEvent() {
       // Dom Event 바인딩
-      var self = this;
-
+      this.els.$backBtn.on('click', function () {
+        M.page.back();
+      });
       this.els.$storeDetailBtn.on('click', function () {
-              M.page.html('./jiwon_store_detail.html');
-            });
+        M.page.html('./jiwon_store_detail.html');
+      });
       this.els.$storeReviewBtn.on('click', function () {
-              M.page.html('./jiwon_store_reviewlist.html');
-            });
+        M.page.html('./jiwon_store_reviewlist.html');
+      });
       this.els.$storeObject.on('click', function () {
-                    M.page.html('./jiwon_object_detail.html');
-                  });
+        M.page.html('./jiwon_object_detail.html');
+      });
 
     },
   };
