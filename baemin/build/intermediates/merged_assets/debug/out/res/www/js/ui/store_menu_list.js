@@ -21,6 +21,7 @@
       this.els.$storeReviewBtn = $('#store-review-btn');
       this.els.$storeObject = $('#store-object');
       this.els.$backBtn = $('#backBtn');
+
     },
 
     initView: function initView() {
@@ -29,8 +30,6 @@
     },
     initEvent: function initEvent() {
       // Dom Event 바인딩
-      var self = this;
-
       this.els.$backBtn.on('click', function () {
         M.page.back();
       });
