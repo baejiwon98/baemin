@@ -92,8 +92,6 @@ input[type=number]:disabled{background-color:#ffeb9d;font-weight:400;}
 .star-rating label:hover ~ label {color:#fc0;}
 .star-rating {width:50%;}
 
-/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-
 /* 은진 morpheus-style.css */
 .main-menu-box-eunjin {overflow:hidden;}
 .main-menu-box-eunjin li{float:left;width:33.3333%;color:#fff;}
@@ -123,7 +121,7 @@ input[type=number]:disabled{background-color:#ffeb9d;font-weight:400;}
 .progress .txt-info{font-size:1.3rem;font-weight:400;}
 .prg-bg{margin:.8rem 0 2rem;width:100%;height:.5rem;background-color:#eee;}
 .prg-bg-r{overflow:hidden;margin:.8rem 0 2rem;width:100%;height:.5rem;background-color:#eee;border-radius:.5rem;}
-.prg-bg-r .prg-bar{width:38%;height:100%;background-color:#ff7987;border-top-left-radius: .5rem;border-bottom-left-radius:.5rem;}
+.prg-bg-r .prg-bar{width:38%;height:100%;background-color:#ff7987;border-top-left-radius: .5rem;border-bottom-left-radius:.5rem;} /* 로딩바 색깔 부농부농 은진 */
 .prg-bg .prg-bar{width:38%;height:100%;background-color:#0081c7;}
 .copy-wrap{padding:1.5rem 0;font-size:1rem;font-weight:400;}
 .progress.spinner > div{position:relative;}

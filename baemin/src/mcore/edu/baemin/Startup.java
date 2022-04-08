@@ -50,6 +50,7 @@ public class Startup extends Activity {
         commLibHandle.processAppInit(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
+            
         }
         ////////////////////////////////////////////////////////////////////////////////    
 
