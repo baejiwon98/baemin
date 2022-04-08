@@ -46,8 +46,9 @@
       this.els.$joinBtn.on('click', function () {
          M.page.back();
       });
-
-
+      this.els.$pwBtn.on('click', function () {
+         M.page.html('./eunjin_userInfo_changePw.html');
+      });
     } // end initEvent
   }; // end page
   window.__page__ = page;
