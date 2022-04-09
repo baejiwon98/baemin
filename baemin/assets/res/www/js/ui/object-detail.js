@@ -11,11 +11,17 @@
   var page = {
     els: {
       $goCartBtn: null,
+      $minusBtn: null,
+      $plusBtn: null,
+      $qtyResult: null,
 
     },
     data: {},
     init: function init() {
       this.els.$goCartBtn = $('#go-cart-btn');
+      this.els.$minusBtn = $('#minus-btn');
+      this.els.$plusBtn = $('#plus-btn');
+      this.els.$qtyResult = $('#qty-result');
     },
 
     initView: function initView() {
@@ -25,10 +31,30 @@
     initEvent: function initEvent() {
       // Dom Event 바인딩
       var self = this;
-
+      const resultElement = document.getElementById('qty-result');
       this.els.$goCartBtn.on('click', function () {
-              M.page.html('./jiwon_cart.html');
-            });
+        M.page.html('./jiwon_cart.html');
+      });
+      this.els.$minusBtn.on('click', function () {
+        let number = resultElement.innerText;
+        console.log(number);
+        if (number <= 1) {
+          alert('수량은 1이상이어야 합니다.');
+        } else {
+          number = parseInt(number) - 1;
+          resultElement.innerText = number;
+        }
+      });
+      this.els.$plusBtn.on('click', function () {
+        let number = resultElement.innerText;
+        console.log(number);
+        if (number >= 50) { // 등록한 재고 수량으로 변경
+          alert('재고가 없습니다.');
+          return false;
+        } else {}
+        number = parseInt(number) + 1;
+        resultElement.innerText = number;
+      });
     },
   };
 

@@ -9,11 +9,11 @@
   var seqNo = [];
   var page = {
     els: {
-        $addressIpt:null,
+      $addressIpt: null,
     },
     data: {},
     init: function init() {
-        this.els.$addressIpt = $('#address');
+      this.els.$addressIpt = $('#address');
     },
     initView: function initView() {
 
@@ -23,26 +23,26 @@
       var self = this;
       var marker;
       var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-                    mapOption = {
-                      center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-                      level: 3 // 지도의 확대 레벨
-                    };
+        mapOption = {
+          center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+          level: 3 // 지도의 확대 레벨
+        };
       var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
       $('#currentBtn').click(function () {
-//        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+        //        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
         function getAddr(lat, lng) { // 좌표로 주소 가져오기
-                      let geocoder = new kakao.maps.services.Geocoder();
+          let geocoder = new kakao.maps.services.Geocoder();
 
-                      let coord = new kakao.maps.LatLng(lat, lng);
-                      let callback = function (result, status) {
-                        if (status === kakao.maps.services.Status.OK) {
-                          console.log(result[0].address.address_name);
-                          self.els.$addressIpt.val(result[0].address.address_name);
-                        }
-                      }
-                      geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
-                    }
+          let coord = new kakao.maps.LatLng(lat, lng);
+          let callback = function (result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+              console.log(result[0].address.address_name);
+              self.els.$addressIpt.val(result[0].address.address_name);
+            }
+          }
+          geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+        }
 
         // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
         if (navigator.geolocation) {
@@ -54,11 +54,11 @@
             getAddr(lat, lon);
 
             var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-                                mapOption = {
-                                  center: new kakao.maps.LatLng(lat, lon), // 지도의 중심좌표
-                                  level: 3 // 지도의 확대 레벨
-                                };
-                  var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+              mapOption = {
+                center: new kakao.maps.LatLng(lat, lon), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+              };
+            var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 
             var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다

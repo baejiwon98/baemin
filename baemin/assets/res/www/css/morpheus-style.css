@@ -14,7 +14,7 @@
 /*====== Content ======*/
 /** Intro */
 
-
+.orderList-reviewWriteBtn {float:right; font-size:2rem; padding-right:15px;}
 .map-search-img {float:left;width:10000%;height:10000%;background:url(../img/ico-arrow-down.png) no-repeat;background-size:100%;text-indent:-9999rem;margin-top:0px;}
 
 /* 은진 morpheus-common.css */
@@ -35,20 +35,23 @@
 .ipt-form-type2 span{font-weight:bold;}
 .cart-price-cont p {font-size:1.6rem;}
 .cart-total-price-number {float:right;}
-.cart-object-container {border:1px solid #ffeb9d;}
+.cart-object-container {border:1px solid #ff7987;}
 .cart-delete-img {float:right;width:10%;height:10%}
 .cart-object-qty {float:right; font-size:2rem; padding-right:15px;}
+.cart-object-qty .fa-minus{float:left; margin:0.5rem;}
+.cart-object-qty .fa-plus{float:left;  margin:0.5rem;}
+.cart-object-qty .qty-result{float:left; margin:0.5rem;}
 .cart-object-price {padding-top:20px; padding-bottom:30px;}
 .cart-object-price strong{font-size:1.8rem;font-weight:bold;}
 .cart-object-name {padding-top:30px;}
 .cart-object-name strong{font-size:1.8rem;font-weight:bold;}
-.empty-container {padding:2px;background-color:#ffeb9d;}
+.empty-container {padding:2px;background-color:#ff7987;}
 .cart-object-img{float:left;width:100px;height:100px;margin:1rem;}
 .cart-object-img-detail {width:100%; height:100%;border-radius:10%;}
 .cart-price-cont {padding:1rem 1.5rem;}
-.cart-price-tit {padding:1rem 1.5rem;border:2px solid #ffeb9d;}
+.cart-price-tit {padding:1rem 1.5rem;border:2px solid #ff7987;}
 .cart-price-tit p{font-size:1.8rem;line-height:1.8;font-weight:bold;}
-.cart-detail-tit{padding:1rem 1.5rem;border:1px solid #ffeb9d;}
+.cart-detail-tit{padding:1rem 1.5rem;border:1px solid #ff7987;}
 .cart-detail-tit p{font-size:1.8rem;line-height:1.8;font-weight:bold;}
 .cart-detail-tit p span{font-size:inherit;font-weight:400;}
 .cart-detail-tit > span{font-size:1.3rem;font-weight:400;color:#666;}
@@ -72,7 +75,7 @@
 .main-menu-box.type04 li:nth-child(2){background:url(../img/ico-cart.png) no-repeat center 2rem;background-size:3.5rem;} /* 마이페이지 주문 목록 */
 .main-menu-box.type04 li:nth-child(3){background:url(../img/ico-menu-03.png) no-repeat center 2.1rem;background-size:2.3rem;}/* 마이페이지 내 리뷰 : 은진 */
 .metro-wrap li{position:relative;float:left;margin-top:1rem;width:49%;/*height:14.5rem;*/border:1px solid #e0e0e0;}
-input[type=number]:disabled{background-color:#ffeb9d;font-weight:400;}
+input[type=number]:disabled{background-color:#ff7987;font-weight:400;}
 
 /* 리뷰 작성 별점 별 */
 .star-rating {
@@ -390,7 +393,7 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .cart-object-price strong{font-size:1.8rem;font-weight:bold;}
 .cart-object-name {padding-top:15px;}
 .cart-object-name strong{font-size:1.8rem;font-weight:bold;}
-.empty-container {padding:2px;background-color:#ffeb9d;}
+.empty-container {padding:2px;background-color:#ff7987;}
 .cart-object-img{float:left;width:100px;height:100px;margin:1rem;}
 .cart-object-img-detail {width:100%; height:100%;border-radius:10%;}
 .cart-price-cont {padding:1rem 1.5rem;}
@@ -415,14 +418,14 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .review-counting-stars #stars{position:relative;padding-top:5px;font-size:2rem;color:orange;}
 .btn-user{float:left;width:4rem;height:4rem;background:url(../img/user-icon.png) no-repeat;background-size:100%;text-indent:-9999rem;}
 .object-review-list {margin:1rem;}
-.arrow_box1 {margin:2rem; position: relative;background: #fff;border: 2px solid #ffeb9d;border-radius:5%;}
+.arrow_box1 {margin:2rem; position: relative;background: #fff;border: 2px solid #ff7987;border-radius:20px;}
 .arrow_box1:after, .arrow_box:before {right: 100%;top: 50%;	border: solid transparent;content: "";height: 0;	width: 0;	position: absolute;pointer-events: none;}
-.arrow_box1:after {border-color: rgba(255, 255, 255, 0);border-right-color: #ffeb9d;border-width: 10px;	margin-top: -10px;}
-.arrow_box1:before {	border-color: rgba(0, 0, 0, 0);border-right-color: #ffeb9d ;border-width: 13px;	margin-top: -13px;}
-.arrow_box {margin:2rem;position: relative;background: #fffce6;border: 2px solid #ffeb9d;border-radius:5%;}
+.arrow_box1:after {border-color: rgba(255, 255, 255, 0);border-right-color: #ff7987;border-width: 10px;	margin-top: -10px;}
+.arrow_box1:before {	border-color: rgba(0, 0, 0, 0);border-right-color: #ff7987 ;border-width: 13px;	margin-top: -13px;}
+.arrow_box {margin:1.5rem;position: relative;background: #ffe4e1;border: 2px solid #ff7987;border-radius:20px;}
 .arrow_box:after, .arrow_box:before {left: 100%;top: 50%;border: solid transparent;content: "";height: 0;width: 0;position: absolute;pointer-events: none;}
-.arrow_box:after {border-color: rgba(255, 252, 230, 0);border-left-color: #ffeb9d;border-width: 10px;margin-top: -10px;}
-.arrow_box:before {border-color: rgba(255, 252, 230, 0);border-left-color:#ffeb9d;border-width: 13px;	margin-top: -13px;}
+.arrow_box:after {border-color: rgba(255, 252, 230, 0);border-left-color: #ff7987;border-width: 10px;margin-top: -10px;}
+.arrow_box:before {border-color: rgba(255, 252, 230, 0);border-left-color:#ff7987;border-width: 13px;	margin-top: -13px;}
 .object-review {margin:2rem;}
 .object-review strong {font-size:2rem;font-weight:bold;}
 .store-table {border-collapse:separate;border-spacing: 0 10px;}
@@ -431,7 +434,10 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .store-info strong {font-size:1.3rem;font-weight:bold;}
 .store-info p{font-size:1.5rem;}
 .object-cart-qty {float:right;}
-.object-cart-detail {padding-top:15px;font-size:2rem;} 
+.object-cart-qty .fa-minus{float:left; margin:0.5rem;}
+.object-cart-qty .fa-plus{float:left;  margin:0.5rem;}
+.object-cart-qty .qty-result{float:left; margin:0.5rem;}
+.object-cart-detail {padding-top:15px;font-size:2rem;}
 .object-cart-detail strong {font-size:2rem;font-weight:bold;}
 .object-main-content {margin-top:2rem; padding-top:15px;}
 .object-main-content p{font-size:1.6rem;font-color:#808080;}
