@@ -5,20 +5,18 @@
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
-  var SERVER_PATH = CONFIG.SERVER_PATH;
-  M.data.removeGlobal('seqNo');
-  var seqNo = [];
   var page = {
     els: {
       $categoryChange: null,
       $store1:null,
+      $userInfoBtn: null,
     },
     data: {},
     init: function init() {
       this.els.$categoryChange = $('#takeout-category-change');
       this.els.$store1 = $('#store1');
+      this.els.$userInfoBtn = $('#userInfo-btn');
     },
-
     initView: function initView() {
       var self = this;
       // 화면에서 세팅할 동적데이터
@@ -26,14 +24,17 @@
     initEvent: function initEvent() {
       // Dom Event 바인딩
       var self = this;
-
+      this.els.$userInfoBtn.on('click', function () {
+        M.page.html({
+          url: './eunjin_userInfo_info_member.html',
+        });
+      });
       this.els.$categoryChange.on('click', function () {
-        M.page.html('./jiwon_storelist_delivery.html');
+        M.page.replace('./jiwon_storelist_takeout.html');
       });
       this.els.$store1.on('click', function() {
         M.page.html('./jiwon_store_menulist.html');
       });
-
     },
   };
 
@@ -49,7 +50,4 @@
     pageFunc.initEvent();
   });
 
-  M.onRestore(function () {
-    pageFunc.initView();
-  });
 })(jQuery, M, __page__, window);

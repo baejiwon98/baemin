@@ -14,13 +14,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74ed69c0-9853-4c9b-bfa4-a76e302cc75d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/store_list_takeout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_Info_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_Info_employee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/jiwon_storelist_delivery.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_storelist_delivery.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/jiwon_storelist_takeout.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_storelist_takeout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_main_member.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_main_member.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_main_member2.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_main_member2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/member_main1.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/member_main1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/member_main2.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/member_main2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/store_list_delivery.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/store_list_delivery.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_map.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_map.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_Info_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_Info_employee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_main_member.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_main_member.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_main_member2.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_main_member2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/member_main1.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/member_main1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/member_main2.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/member_main2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_list_delivery.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_list_delivery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/outputs/apk/debug/baemin-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/outputs/apk/debug/baemin-debug.apk" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +73,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="27BcECPQdRfwcLBfEfnYpnHuMOZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -72,7 +95,7 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/res/www/js/ui" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -81,11 +104,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Documents\baemin\baemin\assets\res\www\js\ui" />
       <recent name="C:\Users\user\git\baemin\baemin\libs\armeabi-v7a" />
       <recent name="C:\Users\user\git\baemin\baemin\libs\arm64-v8a" />
       <recent name="C:\Users\user\git\baemin\baemin\libs" />
       <recent name="C:\Users\user\git\baemin\baemin\assets\res\www\img" />
-      <recent name="C:\Users\user\git\baemin\baemin\assets\res\www\html" />
     </key>
   </component>
   <component name="RunManager">

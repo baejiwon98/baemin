@@ -1,45 +1,71 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : member_main1.js
+ * @author : 배지원
+ * @date : 2022-04-11
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
-  var SERVER_PATH = CONFIG.SERVER_PATH;
-  M.data.removeGlobal('seqNo');
   var seqNo = [];
   var page = {
     els: {
       $deliveryBtn: null,
-      $userInfoBtn:null,
-      $myAddressBtn:null,
+      $userInfoBtn: null,
+      $myAddressBtn: null,
+      $takeoutBtn: null,
     },
     data: {},
     init: function init() {
       this.els.$deliveryBtn = $('#delivery-btn');
       this.els.$userInfoBtn = $('#userInfo-btn');
-      this.els.$myAddressBtn = $('#myAddress');
+      this.els.$myAddressBtn = $('#map-title');
+      this.els.$takeoutBtn = $('#takeout-btn');
     },
-
     initView: function initView() {
       var self = this;
-      // 화면에서 세팅할 동적데이터
+      var id = M.data.global('myId');
+      $.sendHttp({
+        path: "/api/member/info",
+        data: {
+          "memberId": M.data.global('myId'),
+        },
+        succ: function (data) {
+          console.log(data);
+          console.log(M.data.global('myAddress'))
+          M.data.global('myAddress', data.memberAddr + ' ' + data.memberAddrDetail);
+          console.log(M.data.global('myAddress'))
+          const element = document.getElementById('map-title');
+          element.innerHTML = '<strong>' + M.data.global('myAddress') + '</strong>';
+        },
+        error: function (data) {
+          console.log(data);
+          alert("유저 정보를 가져오지 못했습니다.");
+        }
+      });
     },
     initEvent: function initEvent() {
       // Dom Event 바인딩
       var self = this;
 
       this.els.$deliveryBtn.on('click', function () {
-        M.page.html('./saetbyeol_main_member2.html');
+        M.page.html({
+            url : './saetbyeol_main_member2.html',
+            param: { "way": "delivery" },
+        });
+      });
+      this.els.$takeoutBtn.on('click', function () {
+        M.page.html({
+          url : './saetbyeol_main_member2.html',
+          param: { "way": "takeout" },
+        });
       });
       this.els.$userInfoBtn.on('click', function () {
-        M.page.html('./eunjin_userInfo_info_member.html');
+        M.page.html({
+          url: './eunjin_userInfo_info_member.html',
+        });
       });
-
-      this.els.$myAddressBtn.on('click', function() {
+      this.els.$myAddressBtn.on('click', function () {
         M.page.html('./saetbyeol_map.html');
-      })
-
+      });
     },
   };
 
@@ -53,6 +79,9 @@
     pageFunc.init(); // 최초 화면 초기화
     pageFunc.initView();
     pageFunc.initEvent();
+  });
+  M.onRestore(function () {
+    pageFunc.initView();
   });
 
 })(jQuery, M, __page__, window);

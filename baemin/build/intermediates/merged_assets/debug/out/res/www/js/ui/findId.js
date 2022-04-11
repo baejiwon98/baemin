@@ -1,22 +1,24 @@
 /**
- * @file : 
- * @author :
- * @date : 
+ * @file : findId.js
+ * @author : 배지원
+ * @date : 2022-04-11
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
   var SERVER_PATH = CONFIG.SERVER_PATH;
   var page = {
     els: {
-      $userNmIpt: null,
+      $userNameIpt: null,
+      $userEmailIpt: null,
       $cellPhoneIpt: null,
       $findIdBtn: null,
       $findPwBtn: null,
     },
     data: {},
     init: function init() {
-      this.els.$userNmIpt = $('#userNm');
-      this.els.$cellPhoneIpt = $('#cellPhone');
+      this.els.$userNameIpt = $('#userName');
+      this.els.$userEmailIpt = $('#userEmail');
+      this.els.$cellPhoneIpt = $('#userPhone');
       this.els.$findIdBtn = $('#findIdBtn');
       this.els.$findPwBtn = $('#findPw');
     },
@@ -36,6 +38,7 @@
       this.els.$findPwBtn.on('click', function () {
         M.page.html({
           url: './goeun_findPw1.html',
+          action: 'NO_HISTORY',
         });
       });
 
@@ -43,26 +46,31 @@
 
     findId: function () {
       var self = this;
-      var name = this.els.$userNmIpt.val().trim();
+      var name = this.els.$userNameIpt.val().trim();
+      var email = this.els.$userEmailIpt.val().trim();
       var phone = this.els.$cellPhoneIpt.val().trim();
       if (name == '') {
         return alert('이름을 입력해주세요');
+      }
+      if (email == '') {
+        return alert('이메일을 입력해주세요');
       }
       if (phone == '') {
         return alert('전화번호를 입력해주세요');
       }
 
       $.sendHttp({
-        path: SERVER_PATH.FIND_ID,
+        path: "/api/findId",
         data: {
-          userNm: name,
-          cellPhone: phone
+          userName: name,
+          userEmail: email,
+          userPhone: phone,
         },
         succ: function (data) {
           console.log(data);
-          alert('아이디는 ' + data.loginId);
+          alert('아이디는 ' + data.loginId + ' 입니다.');
           M.page.html({
-            url: './login.html',
+            url: './goeun_login.html',
             actionType: 'CLEAR_TOP'
           });
         },

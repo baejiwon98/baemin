@@ -1,7 +1,7 @@
 /**
- * @file : 로그인페이지
+ * @file : login.js
  * @author : 배지원
- * @date :  22-03-22
+ * @date :  2022-04-11
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
@@ -35,7 +35,7 @@
       // Dom Event 바인딩
       var self = this;
       this.els.$loginBtn.on('click', function () {
-        M.page.html("./saetbyeol_main_member.html")
+        self.login();
       });
       this.els.$findIdBtn.on('click', function () {
         M.page.html({
@@ -67,7 +67,7 @@
       M.data.removeStorage('AUTO_LOGIN_AUTH');
     },
 
-    login: function () {
+    login: function login() {
       var self = this;
       var id = this.els.$loginIdIpt.val().trim(); // 로그인 아이디 가져오기
       var pw = this.els.$passwordIpt.val().trim(); // 비밀번호 가져오기
@@ -80,7 +80,7 @@
       }
 
       $.sendHttp({
-        path: SERVER_PATH.LOGIN,
+        path: "/api/login",
         data: {
           loginId: id,
           password: pw
@@ -92,10 +92,23 @@
           M.data.global({
             'myId': id
           });
-          $.movePage({
-            url: './main.html',
-            actionType: 'CLEAR_TOP',
-          });
+          if (data.userGrade == "delivery") {
+            $.movePage({
+              url: './saetbyeol_main_delivery.html',
+              actionType: 'CLEAR_TOP',
+            });
+          } else if (data.userGrade == "store") {
+            $.movePage({
+              url: './saetbyeol_main_employee.html',
+              actionType: 'CLEAR_TOP',
+            });
+          } else if (data.userGrade == "member") {
+            $.movePage({
+              url: './saetbyeol_main_member.html',
+              actionType: 'CLEAR_TOP',
+            });
+          }
+
           //alert('로그인 성공')
         },
         error: function (data) {

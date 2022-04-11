@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ko">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
@@ -10,76 +11,73 @@
 </head>
 
 <body>
-<div class="wrapper">
-  <header class="header">
-    <button type="button" class="btn-back l-fix" id="backBtn">
-      뒤로가기
-    </button>
-    <div class="ipt-form-type0">
-      <div class="ipt-form-row">
-        <div class="area map-search-txt" >
-          <strong>
-          서울특별시 코사구 코사동 어쩌구 저쩌구 오예오예 제발
-          </strong>
+  <div class="wrapper">
+    <header class="header">
+      <button type="button" class="btn-back l-fix" id="backBtn">
+        뒤로가기
+      </button>
+      <div class="ipt-form-type0">
+        <div class="ipt-form-row">
+          <div class="area map-search-txt" id = "map-title">
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn-menu r-fix" id="userInfo-btn">
+        메뉴
+      </button>
+    </header>
+    <div class="container">
+      <div class="cont-wrap pd">
+        <div class="ipt-form-type2">
+          <div class="ipt-form-map">
+            <div class="ipt-form-row">
+              <input type="text" id="address" placeholder="주소" />
+              <button class="btn-line" id="searchAddr">
+                찾기
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="ipt-form-type1">
+          <div class="ipt-form-col">
+            <input type="text" id="addrDetail" placeholder="상세주소" />
+          </div>
+        </div>
+        <div class="map" id="map">
+          <button type="button" class="btn-current" id="currentBtn">
+            current
+          </button>
+        </div>
+        <div class="btn-wrap">
+          <button type="button" id="okBtn" class="btn-point-color">
+            확인
+          </button>
         </div>
       </div>
     </div>
-    <button type="button" class="btn-menu r-fix">
-      메뉴
-    </button>
-  </header>
-  <div class="container">
-    <div class="cont-wrap pd">
-  <div class="ipt-form-type2">
-    <div class="ipt-form-map">
-      <div class="ipt-form-row">
-        <input type="text" id = "address" placeholder="주소"/>
-        <button class="btn-line" id = "searchAddr">
-          찾기
-        </button>
-      </div>
-    </div>
-
   </div>
-    <div class="ipt-form-type1">
-      <div class="ipt-form-col">
-        <input type="text" id="addrDetail" placeholder="상세주소"/>
-      </div>
-    </div>
+  <div class="container bg-white line-t">
+    <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+    <div class="cont-wraps main-box">
 
-  <div class="map" id="map">
-    <button type="button" class="btn-current" id="currentBtn">
-      current
-    </button>
-  </div>
-    <div class="btn-wrap">
-      <button type="button" id="okBtn" class="btn-point-color">
-        확인
-      </button>
-    </div>
-    </div>
-  </div>
-</div>
-<div class="container bg-white line-t">
-  <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
-  <div class="cont-wraps main-box">
-
-    <div class="footer">
-      <div class="sns-wrap type01">
-        <br />
-        <br />
-        <p class="copyright">
-          Copyrightⓒ. 2022. 배달의 민조. All Rights Reserved.
-        </p>
+      <div class="footer">
+        <div class="sns-wrap type01">
+          <br />
+          <p class="copyright">
+            Copyrightⓒ. 2022. 배달의 민조. All Rights Reserved.
+          </p>
+          <br />
+        </div>
       </div>
     </div>
   </div>
-</div>
 </body>
 
 <script src="../js/swiper.min.js"></script>
 <script type="text/javascript" src="../js/mcore.min.js"></script>
 <script type="text/javascript" src="../js/ui/map.js"></script>
 <!--<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a6910b40d2a8c4dbe5c67eebee49b8be"></script>-->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a6910b40d2a8c4dbe5c67eebee49b8be&libraries=services"></script>
+<script type="text/javascript"
+  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a6910b40d2a8c4dbe5c67eebee49b8be&libraries=services"></script>
+
 </html>

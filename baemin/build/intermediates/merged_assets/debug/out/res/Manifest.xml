@@ -37,8 +37,15 @@
         <plugins/>
     </library>
     <network>
-        <http/>
-        <socket/>
+        <http>
+            <GW_SERVER>
+                <path>mcore.edu.baemin.implementation.HttpDefaultNetworkManager</path>
+                <address>http://localhost:8080/</address>
+                <timeout>30000</timeout>
+                <encoding>utf-8</encoding>
+                <type>rest</type>
+            </GW_SERVER>
+        </http>
     </network>
     <local-server>
         <port>2000,2001,2002,2003,2004,2005,2006,2007,2008</port>

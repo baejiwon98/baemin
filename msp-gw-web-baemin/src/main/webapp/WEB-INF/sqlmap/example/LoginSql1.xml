@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Login">	
+	<select id="find" parameterType="map" resultType="edu.example.dto.LoginDto">
+	select MEMBER_ID loginId, 'member' userGrade from MEMBER WHERE MEMBER_NAME = #{userName} and 
+	MEMBER_PHONE = #{userPhone} and MEMBER_EMAIL = #{userEmail} and MEMBER_ID = #{loginId}
+	union
+	select employee_ID loginId, 'store' userGrade from store WHERE employee_name = #{userName} and 
+	employee_PHONE = #{userPhone} and employee_EMAIL = #{userEmail} and employee_ID = #{loginId}
+	union
+	select delivery_ID loginId, 'delivery' userGrade from delivery WHERE delivery_name = #{userName} and 
+	delivery_PHONE = #{userPhone} and delivery_EMAIL = #{userEmail} and delivery_ID = #{loginId}
+	</select>
+	
+	<select id="findId" parameterType="map" resultType="edu.example.dto.LoginDto">
+	select MEMBER_ID loginId from MEMBER WHERE MEMBER_NAME = #{userName} and 
+	MEMBER_PHONE = #{userPhone} and MEMBER_EMAIL = #{userEmail}
+	union
+	select employee_id loginId from store WHERE employee_NAME = #{userName} and 
+	employee_PHONE = #{userPhone} and employee_EMAIL = #{userEmail}
+	union
+	select DELIVERY_ID loginId from delivery WHERE delivery_NAME = #{userName} and 
+	delivery_PHONE = #{userPhone} and delivery_EMAIL = #{userEmail}
+	</select>
+	
+	<update id="memberPwModify">
+		UPDATE MEMBER
+		SET    MEMBER_PW = #{password}
+		WHERE  MEMBER_ID = #{loginId}
+	</update>
+	
+	<update id="storePwModify">
+		UPDATE STORE
+		SET    EMPLOYEE_PW = #{password}
+		WHERE  EMPLOYEE_ID = #{loginId}
+	</update>
+	
+	<update id="deliveryPwModify">
+		UPDATE DELIVERY
+		SET    DELIVERY_PW = #{password}
+		WHERE  DELIVERY_ID = #{loginId}
+	</update>
+	
+	<select id="dupLoginId" parameterType="map" resultType="edu.example.dto.LoginDto">
+	select MEMBER_ID loginId, 'member' userGrade from MEMBER WHERE MEMBER_ID = #{loginId}
+	union
+	select employee_id loginId, 'store' userGrade from store where employee_id = #{loginId}
+	union
+	select DELIVERY_ID loginId, 'delivery' userGrade from delivery where DELIVERY_ID = #{loginId}
+	</select>
+	
+	<select id="login" parameterType="map" resultType="edu.example.dto.LoginDto">
+	 select employee_id loginId, employee_pw, 'store' userGrade password from STORE where employee_id = #{loginId}
+	 union
+	 select MEMBER_ID loginId, MEMBER_PW password, 'member' userGrade from MEMBER WHERE MEMBER_ID = #{loginId}
+	 union
+	 select DELIVERY_ID loginId, DELIVERY_PW password, 'delivery' userGrade from DELIVERY where DELIVERY_ID = #{loginId}
+	</select>
+		
+</mapper>

@@ -1,7 +1,7 @@
 /**
- * @file : 
- * @author :
- * @date : 
+ * @file : join3.js
+ * @author : 배지원
+ * @date : 2022-04-11
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
@@ -42,7 +42,11 @@
       });
 
       this.els.$joinBtn.on('click', function () {
-        M.page.html('./join4.html');
+        if (dulStatus == 'N') {
+                  self.join();
+                } else {
+                  alert("다시 중복체크 하세요.");
+                }
       });
 
       this.els.$backBtn.on('click', function () {
@@ -59,7 +63,7 @@
       }
 
       $.sendHttp({
-        path: SERVER_PATH.DUPLICATE,
+        path: "/api/duplicate",
         data: {
           loginId: id,
         },
@@ -76,7 +80,7 @@
         },
         error: function (data) {
           console.log(data);
-          alert("사용 불가! 중복된 아이디가 없습니다.");
+          alert("사용 불가! 중복된 아이디가 있습니다.");
         }
       });
 
@@ -85,11 +89,11 @@
     join: function () {
       var self = this;
       var id = this.els.$loginIdIpt.val().trim();
-      var name = M.data.param('userNm');
+      var name = M.data.param('userName');
       var pw = this.els.$passwordIpt.val().trim();
-      var birth = M.data.param('birthDate');
-      var gender = M.data.param('gender');
-      var phone = M.data.param('cellPhone');
+      var birth = M.data.param('userBirth');
+      var phone = M.data.param('userPhone');
+      var nickname = M.data.param('userNickname');
       var pwCon = this.els.$repasswordIpt.val().trim();
       var email = this.els.$emailIpt.val().trim();
       var regExpEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
@@ -120,33 +124,35 @@
           alert("특수문자, 숫자, 영문이 포함된 8가지 이상의 비밀번호를 넣으세요.");
           return false;
         } else {
-          $.sendHttp({
-            path: SERVER_PATH.JOIN,
-            data: {
-              loginId: id,
-              password: pw,
-              userNm: name,
-              birthDate: birth,
-              gender: gender,
-              cellPhone: phone,
-              email: email,
-            },
-            succ: function (data) {
-              console.log(data);
-              M.page.html({
-                url: './join4.html',
-                actionType: 'CLEAR_TOP',
-              });
-            },
-            error: function (data) {
-              console.log(data);
-              alert('회원가입실패! 다시 가입해보세요');
-              M.page.html({
-                url: './login.html',
-                actionType: 'CLEAR_TOP',
-              });
-            }
-          });
+          if (M.data.param('grade') == 'member') {
+            $.sendHttp({
+              path: "/api/member/join",
+              data: {
+                memberName: name,
+                memberEmail: email,
+                memberPhone: phone,
+                memberNickname: nickname,
+                memberBirth: birth,
+                memberId: id,
+                memberPw: pw,
+              },
+              succ: function (data) {
+                console.log(data);
+                M.page.html({
+                  url: './join4.html',
+                  actionType: 'CLEAR_TOP',
+                });
+              },
+              error: function (data) {
+                console.log(data);
+                alert('회원가입실패! 다시 가입해보세요');
+                M.page.html({
+                  url: './goeun_login.html',
+                  actionType: 'CLEAR_TOP',
+                });
+              }
+            });
+          }
           return true;
         }
       }
