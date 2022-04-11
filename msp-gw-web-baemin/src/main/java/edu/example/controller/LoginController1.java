@@ -28,6 +28,47 @@ public class LoginController1 {
 	@Autowired(required=true)
 	private LoginService1 service;
 	
+	// 비밀번호 체크
+	@RequestMapping( method = RequestMethod.POST, value = "/api/checkPw" )
+	public ModelAndView checkPw( HttpServletRequest request, HttpServletResponse response ) {
+				
+		Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
+		Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
+		Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+		        
+		if(reqHeadMap==null){
+			reqHeadMap = new HashMap<String, Object>();
+		}
+		        
+		reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+				
+		logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+		        
+		LoginDto info = service.checkPw( reqBodyMap );
+		        
+		if( !StringUtils.isEmpty(info) ) {
+			if(reqBodyMap.get("password").equals(info.getPassword())) {
+				responseBodyMap.put("rsltCode", "0000");
+			    responseBodyMap.put("rsltMsg", "Success");
+			    responseBodyMap.put("confirmMsg", "Y");
+			}else {
+				responseBodyMap.put("rsltCode", "0000");
+			    responseBodyMap.put("rsltMsg", "Success");
+			    responseBodyMap.put("confirmMsg", "N");
+			}
+			
+		} else {
+			responseBodyMap.put("rsltCode", "2003");
+			responseBodyMap.put("rsltMsg", "Data not found.");
+		}		
+		
+		ModelAndView mv = new ModelAndView("defaultJsonView");
+		mv.addObject(Const.HEAD,reqHeadMap);
+		mv.addObject(Const.BODY,responseBodyMap);
+
+		return mv;
+	}
 	
 	// 비밀번호 수정
 	@RequestMapping( method = RequestMethod.POST, value = "/api/password" )
@@ -162,7 +203,7 @@ public class LoginController1 {
 	        if( !StringUtils.isEmpty(info) ) {
 	        	responseBodyMap.put("rsltCode", "0000");
 	            responseBodyMap.put("rsltMsg", "Success");
-	            responseBodyMap.put("memberId", info.getLoginId());
+	            responseBodyMap.put("loginId", info.getLoginId());
 	        } else {
 	        	responseBodyMap.put("rsltCode", "2003");
 				responseBodyMap.put("rsltMsg", "Data not found.");
@@ -236,6 +277,7 @@ public class LoginController1 {
 					session.setAttribute("loginId", info.getLoginId());	
 					responseBodyMap.put("rsltCode", "0000");
 					responseBodyMap.put("rsltMsg", "Success");
+					responseBodyMap.put("userGrade", info.getUserGrade());
 					System.out.println(session.getAttribute("info"));
 				}else {
 					responseBodyMap.put("rsltCode", "2001");
