@@ -13,21 +13,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74ed69c0-9853-4c9b-bfa4-a76e302cc75d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_Info_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_Info_employee.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_map.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_map.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_Info_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_Info_employee.js" afterDir="false" />
-    </list>
+    <list default="true" id="74ed69c0-9853-4c9b-bfa4-a76e302cc75d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\user\.android\avd\Pixel_2_API_30_4.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\user\.android\avd\Pixel_2_API_30_5.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -72,7 +64,7 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/eduSampleProject/eduSample" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
