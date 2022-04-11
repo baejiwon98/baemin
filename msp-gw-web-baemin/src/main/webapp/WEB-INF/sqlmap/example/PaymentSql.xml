@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Payment">
+	<select id="autoNum" resultType="String">
+		select concat('order', nvl(max(substr(order_num, 6)), 10000)+1) from payment
+	</select>
+	
+	<select id="getQty" parameterType="map" resultType="int">
+		SELECT BUY_QTY FROM ORDERLIST
+		WHERE OBJECT_NUM = #{objectNum}
+	</select>
+	
+	<select id="getObjPrice" parameterType="map" resultType="int">
+		SELECT OBJECT_PRICE FROM OBJECT
+		WHERE OBJECT_NUM = #{objectNum}
+	</select>
+	
+	<select id="getPaymentDetail" parameterType="map" resultType="edu.example.dto.PaymentDetailDto">
+		select m.member_num, member_addr, member_phone, 
+		p.order_num, to_char(order_time,'YYYY-MM-DD HH:MM:SS') orderTime, payment_category, store_request, order_total_price, order_status,
+		delivery_request,
+		ob.object_num, object_name, OBJECT_PRICE,
+		store_name, store_addr, store_phone, delivery_price
+		from member m, payment p, orderlist od, object ob, store s
+		WHERE s.STORE_NUM = ob.STORE_NUM and od.OBJECT_NUM = ob.OBJECT_NUM and p.STORE_NUM = s.STORE_NUM and m.MEMBER_NUM = p.MEMBER_NUM and p.order_num = #{orderNum}
+	</select>
+	
+	<select id="getPaymentMember" parameterType="map" resultType="edu.example.dto.OrderViewDto">
+		SELECT p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, BUY_QTY, OBJECT_NAME, OBJECT_IMAGE, STORE_NAME, s.STORE_NUM, ob.OBJECT_NUM, m.MEMBER_NUM
+		FROM PAYMENT p, ORDERLIST od, OBJECT ob, STORE s, MEMBER m
+		WHERE s.STORE_NUM = ob.STORE_NUM and od.OBJECT_NUM = ob.OBJECT_NUM and p.STORE_NUM = s.STORE_NUM and m.MEMBER_NUM = p.MEMBER_NUM and m.MEMBER_NUM = #{memberNum}
+	</select>
+	
+	<select id="getPaymentStore" parameterType="map" resultType="edu.example.dto.OrderViewDto">
+		SELECT p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, BUY_QTY, OBJECT_NAME, OBJECT_IMAGE, s.STORE_NUM, ob.OBJECT_NUM, m.MEMBER_NUM
+		FROM PAYMENT p, ORDERLIST od, OBJECT ob, STORE s, MEMBER m
+		WHERE s.STORE_NUM = ob.STORE_NUM AND od.OBJECT_NUM = ob.OBJECT_NUM AND p.STORE_NUM = s.STORE_NUM and m.MEMBER_NUM = p.MEMBER_NUM and s.STORE_NUM = #{storeNum}
+	</select>
+	
+	<select id="getPaymentDelivery" parameterType="map" resultType="edu.example.dto.OrderViewDto">
+		SELECT p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, BUY_QTY, OBJECT_NAME, OBJECT_IMAGE, s.STORE_NUM, STORE_NAME, ob.OBJECT_NUM, d.DELIVERY_NUM, m.MEMBER_NUM
+		FROM PAYMENT p, ORDERLIST od, OBJECT ob, STORE s, MEMBER m, DELIVERYREQUEST dr, DELIVERY d
+		WHERE s.STORE_NUM = ob.STORE_NUM AND od.OBJECT_NUM = ob.OBJECT_NUM and p.STORE_NUM = s.STORE_NUM 
+		AND m.MEMBER_NUM = p.MEMBER_NUM AND p.order_num = dr.order_num and dr.delivery_num = d.delivery_num
+		AND d.delivery_NUM = #{deliveryNum}
+	</select>
+	
+	<insert id="insertPayment">
+		INSERT INTO PAYMENT
+		VALUES
+	    	( #{orderNum}, SYSDATE, #{paymentCategory}, #{storeRequest}, 
+	    	#{orderTotalPrice}, #{memberNum}, '주문 완료', #{deliveryRequest}, #{storeNum} )
+	</insert>
+	<update id="insertMemInfo">
+		UPDATE MEMBER SET
+		MEMBER_PHONE = #{memberPhone}, 
+		MEMBER_ADDRDETAIL = #{memberAddrDetail}
+		WHERE MEMBER_ID = #{memberId}
+	</update>
+	
+	<delete id="paymentDelete">
+		DELETE FROM PAYMENT
+		WHERE ORDER_NUM = #{orderNum}
+	</delete>
+	
+	<update id="statusUpdate">
+		UPDATE PAYMENT
+		SET ORDER_STATUS = #{orderStatus}
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<!-- ddddddddddddddddddddddddddddddddd -->
+	
+	<select id="getMemberAddr"  parameterType="map" resultType="edu.example.dto.PaymentDetailDto">
+		SELECT MEMBER_ADDR FROM MEMBER
+		WHERE MEMBER_ID = #{memberId}
+	</select>
+	
+	<select id="getDeliveryPrice"  parameterType="map" resultType="edu.example.dto.PaymentDetailDto">
+		SELECT DELIVERY_PRICE FROM STORE
+		WHERE STORE_NUM = #{storeNum}
+	</select>	
+	
+	<select id="getStoreName"  parameterType="map" resultType="edu.example.dto.PaymentDetailDto">
+		SELECT STORE_NAME FROM STORE
+		WHERE STORE_NUM = #{storeNum}
+	</select>	
+	
+</mapper>
