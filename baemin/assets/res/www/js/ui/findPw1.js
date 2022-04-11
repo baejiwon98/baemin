@@ -1,7 +1,7 @@
 /**
- * @file : 
- * @author :
- * @date : 
+ * @file : findPw1.js
+ * @author : 배지원
+ * @date : 2022-04-11
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
@@ -9,16 +9,20 @@
   var page = {
     els: {
       $loginIdIpt: null,
-      $userNmIpt: null,
+      $userNameIpt: null,
+      $userEmailIpt: null,
       $cellPhoneIpt: null,
       $findPwBtn: null,
+      $findIdBtn: null,
     },
     data: {},
     init: function init() {
       this.els.$loginIdIpt = $('#loginId');
-      this.els.$userNmIpt = $('#userNm');
-      this.els.$cellPhoneIpt = $('#cellPhone');
+      this.els.$userNameIpt = $('#userName');
+      this.els.$userEmailIpt = $('#userEmail');
+      this.els.$cellPhoneIpt = $('#userPhone');
       this.els.$findPwBtn = $('#findPwBtn');
+      this.els.$findIdBtn = $('#findId');
     },
 
     initView: function initView() {
@@ -29,18 +33,23 @@
       // Dom Event 바인딩
       var self = this;
 
-      this.els.$findPwBtn.on('click', function () {
-        M.page.html("./goeun_findPw2.html");
+      this.els.$findIdBtn.on('click', function () {
+        M.page.html({
+          url: './goeun_findId.html',
+          action: 'NO_HISTORY',
+        });
       });
-      this.els.$backBtn.on('click', function () {
-        M.page.html("./goeun_login.html");
+
+      this.els.$findPwBtn.on('click', function () {
+        self.findPw();
       });
     },
 
     findPw: function () {
       var self = this;
       var id = this.els.$loginIdIpt.val().trim();
-      var name = this.els.$userNmIpt.val().trim();
+      var name = this.els.$userNameIpt.val().trim();
+      var email = this.els.$userEmailIpt.val().trim();
       var phone = this.els.$cellPhoneIpt.val().trim();
       if (id == '') {
         return alert('아이디를 입력해주세요');
@@ -48,22 +57,26 @@
       if (name == '') {
         return alert('이름을 입력해주세요');
       }
+      if (email == '') {
+        return alert('이메일을 입력해주세요');
+      }
       if (phone == '') {
         return alert('전화번호를 입력해주세요');
       }
 
       $.sendHttp({
-        path: SERVER_PATH.FIND,
+        path: "/api/find",
         data: {
           loginId: id,
-          userNm: name,
-          cellPhone: phone
+          userName: name,
+          userEmail: email,
+          userPhone: phone
         },
         succ: function (data) {
           if (data.existYn == 'Y') {
             console.log(data);
             M.page.html({
-              path: './findPw2.html',
+              path: './goeun_findPw2.html',
               param: {
                 "loginId": id,
               }

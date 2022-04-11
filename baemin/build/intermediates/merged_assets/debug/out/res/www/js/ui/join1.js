@@ -1,7 +1,7 @@
 /**
- * @file : 
- * @author :
- * @date : 
+ * @file : join1.js
+ * @author : 배지원
+ * @date : 2022-04-11
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
@@ -14,6 +14,7 @@
       $chk4: null,
       $chked: null,
       $backBtn: null,
+      $radio: null,
     },
     data: {},
     init: function init() {
@@ -24,7 +25,11 @@
       this.els.$chk3 = $('#chk3');
       this.els.$chk4 = $('#chk4');
       this.els.$chked = $("input[type=checkbox]");
+
       this.els.$backBtn = $('#backBtn');
+
+      this.els.$radio = $("input[name=user]");
+
     },
 
     initView: function initView() {
@@ -34,9 +39,8 @@
     initEvent: function initEvent() {
       // Dom Event 바인딩
       var self = this;
-
       this.els.$nextBtn.on('click', function () {
-        M.page.html('./saetbyeol_join2_delivery.html');
+        self.next();
       });
 
       this.els.$allchkBtn.on('click', function () {
@@ -59,7 +63,35 @@
         M.page.back();
       });
 
+
     },
+    next: function next() {
+      var self = this;
+      var grade = $('input[name=user]:checked').val();
+      var ischecked1 = this.els.$chk2.prop('checked');
+      var ischecked2 = this.els.$chk3.prop('checked');
+      if (ischecked1) {} else { // 첫번째 체크박스가 체크 되어있지 않은 경우
+        alert("필수! 서비스 이용약관 동의를 체크 해주세요.")
+        return false;
+      }
+      if (ischecked2) {} else { // 두번째 체크박스가 체크 되어있지 않은 경우
+        alert("필수! 개인정보 수집 및 이용동의를 체크 해주세요.");
+        return false;
+      }
+      if (grade == null) {
+        alert("회원 유형을 선택해주세요.");
+        return false;
+      }
+
+      if (grade == "member") {
+        M.page.html('./saetbyeol_join2_member.html');
+      } else if (grade == "store") {
+        M.page.html('./saetbyeol_join2_employee.html');
+      } else if (grade == "delivery") {
+        M.page.html('./saetbyeol_join2_delivery.html');
+      }
+
+    }
   };
 
   window.__page__ = page;

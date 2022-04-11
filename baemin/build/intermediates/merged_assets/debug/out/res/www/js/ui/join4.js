@@ -26,6 +26,7 @@
       this.els.$loginBtn.on('click', function () {
         M.page.html({
           url: './goeun_login.html',
+          actionType: 'CLEAR_TOP',
         });
       });
 

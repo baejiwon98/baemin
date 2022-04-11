@@ -1,7 +1,7 @@
 /**
- * @file : intro.js 인트로 페이지
- * @author :
- * @date : 
+ * @file : intro.js
+ * @author : 배지원
+ * @date : 2022-04-11
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
@@ -41,12 +41,6 @@
         actionType: "CLEAR_TOP"
       });
     },
-    moveMainPage: function moveMainPage() {
-      $.movePage({
-        url: "./main.html",
-        actionType: "CLEAR_TOP"
-      });
-    },
     initView: function initView() {
       // 화면에서 세팅할 동적데이터
       var self = this;
@@ -54,7 +48,7 @@
       if (existLoginData) {
         this.startProgress(function () {
           $.sendHttp({
-            path: SERVER_PATH.LOGIN,
+            path: "/api/login",
             data: {
               loginId: existLoginData.id,
               password: existLoginData.pw
@@ -64,7 +58,23 @@
               M.data.global({
                 'myId': existLoginData.id
               });
-              //              M.page.html('./main.html');
+              if (data.userGrade == "delivery") {
+                $.movePage({
+                  url: './saetbyeol_main_delivery.html',
+                  actionType: 'CLEAR_TOP',
+                });
+              } else if (data.userGrade == "store") {
+                $.movePage({
+                  url: './saetbyeol_main_employee.html',
+                  actionType: 'CLEAR_TOP',
+                });
+              } else if (data.userGrade == "member") {
+                $.movePage({
+                  url: './saetbyeol_main_member.html',
+                  actionType: 'CLEAR_TOP',
+                });
+              }
+
               self.moveMainPage();
             },
             error: function () {
