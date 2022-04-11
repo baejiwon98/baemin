@@ -1,20 +1,25 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : userInfo_orderList_member.js
+ * @author : 배지원
+ * @date : 2022-04-11
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
-  var SERVER_PATH = CONFIG.SERVER_PATH;
-  M.data.removeGlobal('seqNo');
-  var seqNo = [];
   var page = {
     els: {
       $reviewWriteBtn: null,
+      $myReviewBtn: null,
+      $myInfoBtn: null,
+      $orderDetailBtn: null,
+      $backBtn:null,
     },
     data: {},
     init: function init() {
+      this.els.$myInfoBtn = $('#myInfo-btn');
       this.els.$reviewWriteBtn = $('#reviewWriteBtn');
+      this.els.$myReviewBtn = $('#myReview-btn');
+      this.els.$orderDetailBtn = $('#orderDetail-btn');
+      this.els.$backBtn = $('#backBtn');
     },
 
     initView: function initView() {
@@ -24,10 +29,21 @@
     initEvent: function initEvent() {
       // Dom Event 바인딩
       var self = this;
-
+      this.els.$backBtn.on('click', function () {
+        M.page.back();
+      });
+      this.els.$myInfoBtn.on('click', function () {
+        M.page.back();
+      });
+      this.els.$myReviewBtn.on('click', function () {
+        M.page.replace('./jiwon_userInfo_reviewlist_member.html');
+      });
       this.els.$reviewWriteBtn.on('click', function () {
         M.page.html('./eunjin_userInfo_reviewWrite_member.html');
       });
+      this.els.$orderDetailBtn.on('click', function () {
+        M.page.html('./eunjin_userInfo_orderDetail_member.html');
+      })
     },
   };
 

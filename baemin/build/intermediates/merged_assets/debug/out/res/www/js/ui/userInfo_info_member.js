@@ -20,9 +20,11 @@
       $changePwBtn: null,
       $userLogoutBtn: null,
       $userOutBtn: null,
+      $backBtn: null,
     },
     data: {},
     init: function init() {
+      this.els.$backBtn = $('#backBtn');
       this.els.$myOrderListBtn = $('#myOrderList-btn');
       this.els.$myReviewBtn = $('#myReview-btn');
       this.els.$loginIdIpt = $('#loginId');
@@ -41,6 +43,7 @@
     initView: function initView() {
       var self = this;
       this.els.$loginIdIpt.val(M.data.global('myId'));
+      this.els.$passwordIpt.val('');
       $.sendHttp({
         path: "/api/member/info",
         data: {
@@ -64,16 +67,17 @@
     initEvent: function initEvent() {
       // Dom Event 바인딩
       var self = this;
+      this.els.$backBtn.on('click', function () {
+        M.page.back();
+      });
       this.els.$myOrderListBtn.on('click', function () {
         M.page.html({
           url: './eunjin_userInfo_orderList_member.html',
-          action: 'NO_HISTORY',
         });
       });
       this.els.$myReviewBtn.on('click', function () {
         M.page.html({
           url: './jiwon_userInfo_reviewlist_member.html',
-          action: 'NO_HISTORY'
         });
       });
       this.els.$modifyBtn.on('click', function () {
@@ -250,9 +254,8 @@
           memberEmail: email,
         },
         succ: function (data) {
-          M.page.html({
+          M.page.replace({
             url: "./eunjin_userInfo_info_member.html",
-            action: 'NO_HISTORY'
           });
         },
         error: function (data) {
@@ -278,4 +281,5 @@
   M.onRestore(function () {
     pageFunc.initView();
   });
+
 })(jQuery, M, __page__, window);
