@@ -13,7 +13,7 @@
     },
     data: {},
     init: function init() {
-      this.els.$categoryChange = $('#takeout-category-change');
+      this.els.$categoryChange = $('#delivery-category-change');
       this.els.$store1 = $('#store1');
       this.els.$userInfoBtn = $('#userInfo-btn');
     },
@@ -31,7 +31,7 @@
         });
       });
       this.els.$categoryChange.on('click', function () {
-        M.page.replace('./jiwon_storelist_takeout.html');
+        M.page.replace('./jiwon_storelist_delivery.html');
       });
       this.els.$store1.on('click', function() {
         M.page.html('./jiwon_store_menulist.html');

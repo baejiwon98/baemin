@@ -1,5 +1,5 @@
 /**
- * @file : member_main1,js
+ * @file : member_main1.js
  * @author : 배지원
  * @date : 2022-04-11
  */
@@ -47,22 +47,25 @@
       var self = this;
 
       this.els.$deliveryBtn.on('click', function () {
-        M.page.html('./saetbyeol_main_member2.html');
+        M.page.html({
+            url : './saetbyeol_main_member2.html',
+            param: { "way": "delivery" },
+        });
+      });
+      this.els.$takeoutBtn.on('click', function () {
+        M.page.html({
+          url : './saetbyeol_main_member2.html',
+          param: { "way": "takeout" },
+        });
       });
       this.els.$userInfoBtn.on('click', function () {
         M.page.html({
           url: './eunjin_userInfo_info_member.html',
         });
       });
-
       this.els.$myAddressBtn.on('click', function () {
         M.page.html('./saetbyeol_map.html');
       });
-
-      this.els.$takeoutBtn.on('click', function () {
-        M.page.html('./saetbyeol_main_member2.html');
-      });
-
     },
   };
 
