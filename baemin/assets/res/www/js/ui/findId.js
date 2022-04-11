@@ -53,18 +53,14 @@
       }
 
       $.sendHttp({
-        path: SERVER_PATH.FIND_ID,
+        path: "/api/findId",
         data: {
-          userNm: name,
-          cellPhone: phone
+          userName: '배지원',
+          userPhone: '01068705654',
+          userEmail: 'qwer@naver.com',
         },
         succ: function (data) {
           console.log(data);
-          alert('아이디는 ' + data.loginId);
-          M.page.html({
-            url: './login.html',
-            actionType: 'CLEAR_TOP'
-          });
         },
         error: function (data) {
           console.log(data);

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Review">
+
+	<update id="reviewFileUpdate">
+		UPDATE REVIEW
+		SET    REVIEW_CONTENT = #{reviewContent}, REVIEW_IMAGE = #{reviewImage}
+		WHERE  STORE_NUM = #{storeNum} and ORDER_NUM = #{orderNum}
+	</update>
+	
+	<insert id="reviewFileRegist" parameterType="map">
+		INSERT INTO REVIEW (ORDER_NUM, REVIEW_SCORE, REVIEW_DATE, REVIEW_CONTENT, REVIEW_IMAGE, STORE_NUM)
+		VALUES
+	    	( #{orderNum}, #{reviewScore}, sysdate, #{reviewContent}, #{reviewImage}, #{storeNum})
+	</insert>
+	
+	<update id="myreviewupdate">
+		UPDATE REVIEW
+		SET    REVIEW_CONTENT = #{reviewContent}
+		WHERE  STORE_NUM = #{storeNum} and ORDER_NUM = #{orderNum}
+	</update>
+	
+	<update id="updateStoreReview">
+		UPDATE REVIEW
+		SET    STORE_REVIEW = #{storeReview}
+		WHERE  STORE_NUM = #{storeNum} and ORDER_NUM = #{orderNum}
+	</update>
+	
+	<select id="getMyReviewInfo" parameterType="map" resultType="edu.example.dto.ReviewDto">
+		SELECT r.order_num, review_score, to_char(review_date,'YYYY-MM-DD') review_date, review_content, review_image,
+		store_review, store_num from review r, payment p
+		where r.order_num = p.order_num and member_num = #{memberNum}
+	</select>
+	
+	<update id="deleteStoreReview">
+		UPDATE REVIEW
+		SET    STORE_REVIEW = null
+		WHERE  STORE_NUM = #{storeNum} and ORDER_NUM = #{orderNum}
+	</update>
+	
+	<update id="insertStoreReview">
+		UPDATE REVIEW
+		SET    STORE_REVIEW = #{storeReview}
+		WHERE  STORE_NUM = #{storeNum} and ORDER_NUM = #{orderNum}
+	</update>
+	
+	<select id="getReviewInfo" parameterType="map" resultType="edu.example.dto.ReviewDto">
+		SELECT *
+		FROM   REVIEW WHERE STORE_NUM = #{storeNum} and ORDER_NUM = #{orderNum}
+	</select>
+	
+	<delete id="myReviewDelete">
+		DELETE FROM REVIEW
+		WHERE  ORDER_NUM = #{orderNum} 
+	</delete>
+	
+	<select id="getMyReviewlist" parameterType="map" resultType="edu.example.dto.ReviewDto">
+		SELECT r.order_num, review_score, to_char(review_date,'YYYY-MM-DD') review_Date, review_content, review_image,
+		store_review, store_num 
+        from review r, payment p
+		where r.order_num = p.order_num and member_num = #{memberNum}
+	</select>
+	
+	<select id="getReviewlist" parameterType="map" resultType="edu.example.dto.ReviewDto">
+		SELECT *
+		FROM REVIEW
+		<if test="storeNum != null and storeNum != '' ">
+			WHERE STORE_NUM = #{storeNum}
+		</if>
+	</select>
+	
+	<insert id="insertReview" parameterType="map">
+		INSERT INTO REVIEW (ORDER_NUM, REVIEW_SCORE, REVIEW_DATE, REVIEW_CONTENT, STORE_NUM)
+		VALUES
+	    	( #{orderNum}, #{reviewScore}, sysdate, #{reviewContent}, #{storeNum})
+	</insert>
+	
+</mapper>
