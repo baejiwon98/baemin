@@ -68,12 +68,34 @@
             </div>
           </div>
         </div>
-        <div class="btn-wrap btm-wrap pd">
-          <button type="button" id="writeBtn" class="btn-point-color">
-            작성하기
-          </button>
+        <div class="ipt-form-type1">
+            <span>
+              리뷰 내용
+            </span>
+          <div class="ipt-form-col" style="margin: 0.5em;">
+            <input type="text" id="content" placeholder="리뷰 내용(50자까지)" maxlength="50" />
+          </div>
+        </div>
+        <div class="ipt-form-type2">
+            <span>
+              첨부 이미지
+            </span>
+          <div class="ipt-form-row" style="margin: 0.5em;">
+            <input type="text" id="file" readonly placeholder="이미지 파일 (자동입력)" />
+            <button type="button" id="fileBtn" class="btn-line" style="width: 30%;">
+              이미지 선택
+            </button>
+          </div>
+          <div class="ipt-form-col">
+            <img src="" />
+          </div>
         </div>
       </div>
+    </div>
+    <div class="btn-wrap btm-wrap pd" style="padding: 0.5em;">
+      <button type="button" id="writeBtn" class="btn-point-color">
+        작성하기
+      </button>
     </div>
   </div>
 </body>
