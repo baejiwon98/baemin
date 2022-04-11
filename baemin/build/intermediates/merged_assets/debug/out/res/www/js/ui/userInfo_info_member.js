@@ -72,7 +72,7 @@
       });
       this.els.$myOrderListBtn.on('click', function () {
         M.page.html({
-          url: './eunjin_userInfo_orderList_member.html',
+          url: './eunjin_userInfo_myOrderList_member.html',
         });
       });
       this.els.$myReviewBtn.on('click', function () {

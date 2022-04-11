@@ -1,5 +1,5 @@
 /**
- * @file : member_main1,js
+ * @file : member_main1.js
  * @author : 배지원
  * @date : 2022-04-11
  */

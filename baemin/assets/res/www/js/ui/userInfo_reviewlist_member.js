@@ -33,7 +33,7 @@
         M.page.back();
       });
       this.els.$myOrderListBtn.on('click', function () {
-        M.page.replace('./eunjin_userInfo_orderList_member.html');
+        M.page.replace('./eunjin_userInfo_myOrderList_member.html');
       });
     }
   };
