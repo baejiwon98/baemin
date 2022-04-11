@@ -35,7 +35,9 @@
         M.page.html('./saetbyeol_main_member2.html');
       });
       this.els.$userInfoBtn.on('click', function () {
-        M.page.html('./eunjin_userInfo_info_member.html');
+        M.page.html({
+          url : './eunjin_userInfo_info_member.html'
+        });
       });
 
       this.els.$myAddressBtn.on('click', function () {

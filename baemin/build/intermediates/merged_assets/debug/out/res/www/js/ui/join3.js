@@ -80,7 +80,7 @@
         },
         error: function (data) {
           console.log(data);
-          alert("사용 불가! 중복된 아이디가 없습니다.");
+          alert("사용 불가! 중복된 아이디가 있습니다.");
         }
       });
 
