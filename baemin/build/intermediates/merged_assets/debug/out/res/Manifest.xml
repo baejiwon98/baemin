@@ -12,7 +12,8 @@
         </update>
     </resource>
     <startpage>
-        <name>www/html/intro.html</name>
+<!--        <name>www/html/intro.html</name> 지원-->
+<!--        <name>www/html/saetbyeol_main_employee.html</name> 샛별-->
         <orient>default</orient>
         <orient-tablet>default</orient-tablet>
     </startpage>
@@ -35,20 +36,24 @@
             <path>m.client.library.addon.zip.WNInterfaceZip</path>
         </addons>
         <plugins/>
+
     </library>
     <network>
         <http>
             <GW_SERVER>
                 <path>mcore.edu.baemin.implementation.HttpDefaultNetworkManager</path>
-                <address>http://localhost:8080/</address>
+<!--                <address>http://localhost:8080/</address> 지원-->
+<!--                <address>http://192.168.0.12:8080</address> 샛별-->
                 <timeout>30000</timeout>
                 <encoding>utf-8</encoding>
                 <type>rest</type>
             </GW_SERVER>
         </http>
+        <socket/>
     </network>
     <local-server>
-        <port>2000,2001,2002,2003,2004,2005,2006,2007,2008</port>
+<!--        <port>2000,2001,2002,2003,2004,2005,2006,2007,2008</port> 지원-->
+<!--        <port>8080,2000,2001,2002,2003,2004,2005,2006,2007,2008</port> 샛별-->
     </local-server>
     <application>
         <android>

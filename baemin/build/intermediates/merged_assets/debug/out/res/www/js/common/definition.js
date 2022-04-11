@@ -81,6 +81,7 @@
     UPDATE: "api/member/update", //회원 정보 수정
     CHECK_PASSWORD: "api/member/chkPwd", //회원 비밀번호 확인
 
+
     NOTICE_LIST: "api/notice/list", //게시글 리스트
     NOTICE_DETAIL: "api/notice/detail", //게시글 상세
     NOTICE_WRITE: "api/notice/write", //게시글 등록

@@ -27,10 +27,10 @@
         <div class="info-wrap">
           <!-- 로고 없이 사용할 경우:class="none"삭제 -->
           <div class="logo none">
-            <img src="../img/logo-header.png" alt="Education" />
+            <img src="../img/logo-header.png" alt="baemin" />
           </div>
         </div>
-        <div style="float:right;">비밀번호 변경</div>
+        <div style="float:right;" id="pwUpdate">비밀번호 변경</div>
         <br />
         <br />
         <div class="ipt-wrap">
@@ -39,7 +39,7 @@
               아이디
             </span>
             <div class="ipt-form-col">
-              <input type="text" disabled id="loginId" />
+              <input type="text" disabled id="deliveryId" />
             </div>
           </div>
           <div class="ipt-form-type1">
@@ -48,7 +48,7 @@
               <img src="../img/ico-required.png" alt="필수" />
             </span>
             <div class="ipt-form-col">
-              <input type="text" id="userNm" class="full" />
+              <input type="text" id="deliveryName" class="full" />
             </div>
           </div>
           <div class="ipt-form-type2">
@@ -57,7 +57,7 @@
             <img src="../img/ico-required.png" alt="필수" />
           </span>
             <div class="ipt-form-row">
-              <input type="text" id="cellPhone" minlength="5" placeholder="아이디 입력" />
+              <input type="text" id="deliveryPhone" minlength="5" placeholder="아이디 입력" />
               <button type="button" class="btn-line">
                 인증
               </button>
@@ -68,7 +68,7 @@
               생년월일
             </span>
             <div class="ipt-form-col">
-              <input type="text" disabled id="birthDate" placeholder="예)edu@education.co.kr" />
+              <input type="text" disabled id="deliveryBirth" placeholder="예)edu@education.co.kr" />
             </div>
           </div>
           <div class="ipt-form-type2">
@@ -77,18 +77,18 @@
             <img src="../img/ico-required.png" alt="필수" />
           </span>
             <div class="ipt-form-row">
-              <input type="text" id="email" minlength="5" placeholder="아이디 입력" />
+              <input type="text" id="deliveryEmail" minlength="5" placeholder="아이디 입력" />
               <button type="button" class="btn-line">
                 인증
               </button>
             </div>
           </div>
           <br />
-          <div style="float:right;">&nbsp;&nbsp;탈퇴하기</div>
-          <div style="float:right;">로그아웃</div>
+          <div style="float:right;" id="out">&nbsp;&nbsp;탈퇴하기</div>
+          <div style="float:right;" id="logout">로그아웃</div>
           <br />
           <div class="btn-wrap">
-            <button type="button" id="joinBtn" class="btn-point-color">
+            <button type="button" id="updateBtn" class="btn-point-color">
               수정하기
             </button>
           </div>
@@ -101,6 +101,6 @@
 </body>
 
 <script type="text/javascript" src="../js/mcore.min.js"></script>
-<script type="text/javascript" src="../js/ui/userInfo.js"></script>
+<script type="text/javascript" src="../js/ui/userInfo_Info_delivery.js"></script>
 
 </html>
