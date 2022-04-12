@@ -30,9 +30,10 @@
 	</update>
 	
 	<select id="getMyReviewInfo" parameterType="map" resultType="edu.example.dto.ReviewDto">
-		SELECT r.order_num, review_score, to_char(review_date,'YYYY-MM-DD') review_date, review_content, review_image,
-		store_review, store_num from review r, payment p
-		where r.order_num = p.order_num and member_num = #{memberNum}
+		SELECT r.order_num, review_score, to_char(review_date,'YYYY-MM-DD') reviewDate, review_content, review_image,
+		store_review, p.store_num, store_name
+        from review r, payment p, store s
+		where r.order_num = p.order_num and p.store_num = s.store_num and member_num = #{memberNum} and r.order_num = #{orderNum}
 	</select>
 	
 	<update id="deleteStoreReview">
@@ -58,10 +59,10 @@
 	</delete>
 	
 	<select id="getMyReviewlist" parameterType="map" resultType="edu.example.dto.ReviewDto">
-		SELECT r.order_num, review_score, to_char(review_date,'YYYY-MM-DD') review_Date, review_content, review_image,
-		store_review, store_num 
-        from review r, payment p
-		where r.order_num = p.order_num and member_num = #{memberNum}
+		SELECT r.order_num, review_score, to_char(review_date,'YYYY-MM-DD') reviewDate, review_content, review_image,
+		store_review, p.store_num, store_name
+        from review r, payment p, store s
+		where r.order_num = p.order_num and p.store_num = s.store_num and member_num = #{memberNum}
 	</select>
 	
 	<select id="getReviewlist" parameterType="map" resultType="edu.example.dto.ReviewDto">
