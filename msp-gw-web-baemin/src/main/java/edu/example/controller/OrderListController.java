@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.example.dto.OrderListAllDto;
+import edu.example.dto.OrderListDto;
 import edu.example.dto.PaymentDetailDto;
 import edu.example.service.OrderListService;
 import kr.msp.constant.Const;
@@ -210,5 +211,43 @@ public class OrderListController {
 
 	        return mv;
 		}
+		
+		//장바구니 항목 중복 체크
+		@RequestMapping( method = RequestMethod.POST, value = "/api/orderList/checkObj" )
+		public ModelAndView objCheck( HttpServletRequest request, HttpServletResponse response ) {
+					
+			Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
+			Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
+			Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+			
+			if(reqHeadMap==null){
+				reqHeadMap = new HashMap<String, Object>();
+			}
+			        
+			reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+			reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+			
+			logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+
+
+			OrderListDto list  = service.objCheck( reqBodyMap );			
+			
+			if( !StringUtils.isEmpty(list) ) {
+				responseBodyMap.put("rsltCode", "0000");
+				responseBodyMap.put("rsltMsg", "Success");
+				responseBodyMap.put("dupYn", "Y");
+			} else {
+				responseBodyMap.put("rsltCode", "0000");
+				responseBodyMap.put("rsltMsg", "Success");
+				responseBodyMap.put("dupYn", "N");
+			}
+					
+			ModelAndView mv = new ModelAndView("defaultJsonView");
+			mv.addObject(Const.HEAD,reqHeadMap);
+			mv.addObject(Const.BODY,responseBodyMap);
+
+			return mv;
+		}	
+		
 	
 }

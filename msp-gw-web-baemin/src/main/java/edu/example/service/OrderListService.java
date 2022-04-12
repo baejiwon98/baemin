@@ -15,6 +15,7 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import edu.example.dto.OrderListAllDto;
+import edu.example.dto.OrderListDto;
 import edu.example.dto.PaymentDetailDto;
 
 
@@ -54,6 +55,11 @@ public class OrderListService {
     //내 장바구니 전체 보기
     public List<OrderListAllDto> orderList( Map<String,Object> param ) {
     	return sqlSession.selectList("OrderList.selectAll", param);
+	}
+    
+    //장바구니 상품 번호
+    public OrderListDto objCheck( Map<String,Object> param ) {
+		return sqlSession.selectOne("OrderList.objCheck", param);
 	}
     
     //추가
