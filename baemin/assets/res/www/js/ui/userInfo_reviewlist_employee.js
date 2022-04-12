@@ -52,7 +52,6 @@
         M.page.html('./jiwon_store_reviewlist.html');
       });
 
-
     } // end initEvent
   }; // end page
   window.__page__ = page;

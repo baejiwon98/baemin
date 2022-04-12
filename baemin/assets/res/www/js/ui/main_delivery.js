@@ -32,31 +32,38 @@
     initEvent: function initEvent() {
       // Dom Event 바인딩
       var self = this;
+
+      // 배달신청
       this.els.$orderBtn.on('click', function () {
-        M.page.html('./jiwon_storelist_delivery.html');
+        M.page.html('./eunjin_orderList_delivery.html');
       });
+
+      // 배달완료
       this.els.$completeBtn.on('click', function () {
-        M.page.html('./eunjin_userInfo_orderlist_delivery.html');
+        M.page.html('./eunjin_userInfo_myOrderlist_delivery.html');
       });
+
+      // 내 주소
       this.els.$myAddressBtn.on('click', function () {
         M.page.html('./saetbyeol_map.html');
       });
+
+      // 마이페이지
       this.els.$menuBtn.on('click', function () {
-        //        $.sendHttp({
-        //                    path: "api/delivery/detailDelivery",
-        //                    data: {
-        //                      storeNum: M.data.global("deliveryNum")
-        //                    },
-        //                    succ: function (data) {
-        //                        M.page.html({
-        //                            url: "./eunjin_userInfo_Info_delivery.html"
-        //                          });
-        //                    },
-        //                    error: function() {
-        //                        alert('detailStore 실패');
-        //                    }
-        //                  });
-        M.page.html('./eunjin_userInfo_Info_delivery.html');
+        var deliveryId = 'DELID'; // 테스트용 임의의 값 저장
+        M.data.global('deliveryId', deliveryId); // 전역변수 지정 // deliveryId login에서 넘어온 전역변수
+
+        //  alert("global " + M.data.global('deliveryId'));
+        //  alert("session " + M.data.global('myId'));
+
+        M.page.html({
+          url: "./eunjin_userInfo_Info_delivery.html",
+          param: {
+            "deliveryId": M.data.global('deliveryId')
+          }
+        });
+
+
       });
 
     } // end initEvent
