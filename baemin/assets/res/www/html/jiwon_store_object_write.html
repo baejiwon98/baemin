@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../css/morpheus-style.css" />
   <link rel="stylesheet" href="../css/swiper.min.css" />
   <link rel="stylesheet" href="../css/muikit.css" />
+
 </head>
 
 <body>
@@ -33,7 +34,7 @@
               메뉴 이름
             </span>
               <div class="ipt-form-col">
-                <input type="text" placeholder="메뉴 이름(50자까지)" maxlength="50" />
+                <input type="text" placeholder="메뉴 이름(50자까지)" id="object-name" maxlength="50" />
               </div>
             </div>
             <div class="ipt-form-type1">
@@ -41,7 +42,7 @@
               원산지
             </span>
               <div class="ipt-form-col">
-                <input type="text" placeholder="원산지(50자까지)" maxlength="50" />
+                <input type="text" placeholder="원산지(50자까지)" id="object-origin" maxlength="50" />
               </div>
             </div>
             <div class="ipt-form-type1">
@@ -49,7 +50,7 @@
               메뉴 설명
             </span>
               <div class="ipt-form-col">
-                <input type="text" placeholder="메뉴 설명(50자까지)" maxlength="50" />
+                <input type="text" placeholder="메뉴 설명(50자까지)" id="object-content" maxlength="50" />
               </div>
             </div>
             <div>
@@ -58,7 +59,7 @@
               재고
             </span>
               <div class="ipt-form-col">
-                <input type="text" placeholder="5" maxlength="3" />
+                <input type="text" placeholder="5" id="object-qty" maxlength="3" />
               </div>
             </div>
             <div class="ipt-form-type-right">
@@ -66,7 +67,7 @@
               가격
             </span>
               <div class="ipt-form-col">
-                <input type="text" placeholder="39900"/>
+                <input type="text" placeholder="39900" id="object-price" />
               </div>
             </div>
             </div>
@@ -75,8 +76,8 @@
               첨부 이미지
             </span>
               <div class="ipt-form-row">
-                <input type="text" id="file" readonly placeholder="이미지 파일명 (자동입력)" />
-                <button type="button" id="fileBtn" class="btn-line">
+                <input type="text" id="object-img" readonly placeholder="이미지 파일명 (자동입력)" />
+                <button type="button" id="imgSelectBtn" class="btn-line">
                   이미지 선택
                 </button>
               </div>
@@ -100,15 +101,15 @@
     <button type="button" id="modiBtn" class="btn-point-color">
       확인
     </button>
-    <button type="button" id="delBtn" class="btn-line" class="btn-point-color">
+<!--    <button type="button" id="delBtn" class="btn-line" class="btn-point-color">
       삭제
-    </button>
+    </button>-->
   </div>
 </div>
 </body>
 
 <script type="text/javascript" src="../js/mcore.min.js"></script>
-<script type="text/javascript" src="../js/ui/list.js"></script>
+<script type="text/javascript" src="../js/ui/store_object_write.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </html>
