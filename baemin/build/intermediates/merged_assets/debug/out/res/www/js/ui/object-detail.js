@@ -1,7 +1,7 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : object-detail.js
+ * @author : 조은진
+ * @date : 20220412
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
@@ -44,6 +44,7 @@
         self.checkObj();
         if(buyStatus == 'Y'){
             alert('이미 장바구니에 담긴 항목입니다.');
+            M.page.back();
         }else{
             self.orderAdd();
         }
@@ -81,22 +82,19 @@
             },
             succ: function(data){
                 buyStatus = data.dupYn;
-                alert(buyStatus);
                 return buyStatus;
             },
             error: function(data){
-                alert('비교 실패.');
+                alert('장바구니에 상품을 담지 못했습니다.');
             },
         })
     },
     orderAdd: function(data){
-        var obNum = 'object10010';
+        var obNum = 'object10001';
         var memNum = 'member10001';
         const resultElement = document.getElementById('qty-result');
         let number = resultElement.innerText;
         var bQty = number;
-        console.log(number);
-        alert(number);
         $.sendHttp({
             path: "/api/orderList/Insert",
             data: {
@@ -105,13 +103,15 @@
                 buyQty : bQty
             },
             succ: function(data){
-                console.log(data);
-                alert('장바구니에 상품이 담겼습니다.');
+                alert('장바구니에 선택한 메뉴가 담겼습니다.');
+                M.data.global('objectNum', obNum);
+                M.data.global('memberNum', memNum);
+                M.data.global('buyQty', bQty);
                 M.page.html('./jiwon_cart.html');
                 return true;
             },
             error: function(data){
-                alert('장바구니에 상품을 넣지 못했습니다.');
+                alert('이미 장바구니에 존재하는 메뉴입니다.');
             },
         })
     }
