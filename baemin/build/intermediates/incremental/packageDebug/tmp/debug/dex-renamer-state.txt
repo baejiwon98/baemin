@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #Tue Apr 12 22:51:17 KST 2022
+=======
+#Tue Apr 12 18:19:40 KST 2022
+>>>>>>> origin/saetbyeol1
 base.0=C\:\\Users\\user\\Documents\\baemin\\baemin\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
