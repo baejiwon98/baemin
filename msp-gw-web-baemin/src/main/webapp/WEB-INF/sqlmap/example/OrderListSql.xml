@@ -51,4 +51,9 @@
 		WHERE ob.OBJECT_NUM = od.OBJECT_NUM AND s.STORE_NUM = ob.STORE_NUM AND MEMBER_NUM = #{memberNum} AND s.STORE_NUM = #{storeNum}
 	</select>
 	
+	<select id="objCheck" parameterType="map" resultType="edu.example.dto.Orderlist" >
+		SELECT OBJECTNAME FROM ORDERLIST
+		WHERE OBJECT_NUM = #{objectNum}
+	</select>
+	
 </mapper>
