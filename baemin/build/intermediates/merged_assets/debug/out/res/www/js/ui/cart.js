@@ -18,7 +18,10 @@
       $deleteBtn: null,
       $objectName: null,
       $objectPrice: null,
-      $objectQty: null
+      $objectQty: null,
+      $totalPrice: null,
+      $deliveryPrice: null,
+      $cartTotalPrice: null
 //      $storeTitle: null
     },
     data: {},
@@ -32,6 +35,9 @@
       this.els.$objectName = $('#object-name');
       this.els.$objectPrice = $('#object-price');
       this.els.$objectQty = $('#object-qty');
+      this.els.$totalPrice = $('#total-price');
+      this.els.$deliveryPrice = $('#delivery-price');
+      this.els.$cartTotalPrice = $("#cart-total-price-num");
 //      this.els.$storeTitle = $('#store-title');
     },
 

@@ -182,7 +182,7 @@
         console.log("pickupStatus " + pickupStatus);
 
         $.sendHttp({
-          path: "/store/updateStore",
+          path: "/api/store/updateStore",
           data: {
             'employeeId': M.data.param('employeeId'),
             'employeePw': employeePw,
@@ -222,7 +222,7 @@
       this.els.$phoneConBtn.on('click', function () {
         var employeePhone = $('#employeePhone').val();
         $.sendHttp({
-          path: "/store/phoneCon",
+          path: "/api/store/phoneCon",
           data: {
             employeeId: M.data.param('employeeId'),
             employeePhone: employeePhone
@@ -240,7 +240,7 @@
       this.els.$emailConBtn.on('click', function () {
         var employeeEmail = $('#employeeEmail').val();
         $.sendHttp({
-          path: "/store/emailCon",
+          path: "/api/store/emailCon",
           data: {
             employeeId: M.data.param('employeeId'),
             employeeEmail: employeeEmail
@@ -259,7 +259,7 @@
         alert('id ' + M.data.param('employeeId'));
         alert('pw ' + $('#employeePw').val());
         $.sendHttp({
-          path: "/store/deleteStore",
+          path: "/api/store/deleteStore",
           data: {
             employeeId: M.data.param('employeeId'),
             employeePw: $('#employeePw').val()
