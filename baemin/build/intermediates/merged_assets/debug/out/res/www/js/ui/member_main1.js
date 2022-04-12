@@ -30,7 +30,8 @@
         },
         succ: function (data) {
           console.log(data);
-          console.log(M.data.global('myAddress'))
+          console.log(M.data.global('myAddress'));
+          M.data.global('memberNum', data.memberNum);
           M.data.global('myAddress', data.memberAddr + ' ' + data.memberAddrDetail);
           console.log(M.data.global('myAddress'))
           const element = document.getElementById('map-title');

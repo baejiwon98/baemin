@@ -4,12 +4,12 @@
         "source": "C:\\Users\\user\\Documents\\baemin\\baemin\\res\\drawable\\addon_media_rec_btn_stop.xml"
     },
     {
-        "merged": "C:\\Users\\user\\Documents\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\layout_activity_imagelist2.xml.flat",
-        "source": "C:\\Users\\user\\Documents\\baemin\\baemin\\res\\layout\\activity_imagelist2.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\Documents\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_addon_media_crop_camera_crop_height.png.flat",
         "source": "C:\\Users\\user\\Documents\\baemin\\baemin\\res\\drawable-xhdpi\\addon_media_crop_camera_crop_height.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\layout_activity_imagelist2.xml.flat",
+        "source": "C:\\Users\\user\\Documents\\baemin\\baemin\\res\\layout\\activity_imagelist2.xml"
     },
     {
         "merged": "C:\\Users\\user\\Documents\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_addon_media_bottom_btn_stop_n.png.flat",
@@ -68,12 +68,12 @@
         "source": "C:\\Users\\user\\Documents\\baemin\\baemin\\res\\drawable-hdpi\\general_title_btn_before.png"
     },
     {
-        "merged": "C:\\Users\\user\\Documents\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\layout_activity_imagelist.xml.flat",
-        "source": "C:\\Users\\user\\Documents\\baemin\\baemin\\res\\layout\\activity_imagelist.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\Documents\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_addon_media_bottom_btn_record_n.png.flat",
         "source": "C:\\Users\\user\\Documents\\baemin\\baemin\\res\\drawable-hdpi\\addon_media_bottom_btn_record_n.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Documents\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\layout_activity_imagelist.xml.flat",
+        "source": "C:\\Users\\user\\Documents\\baemin\\baemin\\res\\layout\\activity_imagelist.xml"
     },
     {
         "merged": "C:\\Users\\user\\Documents\\baemin\\baemin\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_addon_media_crop_ic_rotate_right.png.flat",

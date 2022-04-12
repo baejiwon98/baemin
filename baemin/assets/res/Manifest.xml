@@ -42,7 +42,7 @@
         <http>
             <GW_SERVER>
                 <path>mcore.edu.baemin.implementation.HttpDefaultNetworkManager</path>
-<!--                <address>http://localhost:8080/</address>-->
+                <address>http://localhost:8080/</address>
 <!--                <address>http://192.168.0.12:8080</address> 샛별 -->
                 <timeout>30000</timeout>
                 <encoding>utf-8</encoding>
@@ -52,7 +52,7 @@
         <socket/>
     </network>
     <local-server>
-<!--        <port>2000,2001,2002,2003,2004,2005,2006,2007,2008</port>-->
+        <port>2000,2001,2002,2003,2004,2005,2006,2007,2008</port>
 <!--        <port>8080,2000,2001,2002,2003,2004,2005,2006,2007,2008</port> 샛별-->
     </local-server>
     <application>
