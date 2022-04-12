@@ -57,7 +57,7 @@
 .btn-employee{float:left;width:4rem;height:4rem;background:url(../img/employee-icon.png) no-repeat;background-size:100%;text-indent:-9999rem;}
 .review-employee-name strong{font-size:1.5rem;font-weight:bold;padding-left:10px;}
 .btn-delete{width:30px; height:30px}/* 삭제 버튼 크기 조절 */
-.btn-orderList-delete{width:20px; height:20px}/* 삭제 버튼 크기 조절 */
+.btn-orderList-delete{width:35px; height:35px;}/* 삭제 버튼 크기 조절 */
 .orderList-object-price {padding-top:20px; padding-bottom:20px;}
 .orderList-object-menu {padding-top:20px; padding-bottom:10px;}
 .orderList-menu-name {padding-top:20px; padding-right: 3em;}

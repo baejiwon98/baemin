@@ -37,8 +37,18 @@
       } else if (M.data.param('reviewScore') == 5) {
         $("input:radio[name ='rating']:input[value='5']").attr("checked", true);
       }
-      this.els.$contentIpt.val(M.data.param('reviewContent'));
-      this.els.$fileIpt.val(M.data.param('reviewImage'));
+      console.log(M.data.param('reviewContent'));
+      console.log(M.data.param('reviewImage'));
+      if (M.data.param('reviewContent') == 'null') {
+        this.els.$contentIpt.val('');
+      } else {
+        this.els.$contentIpt.val(M.data.param('reviewContent'));
+      }
+      if (M.data.param('reviewImage') == 'null') {
+        this.els.$fileIpt.val('');
+      } else {
+        this.els.$fileIpt.val(M.data.param('reviewImage'));
+      }
       if (M.data.param('modify') == 'Y') {
         $("input:radio[name='rating']").attr("disabled", "disabled"); //비활성화
       }

@@ -13,21 +13,22 @@
       $backBtn: null,
       $myInfoBtn: null,
       $myOrderListBtn: null,
+      $topBtn: null,
     },
     data: {},
     init: function init() {
       this.els.$backBtn = $('#backBtn');
       this.els.$myInfoBtn = $('#myInfo-btn');
       this.els.$myOrderListBtn = $('#myOrderList-btn');
+      this.els.$topBtn = $('#top-btn');
     },
 
     initView: function initView() {
+      var self = this;
       $.sendHttp({
         path: "/api/review/mylist",
         data: {
           "memberNum": M.data.global('memberNum'),
-          //          "lastSeqNo": '0',
-          //          "cnt": '6',
         },
         succ: function (data) {
           console.log(data);
@@ -116,6 +117,9 @@
     initEvent: function initEvent() {
       // Dom Event 바인딩
       var self = this;
+      this.els.$topBtn.on('click', function () {
+        $('.cont-wrap').scrollTop(0);
+      });
       this.els.$backBtn.on('click', function () {
         M.page.back();
       });
@@ -130,15 +134,24 @@
         console.log(reviewNum);
         M.data.global('orderNum', reviewNum);
         self.modifyReview();
-
       });
 
       $('#card').on('click', '.deleteBtn', function () {
         reviewNum = $(this).attr('id');
         console.log(reviewNum);
-        self.deleteReview();
+        M.pop.alert({
+          title: '확인',
+          message: '삭제하시겠습니까?',
+          buttons: ['확인', '취소'],
+          callback: function (index) {
+            if (index == 0) {
+              self.deleteReview();
+            }
+          }
+        });
       });
     },
+
     modifyReview: function () {
       var self = this;
       $.sendHttp({
@@ -160,7 +173,6 @@
               "modify": "Y",
             }
           });
-
         },
         error: function (data) {
           console.log(data);
@@ -178,6 +190,7 @@
         },
         succ: function (data) {
           console.log(data);
+          M.data.removeGlobal('orderNum');
           M.page.replace({
             url: './jiwon_userInfo_reviewlist_member.html',
           });
