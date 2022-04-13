@@ -5,7 +5,10 @@
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
-  M.data.removeGlobal('storeNum');
+  let totalObjectPrice = 0;
+  let deliveryTip = 0;
+  let totalPaymentPrice = 0;
+  var storeNum;
   var status;
   var num;
   var page = {
@@ -24,10 +27,7 @@
     },
 
     initView: function initView() {
-
       var self = this;
-      let totalObjectPrice = 0;
-      let totalPaymentPrice = 0;
       $.sendHttp({
         path: "/api/orderList/SelectAll",
         data: {
@@ -37,7 +37,7 @@
           console.log(data);
           if (data.list != null) {
             var items = "";
-            M.data.global('storeNum', data.storeNum);
+            storeNum = data.storeNum;
             status = data.status;
             items += "<div class='empty-container' style='background-color: #ff7987;'></div>";
             items += "<div class='cart-detail-tit' style='border-right: 0px;'>";
@@ -48,10 +48,10 @@
             items += "<div class='cart-detail-cont'>";
             items += "<ul id='orderList'>";
             $.each(data.list, function (index, item) {
-              totalObjectPrice += item.objectPrice;
+              totalObjectPrice += item.objectPrice * item.buyQty;
               items += "<li class='cart-object-container' style='border-right:0px;' id='" + item.objectNum + "'>";
               items += "<div>";
-              items += "<div class='cart-object-img' id='object-img'>";
+              items += "<div class='cart-object-img' id='object-img'>"; // 이미지가 없으면 defalt 이미지 넣어주기
               items += "<img class='cart-object-img-detail' src='../img/curry.png' alt='' />";
               items += "</div>";
               items += "<div class='cart-delete-img delete-btn' >";
@@ -111,7 +111,7 @@
         },
         error: function (data) {
           console.log(data);
-          alert("내 리뷰 목록을 가져오지 못했습니다.");
+          alert("내 장바구니 목록을 가져오지 못했습니다.");
         },
       });
 
@@ -120,9 +120,12 @@
       // Dom Event 바인딩
       var self = this;
       this.els.$goOrderBtn.on('click', function () {
-        if(status=='D') {
+        if (status == 'D') {
           M.page.html({
             url: './jiwon_payment.html',
+            param : {
+
+            }
           });
         } else {
           M.page.html({

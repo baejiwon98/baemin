@@ -32,10 +32,10 @@
           console.log(data);
           console.log(M.data.global('myAddress'));
           M.data.global('memberNum', data.memberNum);
-          M.data.global('myAddress', data.memberAddr + ' ' + data.memberAddrDetail);
-          console.log(M.data.global('myAddress'))
+          M.data.global('myAddress', data.memberAddr);
+          M.data.global('myAddressDetail', data.memberAddrDetail);
           const element = document.getElementById('map-title');
-          element.innerHTML = '<strong>' + M.data.global('myAddress') + '</strong>';
+          element.innerHTML = '<strong>' + M.data.global('myAddress') + ' ' + M.data.global('myAddressDetail') + '</strong>';
         },
         error: function (data) {
           console.log(data);

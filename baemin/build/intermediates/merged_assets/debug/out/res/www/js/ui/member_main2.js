@@ -32,7 +32,7 @@
     initView: function initView() {
       var self = this;
       const element = document.getElementById('map-title');
-      element.innerHTML = '<strong>' + M.data.global('myAddress') + '</strong>';
+      element.innerHTML = '<strong>' + M.data.global('myAddress') + ' ' +  M.data.global('myAddressDetail') + '</strong>';
     },
     initEvent: function initEvent() {
       // Dom Event 바인딩

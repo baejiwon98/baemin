@@ -1,7 +1,7 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : payment.js
+ * @author : 배지원
+ * @date : 2022-04-13
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {

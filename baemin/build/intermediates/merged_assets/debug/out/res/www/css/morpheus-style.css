@@ -364,7 +364,7 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .main-menu-box-jiwon.type-payment li:nth-child(1){background:url(../img/cash.png) no-repeat center 2.1rem;background-size:2rem;}
 .main-menu-box-jiwon.type-payment li:nth-child(2){background:url(../img/card.PNG) no-repeat center 2.1rem;background-size:2.3rem;}
 .main-menu-box-jiwon.type-payment li:nth-child(3){background:url(../img/confidence.png) no-repeat center 2.1rem;background-size:1.9rem;}
-
+.ipt-form-row-2 input{width:48%; float:left;}
 .employee-review-buttons {position:absolute;padding-left:215px;margin-top:-15px;}
 .review-buttons {padding-left:270px;padding-top:7px;position:absolute;}
 .cont-wraps{height:auto;}

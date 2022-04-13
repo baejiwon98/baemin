@@ -179,6 +179,45 @@
                 });
               }
             });
+          } else if (M.data.param('grade') == 'store') {
+            $.sendHttp({
+              path: "/api/store/insertStore",
+              data: {
+                employeeName: name,
+                storeName: M.data.param('storeName'),
+                storeAddr: M.data.param('addr'),
+                employeePhone: phone,
+                employeeEmail: email,
+                employeeId: id,
+                employeePw: pw,
+                deliveryStatus: M.data.param('deliveryStatus'),
+                pickupStatus: M.data.param('takeoutStatus'),
+                storePhone: M.data.param('storePhone'),
+                leastPrice: M.data.param('leastPrice'),
+                startHoliday: M.data.param('startHoliday'),
+                endHoliday: M.data.param('endHoliday'),
+                orderArea: M.data.param('orderArea'),
+                deliveryPrice: M.data.param('deliveryPrice'),
+                storeCategoryNum: M.data.param('storeCategory'),
+                storeStartTime: M.data.param('startTime'),
+                storeEndTime: M.data.param('endTime'),
+              },
+              succ: function (data) {
+                console.log(data);
+                M.page.html({
+                  url: './join4.html',
+                  actionType: 'CLEAR_TOP',
+                });
+              },
+              error: function (data) {
+                console.log(data);
+                alert('회원가입실패! 다시 가입해보세요');
+                M.page.html({
+                  url: './goeun_login.html',
+                  actionType: 'CLEAR_TOP',
+                });
+              }
+            });
           }
           return true;
         }
