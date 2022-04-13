@@ -5,6 +5,9 @@
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
+  M.data.removeGlobal('storeNum');
+  var status;
+  var num;
   var page = {
     els: {
       $goOrderBtn: null,
@@ -21,36 +24,244 @@
     },
 
     initView: function initView() {
-      // 화면에서 세팅할 동적데이터
+
       var self = this;
+      let totalObjectPrice = 0;
+      let totalPaymentPrice = 0;
+      $.sendHttp({
+        path: "/api/orderList/SelectAll",
+        data: {
+          "memberNum": M.data.global('memberNum'),
+        },
+        succ: function (data) {
+          console.log(data);
+          if (data.list != null) {
+            var items = "";
+            M.data.global('storeNum', data.storeNum);
+            status = data.status;
+            items += "<div class='empty-container' style='background-color: #ff7987;'></div>";
+            items += "<div class='cart-detail-tit' style='border-right: 0px;'>";
+            items += "<div class='cart-store-title' style='width:80%'>";
+            items += "<p id='store-title'>" + data.storeName + "</p>";
+            items += "</div>";
+            items += "</div>";
+            items += "<div class='cart-detail-cont'>";
+            items += "<ul id='orderList'>";
+            $.each(data.list, function (index, item) {
+              totalObjectPrice += item.objectPrice;
+              items += "<li class='cart-object-container' style='border-right:0px;' id='" + item.objectNum + "'>";
+              items += "<div>";
+              items += "<div class='cart-object-img' id='object-img'>";
+              items += "<img class='cart-object-img-detail' src='../img/curry.png' alt='' />";
+              items += "</div>";
+              items += "<div class='cart-delete-img delete-btn' >";
+              items += "<img src='../img/btn-close-black.png' class='btn-delete' />";
+              items += "</div>";
+              items += "<div class='cart-object-name' id='object-name'>";
+              items += "<strong>" + item.objectName + "</strong>";
+              items += "</div>";
+              items += "<div class='cart-object-price' id='object-price'>";
+              items += "<strong>" + item.objectPrice + "원</strong>";
+              items += "<div class='cart-object-qty' id='" + item.buyQty + "'>";
+              items += "<i class='fa fa-minus minus-btn'></i>";
+              items += "<div class='qty-result' id='qty-result'>" + item.buyQty + "</div>";
+              items += "<i class='fa fa-plus plus-btn'></i>";
+              items += "</div>";
+              items += "</div>";
+              items += "</div>";
+              items += "</li>";
+            });
+            items += "</ul>";
+            totalPaymentPrice = parseInt(totalObjectPrice) + parseInt(data.deliveryPrice);
+            items += "<button type='button' style='float:right;margin-right:1rem;' id='allDelete'>장바구니 비우기</button>";
+            items += "<div class='plus-icon'>";
+            items += "<button type='button' class='btn-plus'>plus</button>";
+            items += "</div>";
+            items += "</div>";
+            items += "<div class='empty-container' style='background-color: #ff7987;'></div>";
+            items += "<div class='cart-price-cont'>";
+            items += "<div class='fa cart-total-price'>";
+            items += "<p>총 주문금액</p>";
+            items += "</div>";
+            items += "<div class='fa cart-total-price-number' id='total-price'>";
+            items += "<p>" + totalObjectPrice + " 원</p>";
+            items += "</div>";
+            items += "</div>";
+            items += "<div class='cart-price-cont'>";
+            items += "<div class='fa cart-total-price'>";
+            items += "<p>배달팁</p>";
+            items += "</div>";
+            items += "<div class='fa cart-total-price-number' id='delivery-price'>";
+            items += "<p>" + data.deliveryPrice + " 원</p>";
+            items += "</div>";
+            items += "</div>";
+            items += "<div class='cart-price-tit' style='border-right: 0px; border-left: 0px;'>";
+            items += "<div class='fa cart-total-price'>";
+            items += "<p>결제예정금액</p>";
+            items += "</div>";
+            items += "<div class='fa cart-total-price-number' id='cart-total-price-num'>";
+            items += "<p>" + totalPaymentPrice + " 원</p>";
+            items += "</div>";
+            items += "</div>";
+            items += "<br /><br /><br />";
+            $("#card").append(items);
+          } else {
+            alert('장바구니에 담은 메뉴가 없습니다.'); //이거 확인이 안되는데 확인해봐야할듯?
+          }
+        },
+        error: function (data) {
+          console.log(data);
+          alert("내 리뷰 목록을 가져오지 못했습니다.");
+        },
+      });
 
     },
     initEvent: function initEvent() {
       // Dom Event 바인딩
       var self = this;
-      const resultElement = document.getElementById('qty-result');
-      this.els.$minusBtn.on('click', function () {
-        let number = resultElement.innerText;
-        console.log(number);
-        if (number <= 1) {
-          alert('수량은 1이상이어야 합니다.');
+      this.els.$goOrderBtn.on('click', function () {
+        if(status=='D') {
+          M.page.html({
+            url: './jiwon_payment.html',
+          });
         } else {
-          number = parseInt(number) - 1;
-          resultElement.innerText = number;
+          M.page.html({
+            url: './jiwon_payment_takeout.html',
+          });
+        }
+
+      });
+      $('#card').on('click', '.minus-btn', function () {
+        num = $(this).closest('li').attr('id');
+        let qty = parseInt($(this).closest('.cart-object-qty').attr('id')) - 1;
+        console.log(num);
+        console.log(qty);
+        if (qty >= 1) {
+          $.sendHttp({
+            path: "/api/orderList/Update",
+            data: {
+              memberNum: M.data.global('memberNum'),
+              objectNum: num,
+              buyQty: qty,
+            },
+            succ: function (data) {
+              console.log(data);
+              M.page.replace({
+                url: './jiwon_cart.html',
+              });
+            },
+            error: function (data) {
+              console.log(data);
+              alert('다시 시도해주세요.');
+            }
+          });
+        } else {
+          alert('수량은 1이상이어야 합니다.');
         }
       });
-      this.els.$plusBtn.on('click', function () {
-        let number = resultElement.innerText;
-        console.log(number);
-        if (number >= 50) { // 등록한 재고 수량으로 변경
-          alert('재고가 없습니다.');
-          return false;
-        } else {}
-        number = parseInt(number) + 1;
-        resultElement.innerText = number;
+      $('#card').on('click', '.plus-btn', function () {
+        num = $(this).closest('li').attr('id');
+        let qty = parseInt($(this).closest('.cart-object-qty').attr('id')) + 1;
+        console.log(num);
+        console.log(qty);
+        if (qty <= 50) { //재고수량으로 변경해야함
+          $.sendHttp({
+            path: "/api/orderList/Update",
+            data: {
+              memberNum: M.data.global('memberNum'),
+              objectNum: num,
+              buyQty: qty,
+            },
+            succ: function (data) {
+              console.log(data);
+              M.page.replace({
+                url: './jiwon_cart.html',
+              });
+            },
+            error: function (data) {
+              console.log(data);
+              alert('다시 시도해주세요.');
+            }
+          });
+        } else {
+          alert('수량은 1이상이어야 합니다.');
+        }
       });
-      this.els.$goOrderBtn.on('click', function () {
-        M.page.html('./jiwon_payment.html');
+
+      $('#card').on('click', '.btn-plus', function () {
+        M.page.replace({
+          url: './jiwon_store_menulist.html',
+          param: {
+            'storeNum': M.data.global('storeNum')
+          },
+        });
+      });
+
+      $('#card').on('click', '.btn-delete', function () {
+        num = $(this).closest('li').attr('id');
+        console.log(num);
+        M.pop.alert({
+          title: '확인',
+          message: '삭제하시겠습니까?',
+          buttons: ['확인', '취소'],
+          callback: function (index) {
+            if (index == 0) {
+              self.oneDelete();
+            }
+          }
+        });
+      });
+
+      $('#card').on('click', '#allDelete', function () {
+        M.pop.alert({
+          title: '확인',
+          message: '전체 삭제하시겠습니까?',
+          buttons: ['확인', '취소'],
+          callback: function (index) {
+            if (index == 0) {
+              self.allDelete();
+            }
+          }
+        });
+      });
+    },
+    oneDelete: function () {
+      var self = this;
+      $.sendHttp({
+        path: "/api/orderList/DeleteOne",
+        data: {
+          memberNum: M.data.global('memberNum'),
+          objectNum: num,
+        },
+        succ: function (data) {
+          console.log(data);
+          M.page.replace({
+            url: './jiwon_cart.html',
+          });
+        },
+        error: function (data) {
+          console.log(data);
+          alert('다시 시도해주세요.');
+        }
+      });
+    },
+    allDelete: function () {
+      var self = this;
+      $.sendHttp({
+        path: "/api/orderList/DeleteAll",
+        data: {
+          memberNum: M.data.global('memberNum')
+        },
+        succ: function (data) {
+          console.log(data);
+          M.page.replace({
+            url: './jiwon_cart.html',
+          });
+        },
+        error: function (data) {
+          console.log(data);
+          alert('다시 시도해주세요.');
+        }
       });
     },
   };
@@ -67,7 +278,4 @@
     pageFunc.initEvent();
   });
 
-  M.onRestore(function () {
-    pageFunc.initView();
-  });
 })(jQuery, M, __page__, window);
