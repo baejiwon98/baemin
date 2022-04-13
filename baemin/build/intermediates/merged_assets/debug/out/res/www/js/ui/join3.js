@@ -43,10 +43,10 @@
 
       this.els.$joinBtn.on('click', function () {
         if (dulStatus == 'N') {
-                  self.join();
-                } else {
-                  alert("다시 중복체크 하세요.");
-                }
+          self.join();
+        } else {
+          alert("다시 중복체크 하세요.");
+        }
       });
 
       this.els.$backBtn.on('click', function () {
@@ -135,6 +135,33 @@
                 memberBirth: birth,
                 memberId: id,
                 memberPw: pw,
+              },
+              succ: function (data) {
+                console.log(data);
+                M.page.html({
+                  url: './join4.html',
+                  actionType: 'CLEAR_TOP',
+                });
+              },
+              error: function (data) {
+                console.log(data);
+                alert('회원가입실패! 다시 가입해보세요');
+                M.page.html({
+                  url: './goeun_login.html',
+                  actionType: 'CLEAR_TOP',
+                });
+              }
+            });
+          } else if (M.data.param('grade') == 'delivery') {
+            $.sendHttp({
+              path: "/api/delivery/insertDelivery",
+              data: {
+                deliveryId: id,
+                deliveryName: name,
+                deliveryEmail: email,
+                deliveryPhone: phone,
+                deliveryBirth: birth,
+                deliveryPw: pw,
               },
               succ: function (data) {
                 console.log(data);

@@ -13,7 +13,8 @@
       $storeDetailBtn: null,
       $storeReviewBtn: null,
       $storeObject:null,
-      $backBtn : null
+      $backBtn : null,
+      $goShoppingBtn : null,
     },
     data: {},
     init: function init() {
@@ -21,6 +22,7 @@
       this.els.$storeReviewBtn = $('#store-review-btn');
       this.els.$storeObject = $('#store-object');
       this.els.$backBtn = $('#backBtn');
+      this.els.$goShoppingBtn = $('#go-shopping-btn');
 
     },
 
@@ -42,7 +44,9 @@
       this.els.$storeObject.on('click', function () {
         M.page.html('./jiwon_object_detail.html');
       });
-
+      this.els.$goShoppingBtn.on('click', function () {
+        M.page.html('./jiwon_cart.html');
+      });
     },
   };
 
