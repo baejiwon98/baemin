@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Store">
+	<select id="storeAutoNum" resultType="String">
+		select concat('store', nvl(max(substr(store_num, 6)), 10000)+1) from store
+	</select>
+	<select id="empAutoNum" resultType="String">
+		select concat('emp', nvl(max(substr(employee_num, 4)), 10000)+1) from store
+	</select>
+	<sql id="base">	
+		store_num, employee_num, employee_name, store_name, store_addr, employee_phone, employee_email,
+		employee_id, employee_pw, delivery_status, pickup_status, STORE_START_TIME, store_end_time, store_phone, 
+		least_price, holiday, order_area, delivery_price, store_category_num
+	</sql>
+	<sql id="base2">
+		store_num, employee_num, employee_name, store_name, store_addr, employee_phone, employee_email,
+		employee_id, employee_pw, delivery_status, pickup_status, TO_CHAR(STORE_START_TIME, 'HH24:MI') as storeStartTime, 
+		store_phone, least_price, holiday, order_area, delivery_price, store_category_num, TO_CHAR(store_end_time, 'HH24:MI') as storeEndTime
+	</sql>
+
+	<insert id="insertStore">		
+ 		INSERT INTO STORE (<include refid="base"/>)
+		VALUES (
+			#{storeNum}, #{employeeNum}, #{employeeName}, #{storeName}, #{storeAddr}, 
+			#{employeePhone}, #{employeeEmail}, #{employeeId}, #{employeePw}, #{deliveryStatus}, 
+			#{pickupStatus}, #{storeStartTime}, #{storeEndTime}, #{storePhone}, #{leastPrice}, 
+			#{holiday}, #{orderArea}, #{deliveryPrice}, #{storeCategoryNum}
+		)
+		<!-- html에 없음 : #{deliveryStatus}, #{pickupStatus}, #{storeCategoryNum} -->
+	</insert>
+	
+	<select id="detailStore" resultType="edu.example.dto.StoreDTO" parameterType="map">
+		SELECT <include refid="base2"/>
+		FROM STORE
+		<!-- <if test="employeeId != null and employeeId != '' "> -->
+			WHERE EMPLOYEE_ID = #{employeeId}
+<!-- 		<if test="storeNum != null and storeNum != '' ">
+			WHERE STORE_NUM = #{storeNum} -->
+			<!-- <if test="employeePw != null and employeePw != '' ">
+			AND EMPLOYEE_PW = #{employeePw}
+			</if> -->
+		<!-- </if> -->
+	</select>
+	
+	<select id="storeList" resultType="edu.example.dto.StoreCategoryDTO" parameterType="map">
+		<!-- SELECT DISTINCT s.*, c.STORE_CATEGORY_NAME
+		FROM STORE s, CATEGORY c
+		WHERE s.STORE_CATEGORY_NUM = c.STORE_CATEGORY_NUM 
+			AND c.STORE_CATEGORY_NUM = #{storeCategoryNum}   -->
+			
+		SELECT s.*, c.STORE_CATEGORY_NAME
+		FROM STORE s, CATEGORY c
+		<if test="storeCategoryNum != null and storeCategoryNum != '' ">
+			WHERE s.STORE_CATEGORY_NUM = c.STORE_CATEGORY_NUM 
+				AND c.STORE_CATEGORY_NUM = #{storeCategoryNum}
+		</if>
+		<if test="deliveryStatus != null and deliveryStatus != '' ">
+			WHERE s.DELIVERY_STATUS = #{deliveryStatus}
+		</if>
+		<if test="pickupStatus != null and pickupStatus != '' ">
+			WHERE s.PICKUP_STATUS = #{pickupStatus}
+		</if>
+	</select>
+
+	<update id="updateStore" parameterType="map">
+		UPDATE STORE
+		SET STORE_NAME = #{storeName}, EMPLOYEE_NAME = #{employeeName}, 
+			EMPLOYEE_PHONE = #{employeePhone}, EMPLOYEE_EMAIL = #{employeeEmail}, 
+			STORE_PHONE = #{storePhone}, LEAST_PRICE = #{leastPrice}, HOLIDAY = #{holiday}, 
+			ORDER_AREA = #{orderArea}, DELIVERY_PRICE = #{deliveryPrice}, STORE_CATEGORY_NUM = #{storeCategoryNum},
+			DELIVERY_STATUS = #{deliveryStatus}, PICKUP_STATUS = #{pickupStatus}
+		WHERE EMPLOYEE_ID = #{employeeId}     
+	</update>
+	<!-- 
+	 STORE_START_TIME = #{storeStartTime}, 
+			STORE_END_TIME = #{storeEndTime},
+	 -->
+	
+	<delete id="deleteStore" parameterType="map">
+		DELETE FROM STORE
+		WHERE EMPLOYEE_ID = #{employeeId}
+	</delete>
+	
+	<select id="nameSearch" parameterType="map" resultType="edu.example.dto.StoreObjectDTO">
+		select store_name
+		from store
+		where store_name like '%'||#{word}||'%'
+		union
+		select object_name
+		from object
+		where object_name like '%'||#{word}||'%'
+	</select>
+	
+	
+</mapper>

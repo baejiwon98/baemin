@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Delivery">
+
+	<sql id="base">
+		DELIVERY_NUM, DELIVERY_ID, DELIVERY_NAME, DELIVERY_EMAIL, DELIVERY_PHONE, 
+		DELIVERY_BIRTH, DELIVERY_PW, DELIVERY_ADDR, DELIVERY_ADDRDETAIL
+	</sql>
+	
+	<select id="deliveryAutoNum" resultType="String">
+		select concat('delivery', nvl(max(substr(delivery_num, 9)), 10000)+1) from delivery
+	</select>
+
+	<insert id="insertDelivery">
+		insert into delivery (<include refid="base"/>)
+		values (
+			#{deliveryNum}, #{deliveryId}, #{deliveryName}, #{deliveryEmail}, #{deliveryPhone}, 
+			#{deliveryBirth}, #{deliveryPw}, #{deliveryAddr}, #{deliveryAddrdetail}
+		)
+	</insert>
+	
+	<select id="detailDelivery" resultType="edu.example.dto.DeliveryDTO" parameterType="map">
+		select <include refid="base"/>
+		from delivery
+		where delivery_id = #{deliveryId}
+	</select>
+	
+	<update id="updateDelivery" parameterType="map">
+		update delivery
+		set DELIVERY_NAME = #{deliveryName}, DELIVERY_EMAIL = #{deliveryEmail}, 
+			DELIVERY_PHONE = #{deliveryPhone}, DELIVERY_BIRTH = #{deliveryBirth} 			
+		where delivery_id = #{deliveryId}
+	</update>
+	
+	<delete id="deleteDelivery" parameterType="map">
+		delete from delivery
+		where delivery_id = #{deliveryId}
+	</delete>
+	
+
+</mapper>
