@@ -12,8 +12,8 @@
         </update>
     </resource>
     <startpage>
-        <name>www/html/intro.html</name>
-<!--        <name>www/html/saetbyeol_main_employee.html</name> 샛별-->
+<!--        <name>www/html/intro.html</name>-->
+            <name>www/html/eunjin_orderList_employee.html</name>
         <orient>default</orient>
         <orient-tablet>default</orient-tablet>
     </startpage>
@@ -43,9 +43,12 @@
             <GW_SERVER>
                 <path>mcore.edu.baemin.implementation.HttpDefaultNetworkManager</path>
 <!--                <address>http://localhost:8080/</address> 지원-->
+<<<<<<< HEAD
                     <address>http://192.168.0.50:8080/</address>
+=======
+>>>>>>> origin/saetbyeol4
 <!--                <address>http://192.168.0.41:8080/</address> 은진-->
-<!--                <address>http://192.168.0.12:8080</address> 샛별 -->
+                    <address>http://192.168.0.12:8080</address>
                 <timeout>30000</timeout>
                 <encoding>utf-8</encoding>
                 <type>rest</type>
