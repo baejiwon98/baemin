@@ -14,6 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74ed69c0-9853-4c9b-bfa4-a76e302cc75d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_myOrderList_employee.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -21,33 +22,23 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/res/Manifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/Manifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/eunjin_orderList_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_orderList_employee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_myOrderList_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_myOrderList_employee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/main_delivery.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/main_delivery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/store_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/store_detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_orderList_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_employee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_reviewlist_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_reviewlist_employee.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/blame/res/debug/single/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/blame/res/debug/single/debug.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeNativeLibs/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/debug-mergeNativeLibs/merge-state" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/Manifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/Manifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/eunjin_userInfo_Info_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/eunjin_userInfo_Info_employee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_category_modify.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_category_modify.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_object_write.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_object_write.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_category_modify.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_category_modify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_Info_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_Info_employee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_orderList_employee.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_reviewlist_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_reviewlist_employee.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_jni_libs/debug/out/arm64-v8a/libMCore.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_jni_libs/debug/out/armeabi-v7a/libMCore.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_jni_libs/debug/out/x86/libMCore.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_jni_libs/debug/out/x86_64/libMCore.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_native_libs/debug/out/lib/arm64-v8a/libMCore.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_native_libs/debug/out/lib/armeabi-v7a/libMCore.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_native_libs/debug/out/lib/x86/libMCore.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_native_libs/debug/out/lib/x86_64/libMCore.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/stripped_native_libs/debug/out/lib/arm64-v8a/libMCore.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/stripped_native_libs/debug/out/lib/armeabi-v7a/libMCore.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/stripped_native_libs/debug/out/lib/x86/libMCore.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/stripped_native_libs/debug/out/lib/x86_64/libMCore.so" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/outputs/apk/debug/baemin-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/outputs/apk/debug/baemin-debug.apk" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +46,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\user\.android\avd\Pixel_2_API_30_4.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\user\.android\avd\Pixel_2_API_30_3.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -187,6 +178,19 @@
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="baemin.baemin" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="baemin.baemin" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>

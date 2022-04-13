@@ -34,119 +34,149 @@
               <col style="width:70%" />
             </colgroup>
             <thead>
-            <ul class="main-menu-box-eunjin type04">
-              <li>
-                내 정보
-              </li>
-              <li>
-                주문 목록
-              </li>
-              <li data-more id="notice-btn">
-                내 리뷰
-              </li>
-            </ul>
+              <ul class="main-menu-box-eunjin type04">
+                <li>
+                  내 정보
+                </li>
+                <li>
+                  주문 목록
+                </li>
+                <li data-more id="notice-btn">
+                  내 리뷰
+                </li>
+              </ul>
             </thead>
           </table>
-          <ul class="orderList-wrap" id="order-list">
-      			<div class="cart-detail-cont">
-                <li style="padding-bottom: 2.5em;">
-                  <div>
-                    <div style="margin: 0.5em; margin-left: 1em;">
-                      <div style="width: auto;">
-                        <div style="float: left; padding-right: 2em;">2022/3/30</div>
-                          <div style="text-align: left; width:auto; "><span style="font-weight:bold;">주문 승인</span>
-                            <div style="float: right;"><img src="../img/btn-close-black.png" class="btn-orderList-delete"/></div>
-                            <div style="float: right; ">주문상세</div>
-                          </div>
-                      </div>
-                    </div>
-                    <div style="padding-bottom: 1em;">
-                      <div class="orderList-object-img">
-                        <img class="orderList-object-img-detail" src="../img/curry.png" alt=""/>
-                      </div>
-                      <div class="orderList-menu-name"  style="padding-top: 35px;">
-                        메뉴메뉴메뉴메뉴메뉴
-                      </div>
-                      <div class="orderList-object-price">
-                        <div style="padding-right: 3em; float: left;">
-                          수량:
-                        </div>
-                        <div style="float: left;"> 1개</div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
 
-                <li style="padding-bottom: 2.5em;">
-                  <div>
-                    <div style="margin: 0.5em; margin-left: 1em;">
-                      <div style="width: auto;">
-                        <div style="float: left; padding-right: 2em;">2022/3/30</div>
-                          <div style="text-align: left; width:auto; "><span style="font-weight:bold;">배달 중</span>
-                            <div style="float: right;"><img src="../img/btn-close-black.png" class="btn-orderList-delete"/></div>
-                            <div style="float: right; ">주문상세</div>
-                          </div>
+          <ul class="orderList-wrap" id="order-list">
+            <div class="cart-detail-cont">
+              <!--<li style="padding-bottom: 2.5em;" class="seq">
+                <div>
+                  <div style="margin: 0.5em; margin-left: 1em;">
+                    <div style="width: auto;">
+                      <div style="float: left; padding-right: 2em;" class="orderTime:eq(0)">
+                        &lt;!&ndash;2022/3/30&ndash;&gt;
                       </div>
-                    </div>
-                    <div style="padding-bottom: 1em;">
-                      <div class="orderList-object-img">
-                        <img class="orderList-object-img-detail" src="../img/curry.png" alt=""/>
-                      </div>
-                      <div class="orderList-menu-name"  style="padding-top: 35px;">
-                        메뉴메뉴메뉴메뉴메뉴
-                      </div>
-                      <div class="orderList-object-price">
-                        <div style="padding-right: 3em; float: left;">
-                          수량:
+                      <div style="text-align: left; width:auto; "><span style="font-weight:bold;"
+                          class="orderStatus:eq(0)">
+                          &lt;!&ndash;주문 승인&ndash;&gt;</span>
+                        <div style="float: right;"><img src="../img/btn-close-black.png" class="btn-orderList-delete" />
                         </div>
-                        <div style="float: left;"> 1개</div>
+                        <div style="float: right;" class="orderDetailBtn">주문상세</div>
                       </div>
                     </div>
                   </div>
-                </li>
-                <li style="padding-bottom: 2.5em;">
-                  <div>
-                    <div style="margin: 0.5em; margin-left: 1em;">
-                      <div style="width: auto;">
-                        <div style="float: left; padding-right: 2em;">2022/3/30</div>
-                          <div style="text-align: left; width:auto; "><span style="font-weight:bold;">배달 완료</span>
-                            <div style="float: right;"><img src="../img/btn-close-black.png" class="btn-orderList-delete"/></div>
-                            <div style="float: right; ">주문상세</div>
-                          </div>
-                      </div>
+                  <div style="padding-bottom: 1em;">
+                    <div class="orderList-object-img">
+                      <img class="orderList-object-img-detail" src="../img/curry.png" alt="" />
                     </div>
-                    <div style="padding-bottom: 1em;">
-                      <div class="orderList-object-img">
-                        <img class="orderList-object-img-detail" src="../img/curry.png" alt=""/>
+                    <div class="orderList-menu-name:eq(0)" style="padding-top: 35px;">
+                      &lt;!&ndash;메뉴메뉴메뉴메뉴메뉴&ndash;&gt;
+                    </div>
+                    <div class="orderList-object-price">
+                      <div style="padding-right: 3em; float: left;">
+                        수량:
                       </div>
-                      <div class="orderList-menu-name"  style="padding-top: 35px;">
-                        메뉴메뉴메뉴메뉴메뉴
-                      </div>
-                      <div class="orderList-object-price">
-                        <div style="padding-right: 3em; float: left;">
-                          수량:
-                        </div>
-                        <div style="float: left;"> 1개</div>
+                      <div style="float: left;" class="buyQty:eq(0)">
+                        &lt;!&ndash; 1개&ndash;&gt;
                       </div>
                     </div>
                   </div>
-                </li>
-      				</div>
-            </ul>
-      		</div>
-          <div class="btn-wrap">
-            <button type="button" data-more class="btn-point-color" id="more-btn">
-              더보기
-            </button>
-          </div>
+                </div>
+              </li>
+
+              <li style="padding-bottom: 2.5em;" class="seq">
+                <div>
+                  <div style="margin: 0.5em; margin-left: 1em;">
+                    <div style="width: auto;">
+                      <div style="float: left; padding-right: 2em;" class="orderTime:eq(1)">
+                        &lt;!&ndash;2022/3/30&ndash;&gt;
+                      </div>
+                      <div style="text-align: left; width:auto; ">
+                        <span style="font-weight:bold;" class="orderStatus:eq(1)">
+                          &lt;!&ndash;배달 중&ndash;&gt;
+                        </span>
+                        <div style="float: right;"><img src="../img/btn-close-black.png" class="btn-orderList-delete" />
+                        </div>
+                        <div style="float: right; " class="orderDetailBtn">주문상세</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="padding-bottom: 1em;">
+                    <div class="orderList-object-img">
+                      <img class="orderList-object-img-detail" src="../img/curry.png" alt="" />
+                    </div>
+                    <div class="orderList-menu-name:eq(1)" style="padding-top: 35px;">
+                      &lt;!&ndash;메뉴메뉴메뉴메뉴메뉴&ndash;&gt;
+                    </div>
+                    <div class="orderList-object-price">
+                      <div style="padding-right: 3em; float: left;">
+                        수량:
+                      </div>
+                      <div style="float: left;" class="buyQty:eq(1)">
+                        &lt;!&ndash;1개&ndash;&gt;
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li style="padding-bottom: 2.5em;" class="seq">
+                <div>
+                  <div style="margin: 0.5em; margin-left: 1em;">
+                    <div style="width: auto;">
+                      <div style="float: left; padding-right: 2em;" class="orderTime:eq(2)">
+                        &lt;!&ndash;2022/3/30&ndash;&gt;
+                      </div>
+                      <div style="text-align: left; width:auto; ">
+                        <span style="font-weight:bold;" class="orderStatus:eq(2)">
+                          &lt;!&ndash;  배달 완료&ndash;&gt;
+                        </span>
+                        <div style="float: right;"><img src="../img/btn-close-black.png" class="btn-orderList-delete" />
+                        </div>
+                        <div style="float: right; " class="orderDetailBtn">주문상세</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="padding-bottom: 1em;">
+                    <div class="orderList-object-img">
+                      <img class="orderList-object-img-detail" src="../img/curry.png" alt="" />
+                    </div>
+                    <div class="orderList-menu-name:eq(2)" style="padding-top: 35px;">
+                      &lt;!&ndash;메뉴메뉴메뉴메뉴메뉴&ndash;&gt;
+                    </div>
+                    <div class="orderList-object-price">
+                      <div style="padding-right: 3em; float: left;">
+                        수량:
+                      </div>
+                      <div style="float: left;" class="buyQty:eq(2)">
+                        &lt;!&ndash;1개&ndash;&gt;
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>-->
+
+              <p id="add" />
+
+            </div>
+          </ul>
+
+        </div>
+
+        <div class="btn-wrap">
+          <button type="button" data-more class="btn-point-color" id="more-btn">
+            더보기
+          </button>
+        </div>
       </div>
-     
+
     </div>
-    </div>
+  </div>
   </div>
 </body>
 
 <script type="text/javascript" src="../js/mcore.min.js"></script>
-<script type="text/javascript" src="../js/ui/userInfo.js"></script>
+<script type="text/javascript" src="../js/ui/userInfo_myOrderList_employee.js"></script>
 
 </html>

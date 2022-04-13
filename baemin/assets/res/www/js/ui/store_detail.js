@@ -16,6 +16,7 @@
       $storeMenulistBtn: null,
       $storeDetailBtn: null,
       $storeReviewBtn: null,
+      $orderListBtn: null,
 
       $storeMainName: null,
       $storeName: null,
@@ -34,6 +35,7 @@
       this.els.$storeMenulistBtn = $('#store-menulist-btn');
       this.els.$storeDetailBtn = $('#store-detail-btn');
       this.els.$storeReviewBtn = $('#store-review-btn');
+      this.els.$orderListBtn = $('#order-list-btn');
 
       this.els.$storeMainName = $('.store-main-title');
       this.els.$storeName = $('.store-title');
@@ -93,6 +95,12 @@
       this.els.$storeReviewBtn.on('click', function () {
         M.page.html('jiwon_store_reviewlist.html');
       });
+
+      this.els.$orderListBtn.on('click', function () {
+        M.page.html('eunjin_orderList_employee.html');
+      });
+
+      $orderListBtn
 
     } // end initEvent
   }; // end page

@@ -46,7 +46,7 @@
         M.page.html('./eunjin_userInfo_Info_employee.html');
       });
       this.els.$orderListBtn.on('click', function () {
-        M.page.html('./eunjin_userInfo_orderList_employee.html');
+        M.page.html('./eunjin_userInfo_myOrderList_employee.html');
       });
       this.els.$noticeBtn.on('click', function () {
         M.page.html('./jiwon_store_reviewlist.html');

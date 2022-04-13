@@ -40,7 +40,7 @@
 
       // 배달완료
       this.els.$completeBtn.on('click', function () {
-        M.page.html('./eunjin_userInfo_myOrderlist_delivery.html');
+        M.page.html('./eunjin_userInfo_myOrderList_delivery.html');
       });
 
       // 내 주소
