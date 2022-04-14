@@ -85,14 +85,17 @@
           self.els.$phoneIpt.val(data.employeePhone);
           self.els.$emailIpt.val(data.employeeEmail);
           self.els.$storeNameIpt.val(data.storeName);
-          self.els.$storeStartTimeIpt.val(data.storeStartTime);
-          self.els.$storeEndTimeIpt.val(data.storeEndTime);
           self.els.$storePhoneIpt.val(data.storePhone);
           self.els.$leastPriceIpt.val(data.leastPrice);
           self.els.$storeCategoryNumIpt.val(data.storeCategoryNum);
-          self.els.$holidayIpt.val(data.holiday);
           self.els.$orderAreaIpt.val(data.orderArea);
           self.els.$deliveryPriceIpt.val(data.deliveryPrice);
+
+          //        self.els.$storeStartTimeIpt.val(data.storeStartTime);
+          //        self.els.$storeEndTimeIpt.val(data.storeEndTime);
+          //        self.els.$startHolidayIpt.val(data.startHoliday);
+          //        self.els.$endHolidayIpt.val(data.endHoliday);
+
 
           // 배달 상태
           if (data.deliveryStatus == '1') {
@@ -139,14 +142,15 @@
         var storeName = $('#storeName').val();
         var deliveryStatus = $('#deliveryStatus').val();
         var pickupStatus = $('#pickupStatus').val();
-        var storeStartTime = $('#storeStartTime').val();
-        var storeEndTime = $('#storeEndTime').val();
         var storePhone = $('#storePhone').val();
         var leastPrice = $('#leastPrice').val();
         var storeCategoryNum = $('#storeCategoryNum').val();
-        var holiday = $('#holiday').val();
         var orderArea = $('#orderArea').val();
         var deliveryPrice = $('#deliveryPrice').val();
+        //        var storeStartTime = $('#storeStartTime').val();
+        //        var storeEndTime = $('#storeEndTime').val();
+        //        var startHoliday = $('#startHoliday').val();
+        //        var endHoliday = $('#endHoliday').val();
 
         var deliveryStatus;
         if ($("#delivery-status").is(":checked")) {
@@ -170,12 +174,9 @@
         console.log("storeName " + storeName);
         console.log("deliveryStatus " + deliveryStatus);
         console.log("pickupStatus " + pickupStatus);
-        console.log("storeStartTime " + storeStartTime);
-        console.log("storeEndTime " + storeEndTime);
         console.log("storePhone " + storePhone);
         console.log("leastPrice " + leastPrice);
         console.log("storeCategoryNum " + storeCategoryNum);
-        console.log("holiday " + holiday);
         console.log("orderArea " + orderArea);
         console.log("deliveryPrice " + deliveryPrice);
         console.log("deliveryStatus " + deliveryStatus);
@@ -192,12 +193,9 @@
             'storeName': storeName,
             'deliveryStatus': deliveryStatus,
             'pickupStatus': pickupStatus,
-            //            'storeStartTime': storeStartTime,
-            //            'storeEndTime': storeEndTime,
             'storePhone': storePhone,
             'leastPrice': leastPrice,
             'storeCategoryNum': storeCategoryNum,
-            'holiday': holiday,
             'orderArea': orderArea,
             'deliveryPrice': deliveryPrice
 

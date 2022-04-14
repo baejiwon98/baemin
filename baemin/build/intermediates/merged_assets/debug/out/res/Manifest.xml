@@ -12,8 +12,8 @@
         </update>
     </resource>
     <startpage>
-        <name>www/html/intro.html</name>
-<!--            <name>www/html/eunjin_orderList_employee.html</name>-->
+<!--            <name>www/html/intro.html</name>-->
+            <name>www/html/saetbyeol_main_employee.html</name>
         <orient>default</orient>
         <orient-tablet>default</orient-tablet>
     </startpage>
@@ -45,7 +45,7 @@
 <!--                <address>http://localhost:8080/</address> 지원-->
 <!--                    <address>http://192.168.0.50:8080/</address>-->
 <!--                <address>http://192.168.0.41:8080/</address> 은진-->
-<!--                    <address>http://192.168.0.12:8080</address>-->
+                    <address>http://192.168.0.12:8080</address>
                 <timeout>30000</timeout>
                 <encoding>utf-8</encoding>
                 <type>rest</type>
@@ -55,7 +55,6 @@
     </network>
     <local-server>
         <port>2000,2001,2002,2003,2004,2005,2006,2007,2008</port>
-<!--        <port>8080,2000,2001,2002,2003,2004,2005,2006,2007,2008</port> 샛별-->
     </local-server>
     <application>
         <android>

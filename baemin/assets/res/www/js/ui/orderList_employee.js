@@ -37,10 +37,7 @@
 
     initView: function initView() {
       // 화면에서 세팅할 동적데이터
-
       M.data.global('storeNum', 'store10001'); // 임의의 값
-
-      var self = this;
       var num = M.data.global('storeNum');
       //      alert("num " + num);
 
@@ -49,22 +46,28 @@
         path: "/api/store/orderList",
         data: {
           storeNum: num,
-          orderStatus: '승인 전'
+          orderStatus: '미승인'
         },
         succ: function (data) {
-          //          alert("data.list[1].orderTime = " + data.list[1].orderTime);
           var addCon = "";
+          //          alert("data " + data.list.length);
+
           $.each(data.list, function (index, item) {
-            addCon += "<li><div><div style='margin: 0.5em; margin-left: 1em;'><div style='width: auto;'>";
+            addCon += "<li id='listNum'><div><div style='margin: 0.5em; margin-left: 1em;'><div style='width: auto;'>";
             addCon += "<div style='float: left; padding-right: 2em;' class='orderTime'>" + item.orderTime;
-            addCon += "</div><div style='text-align: left; width:auto; '><span style='font-weight:bold;' class='orderStatus'>" + item.orderStatus;
+            addCon += "</div><div style='text-align: left; width:auto;'><span style='font-weight:bold;' class='orderStatus'>" + item.orderStatus;
             addCon += "</span><div style='float: right;'><img src='../img/btn-close-black.png' class='btn-orderList-delete'/></div>";
             addCon += "<div style='float: right;'>주문상세</div></div></div></div><div style='padding-bottom: 1em;'><div class='orderList-object-img'>";
-            addCon += "<img class='orderList-object-img-detail' src='../img/curry.png'/></div><div class='orderList-menu-name'>" + item.objectName;
+            //            if (item.objectOrigin != null) {
+            addCon += "<img class='orderList-object-img-detail' src='../img/" + item.objectOrigin + "' class='objectImage' />";
+            //            }
+            addCon += "</div><div class='orderList-menu-name'>" + item.objectName;
             addCon += "</div><div class='orderList-object-price'><div style='padding-right: 3em; float: left;'>수량:</div>";
             addCon += "<div style='float: left;' class='buyQty'>" + item.buyQty + "</div><div class='orderList-object-qty'>";
             addCon += "<img src='../img/ico-order-check.png' style='padding-bottom: 0.7em;' class='orderOk' id='" + item.orderNum + "'/></div></div></div></div></li>";
+
           });
+
           $('#add').append(addCon);
         },
         error: function (data) {
@@ -99,34 +102,51 @@
         });
       });
 
+      var startIndex = 3;
+      var searchStep = 3;
       this.els.$moreBtn.on('click', function () {
+        startIndex += searchStep;
+        more(startIndex);
+      });
+
+      function more(index) {
         var num = M.data.global('storeNum');
+        var endIndex = index + searchStep - 1;
+
         $.sendHttp({
           path: "/api/store/orderList",
           data: {
             storeNum: num,
-            orderStatus: '승인 전'
+            orderStatus: '미승인',
+            startIndex: index,
+            endIndex: endIndex
           },
           succ: function (data) {
             var addCon = "";
-            $.each(data.list, function (index, item) {
-              addCon += "<li><div><div style='margin: 0.5em; margin-left: 1em;'><div style='width: auto;'>";
+            //            alert('321data ' + data.list.length);
+            for (i = 0; i < data.list.length; i++) {
+              addCon += "<li id='listNum'><div><div style='margin: 0.5em; margin-left: 1em;'><div style='width: auto;'>";
               addCon += "<div style='float: left; padding-right: 2em;' class='orderTime'>" + item.orderTime;
-              addCon += "</div><div style='text-align: left; width:auto; '><span style='font-weight:bold;' class='orderStatus'>" + item.orderStatus;
+              addCon += "</div><div style='text-align: left; width:auto;'><span style='font-weight:bold;' class='orderStatus'>" + item.orderStatus;
               addCon += "</span><div style='float: right;'><img src='../img/btn-close-black.png' class='btn-orderList-delete'/></div>";
               addCon += "<div style='float: right;'>주문상세</div></div></div></div><div style='padding-bottom: 1em;'><div class='orderList-object-img'>";
-              addCon += "<img class='orderList-object-img-detail' src='../img/curry.png'/></div><div class='orderList-menu-name'>" + item.objectName;
+              //              if (item.objectOrigin != null) {
+              addCon += "<img class='orderList-object-img-detail' src='../img/" + item.objectOrigin + "' class='objectImage' />";
+              //              }
+              addCon += "</div><div class='orderList-menu-name'>" + item.objectName;
               addCon += "</div><div class='orderList-object-price'><div style='padding-right: 3em; float: left;'>수량:</div>";
               addCon += "<div style='float: left;' class='buyQty'>" + item.buyQty + "</div><div class='orderList-object-qty'>";
               addCon += "<img src='../img/ico-order-check.png' style='padding-bottom: 0.7em;' class='orderOk' id='" + item.orderNum + "'/></div></div></div></div></li>";
-            });
+            };
             $('#add').append(addCon);
+
           },
           error: function (data) {
             alert('실패 ' + data);
           }
         });
-      });
+      }
+
 
 
     } // end initEvent
