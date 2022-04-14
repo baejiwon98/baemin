@@ -24,51 +24,91 @@
     initView: function initView() {
       var self = this;
       var id = M.data.global('myId');
-      $.sendHttp({
-        path: "/api/member/info",
-        data: {
-          "memberId": M.data.global('myId'),
-        },
-        succ: function (data) {
-          console.log(data);
-          self.els.$addressIpt.val(data.memberAddr);
-          self.els.$addrDetail.val(data.memberAddrDetail);
-          const element = document.getElementById('map-title');
-          element.innerHTML = '<strong>' + M.data.global('myAddress') + ' ' +  M.data.global('myAddressDetail') + '</strong>';
-          var marker;
-          var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-            mapOption = {
-              center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-              level: 3 // 지도의 확대 레벨
-            };
-          // 버튼을 click했을때
-          var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-          // 주소-좌표 변환 객체를 생성합니다
-          var geocoder = new kakao.maps.services.Geocoder();
-
-          // 주소로 좌표를 검색합니다
-          geocoder.addressSearch($('#address').val(), function (result, status) {
-
-            // 정상적으로 검색이 완료됐으면
-            if (status === kakao.maps.services.Status.OK) {
-              var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-              // 결과값으로 받은 위치를 마커로 표시합니다
-              marker = new kakao.maps.Marker({
-                map: map,
-                position: coords
-              });
-
-              // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-              map.setCenter(coords);
-            }
-          });
-        },
-        error: function (data) {
-          console.log(data);
-          alert("유저 정보를 가져오지 못했습니다.");
-        }
-      });
+      if (M.data.global('grade') == 'member') {
+        $.sendHttp({
+          path: "/api/member/info",
+          data: {
+            "memberId": M.data.global('myId'),
+          },
+          succ: function (data) {
+            console.log(data);
+            self.els.$addressIpt.val(data.memberAddr);
+            self.els.$addrDetail.val(data.memberAddrDetail);
+            const element = document.getElementById('map-title');
+            element.innerHTML = '<strong>' + M.data.global('myAddress') + ' ' + M.data.global('myAddressDetail') + '</strong>';
+            var marker;
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+              mapOption = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+              };
+            // 버튼을 click했을때
+            var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+            // 주소-좌표 변환 객체를 생성합니다
+            var geocoder = new kakao.maps.services.Geocoder();
+            // 주소로 좌표를 검색합니다
+            geocoder.addressSearch($('#address').val(), function (result, status) {
+              // 정상적으로 검색이 완료됐으면
+              if (status === kakao.maps.services.Status.OK) {
+                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                // 결과값으로 받은 위치를 마커로 표시합니다
+                marker = new kakao.maps.Marker({
+                  map: map,
+                  position: coords
+                });
+                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                map.setCenter(coords);
+              }
+            });
+          },
+          error: function (data) {
+            console.log(data);
+            alert("유저 정보를 가져오지 못했습니다.");
+          }
+        });
+      } else if (M.data.global('grade') == 'delivery') {
+        $.sendHttp({
+          path: "/api/delivery/detailDelivery",
+          data: {
+            "deliveryId": M.data.global('myId'),
+          },
+          succ: function (data) {
+            console.log(data);
+            self.els.$addressIpt.val(data.deliveryAddr);
+            self.els.$addrDetail.val(data.deliveryAddrdetail);
+            const element = document.getElementById('map-title');
+            element.innerHTML = '<strong>' + M.data.global('myAddress') + ' ' + M.data.global('myAddressDetail') + '</strong>';
+            var marker;
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+              mapOption = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+              };
+            // 버튼을 click했을때
+            var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+            // 주소-좌표 변환 객체를 생성합니다
+            var geocoder = new kakao.maps.services.Geocoder();
+            // 주소로 좌표를 검색합니다
+            geocoder.addressSearch($('#address').val(), function (result, status) {
+              // 정상적으로 검색이 완료됐으면
+              if (status === kakao.maps.services.Status.OK) {
+                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                // 결과값으로 받은 위치를 마커로 표시합니다
+                marker = new kakao.maps.Marker({
+                  map: map,
+                  position: coords
+                });
+                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                map.setCenter(coords);
+              }
+            });
+          },
+          error: function (data) {
+            console.log(data);
+            alert("유저 정보를 가져오지 못했습니다.");
+          }
+        });
+      }
     },
     initEvent: function initEvent() {
       // Dom Event 바인딩
@@ -187,26 +227,51 @@
       if (addressDetail == '') {
         return alert('상세주소를 입력해주세요');
       }
-      $.sendHttp({
-        path: "/api/member/updateAddr",
-        data: {
-          memberId: id,
-          memberAddr: address,
-          memberAddrDetail: addressDetail,
-        },
-        succ: function (data) {
-          console.log(data);
-          M.data.global('myAddress', address);
-          M.data.global('myAddressDetail', addressDetail);
-          M.page.replace({
-            path: "./saetbyeol_map.html",
-          });
-        },
-        error: function (data) {
-          console.log(data);
-          alert('주소 저장을 실패했습니다. 다시 입력해주세요.');
-        }
-      });
+
+      if (M.data.global('grade') == 'member') {
+        $.sendHttp({
+          path: "/api/member/updateAddr",
+          data: {
+            memberId: id,
+            memberAddr: address,
+            memberAddrDetail: addressDetail,
+          },
+          succ: function (data) {
+            console.log(data);
+            M.data.global('myAddress', address);
+            M.data.global('myAddressDetail', addressDetail);
+            M.page.replace({
+              path: "./saetbyeol_map.html",
+            });
+          },
+          error: function (data) {
+            console.log(data);
+            alert('주소 저장을 실패했습니다. 다시 입력해주세요.');
+          }
+        });
+      } else if (M.data.global('grade') == 'delivery') {
+        $.sendHttp({
+          path: "/api/delivery/updateAddr",
+          data: {
+            deliveryId: id,
+            deliveryAddr: address,
+            deliveryAddrdetail: addressDetail,
+          },
+          succ: function (data) {
+            console.log(data);
+            M.data.global('myAddress', address);
+            M.data.global('myAddressDetail', addressDetail);
+            M.page.replace({
+              path: "./saetbyeol_map.html",
+            });
+          },
+          error: function (data) {
+            console.log(data);
+            alert('주소 저장을 실패했습니다. 다시 입력해주세요.');
+          }
+        });
+      }
+
     },
   };
 

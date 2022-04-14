@@ -46,7 +46,9 @@
         });
       });
       this.els.$myAddressBtn.on('click', function () {
-        M.page.html('./saetbyeol_map.html');
+        M.page.html({
+          url : './saetbyeol_map.html',
+        });
       });
 
       if (M.data.param('way') == 'delivery') {

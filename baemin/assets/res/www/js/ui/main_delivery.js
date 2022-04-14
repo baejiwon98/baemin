@@ -11,7 +11,8 @@
       $orderBtn: null,
       $completeBtn: null,
       $myAddressBtn: null,
-      $menuBtn: null
+      $menuBtn: null,
+      $myAddressBtn: null,
     },
     data: {},
     init: function init() {
@@ -19,10 +20,32 @@
       this.els.$completeBtn = $('#delivery-complete');
       this.els.$myAddressBtn = $('#myAddress');
       this.els.$menuBtn = $('#menuBtn');
+      this.els.$myAddressBtn = $('#map-title');
     }, // end init
 
     initView: function initView() {
-      // 화면에서 세팅할 동적데이터
+      var self = this;
+      var id = M.data.global('myId');
+      $.sendHttp({
+        path: "/api/delivery/detailDelivery",
+        data: {
+          "deliveryId": M.data.global('myId'),
+        },
+        succ: function (data) {
+          console.log(data);
+          console.log(M.data.global('myAddress'));
+          M.data.global('grade', 'delivery');
+          M.data.global('deliveryNum', data.deliveryNum);
+          M.data.global('myAddress', data.deliveryAddr);
+          M.data.global('myAddressDetail', data.deliveryAddrdetail);
+          const element = document.getElementById('map-title');
+          element.innerHTML = '<strong>' + M.data.global('myAddress') + ' ' + M.data.global('myAddressDetail') + '</strong>';
+        },
+        error: function (data) {
+          console.log(data);
+          alert("유저 정보를 가져오지 못했습니다.");
+        }
+      });
     }, // end initView
 
     initEvent: function initEvent() {
@@ -48,9 +71,6 @@
       this.els.$menuBtn.on('click', function () {
         M.page.html({
           url: "./eunjin_userInfo_Info_delivery.html",
-          param: {
-            "deliveryId": M.data.global('deliveryId')
-          }
         });
       });
 
@@ -70,4 +90,7 @@
     pageFunc.initEvent();
   });
 
+  M.onRestore(function () {
+    pageFunc.initView();
+  });
 })(jQuery, M, __page__, window);

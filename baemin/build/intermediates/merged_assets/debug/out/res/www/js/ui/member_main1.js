@@ -30,6 +30,7 @@
         succ: function (data) {
           console.log(data);
           console.log(M.data.global('myAddress'));
+          M.data.global('grade', 'member');
           M.data.global('memberNum', data.memberNum);
           M.data.global('myAddress', data.memberAddr);
           M.data.global('myAddressDetail', data.memberAddrDetail);
@@ -64,7 +65,9 @@
         });
       });
       this.els.$myAddressBtn.on('click', function () {
-        M.page.html('./saetbyeol_map.html');
+        M.page.html({
+          url : './saetbyeol_map.html',
+        });
       });
     },
   };
