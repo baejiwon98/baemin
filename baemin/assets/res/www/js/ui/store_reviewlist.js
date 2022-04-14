@@ -1,21 +1,18 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : store_reviewlist.js
+ * @author : 배지원
+ * @date : 2022-04-14
  */
 
 // 페이지 단위 모듈
 (function ($, M, window) {
-//  var ENV = CONFIG.ENV;
-//  var MSG = CONFIG.MSG;
-//  var CONSTANT = CONFIG.CONSTANT;
-//  var SERVER_CODE = CONFIG.SERVER_CODE;
   var page = {
     els: {
         $backBtn : null,
         $storeMenulistBtn : null,
         $storeDetailBtn : null,
-        $storeReviewBtn : null
+        $storeReviewBtn : null,
+        $goShoppingBtn : null,
     },
     data: {},
     init: function init() {
@@ -23,11 +20,98 @@
         this.els.$storeMenulistBtn = $('#store-menulist-btn');
         this.els.$storeDetailBtn = $('#store-detail-btn');
         this.els.$storeReviewBtn = $('#store-review-btn');
-    }, // end init
+        this.els.$goShoppingBtn = $('#go-shopping-btn');
+    },
 
     initView: function initView() {
-      // 화면에서 세팅할 동적데이터
-    }, // end initView
+      var self = this;
+            $.sendHttp({
+              path: "/api/review/liststore",
+              data: {
+                "storeNum": M.data.global('storeNum'), //임시로 넣고, 나중에 parameter로 확인
+              },
+              succ: function (data) {
+                console.log(data);
+                var items = "";
+                $.each(data.list, function (index, item) {
+                  items += "<li id='" + item.orderNum + "'>";
+                  items += "<div class='arrow_box'>";
+                  items += "<div class='review-info'>";
+                  items += "<div class='review-user-img'>";
+                  items += "<button type='button' class='btn-user'>usericon</button>";
+                  items += "</div>";
+                  items += "<div class='review-user-info'>";
+                  items += "<div class='review-name'>";
+                  items += "<strong>" + item.memberNickname + "</strong>";
+                  items += "</div>";
+                  items += "<div class='review-detail'>";
+                  items += "<div class='fa review-counting-stars' >";
+                  for (var i = 1; i <= item.reviewScore; i++) {
+                    items += "<div class='fa fa-star checked' id='stars'></div>";
+                  }
+                  for (var j = 1; j <= 5 - item.reviewScore; j++) {
+                    items += "<div class='fa fa-star-o' id='stars'></div>";
+                  }
+                  items += "</div>";
+                  items += "<div class='fa review-date'>" + item.reviewDate + "</div>";
+                  items += "</div>";
+                  items += "</div>";
+                  items += "</div>";
+                  items += "<div class='review-content'>";
+                  if (item.reviewImage != null) {
+                    items += "<div class='review-user-img'>";
+                    items += "<img src='" + "http://localhost:8080/view/review/upload/" + item.reviewImage + "' alt='' />";
+                    items += "</div>";
+                  }
+                  if (item.reviewContent != null) {
+                    var brContent = item.reviewContent;
+                    brContent = brContent.replace(/\r\n/ig, '<br>');
+                    brContent = brContent.replace(/\\n/ig, '<br>');
+                    brContent = brContent.replace(/\n/ig, '<br>');
+                    items += "<div class='review-user-content'>";
+                    items += "<p>" + brContent + "</p>";
+                    items += "</div>";
+                  }
+                  items += "</div>";
+
+                  if (item.storeReview != null) {
+                    var storeReviewContent = item.storeReview;
+                    storeReviewContent = storeReviewContent.replace(/\r\n/ig, '<br>');
+                    storeReviewContent = storeReviewContent.replace(/\\n/ig, '<br>');
+                    storeReviewContent = storeReviewContent.replace(/\n/ig, '<br>');
+                    items += "<div class='arrow_box1'>";
+                    items += "<div class='review-info'>";
+                    items += "<div class='review-user-img'>";
+                    items += "<button type='button' class='btn-employee'>";
+                    items += "employeeicon";
+                    items += "</button>";
+                    items += "</div>";
+                    items += "<div class='review-employee-info'>";
+                    items += "<div class='review-employee-name'>";
+                    items += "<strong>";
+                    items += "사장님";
+                    items += "</strong>";
+                    items += "</div>";
+                    items += "</div>";
+                    items += "</div>";
+                    items += "<div class='review-content'>";
+                    items += "<div class='review-employee-content'>";
+                    items += "<p>" + storeReviewContent + "</p>";
+                    items += "</div>";
+                    items += "</div>";
+                    items += "</div>";
+                  }
+                  items += "</div>";
+                  items += "</li>";
+                });
+                $("#card").append(items);
+              },
+              error: function (data) {
+                console.log(data);
+                alert("리뷰 목록을 가져오지 못했습니다.");
+              },
+            });
+    },
 
     initEvent: function initEvent() {
       // Dom Event 바인딩
@@ -43,18 +127,18 @@
       this.els.$storeReviewBtn.on('click', function () {
         M.page.html('jiwon_store_reviewlist.html');
       });
+      this.els.$goShoppingBtn.on('click', function () {
+        M.page.html('./jiwon_cart.html');
+      });
 
 
-    } // end initEvent
-  }; // end page
+    }
+  };
   window.__page__ = page;
 })(jQuery, M, window);
 
 // 해당 페이지에서 실제 호출
 (function ($, M, pageFunc, window) {
-
-  // 화면에 리소스가 로딩을 끝내고 정상적으로 동작할 수 있는 시점에 대한 콜백
-  // window.onload 와 비슷함.
   M.onReady(function () {
     pageFunc.init(); // 최초 화면 초기화
     pageFunc.initView();

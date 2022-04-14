@@ -1,7 +1,7 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : main_employee.js
+ * @author : 강샛별, 배지원
+ * @date : 2022-04-14
  */
 
 // 페이지 단위 모듈
@@ -17,12 +17,27 @@
       this.els.$storeBtn = $('#store-category-modify');
       this.els.$reviewBtn = $('#store-review-list');
       this.els.$menuBtn = $('#menuBtn');
-    }, // end init
+    },
 
     initView: function initView() {
-      // 화면에서 세팅할 동적데이터
+      var self = this;
+            var id = M.data.global('myId');
+            $.sendHttp({
+              path: "/api/store/detailStore",
+              data: {
+                "employeeId": M.data.global('myId'),
+              },
+              succ: function (data) {
+                M.data.global('grade', 'store');
+                M.data.global('storeNum', data.storeNum);
+              },
+              error: function (data) {
+                console.log(data);
+                alert("유저 정보를 가져오지 못했습니다.");
+              }
+            });
 
-    }, // end initView
+    },
 
     initEvent: function initEvent() {
       // Dom Event 바인딩

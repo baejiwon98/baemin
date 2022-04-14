@@ -1,6 +1,6 @@
 /**
  * @file : main_delivery.js
- * @author : 강샛별, 배지원
+ * @author : 배지원
  * @date : 2022-04-14
  */
 

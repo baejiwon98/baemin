@@ -184,6 +184,7 @@
               path: "/api/store/insertStore",
               data: {
                 employeeName: name,
+                employeeNum : M.data.param('registNum'),
                 storeName: M.data.param('storeName'),
                 storeAddr: M.data.param('addr'),
                 employeePhone: phone,

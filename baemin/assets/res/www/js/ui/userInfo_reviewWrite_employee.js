@@ -1,43 +1,77 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : userInfo_reviewWrite_employee.js
+ * @author : 배지원
+ * @date : 2022-04-15
  */
 
 // 페이지 단위 모듈
 (function ($, M, window) {
-//  var ENV = CONFIG.ENV;
-//  var MSG = CONFIG.MSG;
-//  var CONSTANT = CONFIG.CONSTANT;
-//  var SERVER_CODE = CONFIG.SERVER_CODE;
   var page = {
     els: {
-        $backBtn : null,
-        $writeBtn : null
+      $backBtn: null,
+      $writeBtn: null,
+      $contentIpt: null,
     },
     data: {},
     init: function init() {
-        this.els.$backBtn = $('#backBtn');
-        this.els.$writeBtn = $('#writeBtn');
+      this.els.$backBtn = $('#backBtn');
+      this.els.$writeBtn = $('#writeBtn');
+      this.els.$contentIpt = $('#content');
     }, // end init
 
     initView: function initView() {
-      // 화면에서 세팅할 동적데이터
-    }, // end initView
+      var self = this;
+      $.sendHttp({
+        path: "/api/review/storedetail",
+        data: {
+          "storeNum": M.data.global('storeNum'),
+          "orderNum": M.data.param('orderNum'),
+        },
+        succ: function (data) {
+          console.log(data);
+          self.els.$contentIpt.val(data.storeReview);
+        },
+        error: function (data) {
+          console.log(data);
+          alert("리뷰를 가져오지 못했습니다.");
+        }
+      });
+    },
 
     initEvent: function initEvent() {
+      var self = this;
       // Dom Event 바인딩
       this.els.$backBtn.on('click', function () {
-//        M.page.html('./jiwon_userInfo_reviewlist_employee.html');
         M.page.back();
       });
       this.els.$writeBtn.on('click', function () {
-        M.page.html('./jiwon_userInfo_reviewlist_employee.html');
+        self.write();
       });
+    },
 
-
-    } // end initEvent
-  }; // end page
+    write: function () {
+      var self = this;
+      var content = this.els.$contentIpt.val();
+      $.sendHttp({
+        path: "/api/review/storeinsert",
+        data: {
+          "orderNum": M.data.param('orderNum'),
+          "storeNum": M.data.global('storeNum'),
+          "storeReview" : content
+        },
+        succ: function (data) {
+          console.log(data);
+          M.page.replace({
+            url: './jiwon_userInfo_reviewlist_employee.html',
+          });
+        },
+        error: function (data) {
+          console.log(data);
+          alert("리뷰 댓글 등록을 실패했습니다. 다시 시도해주세요.");
+        }
+      });
+    },
+  };
   window.__page__ = page;
 })(jQuery, M, window);
 

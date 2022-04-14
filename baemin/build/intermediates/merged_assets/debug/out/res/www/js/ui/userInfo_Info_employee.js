@@ -149,10 +149,13 @@
     outUser: function () {
       var self = this;
       var pw = this.els.$pwIpt.val().trim();
+      if (pw == '') {
+        alert('비밀번호를 입력해주세요.');
+      }
       $.sendHttp({
         path: "/api/store/deleteStore",
         data: {
-          'employeeId': M.data.param('myId'),
+          'employeeId': M.data.global('myId'),
           'employeePw': pw
         },
         succ: function (data) {
@@ -164,7 +167,7 @@
           });
         },
         error: function (data) {
-          alert("비밀번호가 일치하지 않습니다.");
+          alert("탈퇴 실패했습니다. 다시 시도해주세요.ㅂ");
         }
       });
     },
@@ -247,12 +250,21 @@
       if (pw == '') {
         return alert('비밀번호를 입력해주세요');
       }
+      if (name == '') {
+        return alert('상호명을 입력해주세요');
+      }
+      if (storeCategory == '') {
+        return alert('가게 카테고리를 선택해주세요');
+      }
+      if (addr == '') {
+        return alert('사업자 주소를 입력해주세요');
+      }
+      if (storePhone == '') {
+        return alert('운영전화번호를 입력해주세요');
+      }
       if (employeePhone == '') {
         return alert('연락처를 입력해주세요');
       }
-      if (storePhone == '') {
-              return alert('운영전화번호를 입력해주세요');
-            }
       if (email == '') {
         return alert('이메일을 입력해주세요');
       }
@@ -260,10 +272,19 @@
         return alert('연락처를 확인 해주세요');
       }
       if (!patternPhone.test(phoneNumberStore)) {
-              return alert('운영전화번호를 확인 해주세요');
-            }
+        return alert('운영전화번호를 확인 해주세요');
+      }
       if (email.length < 6 || !regExpEmail.test(email)) {
         return alert('메일형식이 맞지 않습니다.');
+      }
+      if (leastPrice == '') {
+        return alert('최소 주문금액을 입력해주세요')
+      }
+      if (orderArea == '') {
+        return alert('주문가능지역을 입력해주세요')
+      }
+      if (deliveryPrice == '') {
+        return alert('배달팁을 입력해주세요');
       }
       $.sendHttp({
         path: "/api/store/updateStore",
