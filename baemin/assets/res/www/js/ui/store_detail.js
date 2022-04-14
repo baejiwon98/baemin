@@ -17,6 +17,7 @@
       $storeDetailBtn: null,
       $storeReviewBtn: null,
       $orderListBtn: null,
+      $topBtn: null,
 
       $storeMainName: null,
       $storeName: null,
@@ -25,7 +26,8 @@
       $deliveryPrice: null,
       $storeStartTime: null,
       $storeEndTime: null,
-      $holiday: null,
+      $startHoliday: null,
+      $endHoliday: null,
       $employeeName: null,
       $employeeNum: null
     },
@@ -36,6 +38,7 @@
       this.els.$storeDetailBtn = $('#store-detail-btn');
       this.els.$storeReviewBtn = $('#store-review-btn');
       this.els.$orderListBtn = $('#order-list-btn');
+      this.els.$topBtn = $('#top-btn');
 
       this.els.$storeMainName = $('.store-main-title');
       this.els.$storeName = $('.store-title');
@@ -44,9 +47,11 @@
       this.els.$deliveryPrice = $('#deliveryPrice');
       this.els.$storeStartTime = $('#storeStartTime');
       this.els.$storeEndTime = $('#storeEndTime');
-      this.els.$holiday = $('#holiday');
+      this.els.$startHoliday = $('#startHoliday');
+      this.els.$endHoliday = $('#endHoliday');
       this.els.$employeeName = $('#employeeName');
       this.els.$employeeNum = $('#employeeNum');
+
 
     }, // end init
 
@@ -69,11 +74,12 @@
           $('#storeAddr').text(data.storeAddr);
           $('#employeeName').text(data.employeeName);
           $('#employeeNum').text(data.employeeNum);
-          $('#storeStartTime').text(data.storeStartTime);
-          $('#storeEndTime').text(data.storeEndTime);
           $('#leastPrice').text(data.leastPrice);
-          $('#holiday').text(data.holiday);
           $('#deliveryPrice').text(data.deliveryPrice);
+          //          $('#storeStartTime').text(data.storeStartTime);
+          //          $('#storeEndTime').text(data.storeEndTime);
+          //          $('#startHoliday').text(data.startHoliday);
+          //          $('#endHoliday').text(data.endHoliday);
         },
         error: function (data) {
           alert('실패 ' + data);
@@ -83,24 +89,30 @@
 
     initEvent: function initEvent() {
       // Dom Event 바인딩
+      // 뒤로 가기
       this.els.$backBtn.on('click', function () {
         M.page.back();
       });
+
+      // 메뉴보기
       this.els.$storeMenulistBtn.on('click', function () {
         M.page.html('jiwon_store_menulist.html');
       });
-      //      this.els.$storeDetailBtn.on('click', function () {
-      //        M.page.html('jiwon_store_detail.html');
-      //      });
+
+      // 리뷰보기
       this.els.$storeReviewBtn.on('click', function () {
         M.page.html('jiwon_store_reviewlist.html');
       });
 
+      // 주문목록
       this.els.$orderListBtn.on('click', function () {
         M.page.html('eunjin_orderList_employee.html');
       });
 
-      $orderListBtn
+      // top
+      this.els.$topBtn.on('click', function () {
+        $('html, body').scrollTop(0);
+      });
 
     } // end initEvent
   }; // end page

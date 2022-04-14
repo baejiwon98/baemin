@@ -26,10 +26,10 @@
     init: function init() {
       this.els.$backBtn = $('#backBtn');
       this.els.$orderTime = $('.orderTime');
-      this.els.$orderStatus = $('.orderStatus');
+      this.els.$progressStatus = $('.progressStatus');
       this.els.$deleteBtn = $('.btn-orderList-delete');
       this.els.$detailBtn = $('.orderDetailBtn');
-      this.els.$objectName = $('.orderList-menu-name');
+      this.els.$objectName = $('.objectName');
       this.els.$buyQty = $('.buyQty');
       this.els.$moreBtn = $('#more-btn');
       this.els.$orderOkBtn = $('.orderOk');
@@ -37,37 +37,25 @@
 
     initView: function initView() {
       // 화면에서 세팅할 동적데이터
-      M.data.global('storeNum', 'store10001'); // 임의의 값
-      var num = M.data.global('storeNum');
-      //      alert("num " + num);
-
       // 승인 전 주문 목록
       $.sendHttp({
-        path: "/api/store/orderList",
+        path: "/api/delivery/orderList",
         data: {
-          storeNum: num,
-          orderStatus: '미승인'
+          progressStatus: '미승인'
         },
         succ: function (data) {
           var addCon = "";
-          //          alert("data " + data.list.length);
-
           $.each(data.list, function (index, item) {
-            addCon += "<li id='listNum'><div><div style='margin: 0.5em; margin-left: 1em;'><div style='width: auto;'>";
+            addCon += "<li><div><div style='margin: 0.5em; margin-left: 1em;'><div style='width: auto;'>";
             addCon += "<div style='float: left; padding-right: 2em;' class='orderTime'>" + item.orderTime;
-            addCon += "</div><div style='text-align: left; width:auto;'><span style='font-weight:bold;' class='orderStatus'>" + item.orderStatus;
+            addCon += "</div><div style='text-align: left; width:auto; '><span style='font-weight:bold;' class='progressStatus'>" + item.progressStatus;
             addCon += "</span><div style='float: right;'><img src='../img/btn-close-black.png' class='btn-orderList-delete'/></div>";
             addCon += "<div style='float: right;'>주문상세</div></div></div></div><div style='padding-bottom: 1em;'><div class='orderList-object-img'>";
-            //            if (item.objectOrigin != null) {
-            addCon += "<img class='orderList-object-img-detail' src='../img/" + item.objectOrigin + "' class='objectImage' />";
-            //            }
-            addCon += "</div><div class='orderList-menu-name'>" + item.objectName;
+            addCon += "<img class='orderList-object-img-detail' src='../img/curry.png'/></div><div class='orderList-menu-name'>" + item.objectName;
             addCon += "</div><div class='orderList-object-price'><div style='padding-right: 3em; float: left;'>수량:</div>";
             addCon += "<div style='float: left;' class='buyQty'>" + item.buyQty + "</div><div class='orderList-object-qty'>";
             addCon += "<img src='../img/ico-order-check.png' style='padding-bottom: 0.7em;' class='orderOk' id='" + item.orderNum + "'/></div></div></div></div></li>";
-
           });
-
           $('#add').append(addCon);
         },
         error: function (data) {
@@ -88,7 +76,7 @@
         alert("num " + num);
 
         $.sendHttp({
-          path: "/api/store/orderCheck",
+          path: "/api/delivery/orderCheck",
           data: {
             orderNum: num
           },
@@ -102,52 +90,32 @@
         });
       });
 
-      var startIndex = 3;
-      var searchStep = 3;
       this.els.$moreBtn.on('click', function () {
-        startIndex += searchStep;
-        more(startIndex);
-      });
-
-      function more(index) {
-        var num = M.data.global('storeNum');
-        var endIndex = index + searchStep - 1;
-
         $.sendHttp({
-          path: "/api/store/orderList",
+          path: "/api/delivery/orderList",
           data: {
-            storeNum: num,
-            orderStatus: '미승인',
-            startIndex: index,
-            endIndex: endIndex
+            progressStatus: '미승인'
           },
           succ: function (data) {
             var addCon = "";
-            //            alert('321data ' + data.list.length);
-            for (i = 0; i < data.list.length; i++) {
-              addCon += "<li id='listNum'><div><div style='margin: 0.5em; margin-left: 1em;'><div style='width: auto;'>";
+            $.each(data.list, function (index, item) {
+              addCon += "<li><div><div style='margin: 0.5em; margin-left: 1em;'><div style='width: auto;'>";
               addCon += "<div style='float: left; padding-right: 2em;' class='orderTime'>" + item.orderTime;
-              addCon += "</div><div style='text-align: left; width:auto;'><span style='font-weight:bold;' class='orderStatus'>" + item.orderStatus;
+              addCon += "</div><div style='text-align: left; width:auto; '><span style='font-weight:bold;' class='orderStatus'>" + item.orderStatus;
               addCon += "</span><div style='float: right;'><img src='../img/btn-close-black.png' class='btn-orderList-delete'/></div>";
               addCon += "<div style='float: right;'>주문상세</div></div></div></div><div style='padding-bottom: 1em;'><div class='orderList-object-img'>";
-              //              if (item.objectOrigin != null) {
-              addCon += "<img class='orderList-object-img-detail' src='../img/" + item.objectOrigin + "' class='objectImage' />";
-              //              }
-              addCon += "</div><div class='orderList-menu-name'>" + item.objectName;
+              addCon += "<img class='orderList-object-img-detail' src='../img/curry.png'/></div><div class='orderList-menu-name'>" + item.objectName;
               addCon += "</div><div class='orderList-object-price'><div style='padding-right: 3em; float: left;'>수량:</div>";
               addCon += "<div style='float: left;' class='buyQty'>" + item.buyQty + "</div><div class='orderList-object-qty'>";
               addCon += "<img src='../img/ico-order-check.png' style='padding-bottom: 0.7em;' class='orderOk' id='" + item.orderNum + "'/></div></div></div></div></li>";
-            };
+            });
             $('#add').append(addCon);
-
           },
           error: function (data) {
             alert('실패 ' + data);
           }
         });
-      }
-
-
+      });
 
     } // end initEvent
   }; // end page
