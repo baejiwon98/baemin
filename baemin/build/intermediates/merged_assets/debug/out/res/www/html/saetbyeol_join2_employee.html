@@ -102,86 +102,65 @@
                 <label for="pickup-status">포장</label>
               </div>
             </div>
-            <div class="ipt-form-type1">
-              <span>
-                사업자 주소
-              </span>
-              <div class="ipt-form-col">
-                <input type="text" id="store-addr" placeholder="사업자 주소 입력" />
-              </div>
+          </div>
+          <div class="ipt-form-type1">
+            <span>
+              사업자 주소
+            </span>
+            <div class="ipt-form-col">
+              <input type="text" id="store-addr" placeholder="사업자 주소 입력" />
             </div>
-            <div class="ipt-form-type1">
-              <span>
-                휴대폰 번호(숫자만)
-              </span>
-              <div class="ipt-form-col">
-                <input type="number" id="employee-phone" pattern="[^0-9]" maxlength="11" placeholder="예)01022334455" />
-              </div>
+          </div>
+          <div class="ipt-form-type1">
+            <span>
+              휴대폰 번호(숫자만)
+            </span>
+            <div class="ipt-form-col">
+              <input type="number" id="employee-phone" pattern="[^0-9]" maxlength="11" placeholder="예)01022334455" />
             </div>
-            <div class="ipt-form-type1">
-              <span>
-                운영시간
-              </span>
-              <div class="ipt-form-row-2">
-                <input placeholder="영업 시작 시간" style="margin-bottom:1.5rem;float:left;" type="text" id="store-start-time"
-                  onfocus="(this.type = 'time')" />
-                <input placeholder="영업 끝나는 시간" style="margin-bottom:1.5rem;float:right;" type="text" id="store-end-time"
-                  onfocus="(this.type = 'time')" />
-              </div>
+          </div>
+          <div class="ipt-form-type1">
+            <span>
+              운영전화번호(숫자만)
+            </span>
+            <div class="ipt-form-col">
+              <input type="number" id="store-phone" pattern="[^0-9]" maxlength="11" placeholder="예)01022334455" />
             </div>
-            <div class="ipt-form-type1">
-              <span>
-                운영전화번호(숫자만)
-              </span>
-              <div class="ipt-form-col">
-                <input type="number" id="store-phone" pattern="[^0-9]" maxlength="11" placeholder="예)01022334455" />
-              </div>
+          </div>
+          <div class="ipt-form-type1">
+            <span>
+              최소주문금액
+            </span>
+            <div class="ipt-form-col">
+              <input type="number" id="least-price" placeholder="최소 주문금액 예) 5000" />
             </div>
-            <div class="ipt-form-type1">
-              <span>
-                최소주문금액
-              </span>
-              <div class="ipt-form-col">
-                <input type="number" id="least-price" placeholder="최소 주문금액 예) 5000" />
-              </div>
+          </div>
+          <div class="ipt-form-type1">
+            <span>
+              주문가능지역
+            </span>
+            <div class="ipt-form-col">
+              <input type="text" id="order-area" placeholder="주문가능지역 입력 예) 구로구 가리봉동, 마포구 망원1동" />
             </div>
-            <div class="ipt-form-type">
-              <span>
-                휴무일
-              </span>
-              <div class="ipt-form-row-2">
-                <input placeholder="휴무 시작일" style="margin-bottom:1.5rem;float:left;" type="text"
-                  onfocus="(this.type = 'date')" id="start-holiday" />
-                <input placeholder="휴무 마지막일" style="margin-bottom:1.5rem;float:right;" type="text"
-                  onfocus="(this.type = 'date')" id="end-holiday" />
-              </div>
+          </div>
+          <div class="ipt-form-type1">
+            <span>
+              배달팁(숫자만)
+            </span>
+            <div class="ipt-form-col">
+              <input type="number" id="delivery-price" placeholder="배달팁 예) 3000" />
             </div>
-            <div class="ipt-form-type1">
-              <span>
-                주문가능지역
-              </span>
-              <div class="ipt-form-col">
-                <input type="text" id="order-area" placeholder="주문가능지역 입력 예) 구로구 가리봉동, 마포구 망원1동" />
-              </div>
-            </div>
-            <div class="ipt-form-type1">
-              <span>
-                배달팁(숫자만)
-              </span>
-              <div class="ipt-form-col">
-                <input type="number" id="delivery-price" placeholder="배달팁 예) 3000" />
-              </div>
-            </div>
+          </div>
 
-            <div class="btn-wrap pd2">
-              <button type="button" id="next-btn" class="btn-point-color">
-                다음
-              </button>
-            </div>
+          <div class="btn-wrap pd2">
+            <button type="button" id="next-btn" class="btn-point-color">
+              다음
+            </button>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </body>
 
 <script type="text/javascript" src="../js/mcore.min.js"></script>

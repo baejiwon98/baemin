@@ -194,13 +194,9 @@
                 pickupStatus: M.data.param('takeoutStatus'),
                 storePhone: M.data.param('storePhone'),
                 leastPrice: M.data.param('leastPrice'),
-                startHoliday: M.data.param('startHoliday'),
-                endHoliday: M.data.param('endHoliday'),
                 orderArea: M.data.param('orderArea'),
                 deliveryPrice: M.data.param('deliveryPrice'),
                 storeCategoryNum: M.data.param('storeCategory'),
-                storeStartTime: M.data.param('startTime'),
-                storeEndTime: M.data.param('endTime'),
               },
               succ: function (data) {
                 console.log(data);
