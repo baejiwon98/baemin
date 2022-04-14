@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Object">
+
+<select id="getObjectNumInfo" resultType="String">
+select 
+concat('menu_', nvl(max(substr(object_num, 6)), 0) + 1)
+from object
+</select>
+
+<select id="getMenuCategoryNumInfo" resultType="String">
+select 
+concat('menuCategory_', nvl(max(substr(menu_category_num, 14)), 0) + 1)
+from category2
+</select>
+
+<!-- 	<select id="getObjectInfo" parameterType="map" resultType="edu.example.dto.ObjectDto">
+		SELECT *
+		FROM Object
+		<if test="objectName != null and objectName != '' ">
+			WHERE OBJECT_NAME = #{objectName} 
+			or OBJECT_NAME = REPLACE(#{objectName}, ' ', '')
+		</if>
+	</select> -->	
+	
+<!-- 	<select id="getStoreObjectInfo" parameterType="map" resultType="edu.example.dto.ObjectDto">
+		SELECT *
+		FROM Object
+		<if test="objectName != null and objectName != '' ">
+			WHERE 
+				(
+					OBJECT_NAME = #{objectName} 
+				 or OBJECT_NAME = REPLACE(#{objectName}, ' ', '') 
+				 or OBJECT_NAME like trim(#{objectName}) 
+				 )
+				 and store_num = #{storeNum}
+		</if>
+	</select>	 -->
+	
+<!-- 매장 내 메뉴 리스트 -->
+	<select id="getStoreObjectInfo" parameterType="map" resultType="edu.example.dto.ObjectDto">
+		SELECT *
+		FROM Object
+		<if test="objectName != null and objectName != '' ">
+			WHERE 
+					OBJECT_NAME = #{objectName}
+				and STORE_NUM = #{storeNum}
+		</if>
+	</select>
+
+	<insert id="insertObjectNotIncludeFiles" >
+		INSERT INTO Object (OBJECT_NUM,
+							OBJECT_NAME,
+							OBJECT_CONTENT,
+							OBJECT_PRICE,
+							OBJECT_QTY,
+							OBJECT_ORIGIN,
+							STORE_NUM,
+							MENU_CATEGORY_NUM)
+		VALUES
+	    	( #{objectNum}, #{objectName}, #{objectContent}, #{objectPrice},
+	    	  #{objectQty}, #{objectOrigin}, #{storeNum}, #{menuCategoryNum} )
+	</insert>
+		
+	<insert id="insertObject" >
+		INSERT INTO Object (OBJECT_NUM,
+							OBJECT_IMAGE,
+							OBJECT_NAME,
+							OBJECT_CONTENT,
+							OBJECT_PRICE,
+							OBJECT_QTY,
+							OBJECT_ORIGIN,
+							STORE_NUM,
+							MENU_CATEGORY_NUM)
+		VALUES
+	    	( #{objectNum}, #{objectImage}, #{objectName}, #{objectContent}, #{objectPrice},
+	    	  #{objectQty}, #{objectOrigin}, #{storeNum}, #{menuCategoryNum} )
+	</insert>
+	
+	<update id="updateObjectNotIncludeFiles" parameterType="map">
+		UPDATE Object
+		SET    
+		       OBJECT_NAME = #{objectName},
+		       OBJECT_CONTENT = #{objectContent},
+		       OBJECT_PRICE = #{objectPrice},
+		       OBJECT_QTY = #{objectQty},
+		       OBJECT_ORIGIN = #{objectOrigin},
+		       STORE_NUM = #{storeNum},
+		       MENU_CATEGORY_NUM = #{menuCategoryNum}
+		WHERE  OBJECT_NUM = #{objectNum}
+	</update>
+		
+	<update id="updateObject" parameterType="map">
+		UPDATE Object
+		SET    
+			   OBJECT_IMAGE = #{objectImage},
+		       OBJECT_NAME = #{objectName},
+		       OBJECT_CONTENT = #{objectContent},
+		       OBJECT_PRICE = #{objectPrice},
+		       OBJECT_QTY = #{objectQty},
+		       OBJECT_ORIGIN = #{objectOrigin},
+		       STORE_NUM = #{storeNum},
+		       MENU_CATEGORY_NUM = #{menuCategoryNum}
+		WHERE  OBJECT_NUM = #{objectNum}
+	</update>
+	
+	<delete id="deleteObject">
+		DELETE FROM Object
+		WHERE OBJECT_NUM = #{objectNum}
+	</delete>
+	
+<!-- 	<update id="updatePassword">
+	UPDATE Object
+	SET    PASSWORD = #{password}
+	WHERE  LOGIN_ID = #{loginId}
+	</update> -->
+	
+</mapper>
