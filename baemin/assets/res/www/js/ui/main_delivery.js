@@ -1,15 +1,11 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : main_delivery.js
+ * @author : 강샛별, 배지원
+ * @date : 2022-04-14
  */
 
 // 페이지 단위 모듈
 (function ($, M, window) {
-  //  var ENV = CONFIG.ENV;
-  //  var MSG = CONFIG.MSG;
-  //  var CONSTANT = CONFIG.CONSTANT;
-  //  var SERVER_CODE = CONFIG.SERVER_CODE;
   var page = {
     els: {
       $orderBtn: null,
@@ -50,20 +46,12 @@
 
       // 마이페이지
       this.els.$menuBtn.on('click', function () {
-        var deliveryId = 'DELID'; // 테스트용 임의의 값 저장
-        M.data.global('deliveryId', deliveryId); // 전역변수 지정 // deliveryId login에서 넘어온 전역변수
-
-        //  alert("global " + M.data.global('deliveryId'));
-        //  alert("session " + M.data.global('myId'));
-
         M.page.html({
           url: "./eunjin_userInfo_Info_delivery.html",
           param: {
             "deliveryId": M.data.global('deliveryId')
           }
         });
-
-
       });
 
     } // end initEvent

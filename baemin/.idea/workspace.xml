@@ -20,15 +20,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/Manifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/Manifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_join2_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_join2_employee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/join2_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/join2_employee.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/join3.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/join3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_Info_delivery.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_Info_delivery.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_info_member.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_info_member.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/main_delivery.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/main_delivery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/member_main1.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/member_main1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_Info_delivery.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_Info_delivery.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/Manifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/Manifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_join2_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_join2_employee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/join3.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/join3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/eunjin_userInfo_Info_delivery.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/eunjin_userInfo_Info_delivery.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/eunjin_userInfo_info_member.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/eunjin_userInfo_info_member.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/member_main1.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/member_main1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/outputs/apk/debug/baemin-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/outputs/apk/debug/baemin-debug.apk" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
