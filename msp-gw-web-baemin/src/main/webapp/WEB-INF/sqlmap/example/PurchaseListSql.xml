@@ -4,20 +4,14 @@
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="PurchaseList">
-	<select id="autoNum" resultType="String">
-		select concat('order', nvl(max(substr(order_num, 6)), 10000)+1) from purchase_list
-	</select>
 	
-	<insert id="insertPurchase">
-		INSERT INTO PURCHASE_LIST
-		VALUES
-	    	( #{orderNum},  #{objectNum},  #{menuQty},  #{menuPrice} )
-	</insert>
-	
-	<delete id="deletePurchase">
+	<delete id="deleteOnePurchase">
 		DELETE FROM PURCHASE_LIST
 		WHERE ORDER_NUM = #{orderNum}
 	</delete>
 	
-	
+	<delete id="deleteAllPurchase">
+		DELETE FROM PURCHASE_LIST
+		WHERE MEMBER_NUM = #{memberNum}
+	</delete>
 </mapper>

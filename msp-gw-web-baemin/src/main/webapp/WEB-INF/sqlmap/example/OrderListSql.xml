@@ -24,9 +24,14 @@
 	</select>
 	
 	<insert id="insertOrder">
-		INSERT INTO ORDERLIST
-		VALUES
-	    	(#{memberNum}, #{buyQty}, #{status}, #{objectNum})
+	    MERGE INTO ORDERLIST w
+		USING (SELECT OBJECT_NUM FROM OBJECT WHERE OBJECT_NUM = #{objectNum}) g
+		    ON (w.OBJECT_NUM = g.OBJECT_NUM AND w.MEMBER_NUM = #{memberNum})
+		When MATCHED THEN
+		    UPDATE SET w.BUY_QTY = w.BUY_QTY + #{buyQty}
+		When NOT MATCHED THEN
+		    INSERT (w.MEMBER_NUM, w.OBJECT_NUM, w.BUY_QTY, w.STATUS)
+		    VALUES(#{memberNum}, #{objectNum}, #{buyQty}, #{status} )
 	</insert>
 	
 	<delete id="deleteOneOrder">
@@ -51,8 +56,8 @@
 		WHERE ob.OBJECT_NUM = od.OBJECT_NUM AND s.STORE_NUM = ob.STORE_NUM AND MEMBER_NUM = #{memberNum}
 	</select>
 	
-	<select id="objCheck" parameterType="map" resultType="edu.example.dto.OrderListDto" >
-		SELECT OBJECTNAME FROM ORDERLIST
+	<select id="staCheck" parameterType="map" resultType="String" >
+		SELECT STATUS FROM ORDERLIST
 		WHERE OBJECT_NUM = #{objectNum}
 	</select>
 	

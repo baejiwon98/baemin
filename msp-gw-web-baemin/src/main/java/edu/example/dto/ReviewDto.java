@@ -1,7 +1,5 @@
 package edu.example.dto;
 
-import java.util.Date;
-
 public class ReviewDto {
 	
 	private String orderNum;	

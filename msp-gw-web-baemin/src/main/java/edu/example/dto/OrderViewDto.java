@@ -8,13 +8,10 @@ public class OrderViewDto {
 	private String objectName;
 	private String objectImg;
 	private String storeName;
-	private Integer buyQty;
+	private Integer menuQty;
 	private String storeNum;
 	private String memberNum;
 	private String deliveryNum;
-
-
-
 
 	public String toString() {
 		return 	"orderNum="+orderNum
@@ -24,7 +21,7 @@ public class OrderViewDto {
 			+	"\n objectName="+objectName
 			+	"\n objectImg="+objectImg
 			+	"\n storeName="+storeName
-			+	"\n buyQty="+buyQty
+			+	"\n menuQty="+menuQty
 			+	"\n storeNum="+storeNum
 			+	"\n memberNum="+memberNum 
 			+	"\n deliveryNum="+deliveryNum
@@ -92,26 +89,18 @@ public class OrderViewDto {
 
 
 
-
 	public void setOrderStatus(String orderStatus) {
 		this.orderStatus = orderStatus;
 	}
-
-
-
 
 	public String getObjectNum() {
 		return objectNum;
 	}
 
 
-
-
 	public void setObjectNum(String objectNum) {
 		this.objectNum = objectNum;
 	}
-
-
 
 
 	public String getObjectName() {
@@ -120,12 +109,9 @@ public class OrderViewDto {
 
 
 
-
 	public void setObjectName(String objectName) {
 		this.objectName = objectName;
 	}
-
-
 
 
 	public String getObjectImg() {
@@ -133,13 +119,9 @@ public class OrderViewDto {
 	}
 
 
-
-
 	public void setObjectImg(String objectImg) {
 		this.objectImg = objectImg;
 	}
-
-
 
 
 	public String getStoreName() {
@@ -147,24 +129,20 @@ public class OrderViewDto {
 	}
 
 
-
-
 	public void setStoreName(String storeName) {
 		this.storeName = storeName;
 	}
 
 
-
-
-	public Integer getBuyQty() {
-		return buyQty;
+	public Integer getMenuQty() {
+		return menuQty;
 	}
 
 
 
 
-	public void setBuyQty(Integer buyQty) {
-		this.buyQty = buyQty;
+	public void setMenuQty(Integer menuQty) {
+		this.menuQty = menuQty;
 	}
 
 

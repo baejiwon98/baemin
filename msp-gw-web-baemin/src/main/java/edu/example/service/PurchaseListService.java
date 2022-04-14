@@ -27,8 +27,8 @@ public class PurchaseListService {
     @Qualifier("transactionManager_sample")
     private DataSourceTransactionManager transactionManager_sample;
     
-  //구매 내역서 추가
-  	public int insertPurchase( Map<String,Object> param ) {
+  	//구매 내역서 하나 삭제
+  	public int deleteOnePurchase( Map<String,Object> param ) {
   		//트렌젝션 구현
   		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
   		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
@@ -36,40 +36,37 @@ public class PurchaseListService {
 
   		int result = 0;
   		try{
-//  			String num = sqlSession.selectOne("PurchaseList.autoNum");
-//  			param.put("orderNum", num);
-  			result += sqlSession.insert("PurchaseList.insertPurchase", param);
-  	        
+
+  			result = sqlSession.delete("PurchaseList.deletePurchaseOne", param);
   			transactionManager_sample.commit(status);
-  			logger.info("========== 주문서 추가 완료 : {}", result);
-  	            
+  			logger.info("========== 항목 삭제 완료 : {}", result);
+                
   		}catch(Exception e){
-  			logger.error("[ERROR] insertPurchase() Fail : e : {}", e.getMessage());
+  			logger.error("[ERROR] deleteOnePurchase() Fail : e : {}", e.getMessage());
   			e.printStackTrace();
   			transactionManager_sample.rollback(status);    	
   		}
   		return result;
   	}
-  	
-  	//구매 리스트 항목 하나 삭제
-    	public int deletePurchase( Map<String,Object> param ) {
-    		//트렌젝션 구현
-            DefaultTransactionDefinition def = new DefaultTransactionDefinition();
-            def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
-            TransactionStatus status = transactionManager_sample.getTransaction(def);
+  	//구매 내역서 하나 삭제
+  	public int deleteAllPurchase( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
 
-            int result = 0;
-            try{
+  		int result = 0;
+  		try{
 
-            	result = sqlSession.delete("PurchaseList.deletePurchase", param);
-              transactionManager_sample.commit(status);
-              logger.info("========== 항목 삭제 완료 : {}", result);
+  			result = sqlSession.delete("PurchaseList.deletePurchaseAll", param);
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 항목 전체 삭제 완료 : {}", result);
                 
-            }catch(Exception e){
-            	logger.error("[ERROR] deletePurchase() Fail : e : {}", e.getMessage());
-            	e.printStackTrace();
-            	transactionManager_sample.rollback(status);    	
-            }
-    		return result;
-    	}
+  		}catch(Exception e){
+  			logger.error("[ERROR] deleteAllPurchase() Fail : e : {}", e.getMessage());
+  			e.printStackTrace();
+  			transactionManager_sample.rollback(status);    	
+  		}
+  		return result;
+  	}
 }

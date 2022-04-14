@@ -13,69 +13,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74ed69c0-9853-4c9b-bfa4-a76e302cc75d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/map.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/payment_takeout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_myOrderList_employee.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/baemin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/baemin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/Manifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/Manifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/css/morpheus-common.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/css/morpheus-common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/css/morpheus-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/css/morpheus-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/eunjin_orderList_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_orderList_employee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_myOrderList_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_myOrderList_employee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/jiwon_payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_payment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/jiwon_payment_takeout.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_payment_takeout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_join1.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_join1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_join2_delivery.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_join2_delivery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_join2_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_join2_employee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_join2_member.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_join2_member.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/join2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/join2_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/join2_employee.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/join3.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/join3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/main_delivery.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/main_delivery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/member_main1.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/member_main1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/member_main2.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/member_main2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/payment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/store_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/store_detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_orderList_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_employee.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_reviewlist_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_reviewlist_employee.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/blame/res/debug/single/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/blame/res/debug/single/debug.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/Manifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/Manifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/css/morpheus-common.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/css/morpheus-common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/css/morpheus-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/css/morpheus-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_payment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_join1.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_join1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_join2_delivery.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_join2_delivery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_join2_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_join2_employee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_join2_member.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_join2_member.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/join2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/join3.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/join3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/member_main1.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/member_main1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/member_main2.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/member_main2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/payment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_orderList_employee.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_reviewlist_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_reviewlist_employee.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/outputs/apk/debug/baemin-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/outputs/apk/debug/baemin-debug.apk" afterDir="false" />
-    </list>
+    <list default="true" id="74ed69c0-9853-4c9b-bfa4-a76e302cc75d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\user\.android\avd\Pixel_2_API_30_4.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\user\.android\avd\Pixel_2_API_30_5.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -120,14 +64,14 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/application.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/assets/res/Manifest.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/res/xml/network_security_config.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_myOrderList_member.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/.idea/workspace.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AndroidManifest.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/assets/res/Manifest.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_myOrderList_member.html" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/res/xml/network_security_config.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/application.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="27BcECPQdRfwcLBfEfnYpnHuMOZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -217,6 +161,19 @@
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="baemin.baemin" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="baemin.baemin" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>

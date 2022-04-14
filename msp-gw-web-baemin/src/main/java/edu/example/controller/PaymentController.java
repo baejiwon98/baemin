@@ -50,7 +50,6 @@ public class PaymentController {
         int result = service.paymentDelivery( reqBodyMap );
         
         if( result > 0 ) {
-        	service.deleteOrder(null);
         	responseBodyMap.put("rsltCode", "0000");
             responseBodyMap.put("rsltMsg", "Success");
         } else {
@@ -65,10 +64,12 @@ public class PaymentController {
         return mv;
 	}
 	
+	
+	
 	// 포장 주문
 	@RequestMapping( method = RequestMethod.POST, value = "/api/payment/paymentPickUp" )
 	public ModelAndView paymentPickUp( HttpServletRequest request, HttpServletResponse response ) {
-			
+		
 		Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
 		Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
 		Map<String, Object> responseBodyMap= new HashMap<String, Object>();
@@ -86,6 +87,40 @@ public class PaymentController {
 	        
 		if( result > 0 ) {
 			service.deleteOrder(null);
+			responseBodyMap.put("rsltCode", "0000");
+			responseBodyMap.put("rsltMsg", "Success");
+		} else {
+			responseBodyMap.put("rsltCode", "2003");
+			responseBodyMap.put("rsltMsg", "Data not found.");
+		}
+			
+		ModelAndView mv = new ModelAndView("defaultJsonView");
+		mv.addObject(Const.HEAD,reqHeadMap);
+		mv.addObject(Const.BODY,responseBodyMap);
+
+		return mv;
+	}
+	
+	//구매 리스트 추가
+	@RequestMapping( method = RequestMethod.POST, value = "/api/purchaseList/insert" )
+	public ModelAndView insertPurchase( HttpServletRequest request, HttpServletResponse response ) {
+			
+		Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
+		Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
+		Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+	        
+		if(reqHeadMap==null){
+			reqHeadMap = new HashMap<String, Object>();
+		}
+	        
+		reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+			
+		logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+	        
+		int result = service.insertPurchase( reqBodyMap );
+	        
+		if( result > 0 ) {
 			responseBodyMap.put("rsltCode", "0000");
 			responseBodyMap.put("rsltMsg", "Success");
 		} else {
@@ -141,19 +176,18 @@ public class PaymentController {
 		Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
 		Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
 		Map<String, Object> responseBodyMap= new HashMap<String, Object>();
-			
+		
 		if(reqHeadMap==null){
 			reqHeadMap = new HashMap<String, Object>();
 		}
 			        
 		reqHeadMap.put(Const.RESULT_CODE, Const.OK);
 		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
-					
+	
 		logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
 			        
 		List<OrderViewDto> list = service.paymentAllMember(reqBodyMap);
 		
-			        
 		if( !StringUtils.isEmpty(list) ) {           
 			responseBodyMap.put("rsltCode", "0000");
 			responseBodyMap.put("rsltMsg", "Success");
@@ -206,41 +240,41 @@ public class PaymentController {
 		return mv;
 	}
 	
-	// 주문 내역 전체 보기(사장)
-		@RequestMapping( method = RequestMethod.POST, value = "/api/payment/paymentAllDelivery" )
-		public ModelAndView paymentAllDelivery( HttpServletRequest request, HttpServletResponse response ) {
-				
-			Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
-			Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
-			Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+	// 주문 내역 전체 보기(라이더)
+	@RequestMapping( method = RequestMethod.POST, value = "/api/payment/paymentAllDelivery" )
+	public ModelAndView paymentAllDelivery( HttpServletRequest request, HttpServletResponse response ) {
+		
+		Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
+		Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
+		Map<String, Object> responseBodyMap= new HashMap<String, Object>();
 					
-			if(reqHeadMap==null){
-				reqHeadMap = new HashMap<String, Object>();
-			}
-					        
-			reqHeadMap.put(Const.RESULT_CODE, Const.OK);
-			reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
-							
-			logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
-					        
-			List<OrderViewDto> list = service.paymentAllDelivery(reqBodyMap);
-				
-					        
-			if( !StringUtils.isEmpty(list) ) {           
-				responseBodyMap.put("rsltCode", "0000");
-				responseBodyMap.put("rsltMsg", "Success");
-				responseBodyMap.put("list", list);
-			}else {
-				responseBodyMap.put("rsltCode", "2003");
-				responseBodyMap.put("rsltMsg", "Data not found.");
-			}
-				
-			ModelAndView mv = new ModelAndView("defaultJsonView");
-			mv.addObject(Const.HEAD,reqHeadMap);
-			mv.addObject(Const.BODY,responseBodyMap);
-				
-			return mv;
+		if(reqHeadMap==null){
+			reqHeadMap = new HashMap<String, Object>();
 		}
+
+		reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+								
+		logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+					        
+		List<OrderViewDto> list = service.paymentAllDelivery(reqBodyMap);
+				
+					        
+		if( !StringUtils.isEmpty(list) ) {           
+			responseBodyMap.put("rsltCode", "0000");
+			responseBodyMap.put("rsltMsg", "Success");
+			responseBodyMap.put("list", list);
+		}else {
+			responseBodyMap.put("rsltCode", "2003");
+			responseBodyMap.put("rsltMsg", "Data not found.");
+		}
+				
+		ModelAndView mv = new ModelAndView("defaultJsonView");
+		mv.addObject(Const.HEAD,reqHeadMap);
+		mv.addObject(Const.BODY,responseBodyMap);
+				
+		return mv;
+	}
 		
 	// 주문 페이지 정보
 	@RequestMapping( method = RequestMethod.POST, value = "/api/payment/paymentPage" )
@@ -249,7 +283,7 @@ public class PaymentController {
 		Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
 		Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
 		Map<String, Object> responseBodyMap= new HashMap<String, Object>();
-			        
+
 		if(reqHeadMap==null){
 			reqHeadMap = new HashMap<String, Object>();
 		}
@@ -265,7 +299,7 @@ public class PaymentController {
 		Integer objectPrice = service.getObjPrice(reqBodyMap);
         Integer buyQty = service.getQty(reqBodyMap);
         
-        Integer totalPrice = objectPrice * buyQty;	
+        Integer totalPrice = objectPrice * buyQty;
         
 		if( !StringUtils.isEmpty(memAddr) && !StringUtils.isEmpty(deliveryPrice) ) {
 			responseBodyMap.put("rsltCode", "0000");
