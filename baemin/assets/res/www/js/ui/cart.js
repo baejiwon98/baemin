@@ -123,7 +123,7 @@
         if (status == 'D') {
           M.page.html({
             url: './jiwon_payment.html',
-            param : {
+            param: {
 
             }
           });

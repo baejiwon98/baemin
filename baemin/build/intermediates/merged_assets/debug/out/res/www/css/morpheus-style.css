@@ -72,7 +72,7 @@
 .main-menu-box.type04 li:nth-child(2){background:url(../img/ico-cart.png) no-repeat center 2rem;background-size:3.5rem;} /* 마이페이지 주문 목록 */
 .main-menu-box.type04 li:nth-child(3){background:url(../img/ico-menu-03.png) no-repeat center 2.1rem;background-size:2.3rem;}/* 마이페이지 내 리뷰 : 은진 */
 .metro-wrap li{position:relative;float:left;margin-top:1rem;width:49%;/*height:14.5rem;*/border:1px solid #e0e0e0;}
-input[type=number]:disabled{background-color:#ff7987;font-weight:400;}
+input[type=number]:disabled{font-weight:400;}
 .btn-search{padding: 1rem; width: 10%; height: 40px; border: solid #ddd 1px ;}
 
 /* 가게 목록 출력할 때의 이미지 크기 조정 */

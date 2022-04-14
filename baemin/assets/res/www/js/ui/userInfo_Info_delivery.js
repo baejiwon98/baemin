@@ -1,6 +1,6 @@
 /**
  * @file : userInfo_Info_delivery.js
- * @author : 강샛별, 배지원
+ * @author : 배지원
  * @date : 2022-04-14
  */
 
@@ -144,7 +144,7 @@
         },
         succ: function (data) {
           M.page.replace({
-            url: "./eunjin_userInfo_info_employee.html",
+            url: "./eunjin_userInfo_Info_delivery.html",
           });
         },
         error: function (data) {

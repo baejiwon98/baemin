@@ -1,290 +1,306 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : userInfo_Info_employee.js
+ * @author : 배지원
+ * @date : 2022-04-14
  */
 
 // 페이지 단위 모듈
 (function ($, M, window) {
-  //  var ENV = CONFIG.ENV;
-  //  var MSG = CONFIG.MSG;
-  //  var CONSTANT = CONFIG.CONSTANT;
-  //  var SERVER_CODE = CONFIG.SERVER_CODE;
+  var delivery;
+  var takeout;
   var page = {
-
     els: {
-      $backBtn: null,
-      $pwBtn: null,
-      $out: null,
-      $logout: null,
-      $updateBtn: null,
-
-      $id: null,
-      $nameIpt: null,
-      $phoneIpt: null,
-      $emailIpt: null,
+      $idIpt: null,
+      $pwIpt: null,
+      $registNumIpt: null,
+      $employeeNameIpt: null,
       $storeNameIpt: null,
-      $deliveryStatusIpt: null,
-      $pickupStatusIpt: null,
-      $storeStartTimeIpt: null,
-      $storeEndTimeIpt: null,
+      $storeCategory: null,
+      $deliveryStatusChk: null,
+      $pickupStatusChk: null,
+      $storeAddrIpt: null,
+      $employeePhoneIpt: null,
       $storePhoneIpt: null,
       $leastPriceIpt: null,
-      $storeCategoryNumIpt: null,
-      $holidayIpt: null,
       $orderAreaIpt: null,
       $deliveryPriceIpt: null,
-      $phoneConBtn: null,
-      $emailConBtn: null
+      $storeEmailIpt: null,
 
+      $modifyBtn: null,
+      $changePwBtn: null,
+      $userLogoutBtn: null,
+      $userOutBtn: null,
+      $backBtn: null,
     },
     data: {},
     init: function init() {
+      this.els.$idIpt = $('#employeeId');
+      this.els.$pwIpt = $('#employeePw');
+      this.els.$registNumIpt = $('#employee-num');
+      this.els.$employeeNameIpt = $('#employee-name');
+      this.els.$storeNameIpt = $('#store-name');
+      this.els.$storeEmailIpt = $('#store-email');
+      this.els.$storeCategory = $('#store-category');
+      this.els.$storeAddrIpt = $('#store-addr');
+      this.els.$employeePhoneIpt = $('#employee-phone');
+      this.els.$storePhoneIpt = $('#store-phone');
+      this.els.$leastPriceIpt = $('#least-price');
+      this.els.$orderAreaIpt = $('#order-area');
+      this.els.$deliveryPriceIpt = $('#delivery-price');
+
       this.els.$backBtn = $('#backBtn');
-      this.els.$pwBtn = $('#pwUpdate');
-      this.els.$out = $('#out');
-      this.els.$logout = $('#logout');
-      this.els.$updateBtn = $('#updateBtn');
-
-      this.els.$id = $('#employeeId');
-      this.els.$nameIpt = $('#employeeName');
-      this.els.$phoneIpt = $('#employeePhone');
-      this.els.$emailIpt = $('#employeeEmail');
-      this.els.$storeNameIpt = $('#storeName');
-      this.els.$deliveryStatusIpt = $('#deliveryStatus');
-      this.els.$pickupStatusIpt = $('#pickupStatus');
-      this.els.$storeStartTimeIpt = $('#storeStartTime');
-      this.els.$storeEndTimeIpt = $('#storeEndTime');
-      this.els.$storePhoneIpt = $('#storePhone');
-      this.els.$leastPriceIpt = $('#leastPrice');
-      this.els.$storeCategoryNumIpt = $('#storeCategoryNum');
-      this.els.$holidayIpt = $('#holiday');
-      this.els.$orderAreaIpt = $('#orderArea');
-      this.els.$deliveryPriceIpt = $('#deliveryPrice');
-
-      this.els.$phoneConBtn = $('#phoneConBtn');
-      this.els.$emailConBtn = $('#emailConBtn');
-
-    }, // end init
-
+      this.els.$modifyBtn = $('#updateBtn');
+      this.els.$changePwBtn = $('#pwUpdate');
+      this.els.$userLogoutBtn = $('#logout');
+      this.els.$userOutBtn = $('#out');
+    },
     initView: function initView() {
-      // 화면에서 세팅할 동적데이터
       var self = this;
-      var id = M.data.param('employeeId');
-
-      // 마이페이지 상세보기
+      this.els.$idIpt.val(M.data.global('myId'));
+      this.els.$pwIpt.val('');
       $.sendHttp({
         path: "/api/store/detailStore",
         data: {
-          employeeId: id
+          "employeeId": M.data.global('myId'),
         },
         succ: function (data) {
-          //                 alert("data.employeeId : " +data.employeeId);
-          self.els.$id.val(id);
-          self.els.$nameIpt.val(data.employeeName);
-          self.els.$phoneIpt.val(data.employeePhone);
-          self.els.$emailIpt.val(data.employeeEmail);
+          console.log(data);
+          self.els.$registNumIpt.val(data.employeeNum);
+          self.els.$employeeNameIpt.val(data.employeeName);
           self.els.$storeNameIpt.val(data.storeName);
-          self.els.$storeStartTimeIpt.val(data.storeStartTime);
-          self.els.$storeEndTimeIpt.val(data.storeEndTime);
-          self.els.$storePhoneIpt.val(data.storePhone);
+          self.els.$storeAddrIpt.val(data.storeAddr);
+          self.els.$employeePhoneIpt.val(data.employeePhone.substring(0, 3) + "-" + data.employeePhone.substring(3, 7) + "-" + data.employeePhone.substring(7, ));
+          self.els.$storePhoneIpt.val(data.storePhone.substring(0, 3) + "-" + data.storePhone.substring(3, 7) + "-" + data.storePhone.substring(7, ));
           self.els.$leastPriceIpt.val(data.leastPrice);
-          self.els.$storeCategoryNumIpt.val(data.storeCategoryNum);
-          self.els.$holidayIpt.val(data.holiday);
           self.els.$orderAreaIpt.val(data.orderArea);
           self.els.$deliveryPriceIpt.val(data.deliveryPrice);
+          self.els.$storeEmailIpt.val(data.employeeEmail);
 
-          // 배달 상태
-          if (data.deliveryStatus == '1') {
+          $('#store-category').val(data.storeCategoryNum).prop("selected", true);
+
+          if (data.deliveryStatus == 'Y') {
             $("#delivery-status").prop("checked", true);
           } else {
             $("#delivery-status").prop("checked", false);
           }
-
-          // 포장 상태
-          if (data.pickupStatus == '1') {
+          if (data.pickupStatus == 'Y') {
             $("#pickup-status").prop("checked", true);
           } else {
             $("#pickup-status").prop("checked", false);
           }
-
         },
         error: function (data) {
-          alert('실패 ' + data);
+          console.log(data);
+          alert("유저 정보를 가져오지 못했습니다.");
         }
       });
-
-    }, // end initView
-
+    },
     initEvent: function initEvent() {
       // Dom Event 바인딩
-      // 뒤로 가기
+      var self = this;
+
+      if ($("#delivery-status").is(":checked")) {
+        delivery = 'Y';
+      } else {
+        delivery = 'N';
+      }
+
+      if ($("#pickup-status").is(":checked")) {
+        takeout = 'Y';
+      } else {
+        takeout = 'N';
+      }
+
       this.els.$backBtn.on('click', function () {
         M.page.back();
       });
-
-      // 로그아웃
-      this.els.$logout.on('click', function () {
-        M.page.html('./goeun_login.html');
+      this.els.$modifyBtn.on('click', function () {
+        self.modify();
+      });
+      this.els.$changePwBtn.on('click', function () {
+        self.changePw();
       });
 
-      // 수정하기
-      this.els.$updateBtn.on('click', function () {
-        var self = this;
-        var employeeId = M.data.param('employeeId');
-        var employeePw = $('#employeePw').val();
-        var employeeName = $('#employeeName').val();
-        var employeePhone = $('#employeePhone').val();
-        var employeeEmail = $('#employeeEmail').val();
-        var storeName = $('#storeName').val();
-        var deliveryStatus = $('#deliveryStatus').val();
-        var pickupStatus = $('#pickupStatus').val();
-        var storeStartTime = $('#storeStartTime').val();
-        var storeEndTime = $('#storeEndTime').val();
-        var storePhone = $('#storePhone').val();
-        var leastPrice = $('#leastPrice').val();
-        var storeCategoryNum = $('#storeCategoryNum').val();
-        var holiday = $('#holiday').val();
-        var orderArea = $('#orderArea').val();
-        var deliveryPrice = $('#deliveryPrice').val();
-
-        var deliveryStatus;
-        if ($("#delivery-status").is(":checked")) {
-          deliveryStatus = '1';
-        } else {
-          deliveryStatus = '0';
+      this.els.$userLogoutBtn.on('click', function () {
+        M.pop.alert({
+          title: '확인',
+          message: '로그아웃 하시겠습니까?',
+          buttons: ['확인', '취소'],
+          callback: function (index) {
+            if (index == 0) {
+              self.logout();
+            }
+          }
+        });
+      });
+      this.els.$userOutBtn.on('click', function () {
+        M.pop.alert({
+          title: '확인',
+          message: '진짜 탈퇴하시겠습니까?',
+          buttons: ['확인', '취소'],
+          callback: function (index) {
+            if (index == 0) {
+              self.outUser();
+            }
+          }
+        });
+      });
+    },
+    outUser: function () {
+      var self = this;
+      var pw = this.els.$pwIpt.val().trim();
+      $.sendHttp({
+        path: "/api/store/deleteStore",
+        data: {
+          'employeeId': M.data.param('myId'),
+          'employeePw': pw
+        },
+        succ: function (data) {
+          console.log(data);
+          M.data.removeStorage('AUTO_LOGIN_AUTH');
+          M.page.html({
+            path: "./goeun_login.html",
+            actionType: 'CLEAR_TOP',
+          });
+        },
+        error: function (data) {
+          alert("비밀번호가 일치하지 않습니다.");
         }
+      });
+    },
 
-        var pickupStatus;
-        if ($("#pickup-status").is(":checked")) {
-          pickupStatus = '1';
-        } else {
-          pickupStatus = '0';
+    logout: function () {
+      var self = this;
+      var id = this.els.$idIpt.val().trim();
+      $.sendHttp({
+        path: "/api/logout",
+        data: {
+          loginId: id,
+        },
+        succ: function (data) {
+          console.log(data);
+          M.data.removeStorage('AUTO_LOGIN_AUTH');
+          M.page.html({
+            path: "./goeun_login.html",
+            actionType: 'CLEAR_TOP',
+          });
+        },
+        error: function (data) {
+          console.log(data);
+          alert('로그아웃 불가!');
         }
+      });
+    },
 
-        console.log("employeeId " + employeeId);
-        console.log("employeePw " + employeePw);
-        console.log("employeeName " + employeeName);
-        console.log("employeePhone " + employeePhone);
-        console.log("employeeEmail " + employeeEmail);
-        console.log("storeName " + storeName);
-        console.log("deliveryStatus " + deliveryStatus);
-        console.log("pickupStatus " + pickupStatus);
-        console.log("storeStartTime " + storeStartTime);
-        console.log("storeEndTime " + storeEndTime);
-        console.log("storePhone " + storePhone);
-        console.log("leastPrice " + leastPrice);
-        console.log("storeCategoryNum " + storeCategoryNum);
-        console.log("holiday " + holiday);
-        console.log("orderArea " + orderArea);
-        console.log("deliveryPrice " + deliveryPrice);
-        console.log("deliveryStatus " + deliveryStatus);
-        console.log("pickupStatus " + pickupStatus);
-
-        $.sendHttp({
-          path: "/api/store/updateStore",
-          data: {
-            'employeeId': M.data.param('employeeId'),
-            'employeePw': employeePw,
-            'employeeName': employeeName,
-            'employeePhone': employeePhone,
-            'employeeEmail': employeeEmail,
-            'storeName': storeName,
-            'deliveryStatus': deliveryStatus,
-            'pickupStatus': pickupStatus,
-            //            'storeStartTime': storeStartTime,
-            //            'storeEndTime': storeEndTime,
-            'storePhone': storePhone,
-            'leastPrice': leastPrice,
-            'storeCategoryNum': storeCategoryNum,
-            'holiday': holiday,
-            'orderArea': orderArea,
-            'deliveryPrice': deliveryPrice
-
-          },
-          succ: function (data) {
-            alert('수정 완료');
-            M.page.back();
-          },
-          error: function (data) {
-            alert('비밀번호 불일치, 수정 실패');
-            $('#employeePw').val('');
+    changePw: function () {
+      var self = this;
+      var id = this.els.$idIpt.val().trim();
+      var pw = this.els.$pwIpt.val().trim();
+      if (pw == '') {
+        return alert('비밀번호를 입력해주세요');
+      }
+      $.sendHttp({
+        path: "/api/checkPw",
+        data: {
+          loginId: id,
+          password: pw
+        },
+        succ: function (data) {
+          console.log(data);
+          if (data.confirmMsg == "Y") {
+            M.page.html({
+              path: "./goeun_findPw2.html",
+              action: 'NO_HISTORY',
+              param: {
+                "loginId": id
+              },
+            });
+          } else {
+            alert('비밀번호가 일치하지 않습니다. 다시 입력해주세요.');
           }
-        });
+        },
+        error: function (data) {
+          console.log(data);
+          alert('비밀번호가 일치하지 않습니다. 다시 입력해주세요.');
+        }
       });
+    },
 
-      // 비밀번호 변경
-      this.els.$pwBtn.on('click', function () {
-        M.page.html('./eunjin_userInfo_changePw.html');
+    modify: function () {
+      var self = this;
+      var id = this.els.$idIpt.val().trim();
+      var pw = this.els.$pwIpt.val().trim();
+      var name = this.els.$storeNameIpt.val().trim();
+      var employeePhone = this.els.$employeePhoneIpt.val().trim();
+      var storePhone = this.els.$storePhoneIpt.val().trim();
+      var email = this.els.$storeEmailIpt.val().trim();
+      var addr = this.els.$storeAddrIpt.val();
+      var orderArea = this.els.$orderAreaIpt.val();
+      var leastPrice = this.els.$leastPriceIpt.val();
+      var deliveryPrice = this.els.$deliveryPriceIpt.val();
+      var storeCategory = this.els.$storeCategory.val().trim();
+      var phoneNumberEmp = employeePhone.replace(/-/g, '');
+      var phoneNumberStore = storePhone.replace(/-/g, '');
+      var patternPhone = /01[016789][^0][0-9]{2,3}[0-9]{3,4}/;
+      var regExpEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
+      if (pw == '') {
+        return alert('비밀번호를 입력해주세요');
+      }
+      if (employeePhone == '') {
+        return alert('연락처를 입력해주세요');
+      }
+      if (storePhone == '') {
+              return alert('운영전화번호를 입력해주세요');
+            }
+      if (email == '') {
+        return alert('이메일을 입력해주세요');
+      }
+      if (!patternPhone.test(phoneNumberEmp)) {
+        return alert('연락처를 확인 해주세요');
+      }
+      if (!patternPhone.test(phoneNumberStore)) {
+              return alert('운영전화번호를 확인 해주세요');
+            }
+      if (email.length < 6 || !regExpEmail.test(email)) {
+        return alert('메일형식이 맞지 않습니다.');
+      }
+      $.sendHttp({
+        path: "/api/store/updateStore",
+        data: {
+          storeName: name,
+          storeAddr: addr,
+          employeePhone: phoneNumberEmp,
+          employeeEmail: email,
+          employeeId: id,
+          employeePw: pw,
+          deliveryStatus: delivery,
+          pickupStatus: takeout,
+          storePhone: phoneNumberStore,
+          leastPrice: leastPrice,
+          orderArea: orderArea,
+          deliveryPrice: deliveryPrice,
+          storeCategoryNum: storeCategory,
+        },
+        succ: function (data) {
+
+          M.page.replace({
+            url: "./eunjin_userInfo_Info_employee.html",
+          });
+        },
+        error: function (data) {
+          console.log(data);
+          alert('수정에 실패하였습니다');
+        }
       });
-
-      // 연락처 인증
-      this.els.$phoneConBtn.on('click', function () {
-        var employeePhone = $('#employeePhone').val();
-        $.sendHttp({
-          path: "/api/store/phoneCon",
-          data: {
-            employeeId: M.data.param('employeeId'),
-            employeePhone: employeePhone
-          },
-          succ: function (data) {
-            alert('일치합니다.');
-          },
-          error: function (data) {
-            alert(" 일치하지 않습니다.");
-          }
-        });
-      });
-
-      // 이메일 인증
-      this.els.$emailConBtn.on('click', function () {
-        var employeeEmail = $('#employeeEmail').val();
-        $.sendHttp({
-          path: "/api/store/emailCon",
-          data: {
-            employeeId: M.data.param('employeeId'),
-            employeeEmail: employeeEmail
-          },
-          succ: function (data) {
-            alert('일치합니다.');
-          },
-          error: function (data) {
-            alert(" 일치하지 않습니다.");
-          }
-        });
-      });
-
-      // 탈퇴하기
-      this.els.$out.on('click', function () {
-        alert('id ' + M.data.param('employeeId'));
-        alert('pw ' + $('#employeePw').val());
-        $.sendHttp({
-          path: "/api/store/deleteStore",
-          data: {
-            employeeId: M.data.param('employeeId'),
-            employeePw: $('#employeePw').val()
-          },
-          succ: function (data) {
-            alert("비밀번호 일치, 탈퇴되었습니다.");
-            M.page.html('./goeun_login.html');
-          },
-          error: function (data) {
-            alert("비밀번호 불일치, 탈퇴되지 않았습니다.");
-            $('#employeePw').val('');
-          }
-        });
-      });
-
-    } // end initEvent
-  }; // end page
+    }
+  };
   window.__page__ = page;
 })(jQuery, M, window);
 
 // 해당 페이지에서 실제 호출
 (function ($, M, pageFunc, window) {
 
-  // 화면에 리소스가 로딩을 끝내고 정상적으로 동작할 수 있는 시점에 대한 콜백
-  // window.onload 와 비슷함.
   M.onReady(function () {
     pageFunc.init(); // 최초 화면 초기화
     pageFunc.initView();

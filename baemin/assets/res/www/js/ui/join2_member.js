@@ -104,7 +104,7 @@
           "userBirth": birth,
           "userPhone": phone,
           "userNickname": nickname,
-          "grade" : "member",
+          "grade": "member",
         }
       });
     }

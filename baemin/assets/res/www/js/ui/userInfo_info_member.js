@@ -5,7 +5,6 @@
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
-  var seqNo = [];
   var page = {
     els: {
       $myOrderListBtn: null,

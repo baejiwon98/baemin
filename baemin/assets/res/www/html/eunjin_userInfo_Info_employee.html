@@ -16,7 +16,7 @@
       <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
       <!-- 하단에 라인이 있는경우 class="line"추가 -->
       <h1>
-        마이 페이지
+        내 정보
       </h1>
       <button type="button" class="btn-back l-fix" id="backBtn">
         뒤로가기
@@ -58,53 +58,43 @@
                 </div>
                 <div class="ipt-form-type1">
                   <span class="required">
-                    이름
-                    <img src="../img/ico-required.png" alt="필수" />
+                    사업자등록번호(숫자만)
                   </span>
                   <div class="ipt-form-col">
-                    <input type="text" id="employeeName" class="full" />
+                    <input type="number" disabled id="employee-num" pattern="[^0-9]" placeholder="사업자등록번호 입력" />
                   </div>
                 </div>
-                <div class="ipt-form-type2">
-                  <span class="required">
-                    연락처
-                    <img src="../img/ico-required.png" alt="필수" />
+                <div class="ipt-form-type1">
+                  <span>
+                    사업주명
                   </span>
-                  <div class="ipt-form-row">
-                    <input type="text" id="employeePhone" minlength="5" placeholder="아이디 입력" />
-                    <button type="button" class="btn-line" id="phoneConBtn">
-                      인증
-                    </button>
+                  <div class="ipt-form-col">
+                    <input type="text" disabled id="employee-name" placeholder="사업주명 입력" />
                   </div>
                 </div>
-                <!--                <div class="ipt-form-type1">-->
-                <!--            <span>-->
-                <!--              생년월일-->
-                <!--            </span>-->
-                <!--                  <div class="ipt-form-col">-->
-                <!--                    <input type="text" disabled id="" placeholder="예)edu@education.co.kr" />-->
-                <!--                  </div>-->
-                <!--                </div>-->
-                <div class="ipt-form-type2">
-                  <span class="required">
-                    메일
-                    <img src="../img/ico-required.png" alt="필수" />
-                  </span>
-                  <div class="ipt-form-row">
-                    <input type="text" id="employeeEmail" minlength="5" placeholder="아이디 입력" />
-                    <button type="button" class="btn-line" id="emailConBtn">
-                      인증
-                    </button>
-                  </div>
-                </div>
-                <div class="ipt-form-type2">
+                <div class="ipt-form-type1">
                   <span class="required">
                     상호명
                     <img src="../img/ico-required.png" alt="필수" />
                   </span>
                   <div class="ipt-form-col">
-                    <input type="text" id="storeName" class="full" />
+                    <input type="text" id="store-name" placeholder="상호명 입력" />
                   </div>
+                </div>
+
+                <div class="ipt-form-type1">
+                  <span class="required">
+                    카테고리
+                    <img src="../img/ico-required.png" alt="필수" />
+                  </span>
+                  <select id="store-category" style="float:right; text-align:center;">
+                    <option value="">가게 카테고리 선택</option>
+                    <option value="korea">한식</option>
+                    <option value="china">중식</option>
+                    <option value="japan">일식</option>
+                    <option value="america">양식</option>
+                    <option value="snack">분식</option>
+                  </select>
                 </div>
                 <div class="ipt-form-type2">
                   <span class="required">
@@ -121,74 +111,68 @@
                       <label for="pickup-status">포장</label>
                     </div>
                   </div>
-
                 </div>
-                <div class="ipt-form-type2">
+                <div class="ipt-form-type1">
                   <span class="required">
-                    운영시간
-                    <img src="../img/ico-required.png" alt="필수" />
-                  </span>
-                  <div class="chk-wrap-time">
-                    <div class="store-open-time">
-                      오픈 시간 : <input type="time" id="storeStartTime" />
-                    </div>
-                    <div class="store-end-time">
-                      마감 시간 : <input type="time" id="storeEndTime" />
-                    </div>
-                  </div>
-                </div>
-                <div class="ipt-form-type2">
-                  <span class="required">
-                    운영 전화번호
+                    사업자 주소
                     <img src="../img/ico-required.png" alt="필수" />
                   </span>
                   <div class="ipt-form-col">
-                    <input type="text" id="storePhone" class="full" />
+                    <input type="text" id="store-addr" placeholder="사업자 주소 입력" />
                   </div>
                 </div>
-                <div class="ipt-form-type2">
+                <div class="ipt-form-type1">
                   <span class="required">
-                    최소 주문 금액
+                    연락처
                     <img src="../img/ico-required.png" alt="필수" />
                   </span>
                   <div class="ipt-form-col">
-                    <input type="number" class="full" id="leastPrice" min="1000" step="100" value="1000" />
+                    <input type="text" id="employee-phone" placeholder="예)01022334455" />
                   </div>
                 </div>
-                <div class="ipt-form-type2">
+                <div class="ipt-form-type1">
                   <span class="required">
-                    카테고리
+                    운영전화번호
                     <img src="../img/ico-required.png" alt="필수" />
                   </span>
                   <div class="ipt-form-col">
-                    <input type="text" id="storeCategoryNum" class="full" />
+                    <input type="text" id="store-phone" placeholder="예)01022334455" />
                   </div>
                 </div>
-                <div class="ipt-form-type2">
+                <div class="ipt-form-type1">
                   <span class="required">
-                    휴무일
+                    이메일
                     <img src="../img/ico-required.png" alt="필수" />
                   </span>
                   <div class="ipt-form-col">
-                    <input type="text" id="holiday" class="full" />
+                    <input type="text" id="store-email" placeholder="예)edu@education.co.kr" />
                   </div>
                 </div>
-                <div class="ipt-form-type2">
+                <div class="ipt-form-type1">
+                  <span class="required">
+                    최소주문금액
+                    <img src="../img/ico-required.png" alt="필수" />
+                  </span>
+                  <div class="ipt-form-col">
+                    <input type="number" id="least-price" placeholder="최소 주문금액 예) 5000" />
+                  </div>
+                </div>
+                <div class="ipt-form-type1">
                   <span class="required">
                     주문가능지역
                     <img src="../img/ico-required.png" alt="필수" />
                   </span>
                   <div class="ipt-form-col">
-                    <input type="text" id="orderArea" class="full" />
+                    <input type="text" id="order-area" placeholder="주문가능지역 입력 예) 구로구 가리봉동, 마포구 망원1동" />
                   </div>
                 </div>
-                <div class="ipt-form-type2">
+                <div class="ipt-form-type1">
                   <span class="required">
-                    배달팁
+                    배달팁(숫자만)
                     <img src="../img/ico-required.png" alt="필수" />
                   </span>
                   <div class="ipt-form-col">
-                    <input type="number" id="deliveryPrice" min="1000" step="100" value="1000" />
+                    <input type="number" id="delivery-price" placeholder="배달팁 예) 3000" />
                   </div>
                 </div>
                 <br />
@@ -200,12 +184,9 @@
                     수정하기
                   </button>
                 </div>
-
               </div>
             </div>
-
           </div>
-
         </div>
       </div>
 
@@ -215,5 +196,4 @@
 
 <script type="text/javascript" src="../js/mcore.min.js"></script>
 <script type="text/javascript" src="../js/ui/userInfo_Info_employee.js"></script>
-
 </html>
