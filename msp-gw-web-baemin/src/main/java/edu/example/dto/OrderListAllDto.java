@@ -11,14 +11,8 @@ public class OrderListAllDto {
 	private String storeNum;
 	private String storeName;
 	private String objectName;
-	public String getObjectName() {
-		return objectName;
-	}
-
-	public void setObjectName(String objectName) {
-		this.objectName = objectName;
-	}
-
+	private String status;
+	private String objectImage;
 	private Integer deliveryPrice;
 	private Integer objectPrice;
 	private Integer buyQty;
@@ -30,9 +24,34 @@ public class OrderListAllDto {
 			+	"\n storeName="+storeName
 			+	"\n deliveryPrice="+deliveryPrice
 			+	"\n objectPrice="+objectPrice
-			+	"\n buyQty="+buyQty;
+			+	"\n buyQty="+buyQty
+			+	"\n status="+status
+		+	"\n objectImage="+objectImage;
+	}
+	
+	public String getObjectImage() {
+		return objectImage;
 	}
 
+	public void setObjectImage(String objectImage) {
+		this.objectImage = objectImage;
+	}
+
+	public String getObjectName() {
+		return objectName;
+	}
+
+	public void setObjectName(String objectName) {
+		this.objectName = objectName;
+	}	
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public String getObjectNum() {
 		return objectNum;

@@ -32,25 +32,6 @@ public class OrderListService {
     @Qualifier("transactionManager_sample")
     private DataSourceTransactionManager transactionManager_sample;
     
-    //배달팁 가져오기
-    public PaymentDetailDto getDeliveryPrice( Map<String,Object> param ) {
-		return sqlSession.selectOne("Payment.getDeliveryPrice", param);
-	}
-    
-    //가게명 가져오기
-    public PaymentDetailDto getStoreName( Map<String,Object> param ) {
-		return sqlSession.selectOne("Payment.getStoreName", param);
-	}
-    
-    //상품 가격 가져오기
-    public Integer getObjPrice(Map<String,Object> param) {
-    	return sqlSession.selectOne("OrderList.getObjPrice", param);
-    }
-    
-    //상품 수량 가져오기
-    public Integer getQty(Map<String,Object> param) {
-    	return sqlSession.selectOne("OrderList.getQty", param);
-    }
     
     //내 장바구니 전체 보기
     public List<OrderListAllDto> orderList( Map<String,Object> param ) {
@@ -60,6 +41,11 @@ public class OrderListService {
     //장바구니 상품 번호
     public OrderListDto objCheck( Map<String,Object> param ) {
 		return sqlSession.selectOne("OrderList.objCheck", param);
+	}
+    
+    //장바구니 상품 번호
+    public OrderListDto staCheck( Map<String,Object> param ) {
+		return sqlSession.selectOne("OrderList.staCheck", param);
 	}
     
     //추가
@@ -95,10 +81,9 @@ public class OrderListService {
           try{
 
           	result = sqlSession.delete("OrderList.deleteOneOrder", param);
+            transactionManager_sample.commit(status);
+            logger.info("========== 항목 삭제 완료 : {}", result);
 
-              transactionManager_sample.commit(status);
-              logger.info("========== 항목 삭제 완료 : {}", result);
-              
           }catch(Exception e){
           	logger.error("[ERROR] deleteOneOrder() Fail : e : {}", e.getMessage());
           	e.printStackTrace();
@@ -107,7 +92,7 @@ public class OrderListService {
   		return result;
   	}
   	
-  //주문리스트 전체 삭제
+  	//장바구니 전체 삭제
   	public int deleteOrder( Map<String,Object> param ) {
   		//트렌젝션 구현
           DefaultTransactionDefinition def = new DefaultTransactionDefinition();
@@ -130,7 +115,7 @@ public class OrderListService {
   		return result;
   	}
   	
-  //주문 리스트 수정
+  	//주문 리스트 수량 변경
   	public int updateOrder( Map<String,Object> param ) {
   		//트렌젝션 구현
           DefaultTransactionDefinition def = new DefaultTransactionDefinition();

@@ -5,11 +5,21 @@ public class OrderListDto {
 	private String objectNum;
 	private String memberNum;
 	private Integer buyQty;
+	private String status;
 	
 	public String toString() {
 		return 	"objectNum="+objectNum
 			+	"\n memberNum="+memberNum
-			+	"\n buyQty="+buyQty;
+			+	"\n buyQty="+buyQty
+		+	"\n status="+status;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public String getObjectNum() {
