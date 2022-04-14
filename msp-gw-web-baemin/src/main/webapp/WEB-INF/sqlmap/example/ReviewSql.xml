@@ -66,11 +66,10 @@
 	</select>
 	
 	<select id="getReviewlist" parameterType="map" resultType="edu.example.dto.ReviewDto">
-		SELECT *
-		FROM REVIEW
-		<if test="storeNum != null and storeNum != '' ">
-			WHERE STORE_NUM = #{storeNum}
-		</if>
+		SELECT r.order_num, review_score, to_char(review_date,'YYYY-MM-DD') reviewDate, review_content, review_image,
+		store_review, p.store_num, store_name, m.member_num, member_nickname
+		from review r, payment p, store s, member m
+		where r.order_num = p.order_num and p.member_num = m.member_num and p.store_num = s.store_num and p.STORE_NUM = #{storeNum}
 	</select>
 	
 	<insert id="insertReview" parameterType="map">

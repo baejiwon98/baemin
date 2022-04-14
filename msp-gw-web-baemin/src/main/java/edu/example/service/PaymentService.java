@@ -56,7 +56,7 @@ public class PaymentService {
 	}
     
     //고객이 자신의 주문내역 전체 보기
-    public List<OrderViewDto> paymentAllMember( Map<String, Object> param ) {
+    public List<OrderViewDto> paymentAllMember( Map<String,Object> param ) {
     	return sqlSession.selectList("Payment.getPaymentMember", param);
 	}
     
@@ -70,8 +70,8 @@ public class PaymentService {
     	return sqlSession.selectList("Payment.getPaymentDelivery", param);
 	}
 	
-	//배달 주문
-	public int paymentDelivery( Map<String,Object> param ) {
+	//주문서 추가
+	public int paymentInsert( Map<String,Object> param ) {
 		
 		//트렌젝션 구현
         DefaultTransactionDefinition def = new DefaultTransactionDefinition();
@@ -96,55 +96,6 @@ public class PaymentService {
         }
 		return result;
 	}
-	
-	//포장 주문
-	public int paymentPickUp( Map<String,Object> param ) {
-			
-		//트렌젝션 구현
-		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
-		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
-		TransactionStatus status = transactionManager_sample.getTransaction(def);
-
-		int result = 0;
-		try{
-			String num = sqlSession.selectOne("Payment.autoNum");
-			param.put("orderNum", num);
-			result += sqlSession.insert("Payment.insertPayment", param);
-			result += sqlSession.update("Payment.insertMemInfo", param);
-	            
-			transactionManager_sample.commit(status);
-			logger.info("========== 주문서 추가 완료 : {}", result);
-	            
-		}catch(Exception e){
-			logger.error("[ERROR] paymentInsert() Fail : e : {}", e.getMessage());
-			e.printStackTrace();
-			transactionManager_sample.rollback(status);    	
-		}
-		return result;
-	}
-	
-	//주문리스트(장바구니) 전체 삭제
-  	public int deleteOrder( Map<String,Object> param ) {
-  		//트렌젝션 구현
-          DefaultTransactionDefinition def = new DefaultTransactionDefinition();
-          def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
-          TransactionStatus status = transactionManager_sample.getTransaction(def);
-
-          int result = 0;
-          try{
-
-          	  result = sqlSession.delete("Payment.deleteOrder", param);
-
-              transactionManager_sample.commit(status);
-              logger.info("========== 전체 삭제 완료 : {}", result);
-              
-          }catch(Exception e){
-          	logger.error("[ERROR] deleteOrder() Fail : e : {}", e.getMessage());
-          	e.printStackTrace();
-          	transactionManager_sample.rollback(status);    	
-          }
-  		return result;
-  	}
 	
 	
 	

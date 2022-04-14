@@ -1,7 +1,5 @@
 package edu.example.dto;
 
-import java.util.Date;
-
 public class ReviewDto {
 	
 	private String orderNum;	
@@ -11,6 +9,9 @@ public class ReviewDto {
 	private String reviewImage;
 	private String storeReview;
 	private String storeNum;
+	private String storeName;
+	private String memberNum;
+	private String memberNickname;
 	
 	public String toString() {
 		return "orderNum="+orderNum
@@ -19,8 +20,42 @@ public class ReviewDto {
 			+	"\n reviewContent="+reviewContent
 			+	"\n reviewImage="+reviewImage
 			+	"\n storeReview="+storeReview
-			+	"\n storeNum="+storeNum;
+			+	"\n storeNum="+storeNum
+			+   "\n storeName="+storeName
+			+	"\n memberNum="+memberNum
+			+   "\n memberNickname="+memberNickname;
 	}
+	
+
+	public String getMemberNum() {
+		return memberNum;
+	}
+
+
+	public void setMemberNum(String memberNum) {
+		this.memberNum = memberNum;
+	}
+
+
+	public String getMemberNickname() {
+		return memberNickname;
+	}
+
+
+	public void setMemberNickname(String memberNickname) {
+		this.memberNickname = memberNickname;
+	}
+
+
+	public String getStoreName() {
+		return storeName;
+	}
+
+
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
+
 
 	public String getOrderNum() {
 		return orderNum;

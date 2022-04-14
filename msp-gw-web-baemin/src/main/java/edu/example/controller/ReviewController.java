@@ -300,6 +300,9 @@ public class ReviewController {
 			responseBodyMap.put("reviewImage", info.getReviewImage());
 			responseBodyMap.put("storeReview", info.getStoreReview());
 			responseBodyMap.put("storeNum", info.getStoreNum());
+			responseBodyMap.put("storeName", info.getStoreName());
+			responseBodyMap.put("memberNum", info.getMemberNum());
+			responseBodyMap.put("memberNickname", info.getMemberNickname());
 		} else {
 			responseBodyMap.put("rsltCode", "2003");
 			responseBodyMap.put("rsltMsg", "Data not found.");

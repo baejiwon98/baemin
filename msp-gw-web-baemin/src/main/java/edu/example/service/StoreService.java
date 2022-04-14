@@ -57,9 +57,7 @@ public class StoreService {
     	int result = 0;
     	try {
     		String store = sqlSession.selectOne("Store.storeAutoNum");
-    		String emp = sqlSession.selectOne("Store.empAutoNum");
     		param.put("storeNum", store);
-    		param.put("employeeNum", emp);
     		
 			result = sqlSession.insert("Store.insertStore", param);
     		
@@ -90,10 +88,10 @@ public class StoreService {
     	int result = 0;
     	try {
     		StoreDTO info = sqlSession.selectOne("Store.detailStore", param);
-        	if( param.get("employeePw").equals(info.getEmployeePw())
-        		&& param.get("employeeEmail").equals(info.getEmployeeEmail())
-    			&& param.get("employeePhone").equals(info.getEmployeePhone())) {
+        	if( param.get("employeePw").equals(info.getEmployeePw())){
         		result = sqlSession.update("Store.updateStore", param);
+        	} else {
+        		result = 0;
         	}
     		
     		transactionManager_sample.commit(status);

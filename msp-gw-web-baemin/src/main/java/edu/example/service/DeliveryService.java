@@ -28,6 +28,26 @@ public class DeliveryService {
     @Qualifier("transactionManager_sample")
     private DataSourceTransactionManager transactionManager_sample;
     
+    public int updateDeliveryAddr(Map<String,Object> param) {
+    	DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+    	def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+    	TransactionStatus status = transactionManager_sample.getTransaction(def);
+    
+    	int result = 0;
+    	try {
+    		DeliveryDTO info = sqlSession.selectOne("Delivery.detailDelivery", param);
+    		result = sqlSession.update("Delivery.updateDeliveryAddr", param);
+    			    	
+	    	transactionManager_sample.commit(status);
+	    	logger.info("========== updateDelivery 완료 : {}", result);
+		}catch(Exception e) {
+			logger.error("[ERROR] updateDelivery() Fail : e : {}", e.getMessage());
+			e.printStackTrace();
+	    	transactionManager_sample.rollback(status);    	
+		}
+		return result;
+    }
+    
     public int insertDelivery(Map<String, Object> param) {
     	// 트렌젝션 구현
     	DefaultTransactionDefinition def = new DefaultTransactionDefinition();
@@ -63,8 +83,10 @@ public class DeliveryService {
     	int result = 0;
     	try {
     		DeliveryDTO info = sqlSession.selectOne("Delivery.detailDelivery", param);
-    		if(info.getDeliveryPw().equals(param.get("deliveryPw"))) {
+    		if(param.get("deliveryPw").equals(info.getDeliveryPw())) {
     			result = sqlSession.update("Delivery.updateDelivery", param);
+    		} else {
+    			result = 0;
     		}
 	    	
 	    	transactionManager_sample.commit(status);

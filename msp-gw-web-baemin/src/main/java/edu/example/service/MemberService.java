@@ -115,6 +115,8 @@ public class MemberService {
         	
         	if( param.get("memberPw").equals(info.getMemberPw()) ) {
         		result = sqlSession.update("Member.updateMember", param);
+        	} else {
+        		result = 0;
         	}
             
             transactionManager_sample.commit(status);

@@ -29,6 +29,39 @@ public class DeliveryController {
 	@Autowired(required=true)
 	private DeliveryService service;
 	
+	// 배달원 주소 저장 - 배지원
+	@RequestMapping(method=RequestMethod.POST, value="/api/delivery/updateAddr")
+	public ModelAndView updateDeliveryAddr (HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> reqHeadMap = (Map<String,Object>)request.getAttribute(Const.HEAD);
+		Map<String, Object> reqBodyMap = (Map<String,Object>)request.getAttribute(Const.BODY);
+		Map<String, Object> responseBodyMap = new HashMap<String, Object>();
+		
+		if(reqHeadMap == null) {
+			reqHeadMap = new HashMap<String, Object>();
+		}
+		
+		reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+		
+		logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+		
+		int result = service.updateDeliveryAddr(reqBodyMap);
+		
+		if(result > 0) {
+			responseBodyMap.put("rsltCode", "0000");
+	        responseBodyMap.put("rsltMsg", "Success");
+	    } else {
+	    	responseBodyMap.put("rsltCode", "2003");
+	        responseBodyMap.put("rsltMsg", "Data not found.");
+	    }
+		
+	    ModelAndView mv = new ModelAndView("defaultJsonView");
+	    mv.addObject(Const.HEAD,reqHeadMap);
+	    mv.addObject(Const.BODY,responseBodyMap);
+
+	    return mv;
+	}
+	
 	@RequestMapping(value="/api/delivery/insertDelivery", method=RequestMethod.POST)
 	public ModelAndView insertDelivery (HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> reqHeadMap = (Map<String,Object>)request.getAttribute(Const.HEAD);
@@ -120,9 +153,14 @@ public class DeliveryController {
 		
 		int result = service.updateDelivery(reqBodyMap);
 		
-		if(result > 0) {
-			responseBodyMap.put("rsltCode", "0000");
-            responseBodyMap.put("rsltMsg", "Success");
+		if(result >= 0) {
+			if(result != 0) {
+				responseBodyMap.put("rsltCode", "0000");
+	            responseBodyMap.put("rsltMsg", "Success");
+			} else {
+				responseBodyMap.put("rsltCode", "2003");
+	            responseBodyMap.put("rsltMsg", "비밀번호가 틀렸습니다.");
+			}
 		}else {
         	responseBodyMap.put("rsltCode", "2003");
             responseBodyMap.put("rsltMsg", "Data not found.");

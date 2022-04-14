@@ -7,18 +7,15 @@
 	<select id="storeAutoNum" resultType="String">
 		select concat('store', nvl(max(substr(store_num, 6)), 10000)+1) from store
 	</select>
-	<select id="empAutoNum" resultType="String">
-		select concat('emp', nvl(max(substr(employee_num, 4)), 10000)+1) from store
-	</select>
 	<sql id="base">	
 		store_num, employee_num, employee_name, store_name, store_addr, employee_phone, employee_email,
-		employee_id, employee_pw, delivery_status, pickup_status, STORE_START_TIME, store_end_time, store_phone, 
-		least_price, holiday, order_area, delivery_price, store_category_num
+		employee_id, employee_pw, delivery_status, pickup_status, store_phone, 
+		least_price, order_area, delivery_price, store_category_num
 	</sql>
 	<sql id="base2">
 		store_num, employee_num, employee_name, store_name, store_addr, employee_phone, employee_email,
-		employee_id, employee_pw, delivery_status, pickup_status, TO_CHAR(STORE_START_TIME, 'HH24:MI') as storeStartTime, 
-		store_phone, least_price, holiday, order_area, delivery_price, store_category_num, TO_CHAR(store_end_time, 'HH24:MI') as storeEndTime
+		employee_id, employee_pw, delivery_status, pickup_status, 
+		store_phone, least_price, order_area, delivery_price, store_category_num
 	</sql>
 
 	<insert id="insertStore">		
@@ -26,14 +23,14 @@
 		VALUES (
 			#{storeNum}, #{employeeNum}, #{employeeName}, #{storeName}, #{storeAddr}, 
 			#{employeePhone}, #{employeeEmail}, #{employeeId}, #{employeePw}, #{deliveryStatus}, 
-			#{pickupStatus}, #{storeStartTime}, #{storeEndTime}, #{storePhone}, #{leastPrice}, 
-			#{holiday}, #{orderArea}, #{deliveryPrice}, #{storeCategoryNum}
+			#{pickupStatus}, #{storePhone}, #{leastPrice}, 
+			#{orderArea}, #{deliveryPrice}, #{storeCategoryNum}
 		)
 		<!-- html에 없음 : #{deliveryStatus}, #{pickupStatus}, #{storeCategoryNum} -->
 	</insert>
 	
 	<select id="detailStore" resultType="edu.example.dto.StoreDTO" parameterType="map">
-		SELECT <include refid="base2"/>
+		SELECT <include refid="base"/>
 		FROM STORE
 		<!-- <if test="employeeId != null and employeeId != '' "> -->
 			WHERE EMPLOYEE_ID = #{employeeId}
@@ -67,9 +64,8 @@
 
 	<update id="updateStore" parameterType="map">
 		UPDATE STORE
-		SET STORE_NAME = #{storeName}, EMPLOYEE_NAME = #{employeeName}, 
-			EMPLOYEE_PHONE = #{employeePhone}, EMPLOYEE_EMAIL = #{employeeEmail}, 
-			STORE_PHONE = #{storePhone}, LEAST_PRICE = #{leastPrice}, HOLIDAY = #{holiday}, 
+		SET STORE_NAME = #{storeName}, EMPLOYEE_EMAIL = #{employeeEmail}, EMPLOYEE_PHONE = #{employeePhone}, 
+			STORE_PHONE = #{storePhone}, LEAST_PRICE = #{leastPrice}, STORE_ADDR = #{storeAddr},
 			ORDER_AREA = #{orderArea}, DELIVERY_PRICE = #{deliveryPrice}, STORE_CATEGORY_NUM = #{storeCategoryNum},
 			DELIVERY_STATUS = #{deliveryStatus}, PICKUP_STATUS = #{pickupStatus}
 		WHERE EMPLOYEE_ID = #{employeeId}     

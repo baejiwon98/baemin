@@ -4,7 +4,12 @@
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Delivery">
-
+	<update id="updateDeliveryAddr" parameterType="map">
+		update delivery
+		set DELIVERY_ADDR = #{deliveryAddr}, DELIVERY_ADDRDETAIL = #{deliveryAddrdetail}			
+		where delivery_id = #{deliveryId}
+	</update>
+	
 	<sql id="base">
 		DELIVERY_NUM, DELIVERY_ID, DELIVERY_NAME, DELIVERY_EMAIL, DELIVERY_PHONE, 
 		DELIVERY_BIRTH, DELIVERY_PW, DELIVERY_ADDR, DELIVERY_ADDRDETAIL
@@ -15,10 +20,11 @@
 	</select>
 
 	<insert id="insertDelivery">
-		insert into delivery (<include refid="base"/>)
+		insert into delivery (DELIVERY_NUM, DELIVERY_ID, DELIVERY_NAME, DELIVERY_EMAIL, DELIVERY_PHONE,
+		DELIVERY_BIRTH, DELIVERY_PW)
 		values (
 			#{deliveryNum}, #{deliveryId}, #{deliveryName}, #{deliveryEmail}, #{deliveryPhone}, 
-			#{deliveryBirth}, #{deliveryPw}, #{deliveryAddr}, #{deliveryAddrdetail}
+			#{deliveryBirth}, #{deliveryPw}
 		)
 	</insert>
 	
@@ -30,8 +36,7 @@
 	
 	<update id="updateDelivery" parameterType="map">
 		update delivery
-		set DELIVERY_NAME = #{deliveryName}, DELIVERY_EMAIL = #{deliveryEmail}, 
-			DELIVERY_PHONE = #{deliveryPhone}, DELIVERY_BIRTH = #{deliveryBirth} 			
+		set DELIVERY_EMAIL = #{deliveryEmail}, DELIVERY_PHONE = #{deliveryPhone}			
 		where delivery_id = #{deliveryId}
 	</update>
 	

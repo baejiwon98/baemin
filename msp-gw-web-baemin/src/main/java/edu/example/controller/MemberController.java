@@ -190,10 +190,15 @@ public class MemberController {
 	        
 	        int result = service.updateMember( reqBodyMap );
 	        
-	        if( result > 0 ) {
-	        	responseBodyMap.put("rsltCode", "0000");
-	            responseBodyMap.put("rsltMsg", "Success");
-	        } else {
+	        if(result >= 0) {
+				if(result != 0) {
+					responseBodyMap.put("rsltCode", "0000");
+		            responseBodyMap.put("rsltMsg", "Success");
+				} else {
+					responseBodyMap.put("rsltCode", "2003");
+		            responseBodyMap.put("rsltMsg", "비밀번호가 틀렸습니다.");
+				}
+			}else {
 	        	responseBodyMap.put("rsltCode", "2003");
 	            responseBodyMap.put("rsltMsg", "Data not found.");
 	        }

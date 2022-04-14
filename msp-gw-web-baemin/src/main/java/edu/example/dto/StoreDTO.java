@@ -13,11 +13,8 @@ public class StoreDTO {
 	private String employeePw;
 	private String deliveryStatus;
 	private String pickupStatus;
-	private String storeStartTime;
-	private String storeEndTime;
 	private String storePhone;
 	private int leastPrice;
-	private String holiday;
 	private String orderArea;
 	private int deliveryPrice;
 	private String storeCategoryNum;
@@ -27,9 +24,9 @@ public class StoreDTO {
 		return "StoreDTO [storeNum=" + storeNum + ", employeeNum=" + employeeNum + ", employeeName=" + employeeName
 				+ ", storeName=" + storeName + ", storeAddr=" + storeAddr + ", employeePhone=" + employeePhone
 				+ ", employeeEmail=" + employeeEmail + ", employeeId=" + employeeId + ", employeePw=" + employeePw
-				+ ", deliveryStatus=" + deliveryStatus + ", pickupStatus=" + pickupStatus + ", storeStartTime="
-				+ storeStartTime + ", storeEndTime=" + storeEndTime + ", storePhone=" + storePhone + ", leastPrice="
-				+ leastPrice + ", holiday=" + holiday + ", orderArea=" + orderArea + ", deliveryPrice=" + deliveryPrice
+				+ ", deliveryStatus=" + deliveryStatus + ", pickupStatus=" + pickupStatus
+				+ ", storePhone=" + storePhone + ", leastPrice="
+				+ leastPrice + ", orderArea=" + orderArea + ", deliveryPrice=" + deliveryPrice
 				+ ", storeCategoryNum=" + storeCategoryNum + "]";
 	}
 	
@@ -99,18 +96,7 @@ public class StoreDTO {
 	public void setPickupStatus(String pickupStatus) {
 		this.pickupStatus = pickupStatus;
 	}
-	public String getStoreStartTime() {
-		return storeStartTime;
-	}
-	public void setStoreStartTime(String storeStartTime) {
-		this.storeStartTime = storeStartTime;
-	}
-	public String getStoreEndTime() {
-		return storeEndTime;
-	}
-	public void setStoreEndTime(String storeEndTime) {
-		this.storeEndTime = storeEndTime;
-	}
+	
 	public String getStorePhone() {
 		return storePhone;
 	}
@@ -122,12 +108,6 @@ public class StoreDTO {
 	}
 	public void setLeastPrice(int leastPrice) {
 		this.leastPrice = leastPrice;
-	}
-	public String getHoliday() {
-		return holiday;
-	}
-	public void setHoliday(String holiday) {
-		this.holiday = holiday;
 	}
 	public String getOrderArea() {
 		return orderArea;

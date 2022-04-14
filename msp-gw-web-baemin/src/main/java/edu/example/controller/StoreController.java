@@ -90,7 +90,7 @@ public class StoreController {
 		if( !StringUtils.isEmpty(info) ) {
 			responseBodyMap.put("rsltCode", "0000");
 			responseBodyMap.put("rsltMsg", "Success");
-
+			responseBodyMap.put("storeNum", info.getStoreNum());
 			responseBodyMap.put("employeeName", info.getEmployeeName());
 			responseBodyMap.put("employeeNum", info.getEmployeeNum());
 			responseBodyMap.put("storeName", info.getStoreName());
@@ -101,11 +101,8 @@ public class StoreController {
 			responseBodyMap.put("employeePw", info.getEmployeePw());
 			responseBodyMap.put("deliveryStatus", info.getDeliveryStatus());
 			responseBodyMap.put("pickupStatus", info.getPickupStatus());
-			responseBodyMap.put("storeStartTime", info.getStoreStartTime());
-			responseBodyMap.put("storeEndTime", info.getStoreEndTime());
 			responseBodyMap.put("storePhone", info.getStorePhone());
 			responseBodyMap.put("leastPrice", info.getLeastPrice());
-			responseBodyMap.put("holiday", info.getHoliday());
 			responseBodyMap.put("orderArea", info.getOrderArea());
 			responseBodyMap.put("deliveryPrice", info.getDeliveryPrice());
 			responseBodyMap.put("storeCategoryNum", info.getStoreCategoryNum());
