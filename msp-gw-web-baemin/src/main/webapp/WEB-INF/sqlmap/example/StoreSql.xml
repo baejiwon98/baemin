@@ -4,6 +4,13 @@
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Store">
+	<select id="storeInfo" parameterType="map" resultType="edu.example.dto.StoreDTO">
+      SELECT DISTINCT s.store_num, employee_name, employee_num, store_name, store_addr, store_phone, least_price, order_area, delivery_price , avg(review_score) OVER (PARTITION BY  r.STORE_NUM) reviewScore 
+      FROM review r, store s
+      WHERE s.store_num = r.store_num(+)
+      AND s.store_num = #{storeNum}
+   </select>
+
 	<select id="storeAutoNum" resultType="String">
 		select concat('store', nvl(max(substr(store_num, 6)), 10000)+1) from store
 	</select>
@@ -41,6 +48,19 @@
 			</if> -->
 		<!-- </if> -->
 	</select>
+	<select id="storeListTakeout" resultType="edu.example.dto.StoreCategoryDTO" parameterType="map">
+		select DISTINCT s.*, avg(review_score) OVER (PARTITION BY  s.STORE_NUM) review_score ,
+		OBJECT_NAME
+		from store s, review r  , (SELECT * FROM (
+    	select STORE_NUM, OBJECT_NAME, ROW_NUMBER() OVER (PARTITION BY STORE_NUM ORDER BY object_num DESC) as RankNo from object 
+		)
+ 		where RankNo = 1) o
+		where s.store_num = r.store_num(+)
+		and s.store_num = o.store_num(+)
+		AND store_Category_Num = #{storeCategoryNum}
+		AND PICKUP_STATUS = #{pickupStatus}
+	</select>
+	
 	
 	<select id="storeList" resultType="edu.example.dto.StoreCategoryDTO" parameterType="map">
 		<!-- SELECT DISTINCT s.*, c.STORE_CATEGORY_NAME
@@ -48,7 +68,7 @@
 		WHERE s.STORE_CATEGORY_NUM = c.STORE_CATEGORY_NUM 
 			AND c.STORE_CATEGORY_NUM = #{storeCategoryNum}   -->
 			
-		SELECT s.*, c.STORE_CATEGORY_NAME
+		<!--  SELECT s.*, c.STORE_CATEGORY_NAME
 		FROM STORE s, CATEGORY c
 		<if test="storeCategoryNum != null and storeCategoryNum != '' ">
 			WHERE s.STORE_CATEGORY_NUM = c.STORE_CATEGORY_NUM 
@@ -60,6 +80,18 @@
 		<if test="pickupStatus != null and pickupStatus != '' ">
 			WHERE s.PICKUP_STATUS = #{pickupStatus}
 		</if>
+		-->
+		select DISTINCT s.*, avg(review_score) OVER (PARTITION BY  s.STORE_NUM) review_score ,
+		OBJECT_NAME
+		from store s, review r  , (SELECT * FROM (
+    	select STORE_NUM, OBJECT_NAME, ROW_NUMBER() OVER (PARTITION BY STORE_NUM ORDER BY object_num DESC) as RankNo from object 
+		)
+ 		where RankNo = 1) o
+		where s.store_num = r.store_num(+)
+		and s.store_num = o.store_num(+)
+		AND store_Category_Num = #{storeCategoryNum}
+		AND DELIVERY_STATUS = #{deliveryStatus}
+		<!--  AND PICKUP_STATUS = #{pickupStatus} -->
 	</select>
 
 	<update id="updateStore" parameterType="map">

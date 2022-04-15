@@ -35,6 +35,10 @@ public class StoreService {
     @Qualifier("transactionManager_sample")
     private DataSourceTransactionManager transactionManager_sample;
     
+    public StoreDTO getStoreInfo(Map<String, Object> param) {
+        return sqlSession.selectOne("Store.storeInfo", param);
+    }
+    
     public int insertStore(Map<String, Object> param) {
     	// 트렌젝션 구현
     	DefaultTransactionDefinition def = new DefaultTransactionDefinition();
@@ -75,6 +79,9 @@ public class StoreService {
     	return sqlSession.selectOne("Store.detailStore", param);
     }
     
+    public List<StoreCategoryDTO> storeListTakeout(Map<String, Object> param) {
+    	return sqlSession.selectList("Store.storeListTakeout", param);
+    }
     public List<StoreCategoryDTO> storeList(Map<String, Object> param) {
     	return sqlSession.selectList("Store.storeList", param);
     }

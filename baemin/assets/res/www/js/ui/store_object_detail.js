@@ -1,7 +1,7 @@
 /**
  * @file : 
  * @author :
- * @date : 
+ * @date :
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {

@@ -16,7 +16,7 @@
     <header class="header">
       <!-- 하단에 라인이 있는경우 class="line"추가 -->
 
-      <h1 class="store-title">
+      <h1 id = "headerStoreName">
         <!--미카코 카레 대림점-->
       </h1>
 
@@ -31,17 +31,9 @@
     <section class="store-main">
       <div class="store-score">
         <div class="fa store-star-ratings">
-          <div class="fa fa-star checked" id="stars"></div>
-          <div class="fa fa-star checked" id="stars"></div>
-          <div class="fa fa-star checked" id="stars"></div>
-          <div class="fa fa-star-half-o" id="stars"></div>
-          <div class="fa fa-star-o" id="stars"></div>
-          <div class="fa store-star-score">
-            <strong>3.6</strong>
-          </div>
         </div>
         <div class="fa store-call">
-          <button type="button" class="btn-call">
+          <button type="button" class="btn-call" id="call-btn">
             call
           </button>
         </div>
@@ -71,8 +63,8 @@
           <div class="fa store-least-price">
             최소주문금액
           </div>
-          <div class="fa store-least-price" id="leastPrice">
-            <!--14000원-->
+          <div class="fa store-least-price">
+            <span id ="leastPrice">14000</span>원
           </div>
         </div>
         <div>
@@ -80,7 +72,7 @@
             배달팁
           </div>
           <div class="fa store-deltip" id="deliveryPrice">
-            <!-- 1000원 ~ 3000원-->
+            <span id = "deliveryTip">1000원 ~ 3000</span>원
           </div>
         </div>
       </div>
@@ -97,7 +89,7 @@
           <tr>
             <th><strong>상호명</strong></th>
             <td>
-              <p class="store-title">
+              <p id="store-title">
                 <!--미카코 카레 대림점-->
               </p>
             </td>

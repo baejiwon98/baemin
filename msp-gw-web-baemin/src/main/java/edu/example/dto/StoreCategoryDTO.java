@@ -1,7 +1,5 @@
 package edu.example.dto;
 
-import java.util.Date;
-
 public class StoreCategoryDTO {
 	private String storeNum;
 	private String employeeNum;
@@ -14,16 +12,13 @@ public class StoreCategoryDTO {
 	private String employeePw;
 	private String deliveryStatus;
 	private String pickupStatus;
-	private Date storeStartTime;
-	private Date storeEndTime;
 	private String storePhone;
 	private int leastPrice;
-	private String holiday;
 	private String orderArea;
 	private int deliveryPrice;
 	private String storeCategoryNum;
-
-	private String storeCategoryName;
+	private String reviewScore;
+	private String objectName;
 
 	@Override
 	public String toString() {
@@ -31,41 +26,46 @@ public class StoreCategoryDTO {
 				+ employeeName + ", storeName=" + storeName + ", storeAddr=" + storeAddr + ", employeePhone="
 				+ employeePhone + ", employeeEmail=" + employeeEmail + ", employeeId=" + employeeId + ", employeePw="
 				+ employeePw + ", deliveryStatus=" + deliveryStatus + ", pickupStatus=" + pickupStatus
-				+ ", storeStartTime=" + storeStartTime + ", storeEndTime=" + storeEndTime + ", storePhone=" + storePhone
-				+ ", leastPrice=" + leastPrice + ", holiday=" + holiday + ", orderArea=" + orderArea
-				+ ", deliveryPrice=" + deliveryPrice + ", storeCategoryNum=" + storeCategoryNum + ", storeCategoryName="
-				+ storeCategoryName + ", getStoreNum()=" + getStoreNum() + ", getStoreStartTime()="
-				+ getStoreStartTime() + ", getStoreEndTime()=" + getStoreEndTime() + ", getEmployeeNum()="
-				+ getEmployeeNum() + ", getEmployeeName()=" + getEmployeeName() + ", getStoreName()=" + getStoreName()
+				+", storePhone=" + storePhone
+				+ ", leastPrice=" + leastPrice + ", orderArea=" + orderArea
+				+ ", deliveryPrice=" + deliveryPrice + ", storeCategoryNum=" + storeCategoryNum
+				+ ", objectName=" + objectName
+			    + ", getStoreNum()=" + getStoreNum() + ", getStoreStartTime()="
+			    + ", getEmployeeNum()=" + getEmployeeNum() + ", getEmployeeName()=" + getEmployeeName() + ", getStoreName()=" + getStoreName()
 				+ ", getStoreAddr()=" + getStoreAddr() + ", getEmployeePhone()=" + getEmployeePhone()
 				+ ", getEmployeeEmail()=" + getEmployeeEmail() + ", getEmployeeId()=" + getEmployeeId()
 				+ ", getEmployeePw()=" + getEmployeePw() + ", getDeliveryStatus()=" + getDeliveryStatus()
 				+ ", getPickupStatus()=" + getPickupStatus() + ", getStorePhone()=" + getStorePhone()
-				+ ", getLeastPrice()=" + getLeastPrice() + ", getHoliday()=" + getHoliday() + ", getOrderArea()="
+				+ ", getLeastPrice()=" + getLeastPrice() + ", getOrderArea()="
 				+ getOrderArea() + ", getDeliveryPrice()=" + getDeliveryPrice() + ", getStoreCategoryNum()="
-				+ getStoreCategoryNum() + ", getStoreCategoryName()=" + getStoreCategoryName() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ getStoreCategoryNum() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + ",reviewScore=" + reviewScore + "]";
 	}
+	
+
+	public String getObjectName() {
+		return objectName;
+	}
+
+
+	public void setObjectName(String objectName) {
+		this.objectName = objectName;
+	}
+
+
+	public String getReviewScore() {
+		return reviewScore;
+	}
+
+
+	public void setReviewScore(String reviewScore) {
+		this.reviewScore = reviewScore;
+	}
+
 
 	public String getStoreNum() {
 		return storeNum;
 	}
 
-	public Date getStoreStartTime() {
-		return storeStartTime;
-	}
-
-	public void setStoreStartTime(Date storeStartTime) {
-		this.storeStartTime = storeStartTime;
-	}
-
-	public Date getStoreEndTime() {
-		return storeEndTime;
-	}
-
-	public void setStoreEndTime(Date storeEndTime) {
-		this.storeEndTime = storeEndTime;
-	}
 
 	public void setStoreNum(String storeNum) {
 		this.storeNum = storeNum;
@@ -167,14 +167,6 @@ public class StoreCategoryDTO {
 		this.leastPrice = leastPrice;
 	}
 
-	public String getHoliday() {
-		return holiday;
-	}
-
-	public void setHoliday(String holiday) {
-		this.holiday = holiday;
-	}
-
 	public String getOrderArea() {
 		return orderArea;
 	}
@@ -197,14 +189,6 @@ public class StoreCategoryDTO {
 
 	public void setStoreCategoryNum(String storeCategoryNum) {
 		this.storeCategoryNum = storeCategoryNum;
-	}
-
-	public String getStoreCategoryName() {
-		return storeCategoryName;
-	}
-
-	public void setStoreCategoryName(String storeCategoryName) {
-		this.storeCategoryName = storeCategoryName;
 	}
 	
 }

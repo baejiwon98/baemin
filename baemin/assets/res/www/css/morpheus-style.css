@@ -449,7 +449,7 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .object-review {margin:2rem;}
 .object-review strong {font-size:2rem;font-weight:bold;}
 .store-table {border-collapse:separate;border-spacing: 0 10px;}
-.store-table th{width: 30%; padding-right:15px;}
+.store-table th{width: 40%; padding-right:15px;}
 .store-info {margin:1.5rem;}
 .store-info strong {font-size:1.3rem;font-weight:bold;}
 .store-info p{font-size:1.5rem;}

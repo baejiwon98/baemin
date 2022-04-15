@@ -32,6 +32,51 @@ public class StoreController {
 	@Autowired(required=true)
 	private StoreService service;
 	
+	// 회원 매장 상세
+	@RequestMapping( method = RequestMethod.POST, value = "/api/store/storeInfo" )
+	   public ModelAndView paymentPage( HttpServletRequest request, HttpServletResponse response ) {
+	         
+	      Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
+	      Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
+	      Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+	         
+	      if(reqHeadMap==null){
+	         reqHeadMap = new HashMap<String, Object>();
+	      }
+	         
+	      reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+	      reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+	               
+	      logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+
+	      StoreDTO info = service.getStoreInfo( reqBodyMap );
+	      
+	      
+	      if( !StringUtils.isEmpty(info) ) {
+	         responseBodyMap.put("rsltCode", "0000");
+	         responseBodyMap.put("rsltMsg", "Success");
+	         responseBodyMap.put("storeNum", info.getStoreNum());
+	         responseBodyMap.put("storeName", info.getStoreName());
+	         responseBodyMap.put("storeAddr", info.getStoreAddr());
+	         responseBodyMap.put("storePhone", info.getStorePhone());
+	         responseBodyMap.put("leastPrice", info.getLeastPrice());
+	         responseBodyMap.put("orderArea", info.getOrderArea());
+	         responseBodyMap.put("deliveryPrice", info.getDeliveryPrice());
+	         responseBodyMap.put("reviewScore", info.getReviewScore());
+	         responseBodyMap.put("employeeName", info.getEmployeeName());
+	         responseBodyMap.put("employeeNum", info.getEmployeeNum());
+	      } else {
+	         responseBodyMap.put("rsltCode", "2003");
+	         responseBodyMap.put("rsltMsg", "Data not found.");
+	      }
+	               
+	      ModelAndView mv = new ModelAndView("defaultJsonView");
+	      mv.addObject(Const.HEAD,reqHeadMap);
+	      mv.addObject(Const.BODY,responseBodyMap);
+
+	      return mv;
+	   }
+	
 	@RequestMapping(value="/api/store/insertStore", method=RequestMethod.POST)
 	public ModelAndView insertStore (HttpServletRequest request, HttpServletResponse response) {
 		Map<String,Object> reqHeadMap = (Map<String,Object>)request.getAttribute(Const.HEAD);
@@ -118,7 +163,7 @@ public class StoreController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/api/store/storeList", method=RequestMethod.POST)
+	@RequestMapping(value="/api/store/storeList/delivery", method=RequestMethod.POST)
 	public ModelAndView storeList(HttpServletRequest request, HttpServletResponse response) {
 		Map<String,Object> reqHeadMap = (Map<String,Object>)request.getAttribute(Const.HEAD);
         Map<String,Object> reqBodyMap = (Map<String,Object>)request.getAttribute(Const.BODY);
@@ -134,6 +179,37 @@ public class StoreController {
 		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
 		
 		List<StoreCategoryDTO> list = service.storeList(reqBodyMap);
+		
+		if( !StringUtils.isEmpty(list) ) {				
+			responseBodyMap.put("rsltCode", "0000");
+			responseBodyMap.put("rsltMsg", "Success");
+			responseBodyMap.put("list", list);
+		}else {
+			responseBodyMap.put("rsltCode", "2003");
+			responseBodyMap.put("rsltMsg", "Data not found.");
+		}
+		ModelAndView mv = new ModelAndView("defaultJsonView");
+		mv.addObject(Const.HEAD, reqHeadMap);
+		mv.addObject(Const.BODY, responseBodyMap);
+		return mv;
+	}
+	
+	@RequestMapping(value="/api/store/storeList/takeout", method=RequestMethod.POST)
+	public ModelAndView storeListTakeout(HttpServletRequest request, HttpServletResponse response) {
+		Map<String,Object> reqHeadMap = (Map<String,Object>)request.getAttribute(Const.HEAD);
+        Map<String,Object> reqBodyMap = (Map<String,Object>)request.getAttribute(Const.BODY);
+        Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+		
+		logger.info("================= reqBodyMap : {} ", reqBodyMap.toString());
+		    
+		if(reqHeadMap == null) {
+			reqHeadMap = new HashMap<String, Object>();
+		}
+		
+		reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+		
+		List<StoreCategoryDTO> list = service.storeListTakeout(reqBodyMap);
 		
 		if( !StringUtils.isEmpty(list) ) {				
 			responseBodyMap.put("rsltCode", "0000");

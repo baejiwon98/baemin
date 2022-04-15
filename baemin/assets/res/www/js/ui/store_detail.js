@@ -1,129 +1,101 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : store_detail.js
+ * @author : 배지원
+ * @date : 2022-04-15
  */
 
 // 페이지 단위 모듈
-(function ($, M, window) {
-  //  var ENV = CONFIG.ENV;
-  //  var MSG = CONFIG.MSG;
-  //  var CONSTANT = CONFIG.CONSTANT;
-  //  var SERVER_CODE = CONFIG.SERVER_CODE;
+(function ($, M, CONFIG, window) {
+  var phone;
   var page = {
     els: {
-      $backBtn: null,
-      $storeMenulistBtn: null,
-      $storeDetailBtn: null,
+      $storeMenuListBtn: null,
       $storeReviewBtn: null,
-      $orderListBtn: null,
-      $topBtn: null,
-
-      $storeMainName: null,
-      $storeName: null,
-      $storeAddr: null,
-      $leastPrice: null,
-      $deliveryPrice: null,
-      $storeStartTime: null,
-      $storeEndTime: null,
-      $startHoliday: null,
-      $endHoliday: null,
-      $employeeName: null,
-      $employeeNum: null
+      $backBtn : null,
+      $goShoppingBtn : null,
+      $callBtn : null,
     },
     data: {},
     init: function init() {
-      this.els.$backBtn = $('#backBtn');
-      this.els.$storeMenulistBtn = $('#store-menulist-btn');
-      this.els.$storeDetailBtn = $('#store-detail-btn');
+      this.els.$storeMenuListBtn = $('#store-menulist-btn');
       this.els.$storeReviewBtn = $('#store-review-btn');
-      this.els.$orderListBtn = $('#order-list-btn');
-      this.els.$topBtn = $('#top-btn');
-
-      this.els.$storeMainName = $('.store-main-title');
-      this.els.$storeName = $('.store-title');
-      this.els.$storeAddr = $('#storeAddr');
-      this.els.$leastPrice = $('#leastPrice');
-      this.els.$deliveryPrice = $('#deliveryPrice');
-      this.els.$storeStartTime = $('#storeStartTime');
-      this.els.$storeEndTime = $('#storeEndTime');
-      this.els.$startHoliday = $('#startHoliday');
-      this.els.$endHoliday = $('#endHoliday');
-      this.els.$employeeName = $('#employeeName');
-      this.els.$employeeNum = $('#employeeNum');
-
-
-    }, // end init
+      this.els.$backBtn = $('#backBtn');
+      this.els.$goShoppingBtn = $('#go-shopping-btn');
+      this.els.$callBtn = $('#call-btn');
+    },
 
     initView: function initView() {
-      // 화면에서 세팅할 동적데이터
-      var employeeId = 'EMPLID1'; // 연결 전 임의의 id
       var self = this;
-      M.data.global('employeeId', employeeId);
-      //      alert("globalId " + M.data.global('employeeId'));
-
-      // 가게 정보
       $.sendHttp({
-        path: "/api/store/detailStore",
+        path: "/api/store/storeInfo",
         data: {
-          'employeeId': M.data.global('employeeId')
+          "storeNum": M.data.global('storeNum'),
         },
         succ: function (data) {
+          console.log(data);
+          var items = "";
+          $('#headerStoreName').text(data.storeName);
           $('.store-main-title').text(data.storeName);
-          $('.store-title').text(data.storeName);
+          $('.store-star-score').text(data.reviewScore);
+          $('.store-main-title').text(data.storeName);
+          $('#leastPrice').text(data.leastPrice);
+          $('#store-title').text(data.storeName);
           $('#storeAddr').text(data.storeAddr);
+          $('#orderArea').text(data.orderArea);
           $('#employeeName').text(data.employeeName);
           $('#employeeNum').text(data.employeeNum);
-          $('#leastPrice').text(data.leastPrice);
-          $('#deliveryPrice').text(data.deliveryPrice);
-          //          $('#storeStartTime').text(data.storeStartTime);
-          //          $('#storeEndTime').text(data.storeEndTime);
-          //          $('#startHoliday').text(data.startHoliday);
-          //          $('#endHoliday').text(data.endHoliday);
+
+          phone = data.storePhone;
+          for (var i = 1; i <= data.reviewScore.substring(0); i++) {
+            items += "<div class='fa fa-star checked' id='stars'></div>";
+          }
+          if (data.reviewScore.slice(-1) == '0' || data.reviewScore.slice(-1) == '1' || data.reviewScore.slice(-1) == '2' || data.reviewScore.slice(-1) == '3' || data.reviewScore.slice(-1) == '8' || data.reviewScore.slice(-1) == '9') {
+            items += "<div class='fa fa-star-o' id='stars'></div>";
+          }
+          if (data.reviewScore.slice(-1) == '4' || data.reviewScore.slice(-1) == '5' || data.reviewScore.slice(-1) == '6' || data.reviewScore.slice(-1) == '7') {
+            items += "<div class='fa fa-star-half-o' id='stars'></div>";
+          }
+          for (var i = 1; i <= 5-data.reviewScore.substring(0); i++) {
+            items += "<div class='fa fa-star-o' id='stars'></div>";
+          }
+          items += "<div class='fa store-star-score'><strong>"+data.reviewScore+"</strong></div>"
+          $(".store-star-ratings").append(items);
+
+
+          $('#deliveryTip').text(data.deliveryPrice);
         },
         error: function (data) {
-          alert('실패 ' + data);
+          console.log(data);
+          alert("가게 정보를 가져오지 못했습니다.");
         }
       });
-    }, // end initView
-
+    },
     initEvent: function initEvent() {
       // Dom Event 바인딩
-      // 뒤로 가기
       this.els.$backBtn.on('click', function () {
         M.page.back();
       });
-
-      // 메뉴보기
-      this.els.$storeMenulistBtn.on('click', function () {
-        M.page.html('jiwon_store_menulist.html');
+      this.els.$storeMenuListBtn.on('click', function () {
+        M.page.back();
       });
-
-      // 리뷰보기
       this.els.$storeReviewBtn.on('click', function () {
-        M.page.html('jiwon_store_reviewlist.html');
+        M.page.replace('./jiwon_store_reviewlist.html');
       });
-
-      // 주문목록
-      this.els.$orderListBtn.on('click', function () {
-        M.page.html('eunjin_orderList_employee.html');
+      this.els.$goShoppingBtn.on('click', function () {
+        M.page.html('./jiwon_cart.html');
       });
-
-      // top
-      this.els.$topBtn.on('click', function () {
-        $('html, body').scrollTop(0);
+      this.els.$callBtn.on ('click', function () {
+        M.sys.call( phone );
       });
+    },
+  };
 
-    } // end initEvent
-  }; // end page
   window.__page__ = page;
-})(jQuery, M, window);
+})(jQuery, M, __config__, window);
 
 // 해당 페이지에서 실제 호출
 (function ($, M, pageFunc, window) {
 
-  // 화면에 리소스가 로딩을 끝내고 정상적으로 동작할 수 있는 시점에 대한 콜백
-  // window.onload 와 비슷함.
   M.onReady(function () {
     pageFunc.init(); // 최초 화면 초기화
     pageFunc.initView();
