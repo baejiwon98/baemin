@@ -123,7 +123,7 @@ public class StoreDTO {
 	public void setOrderArea(String orderArea) {
 		this.orderArea = orderArea;
 	}
-	public int getDeliveryPrice() {
+	public int storePhone() {
 		return deliveryPrice;
 	}
 	public void setDeliveryPrice(int deliveryPrice) {

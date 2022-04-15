@@ -347,7 +347,6 @@ public class ObjectController {
 	// 메뉴 수정 // 파일 업로드
 	@RequestMapping(method = RequestMethod.POST, value = "/api/object/menuUpdateIncludeFiles")
 	public ModelAndView updateObject(MultipartHttpServletRequest request, HttpServletResponse response) {
-		System.out.println("bjxcffxcbfvujfxczubvzxc");
 		Map<String, Object> reqHeadMap = (Map<String, Object>) request.getAttribute(Const.HEAD);
 		Map<String, Object> reqBodyMap = new HashMap<String, Object>();
 		Map<String, Object> responseBodyMap = new HashMap<String, Object>();
@@ -369,7 +368,7 @@ public class ObjectController {
 		// getServletContext() 오류로 이 코드 추가
 		HttpSession session = request.getSession();
 
-		String fileDir = "/view/object/upload/'";
+		String fileDir = "/view/object/upload/";
 		String filePath = session.getServletContext().getRealPath(fileDir);
 		System.out.println(filePath);
 

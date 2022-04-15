@@ -1,5 +1,6 @@
 package edu.example.service;
 
+import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 
@@ -55,6 +56,11 @@ public class PaymentService {
 		return sqlSession.selectOne("Payment.getPaymentDetail", param);
 	}
     
+    //결제 페이지
+    public PaymentDetailDto getPaymentInfo( Map<String,Object> param ) {
+		return sqlSession.selectOne("Payment.getPaymentInfo", param);
+	}
+    
     //고객이 자신의 주문내역 전체 보기
     public List<OrderViewDto> paymentAllMember( Map<String,Object> param ) {
     	return sqlSession.selectList("Payment.getPaymentMember", param);
@@ -70,7 +76,7 @@ public class PaymentService {
     	return sqlSession.selectList("Payment.getPaymentDelivery", param);
 	}
 	
-	//주문서 추가
+	//결제하기
 	public int paymentInsert( Map<String,Object> param ) {
 		
 		//트렌젝션 구현
@@ -82,14 +88,23 @@ public class PaymentService {
         try{
         	String num = sqlSession.selectOne("Payment.autoNum");
         	param.put("orderNum", num);
-            result += sqlSession.insert("Payment.insertPayment", param);
-            System.out.println(result + "결제 성공");
-            result += sqlSession.update("Payment.insertMemInfo", param);
-            System.out.println(result + "배송지 업데이트 성공");
-            result += sqlSession.insert("Payment.insertPurchase", param);
-            System.out.println(result + "구매리스트 추가 성공");
-            result += sqlSession.delete("Payment.deleteOrder", param);
-            System.out.println(result + "장바구니 지우기 성공");
+            result += sqlSession.insert("Payment.insertPaymentD", param);
+            if(result > 0) {
+            	System.out.println(result + "결제 성공");
+            	result += sqlSession.update("Payment.insertMemInfo", param);
+            }
+            if(result > 0) {
+            	System.out.println(result + "배송지 업데이트 성공");
+            	result += sqlSession.insert("Payment.insertPurchase", param);
+            }
+            if(result > 0) {
+            	System.out.println(result + "구매리스트 추가 성공");
+            	result += sqlSession.delete("Payment.deleteOrder", param);
+                System.out.println(result + "장바구니 지우기 성공");
+            }
+//            if(result != 3) {
+//            	transactionManager_sample.rollback(status);
+//            }
             
             transactionManager_sample.commit(status);
             logger.info("========== 주문서 추가 완료 : {}", result);
@@ -109,14 +124,20 @@ public class PaymentService {
 		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
 		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
 		TransactionStatus status = transactionManager_sample.getTransaction(def);
-
+		
 		int result = 0;
 		try{
 			String num = sqlSession.selectOne("Payment.autoNum");
 			param.put("orderNum", num);
-			result += sqlSession.insert("Payment.insertPayment", param);
-			result += sqlSession.update("Payment.insertMemInfo", param);
-	        
+			result = sqlSession.insert("Payment.insertPaymentP", param);
+			if(result > 0) {
+				result = sqlSession.insert("Payment.insertPurchase", param);
+	            System.out.println(result + "구매리스트 추가 성공");
+	            if(result > 0) {
+	            	result = sqlSession.delete("Payment.deleteOrder", param);
+	                System.out.println(result + "장바구니 지우기 성공");
+	            }
+			}
 			transactionManager_sample.commit(status);
 			logger.info("========== 주문서 추가 완료 : {}", result);
 	            
@@ -208,7 +229,7 @@ public class PaymentService {
 	  			result += sqlSession.insert("Payment.insertPurchase", param);
 	  			transactionManager_sample.commit(status);
 	  			logger.info("========== 주문서 추가 완료 : {}", result);
-	  	            
+	  	        
 	  		}catch(Exception e){
 	  			logger.error("[ERROR] insertPurchase() Fail : e : {}", e.getMessage());
 	  			e.printStackTrace();

@@ -40,15 +40,16 @@ public class PurchaseListService {
   			result = sqlSession.delete("PurchaseList.deletePurchaseOne", param);
   			transactionManager_sample.commit(status);
   			logger.info("========== 항목 삭제 완료 : {}", result);
-                
+  			
   		}catch(Exception e){
-  			logger.error("[ERROR] deleteOnePurchase() Fail : e : {}", e.getMessage());
+  			logger.error("[ERROR] deletePurchaseOne() Fail : e : {}", e.getMessage());
   			e.printStackTrace();
   			transactionManager_sample.rollback(status);    	
   		}
   		return result;
   	}
-  	//구매 내역서 하나 삭제
+  	
+  	//구매 내역서 전체 삭제
   	public int deleteAllPurchase( Map<String,Object> param ) {
   		//트렌젝션 구현
   		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
@@ -57,11 +58,11 @@ public class PurchaseListService {
 
   		int result = 0;
   		try{
-
+  			
   			result = sqlSession.delete("PurchaseList.deletePurchaseAll", param);
   			transactionManager_sample.commit(status);
   			logger.info("========== 항목 전체 삭제 완료 : {}", result);
-                
+
   		}catch(Exception e){
   			logger.error("[ERROR] deleteAllPurchase() Fail : e : {}", e.getMessage());
   			e.printStackTrace();

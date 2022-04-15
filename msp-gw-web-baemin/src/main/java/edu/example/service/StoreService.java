@@ -37,6 +37,7 @@ public class StoreService {
     
     public StoreDTO getStoreInfo(Map<String, Object> param) {
         return sqlSession.selectOne("Store.storeInfo", param);
+
     }
     
     public int insertStore(Map<String, Object> param) {
