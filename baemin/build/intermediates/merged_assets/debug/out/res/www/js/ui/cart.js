@@ -39,6 +39,7 @@
             var items = "";
             storeNum = data.storeNum;
             status = data.status;
+            deliveryTip = data.deliveryPrice;
             items += "<div class='empty-container' style='background-color: #ff7987;'></div>";
             items += "<div class='cart-detail-tit' style='border-right: 0px;'>";
             items += "<div class='cart-store-title' style='width:80%'>";
@@ -51,8 +52,12 @@
               totalObjectPrice += item.objectPrice * item.buyQty;
               items += "<li class='cart-object-container' style='border-right:0px;' id='" + item.objectNum + "'>";
               items += "<div>";
-              items += "<div class='cart-object-img' id='object-img'>"; // 이미지가 없으면 defalt 이미지 넣어주기
-              items += "<img class='cart-object-img-detail' src='../img/curry.png' alt='' />";
+              items += "<div class='cart-object-img' id='object-img'>";
+              if(item.objectImage != 'null') {
+                items += "<img class='cart-object-img-detail' src='../img/curry.png' alt='' />";
+              } else {
+                items += "<img src='" + "http://localhost:8080/view/review/upload/" + item.objectImage + "' alt='' />";
+              }
               items += "</div>";
               items += "<div class='cart-delete-img delete-btn' >";
               items += "<img src='../img/btn-close-black.png' class='btn-delete' />";
@@ -93,6 +98,7 @@
             items += "</div>";
             items += "<div class='fa cart-total-price-number' id='delivery-price'>";
             items += "<p>" + data.deliveryPrice + " 원</p>";
+
             items += "</div>";
             items += "</div>";
             items += "<div class='cart-price-tit' style='border-right: 0px; border-left: 0px;'>";
@@ -124,12 +130,19 @@
           M.page.html({
             url: './jiwon_payment.html',
             param: {
-
-            }
+              "totalObjectPrice": totalObjectPrice,
+              "deliveryTip" : deliveryTip,
+              "totalPaymentPrice":totalPaymentPrice,
+            },
           });
         } else {
           M.page.html({
             url: './jiwon_payment_takeout.html',
+            param: {
+              "totalObjectPrice": totalObjectPrice,
+              "deliveryTip" : deliveryTip,
+              "totalPaymentPrice":totalPaymentPrice,
+            },
           });
         }
 

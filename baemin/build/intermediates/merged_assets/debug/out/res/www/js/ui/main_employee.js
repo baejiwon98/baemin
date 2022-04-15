@@ -21,21 +21,21 @@
 
     initView: function initView() {
       var self = this;
-            var id = M.data.global('myId');
-            $.sendHttp({
-              path: "/api/store/detailStore",
-              data: {
-                "employeeId": M.data.global('myId'),
-              },
-              succ: function (data) {
-                M.data.global('grade', 'store');
-                M.data.global('storeNum', data.storeNum);
-              },
-              error: function (data) {
-                console.log(data);
-                alert("유저 정보를 가져오지 못했습니다.");
-              }
-            });
+      var id = M.data.global('myId');
+      $.sendHttp({
+        path: "/api/store/detailStore",
+        data: {
+          "employeeId": M.data.global('myId'),
+        },
+        succ: function (data) {
+          M.data.global('grade', 'store');
+          M.data.global('storeNum', data.storeNum);
+        },
+        error: function (data) {
+          console.log(data);
+          alert("유저 정보를 가져오지 못했습니다.");
+        }
+      });
 
     },
 

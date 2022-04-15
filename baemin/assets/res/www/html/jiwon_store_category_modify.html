@@ -15,49 +15,21 @@
 <div class="wrapper">
   <header class="header">
     <!-- 하단에 라인이 있는경우 class="line"추가 -->
-    <h1>
-      미카코 카레 대림점
+    <h1 id = "headerStoreName">
+<!--      미카코 카레 대림점-->
     </h1>
     <button type="button" class="btn-back l-fix" id="backBtn">
       뒤로가기
-    </button>
-
-    <button type="button" class="btn-search r-fix">
-      메뉴
     </button>
   </header>
   <section class="store-main">
     <div class="store-score">
       <div class="fa store-star-ratings">
-        <div class="fa fa-star checked" id="stars"></div>
-        <div class="fa fa-star checked" id="stars"></div>
-        <div class="fa fa-star checked" id="stars"></div>
-        <div class="fa fa-star-half-o" id="stars"></div>
-        <div class="fa fa-star-o" id="stars"></div>
-        <div class="fa store-star-score">
-          <strong>3.6</strong>
-        </div>
-      </div>
-      <div class="fa store-call">
-        <button type="button" class="btn-call">
-          call
-        </button>
+
       </div>
     </div>
     <div class = "store-main-title">
-      미카코 카레 대림점
-    </div>
-    <div class="store-detail">
-      <div class="fa store-btn">
-        <p id="menu-list" id="store-menulist-btn">
-          메뉴보기 |
-        </p>
-      </div>
-      <div class="fa store-btn" id="store-detail-btn">
-        <p>
-          | 가게 정보보기
-        </p>
-      </div>
+<!--      미카코 카레 대림점-->
     </div>
     <div class="store-main-bottom">
       <div>
@@ -65,7 +37,7 @@
           최소주문금액
         </div>
         <div class="fa store-least-price">
-          14000원
+          <span id = "leastPrice"></span>원
         </div>
       </div>
       <div>
@@ -73,115 +45,23 @@
           배달팁
         </div>
         <div class="fa store-deltip">
-          1000원
+          <span id = "deliveryTip"></span>원
         </div>
       </div>
     </div>
   </section>
 
   <section class="store-middle">
-    <div class="store-object-category-title">
-      <div class="fa object-category">
-        <strong>
-          1인분
-        </strong>
-      </div>
-      <div class="fa menu-icon">
-        <button type="button" class="modify-btn-menu">
-          메뉴
-          <!-- 왼쪽 버튼 class="l-fix" 추가 -->
-          <!-- 오른쪽 버튼 class="r-fix" 추가 -->
-        </button>
-      </div>
-
-    </div>
-    <ul>
-<!--
-      <li>
-        <div class="object-container">
-          <div class="object-imgs">
-            <img src="../img/btn-top.png" align="center"class="object-img" />
-          </div>
-          <div class="object-main">
-            <div class="object-title">
-              <strong>
-                더블 포크 명이나물 덮밥
-              </strong>
-            </div>
-            <div class="object-content">
-              <p>
-                포크 스테이크(돼지안심) 150g x2, 명이나물, 흑미밥
-              </p>
-            </div>
-            <div class="object-price">
-              <strong>
-                11,900
-              </strong>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="object-container">
-          <div class="object-imgs">
-            <img src="../img/btn-top.png" align="center"class="object-img" />
-          </div>
-          <div class="object-main">
-            <div class="object-title">
-              <strong>
-                더블 포크 명이나물 덮밥
-              </strong>
-            </div>
-            <div class="object-content">
-              <p>
-                포크 스테이크(돼지안심) 150g x2, 명이나물, 흑미밥
-              </p>
-            </div>
-            <div class="object-price">
-              <strong>
-                11,900
-              </strong>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="object-container">
-          <div class="object-imgs">
-            <img src="../img/btn-top.png" align="center"class="object-img" />
-          </div>
-          <div class="object-main">
-            <div class="object-title">
-              <strong>
-                더블 포크 명이나물 덮밥
-              </strong>
-            </div>
-            <div class="object-content">
-              <p>
-                포크 스테이크(돼지안심) 150g x2, 명이나물, 흑미밥
-              </p>
-            </div>
-            <div class="object-price">
-              <strong>
-                11,900
-              </strong>
-            </div>
-          </div>
-        </div>
-      </li>
-      -->
-      <div class="plus-icon">
-        <button type="button" class="btn-plus" id="create-store-menu-btn">
-          plus
-        </button>
-      </div>
-
+    <ul id="card">
     </ul>
+    <div class="plus-icon">
+      <button type="button" class="btn-plus" id="create-store-menu-btn">
+        plus
+      </button>
+    </div>
   </section>
-
   <button type="button" class="btn-top" id="top-btn">
     top
-    <!-- 하단 고정 버튼 -->
   </button>
 </div>
 </body>

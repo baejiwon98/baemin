@@ -38,7 +38,7 @@
             </strong>
           </div>
           <div class="order-input">
-            <input type="text" placeholder="전화번호를 입력하세요." class="full" />
+            <input type="text" placeholder="전화번호를 입력하세요." class="full" id="orderPhone"/>
           </div>
         </div>
         <div class="empty-container"></div>
@@ -56,7 +56,7 @@
             </strong>
           </div>
           <div class="order-input">
-            <input type="text" placeholder="ex) 견과류 빼주세요, 덜 맵게 해주세요." class="full" />
+            <input type="text" placeholder="ex) 견과류 빼주세요, 덜 맵게 해주세요." class="full" id = "storeRequest"/>
           </div>
         </div>
         <div class="empty-container"></div>
@@ -69,13 +69,13 @@
         </div>
         <div class="cart-detail-cont" style="padding-top: 0.5rem;">
           <ul class="main-menu-box-jiwon type-payment">
-            <li>
+            <li class="payment-type" id="cash" value="현금">
               현금
             </li>
-            <li>
+            <li class="payment-type" id="card" value="카드">
               카드
             </li>
-            <li>
+            <li class="payment-type" id="smart" value="간편결제">
               간편결제
             </li>
           </ul>
@@ -89,7 +89,7 @@
           </div>
           <div class="fa cart-total-price-number">
             <p>
-              50000원
+              <span id = "totalObjectPrice"></span> 원
             </p>
           </div>
         </div>
@@ -101,7 +101,7 @@
           </div>
           <div class="fa cart-total-price-number">
             <p>
-              5000원
+              <span id = "deliveryTip"></span> 원
             </p>
           </div>
         </div>
@@ -113,7 +113,7 @@
           </div>
           <div class="fa cart-total-price-number">
             <p>
-              55000원
+              <span id = "totalPaymentPrice"></span> 원
             </p>
           </div>
         </div>

@@ -355,6 +355,7 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 
 /* 결제 할때 결제수단 -- 지원 */
 .main-menu-box-jiwon {overflow:hidden;}
+.main-menu-box-jiwon li .on{border:1px solid #ff7987;}
 .main-menu-box-jiwon li{float:left;width:33.3333%;color:#fff;}
 .main-menu-box-jiwon li:nth-child(1){background:#00b2f0 url(../img/ico-edu-01.png) no-repeat center 35%;background-size:2.4rem;}
 .main-menu-box-jiwon li:nth-child(2){background:#0081c7 url(../img/ico-edu-02.png) no-repeat center 30%;background-size:1.7rem;}

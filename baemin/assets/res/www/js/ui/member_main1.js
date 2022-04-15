@@ -32,6 +32,7 @@
         succ: function (data) {
           console.log(data);
           console.log(M.data.global('myAddress'));
+          M.data.global('phone', data.memberPhone);
           M.data.global('grade', 'member');
           M.data.global('memberNum', data.memberNum);
           M.data.global('myAddress', data.memberAddr);
