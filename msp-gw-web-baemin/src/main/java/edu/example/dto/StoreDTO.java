@@ -18,6 +18,7 @@ public class StoreDTO {
 	private String orderArea;
 	private int deliveryPrice;
 	private String storeCategoryNum;
+	private String reviewScore;
 	
 	@Override
 	public String toString() {
@@ -27,7 +28,19 @@ public class StoreDTO {
 				+ ", deliveryStatus=" + deliveryStatus + ", pickupStatus=" + pickupStatus
 				+ ", storePhone=" + storePhone + ", leastPrice="
 				+ leastPrice + ", orderArea=" + orderArea + ", deliveryPrice=" + deliveryPrice
-				+ ", storeCategoryNum=" + storeCategoryNum + "]";
+				+ ", storeCategoryNum=" + storeCategoryNum + ", reviewScore=" + reviewScore + "]";
+	}
+	
+	public String getReviewScore() {
+		return reviewScore;
+	}
+
+	public void setReviewScore(String reviewScore) {
+		this.reviewScore = reviewScore;
+	}
+
+	public int getDeliveryPrice() {
+		return deliveryPrice;
 	}
 	
 	public String getStoreNum() {
@@ -115,7 +128,7 @@ public class StoreDTO {
 	public void setOrderArea(String orderArea) {
 		this.orderArea = orderArea;
 	}
-	public int getDeliveryPrice() {
+	public int storePhone() {
 		return deliveryPrice;
 	}
 	public void setDeliveryPrice(int deliveryPrice) {

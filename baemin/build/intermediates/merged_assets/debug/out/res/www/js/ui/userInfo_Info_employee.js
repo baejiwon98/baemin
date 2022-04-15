@@ -68,34 +68,17 @@
           self.els.$registNumIpt.val(data.employeeNum);
           self.els.$employeeNameIpt.val(data.employeeName);
           self.els.$storeNameIpt.val(data.storeName);
-<<<<<<< HEAD
           self.els.$storeAddrIpt.val(data.storeAddr);
           self.els.$employeePhoneIpt.val(data.employeePhone.substring(0, 3) + "-" + data.employeePhone.substring(3, 7) + "-" + data.employeePhone.substring(7, ));
           self.els.$storePhoneIpt.val(data.storePhone.substring(0, 3) + "-" + data.storePhone.substring(3, 7) + "-" + data.storePhone.substring(7, ));
           self.els.$leastPriceIpt.val(data.leastPrice);
-=======
-          self.els.$storePhoneIpt.val(data.storePhone);
-          self.els.$leastPriceIpt.val(data.leastPrice);
-          self.els.$storeCategoryNumIpt.val(data.storeCategoryNum);
->>>>>>> origin/saetbyeol5
           self.els.$orderAreaIpt.val(data.orderArea);
           self.els.$deliveryPriceIpt.val(data.deliveryPrice);
           self.els.$storeEmailIpt.val(data.employeeEmail);
 
           $('#store-category').val(data.storeCategoryNum).prop("selected", true);
 
-<<<<<<< HEAD
           if (data.deliveryStatus == 'Y') {
-=======
-          //        self.els.$storeStartTimeIpt.val(data.storeStartTime);
-          //        self.els.$storeEndTimeIpt.val(data.storeEndTime);
-          //        self.els.$startHolidayIpt.val(data.startHoliday);
-          //        self.els.$endHolidayIpt.val(data.endHoliday);
-
-
-          // 배달 상태
-          if (data.deliveryStatus == '1') {
->>>>>>> origin/saetbyeol5
             $("#delivery-status").prop("checked", true);
           } else {
             $("#delivery-status").prop("checked", false);
@@ -138,7 +121,6 @@
         self.changePw();
       });
 
-<<<<<<< HEAD
       this.els.$userLogoutBtn.on('click', function () {
         M.pop.alert({
           title: '확인',
@@ -148,84 +130,6 @@
             if (index == 0) {
               self.logout();
             }
-=======
-      // 수정하기
-      this.els.$updateBtn.on('click', function () {
-        var self = this;
-        var employeeId = M.data.param('employeeId');
-        var employeePw = $('#employeePw').val();
-        var employeeName = $('#employeeName').val();
-        var employeePhone = $('#employeePhone').val();
-        var employeeEmail = $('#employeeEmail').val();
-        var storeName = $('#storeName').val();
-        var deliveryStatus = $('#deliveryStatus').val();
-        var pickupStatus = $('#pickupStatus').val();
-        var storePhone = $('#storePhone').val();
-        var leastPrice = $('#leastPrice').val();
-        var storeCategoryNum = $('#storeCategoryNum').val();
-        var orderArea = $('#orderArea').val();
-        var deliveryPrice = $('#deliveryPrice').val();
-        //        var storeStartTime = $('#storeStartTime').val();
-        //        var storeEndTime = $('#storeEndTime').val();
-        //        var startHoliday = $('#startHoliday').val();
-        //        var endHoliday = $('#endHoliday').val();
-
-        var deliveryStatus;
-        if ($("#delivery-status").is(":checked")) {
-          deliveryStatus = '1';
-        } else {
-          deliveryStatus = '0';
-        }
-
-        var pickupStatus;
-        if ($("#pickup-status").is(":checked")) {
-          pickupStatus = '1';
-        } else {
-          pickupStatus = '0';
-        }
-
-        console.log("employeeId " + employeeId);
-        console.log("employeePw " + employeePw);
-        console.log("employeeName " + employeeName);
-        console.log("employeePhone " + employeePhone);
-        console.log("employeeEmail " + employeeEmail);
-        console.log("storeName " + storeName);
-        console.log("deliveryStatus " + deliveryStatus);
-        console.log("pickupStatus " + pickupStatus);
-        console.log("storePhone " + storePhone);
-        console.log("leastPrice " + leastPrice);
-        console.log("storeCategoryNum " + storeCategoryNum);
-        console.log("orderArea " + orderArea);
-        console.log("deliveryPrice " + deliveryPrice);
-        console.log("deliveryStatus " + deliveryStatus);
-        console.log("pickupStatus " + pickupStatus);
-
-        $.sendHttp({
-          path: "/api/store/updateStore",
-          data: {
-            'employeeId': M.data.param('employeeId'),
-            'employeePw': employeePw,
-            'employeeName': employeeName,
-            'employeePhone': employeePhone,
-            'employeeEmail': employeeEmail,
-            'storeName': storeName,
-            'deliveryStatus': deliveryStatus,
-            'pickupStatus': pickupStatus,
-            'storePhone': storePhone,
-            'leastPrice': leastPrice,
-            'storeCategoryNum': storeCategoryNum,
-            'orderArea': orderArea,
-            'deliveryPrice': deliveryPrice
-
-          },
-          succ: function (data) {
-            alert('수정 완료');
-            M.page.back();
-          },
-          error: function (data) {
-            alert('비밀번호 불일치, 수정 실패');
-            $('#employeePw').val('');
->>>>>>> origin/saetbyeol5
           }
         });
       });

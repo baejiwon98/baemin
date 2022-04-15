@@ -6,7 +6,7 @@ public class PaymentDetailDto {
 	private String orderTime;
 	private String paymentCategory;
 	private String storeRequest;	
-	private Integer orderTotalPrice;	
+	private Integer orderTotalPrice;
 	private String orderStatus;
 	private String memberNum;
 	private String memberAddr;
@@ -20,8 +20,20 @@ public class PaymentDetailDto {
 	private String storePhone; 
 	private Integer deliveryPrice;
 	private String storeNum;
+	private Integer buyQty;
+	private Integer totalPrice;
 	
 	
+	public Integer getBuyQty() {
+		return buyQty;
+	}
+
+
+	public void setBuyQty(Integer buyQty) {
+		this.buyQty = buyQty;
+	}
+
+
 	public String toString() {
 		return 	"orderNum="+orderNum
 			+	"\n orderTime="+orderTime
@@ -39,7 +51,19 @@ public class PaymentDetailDto {
 			+	"\n storeName="+storeName
 			+	"\n storeAddr="+storeAddr
 			+	"\n storePhone="+storePhone
-			+	"\n deliveryPrice="+deliveryPrice;
+			+	"\n deliveryPrice="+deliveryPrice
+			+	"\n totalPrice="+totalPrice
+		+	"\n buyQty="+buyQty;
+	}
+
+
+	public Integer getTotalPrice() {
+		return totalPrice;
+	}
+
+
+	public void setTotalPrice(Integer totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
 

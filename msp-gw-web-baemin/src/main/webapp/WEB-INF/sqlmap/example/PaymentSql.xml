@@ -18,6 +18,16 @@
 		WHERE OBJECT_NUM = #{objectNum}
 	</select>
 	
+	<select id="getPaymentInfo" parameterType="map" resultType="edu.example.dto.PaymentDetailDto">
+		SELECT DISTINCT B.MEMBER_NUM, B.MEMBER_ADDR, B.MEMBER_PHONE, SUM(A.BUY_QTY*C.OBJECT_PRICE) OVER (PARTITION BY a.MEMBER_NUM) AS TOTAL_PRICE,
+		       D.DELIVERY_PRICE,  SUM(A.BUY_QTY*C.OBJECT_PRICE) OVER (PARTITION BY a.MEMBER_NUM) + D.DELIVERY_PRICE AS ORDERTOTALPRICE, D.STORE_NUM
+		FROM   ORDERLIST A
+		       INNER JOIN MEMBER B ON ( A.MEMBER_NUM = B.MEMBER_NUM )
+		       INNER JOIN OBJECT C ON ( A.OBJECT_NUM = C.OBJECT_NUM )   
+		       INNER JOIN STORE D ON ( C.STORE_NUM = D.STORE_NUM )
+		WHERE  B.MEMBER_NUM = #{memberNum}
+	</select>
+	
 	<select id="getPaymentDetail" parameterType="map" resultType="edu.example.dto.PaymentDetailDto">
 		select m.member_num member_num, member_addr memberAddr, member_phone memberPhone, 
 		pa.order_num orderNum, to_char(order_time,'YYYY-MM-DD') orderTime, payment_category paymentCategory, store_request storeRequest, order_total_price orderTotalPrice, order_status orderStatus,
@@ -79,17 +89,26 @@
 		order by order_time desc
 	</select>
 	
-	<insert id="insertPayment">
+	<insert id="insertPaymentP">
+		INSERT INTO PAYMENT(ORDER_NUM, ORDER_TIME, PAYMENT_CATEGORY, STORE_REQUEST,
+		ORDER_TOTAL_PRICE, MEMBER_NUM, ORDER_STATUS, STORE_NUM )
+		VALUES
+	    	( #{orderNum}, SYSDATE, #{paymentCategory}, #{storeRequest}, 
+	    	#{orderTotalPrice}, #{memberNum}, '주문 완료', #{storeNum} )
+	</insert>
+	
+	<insert id="insertPaymentD">
 		INSERT INTO PAYMENT
 		VALUES
 	    	( #{orderNum}, SYSDATE, #{paymentCategory}, #{storeRequest}, 
 	    	#{orderTotalPrice}, #{memberNum}, '주문 완료', #{deliveryRequest}, #{storeNum} )
 	</insert>
+	
 	<update id="insertMemInfo">
 		UPDATE MEMBER SET
 		MEMBER_PHONE = #{memberPhone}, 
 		MEMBER_ADDRDETAIL = #{memberAddrDetail}
-		WHERE MEMBER_ID = #{memberId}
+		WHERE MEMBER_NUM = #{memberNum}
 	</update>
 	
 	<delete id="paymentDelete">
@@ -112,9 +131,9 @@
 	
 	<insert id="insertPurchase">
 		INSERT INTO PURCHASE_LIST(ORDER_NUM, OBJECT_NUM, MEMBER_NUM, MENU_QTY, MENU_PRICE)
-		SELECT #{orderNum}, ob.OBJECT_NUM, MEMBER_NUM, BUY_QTY, OBJECT_PRICE
+		SELECT #{orderNum}, ob.OBJECT_NUM, MEMBER_NUM, BUY_QTY, OBJECT_PRICE * BUY_QTY
 		FROM OBJECT ob, ORDERLIST od
-		WHERE ob.OBJECT_NUM = od.OBJECT_NUM AND od.MEMBER_NUM = #{memberNum} AND od.OBJECT_NUM = #{objectNum}
+		WHERE ob.OBJECT_NUM = od.OBJECT_NUM AND od.MEMBER_NUM = #{memberNum} 
 	</insert>
 	
 	<!-- ddddddddddddddddddddddddddddddddd -->
