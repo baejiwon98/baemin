@@ -32,7 +32,7 @@
     initView: function initView() {
       var self = this;
       const element = document.getElementById('map-title');
-      element.innerHTML = '<strong>' + M.data.global('myAddress') + ' ' +  M.data.global('myAddressDetail') + '</strong>';
+      element.innerHTML = '<strong>' + M.data.global('myAddress') + ' ' + M.data.global('myAddressDetail') + '</strong>';
     },
     initEvent: function initEvent() {
       // Dom Event 바인딩
@@ -47,41 +47,71 @@
       });
       this.els.$myAddressBtn.on('click', function () {
         M.page.html({
-          url : './saetbyeol_map.html',
+          url: './saetbyeol_map.html',
         });
       });
 
-      if (M.data.param('way') == 'delivery') {
+      if (M.data.global('deliveryStatus') == 'Y') {
         this.els.$menuKorea.on('click', function () {
-          M.page.html('./jiwon_storelist_delivery.html');
+          M.data.global('storeCategoryNum', 'korea');
+          M.page.html({
+            url: './jiwon_storelist_delivery.html',
+          });
         });
         this.els.$menuChina.on('click', function () {
-          M.page.html('./jiwon_storelist_delivery.html');
+          M.data.global('storeCategoryNum', 'china');
+          M.page.html({
+            url: './jiwon_storelist_delivery.html',
+          });
         });
         this.els.$menuAmerica.on('click', function () {
-          M.page.html('./jiwon_storelist_delivery.html');
+          M.data.global('storeCategoryNum', 'america');
+          M.page.html({
+            url: './jiwon_storelist_delivery.html',
+          });
         });
         this.els.$menuJapan.on('click', function () {
-          M.page.html('./jiwon_storelist_delivery.html');
+          M.data.global('storeCategoryNum', 'japan');
+          M.page.html({
+            url: './jiwon_storelist_delivery.html',
+          });
         });
         this.els.$menuSnack.on('click', function () {
-          M.page.html('./jiwon_storelist_delivery.html');
+          M.data.global('storeCategoryNum', 'snack');
+          M.page.html({
+            url: './jiwon_storelist_delivery.html',
+          });
         });
-      } else if (M.data.param('way') == 'takeout') {
+      } else if (M.data.global('pickupStatus') == 'Y') {
         this.els.$menuKorea.on('click', function () {
-          M.page.html('./jiwon_storelist_takeout.html');
+          M.data.global('storeCategoryNum', 'korea');
+          M.page.html({
+            url: './jiwon_storelist_takeout.html',
+          });
         });
         this.els.$menuChina.on('click', function () {
-          M.page.html('./jiwon_storelist_takeout.html');
+          M.data.global('storeCategoryNum','china');
+          M.page.html({
+            url: './jiwon_storelist_takeout.html',
+          });
         });
         this.els.$menuAmerica.on('click', function () {
-          M.page.html('./jiwon_storelist_takeout.html');
+          M.data.global('storeCategoryNum', 'america');
+          M.page.html({
+            url: './jiwon_storelist_takeout.html',
+          });
         });
         this.els.$menuJapan.on('click', function () {
-          M.page.html('./jiwon_storelist_takeout.html');
+          M.data.global('storeCategoryNum', 'japan');
+          M.page.html({
+            url: './jiwon_storelist_takeout.html',
+          });
         });
         this.els.$menuSnack.on('click', function () {
-          M.page.html('./jiwon_storelist_takeout.html');
+          M.data.global('storeCategoryNum', 'snack');
+          M.page.html({
+            url: './jiwon_storelist_takeout.html',
+          });
         });
       }
 

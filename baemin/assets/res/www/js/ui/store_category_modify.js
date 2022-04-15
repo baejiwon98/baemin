@@ -149,7 +149,7 @@
         M.page.html('jiwon_store_menulist.html');
       });
       this.els.$storeDetailBtn.on('click', function () {
-        M.page.html('jiwon_store_detail.html');
+        M.page.html('jiwon_store_detail_modify.html');
       });
       this.els.$storeReviewBtn.on('click', function () {
         M.page.html('jiwon_store_reviewlist.html');

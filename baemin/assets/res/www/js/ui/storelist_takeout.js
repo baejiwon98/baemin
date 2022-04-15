@@ -1,73 +1,67 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : storelist_delivery_takeout.js
+ * @author : 강샛별, 배지원
+ * @date : 2022-04-15
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
   var page = {
     els: {
       $categoryChange: null,
-      $store1: null,
       $userInfoBtn: null,
+      $topBtn: null,
 
-      $storeName: null,
-      $objectName: null,
-      $objectImage: null,
-      $leastPrice: null,
-      $deliveryPrice: null
     },
     data: {},
     init: function init() {
-      this.els.$categoryChange = $('#takeout-category-change');
-      this.els.$store1 = $('#store1');
+      this.els.$categoryChange = $('#delivery-category-change');
       this.els.$userInfoBtn = $('#userInfo-btn');
-
-      this.els.$storeName = $('.storeName');
-      this.els.$objectName = $('#objectName');
-      this.els.$objectImage = $('.objectImage');
-      this.els.$leastPrice = $('.leastPrice');
-      this.els.$deliveryPrice = $('.deliveryPrice');
+      this.els.$topBtn = $('#top-btn');
     },
     initView: function initView() {
-      // 화면에서 세팅할 동적데이터
-      // 배달/포장 메뉴 목록
-      M.data.global('storeCategoryNum', 'k'); // 임의의 값 // 이전 페이지에서 한식,중식,양식,일식,분식 따라서 다른 값 받아오기
-      var num = M.data.global('storeCategoryNum');
-      //      alert("num " + num);
-
-      M.data.global('deliveryStatus', '0'); // 임의의 값 // 0은 no, 1은 yes // 이전 페이지에서 배달(0 또는 1)값 받아오기
-      var deliveryStatus = M.data.global('deliveryStatus');
-      //      alert("deliveryStatus " + deliveryStatus);
-
-      M.data.global('pickupStatus', '1'); // 임의의 값 // 0은 no, 1은 yes // 이전 페이지에서 포장(0 또는 1)값 받아오기
-      var pickupStatus = M.data.global('pickupStatus');
-      //      alert("pickupStatus " + pickupStatus);
-
       $.sendHttp({
-        path: "/api/store/menuList",
+        path: "/api/store/storeList/takeout",
         data: {
-          storeCategoryNum: num,
-          deliveryStatus: deliveryStatus,
-          pickupStatus: pickupStatus
+          storeCategoryNum: M.data.global('storeCategoryNum'),
+          pickupStatus: M.data.global('pickupStatus')
         },
         succ: function (data) {
-          var addCon = "";
+          console.log(data);
+          var items = "";
           $.each(data.list, function (index, item) {
-            addCon += "<li class='object-menu' id='store1'>";
-            addCon += "<div class=''><div class='object-menu-img'><img src='../img/" + item.objectImage + "' class='objectImage' /></div></div>"
-            addCon += "<div class='info'><div class='info-box'><strong class='storeName'>" + item.storeName;
-            addCon += " </strong></div><div class='info-box'> <div class='fa fa-star checked' id='Allstars'></div>";
-            addCon += "<strong>" + item.reviewScore + "</strong><strong class='object-Repre' id='objectName'>" + item.objectName + "</strong></div>";
-            addCon += "<div class='info-box-bottom'><div class='fa object-price'><strong>최소주문금액&nbsp;</strong>";
-            addCon += "<strong class='leastPrice'>" + item.leastPrice + "</strong></div><div class='fa object-deltip'><strong>배달팁&nbsp;</strong>";
-            addCon += "<strong class='deliveryPrice'>" + item.deliveryPrice + "</strong></div></div></div></li>";
+            items += "<li class='storelist' id='"+ item.storeNum+"'>";
+            items += "<div class='storelistbox'>";
+            items += "<div class='store-info'>";
+            items += "<div class='store-info-one'>";
+            items += "<div class='store-name'>";
+            items += "<strong>"+ item.storeName +"</strong>";
+            items += "</div>";
+            items += "<div class='review-detail'>";
+            if( item.reviewScore != null) {
+              items += "<div class='fa fa-star checked' id='Allstars'></div>";
+              items += "<strong>"+ item.reviewScore +"</strong>";
+            }
+            if ( item.objectName != null) {
+             items += "<strong class='object-Repre'>"+ item.objectName +"</strong>";
+            }
+            items += "</div>";
+            items += "<div class='review-detail'>";
+            items += "<strong class='store-least'>최소주문금액&nbsp;</strong>";
+            items += "<strong class='store-leastPrice'>" + item.leastPrice + "원&nbsp;</strong>";
+            items += "<strong class='store-delivery'>배달팁&nbsp;</strong>";
+            items += "<strong class='store-deliveryTip'>"+ item.deliveryPrice +"원</strong>";
+            items += "</div>";
+            items += "</div>";
+            items += "</div>";
+            items += "</div>";
+            items += "</li>";
           });
-          $('#add').append(addCon);
+          $("#card").append(items);
         },
         error: function (data) {
-          alert('실패 ' + data);
-        }
+          console.log(data);
+          alert("주문 목록을 가져오지 못했습니다.");
+        },
       });
 
     }, // end initView
@@ -79,13 +73,26 @@
           url: './eunjin_userInfo_info_member.html',
         });
       });
+
       this.els.$categoryChange.on('click', function () {
-        M.page.replace('./jiwon_storelist_takeout.html');
-      });
-      this.els.$store1.on('click', function () {
-        M.page.html('./jiwon_store_menulist.html');
+        M.data.global('deliveryStatus','Y');
+        M.data.global('pickupStatus','N');
+        M.page.replace('./jiwon_storelist_delivery.html');
       });
 
+      $('#card').on('click', '.storelist', function () {
+      var storeNum = $(this).attr('id');
+      console.log(storeNum);
+      M.data.global('storeNum', storeNum);
+        M.page.html({
+          url: './jiwon_store_menulist.html',
+        });
+      });
+
+      // top
+      this.els.$topBtn.on('click', function () {
+      $('html, body').scrollTop(0);
+      });
 
     }, // end initEvent
   }; // end page

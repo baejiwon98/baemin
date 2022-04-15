@@ -26,6 +26,8 @@
       $deliveryPriceIpt: null,
       $storeEmailIpt: null,
 
+      $deliveryBtn: null,
+      $pickUpBtn: null,
       $modifyBtn: null,
       $changePwBtn: null,
       $userLogoutBtn: null,
@@ -47,6 +49,8 @@
       this.els.$leastPriceIpt = $('#least-price');
       this.els.$orderAreaIpt = $('#order-area');
       this.els.$deliveryPriceIpt = $('#delivery-price');
+      this.els.$deliveryBtn = $('#delivery-status');
+      this.els.$pickUpBtn = $('#pickup-status');
 
       this.els.$backBtn = $('#backBtn');
       this.els.$modifyBtn = $('#updateBtn');
@@ -80,13 +84,17 @@
 
           if (data.deliveryStatus == 'Y') {
             $("#delivery-status").prop("checked", true);
+            delivery = 'Y';
           } else {
             $("#delivery-status").prop("checked", false);
+            delivery = 'N';
           }
           if (data.pickupStatus == 'Y') {
             $("#pickup-status").prop("checked", true);
+            takeout = 'Y';
           } else {
             $("#pickup-status").prop("checked", false);
+            takeout = 'N';
           }
         },
         error: function (data) {
@@ -99,17 +107,21 @@
       // Dom Event 바인딩
       var self = this;
 
-      if ($("#delivery-status").is(":checked")) {
-        delivery = 'Y';
-      } else {
-        delivery = 'N';
-      }
+      this.els.$deliveryBtn.on('click', function () {
+              if ($("input:checkbox[id='delivery-status']").prop("checked")) {
+                delivery = 'Y';
+              } else {
+                delivery = 'N';
+              }
+            });
 
-      if ($("#pickup-status").is(":checked")) {
-        takeout = 'Y';
-      } else {
-        takeout = 'N';
-      }
+            this.els.$pickUpBtn.on('click', function () {
+              if ($("input:checkbox[id='pickup-status']").prop("checked")) {
+                takeout = 'Y';
+              } else {
+                takeout = 'N';
+              }
+            });
 
       this.els.$backBtn.on('click', function () {
         M.page.back();
@@ -305,7 +317,7 @@
         },
         succ: function (data) {
 
-          M.page.replace({
+          M.page.html({
             url: "./eunjin_userInfo_Info_employee.html",
           });
         },

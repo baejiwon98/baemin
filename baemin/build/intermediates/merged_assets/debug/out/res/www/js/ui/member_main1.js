@@ -5,6 +5,8 @@
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
+  M.data.global('pickupStatus','N');
+  M.data.global('deliveryStatus','N');
   var page = {
     els: {
       $deliveryBtn: null,
@@ -48,15 +50,16 @@
       var self = this;
 
       this.els.$deliveryBtn.on('click', function () {
-        M.page.html({
-            url : './saetbyeol_main_member2.html',
-            param: { "way": "delivery" },
-        });
-      });
-      this.els.$takeoutBtn.on('click', function () {
+        M.data.global('deliveryStatus', 'Y');
         M.page.html({
           url : './saetbyeol_main_member2.html',
-          param: { "way": "takeout" },
+        });
+
+      });
+      this.els.$takeoutBtn.on('click', function () {
+        M.data.global('pickupStatus', 'Y');
+        M.page.html({
+          url : './saetbyeol_main_member2.html',
         });
       });
       this.els.$userInfoBtn.on('click', function () {

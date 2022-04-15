@@ -11,6 +11,7 @@
  * 4. etc/background/border
  */
 
+
 /*====== Content ======*/
 /** Intro */
 .orderList-reviewWriteBtn {float:right; font-size:2rem; padding-right:15px;}
@@ -425,6 +426,18 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .review-counting-stars #stars{position:relative;padding-top:5px;font-size:2rem;color:orange;}
 .btn-user{float:left;width:4rem;height:4rem;background:url(../img/user-icon.png) no-repeat;background-size:100%;text-indent:-9999rem;}
 .object-review-list {margin:1rem;}
+
+.storelistbox {margin:1.5rem;position: relative;background: #ffe4e1;border: 2px solid #ff7987;border-radius:20px;}
+.storelistbox .store-name {margin-bottom:1rem;}
+.storelistbox .store-name strong{font-size:20px;font-weight:bold;padding-left:10px;}
+.storelistbox .review-detail {padding-left:10px; margin-bottom:1rem;}
+.storelistbox .review-detail .fa-star {font-size:2rem;color:orange;}
+.storelistbox .review-detail strong {font-size:16px; font-weight:bold;}
+.storelistbox .review-detail .object-Repre {margin-left:1rem;font-size:13px;font-weight:bold;color:#808080;}
+.storelistbox .review-detail store-least {font-size:15px; font-weight:bold;}
+
+
+
 .arrow_box1 {margin:2rem; position: relative;background: #fff;border: 2px solid #ff7987;border-radius:20px;}
 .arrow_box1:after, .arrow_box:before {right: 100%;top: 50%;	border: solid transparent;content: "";height: 0;	width: 0;	position: absolute;pointer-events: none;}
 .arrow_box1:after {border-color: rgba(255, 255, 255, 0);border-right-color: #ff7987;border-width: 10px;	margin-top: -10px;}
@@ -483,7 +496,7 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .store-detail {text-align:center;}
 .store-btn {padding-bottom:5px;}
 .store-btn p{font-size:1.4rem;}
-.object-menu {display:inline;}
+.object-menu {display:inline; border-bottom:1px solid #ebebeb;}
 .info-box #Allstars{float:left;padding-top:5px;font-size:2rem;color:orange;}
 .info-box strong{float:left; padding-top:5px; font-size:1.6rem;font-weight:bold;}
 .info-box strong.object-Repre{float:left; padding-left:2rem; padding-top:5px; font-size:1.3rem;font-weight:bold;color:#808080;}
