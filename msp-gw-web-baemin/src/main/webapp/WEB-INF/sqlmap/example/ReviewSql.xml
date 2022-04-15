@@ -13,7 +13,7 @@
 	
 	<insert id="reviewFileRegist" parameterType="map">
 		INSERT INTO REVIEW (ORDER_NUM, REVIEW_SCORE, REVIEW_DATE, REVIEW_CONTENT, REVIEW_IMAGE, STORE_NUM)
-		VALUES
+		VALUES	
 	    	( #{orderNum}, #{reviewScore}, sysdate, #{reviewContent}, #{reviewImage}, #{storeNum})
 	</insert>
 	

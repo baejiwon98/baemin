@@ -14,7 +14,7 @@
 	</sql>
 	<sql id="base2">
 		store_num, employee_num, employee_name, store_name, store_addr, employee_phone, employee_email,
-		employee_id, employee_pw, delivery_status, pickup_status, 
+		employee_id, employee_pw, delivery_status, pickup_status
 		store_phone, least_price, order_area, delivery_price, store_category_num
 	</sql>
 

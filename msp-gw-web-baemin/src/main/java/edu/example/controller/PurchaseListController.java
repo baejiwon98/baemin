@@ -26,44 +26,9 @@ public class PurchaseListController {
 	@Autowired(required=true)
 	private PurchaseListService service;
 	
-	// 배달 주문하기
-	@RequestMapping( method = RequestMethod.POST, value = "/api/purchaseList/insert" )
-	public ModelAndView insertPurchase( HttpServletRequest request, HttpServletResponse response ) {
-		
-		Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
-        Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
-        Map<String, Object> responseBodyMap= new HashMap<String, Object>();
-        
-        if(reqHeadMap==null){
-            reqHeadMap = new HashMap<String, Object>();
-        }
-        
-        reqHeadMap.put(Const.RESULT_CODE, Const.OK);
-        reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
-		
-        logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
-        
-        int result = service.insertPurchase( reqBodyMap );
-        
-        if( result > 0 ) {
-        	responseBodyMap.put("rsltCode", "0000");
-            responseBodyMap.put("rsltMsg", "Success");
-        } else {
-        	responseBodyMap.put("rsltCode", "2003");
-            responseBodyMap.put("rsltMsg", "Data not found.");
-        }
-		
-        ModelAndView mv = new ModelAndView("defaultJsonView");
-        mv.addObject(Const.HEAD,reqHeadMap);
-        mv.addObject(Const.BODY,responseBodyMap);
-
-        return mv;
-	}
-	
-
-	//주문 삭제
-	@RequestMapping( method = RequestMethod.POST, value = "/api/purchaseList/delete" )
-	public ModelAndView deletePurchase( HttpServletRequest request, HttpServletResponse response ) {
+	//개별 삭제
+	@RequestMapping( method = RequestMethod.POST, value = "/api/purchaseList/deleteOne" )
+	public ModelAndView deletePurchaseOne( HttpServletRequest request, HttpServletResponse response ) {
 		
 		Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
 		Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
@@ -72,13 +37,13 @@ public class PurchaseListController {
 		if(reqHeadMap==null){
 			reqHeadMap = new HashMap<String, Object>();		
 		}
-	        	
+	    
 		reqHeadMap.put(Const.RESULT_CODE, Const.OK);
 		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
 		
 		logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
 		
-		int result = service.deletePurchase( reqBodyMap );
+		int result = service.deleteOnePurchase( reqBodyMap );
 	        
 		if( result > 0 ) {
 			responseBodyMap.put("rsltCode", "0000");
@@ -87,7 +52,7 @@ public class PurchaseListController {
 			responseBodyMap.put("rsltCode", "2003");
 			responseBodyMap.put("rsltMsg", "Data not found.");
 		}
-			
+		
 		ModelAndView mv = new ModelAndView("defaultJsonView");
 		mv.addObject(Const.HEAD,reqHeadMap);
 		mv.addObject(Const.BODY,responseBodyMap);
@@ -95,6 +60,38 @@ public class PurchaseListController {
 		return mv;
 	}
 		
+	//전체 삭제
+	@RequestMapping( method = RequestMethod.POST, value = "/api/purchaseList/deleteAll" )
+	public ModelAndView deletePurchaseAll( HttpServletRequest request, HttpServletResponse response ) {
+			
+		Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
+		Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
+		Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+			
+		if(reqHeadMap==null){
+			reqHeadMap = new HashMap<String, Object>();		
+		}
+		
+		reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+		
+		logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+			
+		int result = service.deleteAllPurchase( reqBodyMap );
+		
+		if( result > 0 ) {
+			responseBodyMap.put("rsltCode", "0000");
+			responseBodyMap.put("rsltMsg", "Success");
+		} else {
+			responseBodyMap.put("rsltCode", "2003");
+			responseBodyMap.put("rsltMsg", "Data not found.");
+		}
+		
+		ModelAndView mv = new ModelAndView("defaultJsonView");
+		mv.addObject(Const.HEAD,reqHeadMap);
+		mv.addObject(Const.BODY,responseBodyMap);
 
+		return mv;
+	}
 	
 }

@@ -19,33 +19,64 @@
 	</select>
 	
 	<select id="getPaymentDetail" parameterType="map" resultType="edu.example.dto.PaymentDetailDto">
-		select m.member_num, member_addr, member_phone, 
-		p.order_num, to_char(order_time,'YYYY-MM-DD HH:MM:SS') orderTime, payment_category, store_request, order_total_price, order_status,
-		delivery_request,
-		ob.object_num, object_name, OBJECT_PRICE,
-		store_name, store_addr, store_phone, delivery_price
-		from member m, payment p, orderlist od, object ob, store s
-		WHERE s.STORE_NUM = ob.STORE_NUM and od.OBJECT_NUM = ob.OBJECT_NUM and p.STORE_NUM = s.STORE_NUM and m.MEMBER_NUM = p.MEMBER_NUM and p.order_num = #{orderNum}
+		select m.member_num member_num, member_addr memberAddr, member_phone memberPhone, 
+		pa.order_num orderNum, to_char(order_time,'YYYY-MM-DD') orderTime, payment_category paymentCategory, store_request storeRequest, order_total_price orderTotalPrice, order_status orderStatus,
+		delivery_request deliveryRequest,
+		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
+		regexp_replace(listagg(pu.object_num,',') within group (order by pu.object_num), '([^,]+)(,\1)+', '\1') objectNum,
+		regexp_replace(listagg(OBJECT_PRICE,',') within group (order by OBJECT_PRICE), '([^,]+)(,\1)+', '\1') objectPrice,
+		store_name storeName, store_addr storeAddr, store_phone storePhone, delivery_price deliveryPrice
+		
+		from member m, payment pa, purchase_list pu, object ob, store s
+		
+		where m.member_num = pa.member_num and pu.order_num = pa.order_num and ob.object_num = pu.object_num and s.store_num = ob.store_num
+		and pa.order_num = #{orderNum}
+		group by m.member_num, member_addr, member_phone, pa.order_num, order_Time, payment_category, store_request, order_total_price, order_status,
+		delivery_request, store_name, store_addr, store_phone, delivery_price
 	</select>
 	
 	<select id="getPaymentMember" parameterType="map" resultType="edu.example.dto.OrderViewDto">
-		SELECT p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, BUY_QTY, OBJECT_NAME, OBJECT_IMAGE, STORE_NAME, s.STORE_NUM, ob.OBJECT_NUM, m.MEMBER_NUM
-		FROM PAYMENT p, ORDERLIST od, OBJECT ob, STORE s, MEMBER m
-		WHERE s.STORE_NUM = ob.STORE_NUM and od.OBJECT_NUM = ob.OBJECT_NUM and p.STORE_NUM = s.STORE_NUM and m.MEMBER_NUM = p.MEMBER_NUM and m.MEMBER_NUM = #{memberNum}
+		SELECT pa.ORDER_NUM, ORDER_TIME, ORDER_STATUS, menu_QTY, 
+		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
+		regexp_replace(listagg(ob.object_num,',') within group (order by ob.object_num), '([^,]+)(,\1)+', '\1') objectNum,
+		regexp_replace(listagg(OBJECT_IMAGE,',') within group (order by OBJECT_IMAGE), '([^,]+)(,\1)+', '\1') objectImage,
+		STORE_NAME, s.STORE_NUM, 
+		m.MEMBER_NUM
+		from member m, payment pa, purchase_list pu, object ob, store s
+		where m.member_num = pa.member_num and pu.order_num = pa.order_num and ob.object_num = pu.object_num and s.store_num = ob.store_num
+				and m.member_num = #{memberNum}
+		group by pa.ORDER_NUM, ORDER_TIME, ORDER_STATUS, menu_QTY, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM
+		order by order_time desc
 	</select>
 	
 	<select id="getPaymentStore" parameterType="map" resultType="edu.example.dto.OrderViewDto">
-		SELECT p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, BUY_QTY, OBJECT_NAME, OBJECT_IMAGE, s.STORE_NUM, ob.OBJECT_NUM, m.MEMBER_NUM
-		FROM PAYMENT p, ORDERLIST od, OBJECT ob, STORE s, MEMBER m
-		WHERE s.STORE_NUM = ob.STORE_NUM AND od.OBJECT_NUM = ob.OBJECT_NUM AND p.STORE_NUM = s.STORE_NUM and m.MEMBER_NUM = p.MEMBER_NUM and s.STORE_NUM = #{storeNum}
+		SELECT DISTINCT pa.ORDER_NUM, ORDER_TIME, ORDER_STATUS, MENU_QTY, 
+		regexp_replace(listagg(OBJECT_NAME,',') within group (order by OBJECT_NAME), '([^,]+)(,\1)+', '\1') objectName,
+		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (order by ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum,
+		regexp_replace(listagg(OBJECT_IMAGE,',') within group (order by OBJECT_IMAGE), '([^,]+)(,\1)+', '\1') objectImage,
+		s.STORE_NUM, m.MEMBER_NUM
+		FROM MEMBER m, PAYMENT pa, PURCHASE_LIST pu, OBJECT ob, STORE s
+		WHERE m.MEMBER_NUM = pa.MEMBER_NUM and pu.ORDER_NUM = pa.ORDER_NUM AND ob.OBJECT_NUM = pu.OBJECT_NUM AND s.STORE_NUM = ob.STORE_NUM
+		AND s.STORE_NUM = #{storeNum}
+		GROUP BY pa.ORDER_NUM, ORDER_TIME, ORDER_STATUS, MENU_QTY, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM
+		ORDER BY ORDER_TIME DESC
 	</select>
 	
 	<select id="getPaymentDelivery" parameterType="map" resultType="edu.example.dto.OrderViewDto">
-		SELECT p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, BUY_QTY, OBJECT_NAME, OBJECT_IMAGE, s.STORE_NUM, STORE_NAME, ob.OBJECT_NUM, d.DELIVERY_NUM, m.MEMBER_NUM
-		FROM PAYMENT p, ORDERLIST od, OBJECT ob, STORE s, MEMBER m, DELIVERYREQUEST dr, DELIVERY d
-		WHERE s.STORE_NUM = ob.STORE_NUM AND od.OBJECT_NUM = ob.OBJECT_NUM and p.STORE_NUM = s.STORE_NUM 
-		AND m.MEMBER_NUM = p.MEMBER_NUM AND p.order_num = dr.order_num and dr.delivery_num = d.delivery_num
+		SELECT DISTINCT pa.ORDER_NUM, ORDER_TIME, ORDER_STATUS, MENU_QTY, 
+		regexp_replace(listagg(OBJECT_NAME,',') within group (order by OBJECT_NAME), '([^,]+)(,\1)+', '\1') objectName,
+		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (order by ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum,
+		regexp_replace(listagg(OBJECT_IMAGE,',') within group (order by OBJECT_IMAGE), '([^,]+)(,\1)+', '\1') objectImage,
+		s.STORE_NUM, STORE_NAME, d.DELIVERY_NUM, m.MEMBER_NUM
+		FROM PAYMENT pa, PURCHASE_LIST pu, OBJECT ob, STORE s, MEMBER m, DELIVERYREQUEST dr, DELIVERY d
+		WHERE s.STORE_NUM = ob.STORE_NUM AND pu.OBJECT_NUM = ob.OBJECT_NUM and pa.STORE_NUM = s.STORE_NUM 
+		AND m.MEMBER_NUM = pa.MEMBER_NUM AND pa.ORDER_NUM = dr.ORDER_NUM and dr.DELIVERY_NUM = d.DELIVERY_NUM
+		AND pu.ORDER_NUM = pa.ORDER_NUM 
+		
 		AND d.delivery_NUM = #{deliveryNum}
+		
+		group by pa.ORDER_NUM, ORDER_TIME, ORDER_STATUS, MENU_QTY, s.STORE_NUM, STORE_NAME, d.DELIVERY_NUM, m.MEMBER_NUM
+		order by order_time desc
 	</select>
 	
 	<insert id="insertPayment">
@@ -72,6 +103,20 @@
 		WHERE ORDER_NUM = #{orderNum}
 	</update>
 	
+	<delete id="deleteOrder">
+		DELETE FROM ORDERLIST
+		WHERE MEMBER_NUM = #{memberNum}
+	</delete>
+	
+	<!-- 구매내역서 -->
+	
+	<insert id="insertPurchase">
+		INSERT INTO PURCHASE_LIST(ORDER_NUM, OBJECT_NUM, MEMBER_NUM, MENU_QTY, MENU_PRICE)
+		SELECT #{orderNum}, ob.OBJECT_NUM, MEMBER_NUM, BUY_QTY, OBJECT_PRICE
+		FROM OBJECT ob, ORDERLIST od
+		WHERE ob.OBJECT_NUM = od.OBJECT_NUM AND od.MEMBER_NUM = #{memberNum} AND od.OBJECT_NUM = #{objectNum}
+	</insert>
+	
 	<!-- ddddddddddddddddddddddddddddddddd -->
 	
 	<select id="getMemberAddr"  parameterType="map" resultType="edu.example.dto.PaymentDetailDto">
@@ -89,4 +134,9 @@
 		WHERE STORE_NUM = #{storeNum}
 	</select>	
 	
+	<select id="getStoreNum"  parameterType="map" resultType="String">
+		SELECT STORE_NUM FROM STORE
+		WHERE STORE_NUM = #{storeNum}
+	</select>
+
 </mapper>

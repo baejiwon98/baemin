@@ -83,8 +83,13 @@ public class PaymentService {
         	String num = sqlSession.selectOne("Payment.autoNum");
         	param.put("orderNum", num);
             result += sqlSession.insert("Payment.insertPayment", param);
+            System.out.println(result + "결제 성공");
             result += sqlSession.update("Payment.insertMemInfo", param);
-//            result += sqlSession.insert("Payment.paymentInsert", param);
+            System.out.println(result + "배송지 업데이트 성공");
+            result += sqlSession.insert("Payment.insertPurchase", param);
+            System.out.println(result + "구매리스트 추가 성공");
+            result += sqlSession.delete("Payment.deleteOrder", param);
+            System.out.println(result + "장바구니 지우기 성공");
             
             transactionManager_sample.commit(status);
             logger.info("========== 주문서 추가 완료 : {}", result);
@@ -92,12 +97,60 @@ public class PaymentService {
         }catch(Exception e){
         	logger.error("[ERROR] paymentInsert() Fail : e : {}", e.getMessage());
         	e.printStackTrace();
-        	transactionManager_sample.rollback(status);    	
+        	transactionManager_sample.rollback(status);
         }
 		return result;
 	}
 	
+	//포장 주문
+	public int paymentPickUp( Map<String,Object> param ) {
+			
+		//트렌젝션 구현
+		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+		TransactionStatus status = transactionManager_sample.getTransaction(def);
+
+		int result = 0;
+		try{
+			String num = sqlSession.selectOne("Payment.autoNum");
+			param.put("orderNum", num);
+			result += sqlSession.insert("Payment.insertPayment", param);
+			result += sqlSession.update("Payment.insertMemInfo", param);
+	        
+			transactionManager_sample.commit(status);
+			logger.info("========== 주문서 추가 완료 : {}", result);
+	            
+		}catch(Exception e){
+			logger.error("[ERROR] paymentInsert() Fail : e : {}", e.getMessage());
+			e.printStackTrace();
+			transactionManager_sample.rollback(status);    	
+		}
+		return result;
+	}
 	
+	//주문리스트(장바구니) 전체 삭제
+  	public int deleteOrder( Map<String,Object> param ) {
+  		//트렌젝션 구현
+          DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+          def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+          TransactionStatus status = transactionManager_sample.getTransaction(def);
+
+          int result = 0;
+          try{
+
+          	  result = sqlSession.delete("Payment.deleteOrder", param);
+
+              transactionManager_sample.commit(status);
+              logger.info("========== 전체 삭제 완료 : {}", result);
+              
+          }catch(Exception e){
+          	logger.error("[ERROR] deleteOrder() Fail : e : {}", e.getMessage());
+          	e.printStackTrace();
+          	transactionManager_sample.rollback(status);    	
+          }
+  		return result;
+  	}
+		
 	
 	//주문 내역 삭제
 		public int paymentDelete( Map<String,Object> param ) {
@@ -142,4 +195,25 @@ public class PaymentService {
 	        }
 			return result;
 		}
+		
+		//구매 내역서 추가
+	  	public int insertPurchase( Map<String,Object> param ) {
+	  		//트렌젝션 구현
+	  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+	  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+	  		TransactionStatus status = transactionManager_sample.getTransaction(def);
+
+	  		int result = 0;
+	  		try{
+	  			result += sqlSession.insert("Payment.insertPurchase", param);
+	  			transactionManager_sample.commit(status);
+	  			logger.info("========== 주문서 추가 완료 : {}", result);
+	  	            
+	  		}catch(Exception e){
+	  			logger.error("[ERROR] insertPurchase() Fail : e : {}", e.getMessage());
+	  			e.printStackTrace();
+	  			transactionManager_sample.rollback(status);    	
+	  		}
+	  		return result;
+	  	}
 }

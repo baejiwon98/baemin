@@ -38,15 +38,10 @@ public class OrderListService {
        return sqlSession.selectList("OrderList.selectAll", param);
    }
     
-    //장바구니 상품 번호
-    public OrderListDto objCheck( Map<String,Object> param ) {
-      return sqlSession.selectOne("OrderList.objCheck", param);
-   }
-    
-    //장바구니 상품 번호
-    public OrderListDto staCheck( Map<String,Object> param ) {
-      return sqlSession.selectOne("OrderList.staCheck", param);
-   }
+    //장바구니 배달/포장 여부
+    public String staCheck( Map<String,Object> param ) {
+		return sqlSession.selectOne("OrderList.staCheck", param);
+	}
     
     //추가
      public int insertOrder( Map<String,Object> param ) {

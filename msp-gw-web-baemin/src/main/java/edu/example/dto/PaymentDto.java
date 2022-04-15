@@ -11,6 +11,28 @@ public class PaymentDto {
 	private String orderStatus;
 	private String deliveryRequest;
 	private String storeNum;
+	private String objectNum;
+
+	public String toString() {
+		return 	"orderNum="+orderNum
+			+	"\n orderTime="+orderTime
+			+	"\n paymentCategory="+paymentCategory
+			+	"\n storeRequest="+storeRequest
+			+	"\n orderTotalPrice="+orderTotalPrice
+			+	"\n memberNum="+memberNum
+			+	"\n orderStatus="+orderStatus
+			+	"\n deliveryRequest="+deliveryRequest
+		+	"\n storeNum="+storeNum;
+	}
+
+	public String getObjectNum() {
+		return objectNum;
+	}
+
+	
+	public void setObjectNum(String objectNum) {
+		this.objectNum = objectNum;
+	}
 	
 	
 	public String getDeliveryRequest() {
@@ -32,18 +54,6 @@ public class PaymentDto {
 		this.storeNum = storeNum;
 	}
 
-
-	public String toString() {
-		return 	"orderNum="+orderNum
-			+	"\n orderTime="+orderTime
-			+	"\n paymentCategory="+paymentCategory
-			+	"\n storeRequest="+storeRequest
-			+	"\n orderTotalPrice="+orderTotalPrice
-			+	"\n memberNum="+memberNum
-			+	"\n orderStatus="+orderStatus
-			+	"\n deliveryRequest="+deliveryRequest
-		+	"\n storeNum="+storeNum;
-	}
 
 
 	public String getOrderStatus() {
