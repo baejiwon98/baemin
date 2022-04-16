@@ -64,7 +64,45 @@
             items += "<div class='fa fa-star-o' id='stars'></div>";
           }
           $(".store-star-ratings").append(items);
+        },
+        error: function (data) {
+          console.log(data);
+          alert("가게 정보를 가져오지 못했습니다.");
+        }
+      });
 
+      $.sendHttp({
+        path: "/api/object/readStoreMenu",
+        data: {
+          "storeNum": M.data.global('storeNum'),
+        },
+        succ: function (data) {
+          var items = "";
+          $.each(data.list, function (index, item) {
+            items += "<li class = 'store-object' id='" + item.objectNum + "'>";
+            items += "<div class='object-container'>";
+            items += "<div class='object-imgs'>";
+            items += "<img align='center' class='object-img' src='" + "http://localhost:8080/view/object/upload/" + item.objectImage + "' alt='' />";
+            items += "</div>";
+            items += "<div class='object-main'>";
+            items += "<div class='object-title'>";
+            items += "<strong>" + item.objectName + "</strong>";
+            items += "</div>";
+            items += "<div class='object-content' style='margin: 10px;'>";
+            if (item.objectContent == null) {
+              items += "<p>내용 없음</p>";
+            } else {
+              items += "<p>" + item.objectContent + "</p>";
+            }
+            items += "</div>";
+            items += "<div class='object-price'>";
+            items += "<strong>" + item.objectPrice + "</strong>";
+            items += "</div>";
+            items += "</div>";
+            items += "</div>";
+            items += "</li>";
+          });
+          $("#card").append(items);
         },
         error: function (data) {
           console.log(data);
@@ -91,7 +129,17 @@
       });
       this.els.$callBtn.on('click', function () {
         M.sys.call(phone);
-      })
+      });
+      $('#card').on('click', '.store-object', function () {
+        var objectNum = $(this).attr('id');
+        console.log(objectNum);
+        M.page.html({
+          url: './jiwon_object_detail.html',
+          param:{
+            "objectNum" : objectNum
+          }
+        });
+      });
     },
   };
 

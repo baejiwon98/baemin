@@ -47,7 +47,12 @@
             items += "</div>";
             items += "</div>";
             items += "<div class='orderList-object-img'>";
-            items += "<img class='orderList-object-img-detail' src='../img/curry.png' alt='' />";
+            if (item.objectImg != null) {
+              var img = item.reviewImage.IndexOf(',') + 1;
+              items += "<img class='orderList-object-img-detail' src='" + "http://localhost:8080/view/review/upload/" + item.reviewImage.substring(img) + "' alt='' />";
+            } else {
+              items += "<img class='orderList-object-img-detail' src='../img/orderlist-default.png' alt='' />";
+            }
             items += "</div>";
             items += "<div class='orderList-object-name' style='padding-top: 0.5em;'>";
             items += "<strong style='padding: 0;'>" + item.storeName + "</strong>";

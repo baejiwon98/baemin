@@ -138,7 +138,7 @@
         path: "/api/delivery/updateDelivery",
         data: {
           'deliveryId': deliveryId,
-          'deliveryPhone': deliveryPhone,
+          'deliveryPhone': phoneNumber,
           'deliveryEmail': deliveryEmail,
           'deliveryPw': deliveryPw
         },
