@@ -122,12 +122,5 @@
 		where object_name like '%'||#{word}||'%' 
 	</select>
 	
-	<select id="storeInfo" parameterType="map" resultType="edu.example.dto.StoreDTO">
-		SELECT DISTINCT s.store_num, store_name, store_addr, store_phone, least_price, order_area, delivery_price , avg(review_score) OVER (PARTITION BY  r.STORE_NUM) reviewScore 
-		FROM review r, store s
-		WHERE r.store_num = s.store_num 
-		AND s.store_num = #{storeNum}
-	</select>
-	
 	
 </mapper>

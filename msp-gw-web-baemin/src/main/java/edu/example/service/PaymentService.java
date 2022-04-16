@@ -1,6 +1,5 @@
 package edu.example.service;
 
-import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 
@@ -66,14 +65,24 @@ public class PaymentService {
     	return sqlSession.selectList("Payment.getPaymentMember", param);
 	}
     
-    //사장이 자신의 주문내역 전체 보기
+    //사장이 자신의 가게의 주문내역 전체 보기
     public List<OrderViewDto> paymentAllStore( Map<String,Object> param ) {
     	return sqlSession.selectList("Payment.getPaymentStore", param);
+	}
+    
+    //사장이 현재 들어온 주문내역 보기
+    public List<OrderViewDto> paymentAllStoreNow( Map<String,Object> param ) {
+    	return sqlSession.selectList("Payment.getPaymentStoreNow", param);
 	}
     
     //배달원이 자신의 배달내역 전체 보기
     public List<OrderViewDto> paymentAllDelivery( Map<String,Object> param ) {
     	return sqlSession.selectList("Payment.getPaymentDelivery", param);
+	}
+    
+    //배달원이 배달할 수 있는 주문 내역 전체 보기
+    public List<OrderViewDto> paymentAllDeliveryNow( Map<String,Object> param ) {
+    	return sqlSession.selectList("Payment.getPaymentDeliveryNow", param);
 	}
 	
 	//결제하기
@@ -174,48 +183,197 @@ public class PaymentService {
 		
 	
 	//주문 내역 삭제
-		public int paymentDelete( Map<String,Object> param ) {
-			//트렌젝션 구현
-	        DefaultTransactionDefinition def = new DefaultTransactionDefinition();
-	        def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
-	        TransactionStatus status = transactionManager_sample.getTransaction(def);
+  	public int paymentDelete( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
 
-	        int result = 0;
-	        try{
-
-	        	result = sqlSession.delete("Payment.paymentDelete", param);
-
-	            transactionManager_sample.commit(status);
-	            logger.info("========== 주문 삭제 완료 : {}", result);
+  		int result = 0;
+  		try{
+  			
+  			result = sqlSession.delete("Payment.paymentDelete", param);
+  			
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 주문 삭제 완료 : {}", result);
 	            
-	        }catch(Exception e){
-	        	logger.error("[ERROR] paymentDelete() Fail : e : {}", e.getMessage());
-	        	e.printStackTrace();
+  		}catch(Exception e){
+  			logger.error("[ERROR] paymentDelete() Fail : e : {}", e.getMessage());
+  			e.printStackTrace();
 	        	transactionManager_sample.rollback(status);    	
-	        }
-			return result;
-		}
+  		}
+  		return result;
+  	}
 		
-		//주문 상태 수정
-		public int statusUpdate( Map<String,Object> param ) {
-			//트렌젝션 구현
-	        DefaultTransactionDefinition def = new DefaultTransactionDefinition();
-	        def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
-	        TransactionStatus status = transactionManager_sample.getTransaction(def);
-	        int result = 0;
-	        try{
-	        	
-	        	result = sqlSession.update("Payment.statusUpdate", param);
-	            transactionManager_sample.commit(status);
-	            logger.info("========== 주문 상태 수정 완료 : {}", result);
-	            
-	        }catch(Exception e){
-	        	logger.error("[ERROR] statusUpdate() Fail : e : {}", e.getMessage());
-	        	e.printStackTrace();
-	        	transactionManager_sample.rollback(status);    	
-	        }
-			return result;
-		}
+  	//주문 취소
+  	public int statusCancel( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
+  		int result = 0;
+  		try{
+  			
+  			result = sqlSession.update("Payment.statusCancel", param);
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 주문 취소 완료 : {}", result);
+  			
+  		}catch(Exception e){
+  			logger.error("[ERROR] statusCancel() Fail : e : {}", e.getMessage());
+  			e.printStackTrace();
+  			transactionManager_sample.rollback(status);    	
+  		}
+  		return result;
+  	}
+		
+  	//조리 중
+  	public int statusCooking( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
+  		int result = 0;
+  		try{
+			        	
+  			result = sqlSession.update("Payment.statusCooking", param);
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 메뉴가 조리되는 중입니다. : {}", result);
+			            
+			}catch(Exception e){
+				logger.error("[ERROR] statusCooking() Fail : e : {}", e.getMessage());
+				e.printStackTrace();
+				transactionManager_sample.rollback(status);    	
+			}
+  		return result;
+  	}
+		
+  	//조리 완료
+  	public int statusCookEnd( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
+  		int result = 0;
+  		try{
+					        	
+  			result = sqlSession.update("Payment.statusCookEnd", param);
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 주문 취소 완료 : {}", result);
+				
+  		}catch(Exception e){
+  			logger.error("[ERROR] statusCookEnd() Fail : e : {}", e.getMessage());
+  			e.printStackTrace();
+  			transactionManager_sample.rollback(status);    	
+  		}
+  		return result;
+  	}
+				
+  	//배달 대기 중
+  	public int statusDeliveryWait( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
+  		int result = 0;
+  		try{
+					        	
+  			result = sqlSession.update("Payment.statusDeliveryWait", param);
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 주문 취소 완료 : {}", result);
+					            
+  		}catch(Exception e){
+  			logger.error("[ERROR] statusDeliveryWait() Fail : e : {}", e.getMessage());
+  			e.printStackTrace();
+  			transactionManager_sample.rollback(status);    	
+  		}
+  		return result;
+  	}
+  	
+  //배달 중
+  	public int statusDeliverying( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
+  		int result = 0;
+  		try{
+					        	
+  			result = sqlSession.update("Payment.statusDeliverying", param);
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 배달이 진행 중 입니다 : {}", result);
+					            
+  		}catch(Exception e){
+  			logger.error("[ERROR] statusDeliverying() Fail : e : {}", e.getMessage());
+  			e.printStackTrace();
+  			transactionManager_sample.rollback(status);    	
+  		}
+  		return result;
+  	}
+  	
+  //배달 완료
+  	public int statusDelvieryEnd( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
+  		int result = 0;
+  		try{
+					        	
+  			result = sqlSession.update("Payment.statusDelvieryEnd", param);
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 배달 완료 : {}", result);
+					            
+  		}catch(Exception e){
+  			logger.error("[ERROR] statusDelvieryEnd() Fail : e : {}", e.getMessage());
+  			e.printStackTrace();
+  			transactionManager_sample.rollback(status);    	
+  		}
+  		return result;
+  	}
+  	
+  //픽업 대기 중
+  	public int statusPickUpWait( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
+  		int result = 0;
+  		try{
+					        	
+  			result = sqlSession.update("Payment.statusPickUpWait", param);
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 픽업 대기 중 : {}", result);
+					            
+  		}catch(Exception e){
+  			logger.error("[ERROR] statusPickUpWait() Fail : e : {}", e.getMessage());
+  			e.printStackTrace();
+  			transactionManager_sample.rollback(status);    	
+  		}
+  		return result;
+  	}
+  	
+  	//픽업 완료
+  	public int statusPickUpEnd( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
+  		int result = 0;
+  		try{
+					        	
+  			result = sqlSession.update("Payment.statusPickUpEnd", param);
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 픽업 완료 : {}", result);
+					            
+  		}catch(Exception e){
+  			logger.error("[ERROR] statusPickUpEnd() Fail : e : {}", e.getMessage());
+  			e.printStackTrace();
+  			transactionManager_sample.rollback(status);    	
+  		}
+  		return result;
+  	}
+				
+				
 		
 		//구매 내역서 추가
 	  	public int insertPurchase( Map<String,Object> param ) {

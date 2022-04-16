@@ -29,8 +29,8 @@
 	</select>
 	
 	<select id="getPaymentDetail" parameterType="map" resultType="edu.example.dto.PaymentDetailDto">
-		select m.member_num, member_addr, member_phone, 
-		p.order_num, to_char(order_time,'YYYY-MM-DD HH:MM:SS') orderTime, payment_category, store_request, order_total_price, order_status,
+		select DISTINCT m.member_num, mem_address, member_phone, 
+		p.order_num, to_char(order_time,'YYYY-MM-DD') orderTime, payment_category, store_request, order_total_price, order_status,
 		delivery_request,
 		ob.object_num, object_name, OBJECT_PRICE,
 		store_name, store_addr, store_phone, delivery_price
@@ -70,7 +70,7 @@
 		INSERT INTO PAYMENT
 		VALUES
 	    	( #{orderNum}, SYSDATE, #{paymentCategory}, #{storeRequest}, 
-	    	#{orderTotalPrice}, #{memberNum}, '주문 완료', #{deliveryRequest}, #{storeNum} )
+	    	#{orderTotalPrice}, #{memberNum}, '주문 완료', #{deliveryRequest}, #{storeNum}, #{memAddress} )
 	</insert>
 	
 	<update id="insertMemInfo">
@@ -80,14 +80,57 @@
 		WHERE MEMBER_NUM = #{memberNum}
 	</update>
 	
-	<delete id="paymentDelete">
-		DELETE FROM PAYMENT
+	<update id="paymentDelete">
+		UPDATE PAYMENT SET 
+		MEMBER_NUM = concat(#{memberNum},'_')
 		WHERE ORDER_NUM = #{orderNum}
-	</delete>
+	</update>
 	
-	<update id="statusUpdate">
+	<update id="statusCancel">
 		UPDATE PAYMENT
-		SET ORDER_STATUS = #{orderStatus}
+		SET ORDER_STATUS = '주문 취소'
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<update id="statusCooking">
+		UPDATE PAYMENT
+		SET ORDER_STATUS = '조리 중'
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<update id="statusCookEnd">
+		UPDATE PAYMENT
+		SET ORDER_STATUS = '조리 완료'
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<update id="statusDeliveryWait">
+		UPDATE PAYMENT
+		SET ORDER_STATUS = '배달대기중'
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<update id="statusDeliverying">
+		UPDATE PAYMENT
+		SET ORDER_STATUS = '배달 중'
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<update id="statusDelvieryEnd">
+		UPDATE PAYMENT
+		SET ORDER_STATUS = '배달 완료'
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<update id="statusPickUpWait">
+		UPDATE PAYMENT
+		SET ORDER_STATUS = '픽업대기중'
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<update id="statusPickUpEnd">
+		UPDATE PAYMENT
+		SET ORDER_STATUS = '픽업 완료'
 		WHERE ORDER_NUM = #{orderNum}
 	</update>
 	

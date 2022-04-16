@@ -378,49 +378,5 @@ public class StoreController {
 		mv.addObject(Const.BODY, responseBodyMap);
 		return mv;
 	}
-	
-	// 결제 페이지
-	@RequestMapping( method = RequestMethod.POST, value = "/api/store/storeInfo" )
-	public ModelAndView paymentPage( HttpServletRequest request, HttpServletResponse response ) {
-			
-		Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
-		Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
-		Map<String, Object> responseBodyMap= new HashMap<String, Object>();
-			
-		if(reqHeadMap==null){
-			reqHeadMap = new HashMap<String, Object>();
-		}
-			
-		reqHeadMap.put(Const.RESULT_CODE, Const.OK);
-		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
-					
-		logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
-
-		StoreDTO info = service.getStoreInfo( reqBodyMap );
-		
-		
-		if( !StringUtils.isEmpty(info) ) {
-			responseBodyMap.put("rsltCode", "0000");
-			responseBodyMap.put("rsltMsg", "Success");
-			responseBodyMap.put("storeNum", info.getStoreNum());
-			responseBodyMap.put("storeName", info.getStoreName());
-			responseBodyMap.put("storeAddr", info.getStoreAddr());
-			responseBodyMap.put("storePhone", info.getStorePhone());
-			responseBodyMap.put("leastPrice", info.getLeastPrice());
-			responseBodyMap.put("orderArea", info.getOrderArea());
-			responseBodyMap.put("deliveryPrice", info.getDeliveryPrice());
-			responseBodyMap.put("reviewScore", info.getReviewScore());
-		} else {
-			responseBodyMap.put("rsltCode", "2003");
-			responseBodyMap.put("rsltMsg", "Data not found.");
-		}
-					
-		ModelAndView mv = new ModelAndView("defaultJsonView");
-		mv.addObject(Const.HEAD,reqHeadMap);
-		mv.addObject(Const.BODY,responseBodyMap);
-
-		return mv;
-	}
-	
 		
 }

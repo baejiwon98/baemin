@@ -66,18 +66,11 @@ from category2
 	</insert>
 		
 	<insert id="insertObject" >
-		INSERT INTO Object (OBJECT_NUM,
-							OBJECT_IMAGE,
-							OBJECT_NAME,
-							OBJECT_CONTENT,
-							OBJECT_PRICE,
-							OBJECT_QTY,
-							OBJECT_ORIGIN,
-							STORE_NUM,
-							MENU_CATEGORY_NUM)
+		INSERT INTO Object (OBJECT_NUM, OBJECT_IMAGE, OBJECT_NAME, OBJECT_CONTENT,
+		OBJECT_PRICE, OBJECT_QTY, OBJECT_ORIGIN, STORE_NUM)
 		VALUES
 	    	( #{objectNum}, #{objectImage}, #{objectName}, #{objectContent}, #{objectPrice},
-	    	  #{objectQty}, #{objectOrigin}, #{storeNum}, #{menuCategoryNum} )
+	    	  #{objectQty}, #{objectOrigin}, #{storeNum} )
 	</insert>
 	
 	<update id="updateObjectNotIncludeFiles" parameterType="map">
@@ -112,10 +105,5 @@ from category2
 		WHERE OBJECT_NUM = #{objectNum}
 	</delete>
 	
-<!-- 	<update id="updatePassword">
-	UPDATE Object
-	SET    PASSWORD = #{password}
-	WHERE  LOGIN_ID = #{loginId}
-	</update> -->
 	
 </mapper>
