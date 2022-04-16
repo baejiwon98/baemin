@@ -10,12 +10,14 @@
       $goPaymentBtn: null,
       $orderPhoneIpt: null,
       $storeRequestIpt: null,
+      $backBtn: null,
     },
     data: {},
     init: function init() {
       this.els.$goPaymentBtn = $('#go-payment-btn');
       this.els.$orderPhoneIpt = $('#orderPhone');
       this.els.$storeRequestIpt = $('#storeRequest');
+      this.els.$backBtn = $('#back-btn');
     },
 
     initView: function initView() {
@@ -31,6 +33,10 @@
 
       this.els.$goPaymentBtn.on('click', function () {
         self.payment();
+      });
+
+      this.els.$backBtn.on('click', function () {
+        M.page.back();
       });
 
       $('.payment-type').on('click', function () {
@@ -49,14 +55,14 @@
       if (!patternPhone.test(phone)) {
         return alert('주문자 번호를 확인 해주세요');
       }
-      if (paymentCategory == '') {
+      if (paymentType == '') {
         return alert('결제 방식을 선택해주세요');
       }
 
       $.sendHttp({
         path: "/api/payment/paymentPickUp",
         data: {
-          memberPhone: phone,
+          memPhone: phone,
           paymentCategory: paymentType,
           storeRequest: storeRequest,
           orderTotalPrice: M.data.param('totalPaymentPrice'),
