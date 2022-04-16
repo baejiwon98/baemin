@@ -51,6 +51,7 @@
       }
       if (M.data.param('modify') == 'Y') {
         $("input:radio[name='rating']").attr("disabled", "disabled"); //비활성화
+        $('#change-title').text('수정');
       }
     },
     initEvent: function initEvent() {
@@ -62,7 +63,7 @@
       this.els.$writeBtn.on('click', function () {
         if (M.data.param('modify') != 'Y') {
           if (self.data.imgPath == '' || self.data.imgPath == null) {
-            self.reviewWrite();
+             self.reviewWrite();
           } else {
             console.log(self.data.imgPath);
             self.reviewWriteUpload(self.data.imgPath);
@@ -97,18 +98,18 @@
       });
     },
 
-    reviewModifyUpload : function (imgPath) {
-    var self = this;
+    reviewModifyUpload: function (imgPath) {
+      var self = this;
       var score = $('input[name=rating]:checked').val();
       var content = this.els.$contentIpt.val();
       var body = [
-        { name: "orderNum", content: M.data.global('orderNum'), type: "TEXT" }, //주문목록에서 orderNum, storeNum, 가져와야 함.
+        { name: "orderNum", content: M.data.global('orderNum'), type: "TEXT" },
         { name: "reviewScore", content: score, type: "TEXT" },
         { name: "reviewContent", content: content, type: "TEXT" },
-        { name: "memberNum", content: M.data.param('memberNum'), type: "TEXT" },
+        { name: "memberNum", content: M.data.global('memberNum'), type: "TEXT" },
         { name: "reviewImage", content: imgPath, type: "FILE" },
         { name: "storeNum", content: M.data.param('storeNum'), type: "TEXT" },
-      ]
+        ]
       console.log(body);
       $.fileHttpSend({
         path: "/api/review/updateWithUpload",
@@ -162,12 +163,11 @@
         return alert('별점을 선택해주세요');
       }
       var body = [
-        { name: "orderNum", content: "order10002", type: "TEXT" }, //주문목록에서 orderNum, storeNum, 가져와야 함.
-        { name: "reviewScore", content: score, type: "TEXT" },
-        { name: "reviewContent", content: content, type: "TEXT" },
-        { name: "reviewImage", content: imgPath, type: "FILE" },
-        { name: "storeNum", content: "store10001", type: "TEXT" },
-      ]
+      { name: "orderNum", content: M.data.global('orderNum') , type: "TEXT" }, //주문목록에서 orderNum, storeNum, 가져와야 함.
+      { name: "reviewScore", content: score, type: "TEXT" },
+      { name: "reviewContent", content: content, type: "TEXT" },
+      { name: "reviewImage", content: imgPath, type: "FILE" },
+      { name: "storeNum", content: M.data.param('storeNum'), type: "TEXT" }]
       console.log(body);
       $.fileHttpSend({
         path: "/api/review/writeWithUpload",
@@ -199,10 +199,10 @@
       $.sendHttp({
         path: "/api/review/write",
         data: {
-          orderNum: "order10001", //주문목록에서 orderNum, storeNum, 가져와야 함.
+          orderNum: M.data.global('orderNum'), //주문목록에서 orderNum, storeNum, 가져와야 함.
           reviewScore: score,
           reviewContent: content,
-          storeNum: "store10001"
+          storeNum: M.data.param('storeNum')
         },
         succ: function (data) {
           console.log(data);

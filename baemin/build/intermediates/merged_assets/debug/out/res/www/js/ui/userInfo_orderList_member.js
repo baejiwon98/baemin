@@ -59,8 +59,8 @@
             items += "<br/><br/></div>";
             items += "<div class='orderList-object-price' style='padding-top: 8px;'>";
             items += "<div style='padding-right: 3em; margin-bottom: 1em;'>" + item.objectName + "</div>";
-            items += "<div class='orderList-object-qty'>";
-            items += "<img src='../img/btn-review.png' style='width: 1em; height: 1em; margin-bottom:1em;' class='reviewWrite' name='" + item.orderNum + "'/>";
+            items += "<div class='orderList-object-qty' style='margin-top:-3px;'>";
+            items += "<img src='../img/btn-review.png' style='width: 1.4em; height: 1.4em;' class='reviewWrite' id='"+ item.storeNum +"' name='" + item.orderNum + "'/>";
             items += "</div>";
             items += "</div>";
             items += "</div>";
@@ -114,9 +114,16 @@
       $('#card').on('click', '.reviewWrite', function (e) {
         e.stopPropagation();
         orderNum = $(this).attr('name');
+        var storeNum = $(this).attr('id');
         console.log(orderNum);
+        console.log(storeNum);
         M.data.global('orderNum', orderNum);
-        M.page.html('./eunjin_userInfo_reviewWrite_member.html');
+        M.page.html({
+          url : './eunjin_userInfo_reviewWrite_member.html',
+          param : {
+          "storeNum" : storeNum
+          },
+        });
       });
     },
     deleteOrderList: function () {

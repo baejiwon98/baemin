@@ -53,10 +53,10 @@
               items += "<li class='cart-object-container' style='border-right:0px;' id='" + item.objectNum + "'>";
               items += "<div>";
               items += "<div class='cart-object-img' id='object-img'>";
-              if(item.objectImage != 'null') {
-                items += "<img class='cart-object-img-detail' src='../img/curry.png' alt='' />";
+              if(item.objectImage != null) {
+                items += "<img class='cart-object-img-detail' src='" + "http://localhost:8080/view/object/upload/" + item.objectImage + "' alt='' />";
               } else {
-                items += "<img src='" + "http://localhost:8080/view/review/upload/" + item.objectImage + "' alt='' />";
+                items += "<img class='cart-object-img-detail' src='../img/object-default.png' alt='' />";
               }
               items += "</div>";
               items += "<div class='cart-delete-img delete-btn' >";
