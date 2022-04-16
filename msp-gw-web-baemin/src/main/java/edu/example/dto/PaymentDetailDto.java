@@ -22,8 +22,19 @@ public class PaymentDetailDto {
 	private String storeNum;
 	private Integer buyQty;
 	private Integer totalPrice;
+	private String memAddress;
 	
 	
+	public String getMemAddress() {
+		return memAddress;
+	}
+
+
+	public void setMemAddress(String memAddress) {
+		this.memAddress = memAddress;
+	}
+
+
 	public Integer getBuyQty() {
 		return buyQty;
 	}
@@ -53,7 +64,8 @@ public class PaymentDetailDto {
 			+	"\n storePhone="+storePhone
 			+	"\n deliveryPrice="+deliveryPrice
 			+	"\n totalPrice="+totalPrice
-		+	"\n buyQty="+buyQty;
+			+	"\n buyQty="+buyQty
+		+	"\n memAddress="+memAddress;
 	}
 
 

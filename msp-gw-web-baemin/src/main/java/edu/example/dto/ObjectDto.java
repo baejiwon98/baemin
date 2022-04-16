@@ -10,7 +10,6 @@ public class ObjectDto {
 	private int objectQty;
 	private String objectOrigin;
 	private String storeNum;
-	private String menuCategoryNum;
 	
 	public String toString() {
 		return 	"objectNum="+objectNum
@@ -20,8 +19,7 @@ public class ObjectDto {
 			+	"\n objectPrice="+objectPrice
 			+	"\n objectQty="+objectQty
 			+	"\n objectOrigin="+objectOrigin
-			+	"\n storeNum="+storeNum
-			+	"\n menuCategoryNum="+menuCategoryNum;
+			+	"\n storeNum="+storeNum;
 	}
 
 	public String getObjectNum() {
@@ -112,22 +110,8 @@ public class ObjectDto {
 		return storeNum;
 	}
 
-
-
 	public void setStoreNum(String storeNum) {
 		this.storeNum = storeNum;
-	}
-
-
-
-	public String getMenuCategoryNum() {
-		return menuCategoryNum;
-	}
-
-
-
-	public void setMenuCategoryNum(String menuCategoryNum) {
-		this.menuCategoryNum = menuCategoryNum;
 	}
 	
 }

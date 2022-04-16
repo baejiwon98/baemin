@@ -14,9 +14,9 @@ public class StoreDTO {
 	private String deliveryStatus;
 	private String pickupStatus;
 	private String storePhone;
-	private int leastPrice;
+	private Integer leastPrice;
 	private String orderArea;
-	private int deliveryPrice;
+	private Integer deliveryPrice;
 	private String storeCategoryNum;
 	private String reviewScore;
 	
@@ -29,6 +29,12 @@ public class StoreDTO {
 				+ ", storePhone=" + storePhone + ", leastPrice="
 				+ leastPrice + ", orderArea=" + orderArea + ", deliveryPrice=" + deliveryPrice
 				+ ", storeCategoryNum=" + storeCategoryNum + ",reviewScore=" + reviewScore + "]";
+	}
+	public Integer getDeliveryPrice() {
+		return deliveryPrice;
+	}
+	public void setDeliveryPrice(Integer deliveryPrice) {
+		this.deliveryPrice = deliveryPrice;
 	}
 	public String getReviewScore() {
 		return reviewScore;

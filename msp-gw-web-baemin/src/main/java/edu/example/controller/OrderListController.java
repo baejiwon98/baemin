@@ -159,6 +159,7 @@ public class OrderListController {
            String memNum = list.get(0).getMemberNum().toString();
            String strName = list.get(0).getStoreName().toString();
            String status = list.get(0).getStatus().toString();
+           String Image = list.get(0).getObjectImage().toString();
          
            
            if( !StringUtils.isEmpty(list) ) {           
@@ -170,6 +171,7 @@ public class OrderListController {
               responseBodyMap.put("deliveryPrice", deliPrice);
               responseBodyMap.put("storeName", strName);
               responseBodyMap.put("status", status);
+              responseBodyMap.put("objectImage", Image);
              
            }else {
               responseBodyMap.put("rsltCode", "2003");

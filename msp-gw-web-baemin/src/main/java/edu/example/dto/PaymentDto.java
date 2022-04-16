@@ -12,6 +12,7 @@ public class PaymentDto {
 	private String deliveryRequest;
 	private String storeNum;
 	private String objectNum;
+	private String memAddress;
 
 	public String toString() {
 		return 	"orderNum="+orderNum
@@ -22,8 +23,23 @@ public class PaymentDto {
 			+	"\n memberNum="+memberNum
 			+	"\n orderStatus="+orderStatus
 			+	"\n deliveryRequest="+deliveryRequest
+			+	"\n memAddress="+memAddress
 		+	"\n storeNum="+storeNum;
 	}
+
+	
+
+	public String getMemAddress() {
+		return memAddress;
+	}
+
+
+
+	public void setMemAddress(String memAddress) {
+		this.memAddress = memAddress;
+	}
+
+
 
 	public String getObjectNum() {
 		return objectNum;
