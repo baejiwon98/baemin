@@ -13,6 +13,7 @@ public class PaymentDto {
 	private String storeNum;
 	private String objectNum;
 	private String memAddress;
+	private String memPhone;
 
 	public String toString() {
 		return 	"orderNum="+orderNum
@@ -24,10 +25,22 @@ public class PaymentDto {
 			+	"\n orderStatus="+orderStatus
 			+	"\n deliveryRequest="+deliveryRequest
 			+	"\n memAddress="+memAddress
+			+	"\n memPhone="+memPhone
 		+	"\n storeNum="+storeNum;
 	}
-
 	
+	
+	public String getMemPhone() {
+		return memPhone;
+	}
+
+
+
+	public void setMemPhone(String memPhone) {
+		this.memPhone = memPhone;
+	}
+
+
 
 	public String getMemAddress() {
 		return memAddress;

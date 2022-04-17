@@ -11,6 +11,7 @@ public class PaymentDetailDto {
 	private String memberNum;
 	private String memberAddr;
 	private String memberPhone;
+	private String memPhone;
 	private String deliveryRequest;
 	private String objectNum;
 	private String objectName;
@@ -23,6 +24,15 @@ public class PaymentDetailDto {
 	private Integer buyQty;
 	private Integer totalPrice;
 	private String memAddress;
+	
+	public String getMemPhone() {
+		return memPhone;
+	}
+
+
+	public void setMemPhone(String memPhone) {
+		this.memPhone = memPhone;
+	}
 	
 	
 	public String getMemAddress() {

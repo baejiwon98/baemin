@@ -113,11 +113,11 @@
 	</delete>
 	
 	<select id="nameSearch" parameterType="map" resultType="edu.example.dto.StoreObjectDTO">
-		select store_name
+		select store_name, store_num
 		from store
 		where store_name like '%'||#{word}||'%'
 		union
-		select object_name
+		select object_name, object_num
 		from object
 		where object_name like '%'||#{word}||'%' 
 	</select>

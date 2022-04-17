@@ -159,8 +159,7 @@ public class OrderListController {
            String memNum = list.get(0).getMemberNum().toString();
            String strName = list.get(0).getStoreName().toString();
            String status = list.get(0).getStatus().toString();
-           String Image = list.get(0).getObjectImage().toString();
-         
+           
            
            if( !StringUtils.isEmpty(list) ) {           
               responseBodyMap.put("rsltCode", "0000");
@@ -171,7 +170,6 @@ public class OrderListController {
               responseBodyMap.put("deliveryPrice", deliPrice);
               responseBodyMap.put("storeName", strName);
               responseBodyMap.put("status", status);
-              responseBodyMap.put("objectImage", Image);
              
            }else {
               responseBodyMap.put("rsltCode", "2003");
@@ -220,7 +218,7 @@ public class OrderListController {
 		
 		
 		//장바구니 항목 중복 체크
-		@RequestMapping( method = RequestMethod.POST, value = "/api/orderList/checksta" )
+		@RequestMapping( method = RequestMethod.POST, value = "/api/orderList/staCheck" )
 		public ModelAndView staCheck( HttpServletRequest request, HttpServletResponse response ) {
 							
 			Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);

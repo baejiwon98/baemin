@@ -45,9 +45,14 @@ public class PaymentService {
     	return sqlSession.selectOne("Payment.getObjPrice", param);
     }
     
-    //상품 수량 가져오기
-    public Integer getQty(Map<String,Object> param) {
-    	return sqlSession.selectOne("Payment.getQty", param);
+    //상품 총 수량 가져오기
+    public Integer getQtyAll(Map<String,Object> param) {
+    	return sqlSession.selectOne("Payment.getQtyAll", param);
+    }
+    
+    //상품 각각의 수량 가져오기
+    public Integer getQtyOne(Map<String,Object> param) {
+    	return sqlSession.selectOne("Payment.getQtyOne", param);
     }
 	
     //상세보기
@@ -71,7 +76,7 @@ public class PaymentService {
 	}
     
     //사장이 현재 들어온 주문내역 보기
-    public List<OrderViewDto> paymentAllStoreNow( Map<String,Object> param ) {
+    public List<OrderViewDto> paymentStoreNow( Map<String,Object> param ) {
     	return sqlSession.selectList("Payment.getPaymentStoreNow", param);
 	}
     
@@ -81,29 +86,39 @@ public class PaymentService {
 	}
     
     //배달원이 배달할 수 있는 주문 내역 전체 보기
-    public List<OrderViewDto> paymentAllDeliveryNow( Map<String,Object> param ) {
+    public List<OrderViewDto> paymentDeliveryNow( Map<String,Object> param ) {
     	return sqlSession.selectList("Payment.getPaymentDeliveryNow", param);
 	}
 	
-	//결제하기
+	//배달 결제하기
 	public int paymentInsert( Map<String,Object> param ) {
 		
 		//트렌젝션 구현
         DefaultTransactionDefinition def = new DefaultTransactionDefinition();
         def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
         TransactionStatus status = transactionManager_sample.getTransaction(def);
-
+        
         int result = 0;
         try{
         	String num = sqlSession.selectOne("Payment.autoNum");
+
+            Integer menuQty = sqlSession.selectOne("Payment.getQtyAll", param);
+//        	Integer objQty = sqlSession.selectOne("Payment.getQtyOne", param);
+        	
         	param.put("orderNum", num);
+        	param.put("menuQty", menuQty);
+//        	param.put("object_Qty", objQty);
+        	
+        	
+        	
             result += sqlSession.insert("Payment.insertPaymentD", param);
+            
             if(result > 0) {
             	System.out.println(result + "결제 성공");
-            	result += sqlSession.update("Payment.insertMemInfo", param);
+//            	result += sqlSession.update("Payment.objectQtyUpdate", param);
             }
             if(result > 0) {
-            	System.out.println(result + "배송지 업데이트 성공");
+//            	System.out.println(result + "상품 재고 수량 감소 성공");
             	result += sqlSession.insert("Payment.insertPurchase", param);
             }
             if(result > 0) {
@@ -143,8 +158,12 @@ public class PaymentService {
 				result = sqlSession.insert("Payment.insertPurchase", param);
 	            System.out.println(result + "구매리스트 추가 성공");
 	            if(result > 0) {
-	            	result = sqlSession.delete("Payment.deleteOrder", param);
-	                System.out.println(result + "장바구니 지우기 성공");
+	            	result += sqlSession.insert("Payment.objectQtyUpdate", param);
+	            	System.out.println(result + "상품 재고 수량 감소 성공");
+	                if(result > 0) {
+		            	result = sqlSession.delete("Payment.deleteOrder", param);
+		                System.out.println(result + "장바구니 지우기 성공");
+		            }
 	            }
 			}
 			transactionManager_sample.commit(status);
@@ -204,7 +223,7 @@ public class PaymentService {
   		}
   		return result;
   	}
-		
+
   	//주문 취소
   	public int statusCancel( Map<String,Object> param ) {
   		//트렌젝션 구현
@@ -276,13 +295,34 @@ public class PaymentService {
   		TransactionStatus status = transactionManager_sample.getTransaction(def);
   		int result = 0;
   		try{
-					        	
+  			
   			result = sqlSession.update("Payment.statusDeliveryWait", param);
   			transactionManager_sample.commit(status);
   			logger.info("========== 주문 취소 완료 : {}", result);
 					            
   		}catch(Exception e){
   			logger.error("[ERROR] statusDeliveryWait() Fail : e : {}", e.getMessage());
+  			e.printStackTrace();
+  			transactionManager_sample.rollback(status);    	
+  		}
+  		return result;
+  	}
+  	
+  	//배달원이 주문 선택
+  	public int deliveryMatching( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
+  		int result = 0;
+  		try{
+					        	
+  			result = sqlSession.update("Payment.deliveryMatching", param);
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 주문 취소 완료 : {}", result);
+					            
+  		}catch(Exception e){
+  			logger.error("[ERROR] deliveryMatching() Fail : e : {}", e.getMessage());
   			e.printStackTrace();
   			transactionManager_sample.rollback(status);    	
   		}
@@ -375,24 +415,24 @@ public class PaymentService {
 				
 				
 		
-		//구매 내역서 추가
-	  	public int insertPurchase( Map<String,Object> param ) {
-	  		//트렌젝션 구현
-	  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
-	  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
-	  		TransactionStatus status = transactionManager_sample.getTransaction(def);
+  	//구매 내역서 추가
+  	public int insertPurchase( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
 
-	  		int result = 0;
-	  		try{
-	  			result += sqlSession.insert("Payment.insertPurchase", param);
-	  			transactionManager_sample.commit(status);
-	  			logger.info("========== 주문서 추가 완료 : {}", result);
+  		int result = 0;
+  		try{
+  			result += sqlSession.insert("Payment.insertPurchase", param);
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 주문서 추가 완료 : {}", result);
 	  	        
-	  		}catch(Exception e){
-	  			logger.error("[ERROR] insertPurchase() Fail : e : {}", e.getMessage());
-	  			e.printStackTrace();
-	  			transactionManager_sample.rollback(status);    	
-	  		}
-	  		return result;
-	  	}
+  		}catch(Exception e){
+  			logger.error("[ERROR] insertPurchase() Fail : e : {}", e.getMessage());
+  			e.printStackTrace();
+  			transactionManager_sample.rollback(status);    	
+  		}
+  		return result;
+  	}
 }
