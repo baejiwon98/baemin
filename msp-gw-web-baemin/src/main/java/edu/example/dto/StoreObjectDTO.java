@@ -6,18 +6,16 @@ public class StoreObjectDTO {
 	private String objectNum;
 	private String storeName;
 	private String objectName;
-	private Integer reviewScore;
+	private String reviewScore;
 	private String deliveryStatus;
 	private String pickupStatus;
-	private Integer leastPrice;
-	private Integer deliveryPrice;
-	
+	private String leastPrice;
+	private String deliveryPrice;
+	private String searchWord;
+	private String objectImage;
+	private String objectContent;
+	private String objectPrice;
 
-//	STORE_ADDR         NOT NULL VARCHAR2(200)
-//
-//	ORDER_AREA                  VARCHAR2(200) 
-//	STORE_CATEGORY_NUM NOT NULL
-		
 
 	public String toString() {
 		return 	"storeNum="+storeNum
@@ -26,8 +24,75 @@ public class StoreObjectDTO {
 			+	"\n objectName="+objectName
 			+	"\n reviewScore="+reviewScore
 			+	"\n deliveryStatus="+deliveryStatus
-		+	"\n pickupStatus="+pickupStatus;
+			+	"\n pickupStatus="+pickupStatus
+			+	"\n leastPrice="+leastPrice
+			+	"\n deliveryPrice="+deliveryPrice
+			+	"\n searchWord="+searchWord
+			+	"\n objectImage="+objectImage
+			+	"\n objectContent="+objectContent
+		+	"\n objectPrice="+objectPrice
+		;
 	}
+
+	public String getObjectImage() {
+		return objectImage;
+	}
+
+	public void setObjectImage(String objectImage) {
+		this.objectImage = objectImage;
+	}
+
+	public String getObjectContent() {
+		return objectContent;
+	}
+
+	public void setObjectContent(String objectContent) {
+		this.objectContent = objectContent;
+	}
+
+	public String getObjectPrice() {
+		return objectPrice;
+	}
+
+	public void setObjectPrice(String objectPrice) {
+		this.objectPrice = objectPrice;
+	}
+
+	public String getLeastPrice() {
+		return leastPrice;
+	}
+
+
+
+	public void setLeastPrice(String leastPrice) {
+		this.leastPrice = leastPrice;
+	}
+
+
+
+	public String getDeliveryPrice() {
+		return deliveryPrice;
+	}
+
+
+
+	public void setDeliveryPrice(String deliveryPrice) {
+		this.deliveryPrice = deliveryPrice;
+	}
+
+
+
+	public String getSearchWord() {
+		return searchWord;
+	}
+
+
+
+	public void setSearchWord(String searchWord) {
+		this.searchWord = searchWord;
+	}
+
+
 	
 	
 	
@@ -79,13 +144,13 @@ public class StoreObjectDTO {
 
 
 
-	public Integer getReviewScore() {
+	public String getReviewScore() {
 		return reviewScore;
 	}
 
 
 
-	public void setReviewScore(Integer reviewScore) {
+	public void setReviewScore(String reviewScore) {
 		this.reviewScore = reviewScore;
 	}
 

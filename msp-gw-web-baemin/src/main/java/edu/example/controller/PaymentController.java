@@ -404,10 +404,12 @@ public class PaymentController {
 	        logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
 	        
 	        PaymentDetailDto info = service.getPaymentDetail( reqBodyMap );
+	        List<PaymentDetailDto> list = service.getPaymentMenuDetail( reqBodyMap );
 	        
 	        if( !StringUtils.isEmpty(info) ) {
 	        	responseBodyMap.put("rsltCode", "0000");
 	            responseBodyMap.put("rsltMsg", "Success");
+	            responseBodyMap.put("list", list);
 	            responseBodyMap.put("orderNum", info.getOrderNum());
 	            responseBodyMap.put("orderTime", info.getOrderTime());
 	            responseBodyMap.put("storeRequest", info.getStoreRequest());
@@ -417,9 +419,6 @@ public class PaymentController {
 	            responseBodyMap.put("memAddress", info.getMemAddress());
 	            responseBodyMap.put("memPhone", info.getMemPhone());
 	            responseBodyMap.put("deliveryRequest", info.getDeliveryRequest());
-	            responseBodyMap.put("objectPrice", info.getObjectPrice());
-	            responseBodyMap.put("objectNum", info.getObjectNum());
-	            responseBodyMap.put("objectName", info.getObjectName());
 	            responseBodyMap.put("storeName", info.getStoreName());
 	            responseBodyMap.put("storeAddr", info.getStoreAddr());
 	            responseBodyMap.put("storePhone", info.getStorePhone());

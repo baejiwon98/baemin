@@ -24,7 +24,50 @@ public class PaymentDetailDto {
 	private Integer buyQty;
 	private Integer totalPrice;
 	private String memAddress;
+	private Integer menuQty;
+	private Integer menuPrice;
 	
+	public String toString() {
+		return 	"orderNum="+orderNum
+			+	"\n orderTime="+orderTime
+			+	"\n paymentCategory="+paymentCategory
+			+	"\n storeRequest="+storeRequest
+			+	"\n orderTotalPrice="+orderTotalPrice
+			+	"\n orderStatus="+orderStatus
+			+	"\n memberNum="+memberNum
+			+	"\n memberAddr="+memberAddr
+			+	"\n memberPhone="+memberPhone
+			+	"\n deliveryRequest="+deliveryRequest
+			+	"\n objectNum="+objectNum
+			+	"\n objectName="+objectName
+			+	"\n objectPrice="+objectPrice
+			+	"\n storeName="+storeName
+			+	"\n storeAddr="+storeAddr
+			+	"\n storePhone="+storePhone
+			+	"\n deliveryPrice="+deliveryPrice
+			+	"\n totalPrice="+totalPrice
+			+	"\n buyQty="+buyQty
+			+	"\n memAddress="+memAddress
+			+	"\n menuQty="+menuQty
+		+	"\n menuPrice="+menuPrice;
+	}
+	
+	public Integer getMenuQty() {
+		return menuQty;
+	}
+
+	public void setMenuQty(Integer menuQty) {
+		this.menuQty = menuQty;
+	}
+
+	public Integer getMenuPrice() {
+		return menuPrice;
+	}
+
+	public void setMenuPrice(Integer menuPrice) {
+		this.menuPrice = menuPrice;
+	}
+
 	public String getMemPhone() {
 		return memPhone;
 	}
@@ -55,28 +98,6 @@ public class PaymentDetailDto {
 	}
 
 
-	public String toString() {
-		return 	"orderNum="+orderNum
-			+	"\n orderTime="+orderTime
-			+	"\n paymentCategory="+paymentCategory
-			+	"\n storeRequest="+storeRequest
-			+	"\n orderTotalPrice="+orderTotalPrice
-			+	"\n orderStatus="+orderStatus
-			+	"\n memberNum="+memberNum
-			+	"\n memberAddr="+memberAddr
-			+	"\n memberPhone="+memberPhone
-			+	"\n deliveryRequest="+deliveryRequest
-			+	"\n objectNum="+objectNum
-			+	"\n objectName="+objectName
-			+	"\n objectPrice="+objectPrice
-			+	"\n storeName="+storeName
-			+	"\n storeAddr="+storeAddr
-			+	"\n storePhone="+storePhone
-			+	"\n deliveryPrice="+deliveryPrice
-			+	"\n totalPrice="+totalPrice
-			+	"\n buyQty="+buyQty
-		+	"\n memAddress="+memAddress;
-	}
 
 
 	public Integer getTotalPrice() {

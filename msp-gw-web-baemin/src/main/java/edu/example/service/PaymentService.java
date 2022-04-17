@@ -60,6 +60,11 @@ public class PaymentService {
 		return sqlSession.selectOne("Payment.getPaymentDetail", param);
 	}
     
+    //상세보기 (메뉴 항목)
+    public List<PaymentDetailDto> getPaymentMenuDetail( Map<String,Object> param ) {
+		return sqlSession.selectList("Payment.getPaymentMenuDetail", param);
+	}
+    
     //결제 페이지
     public PaymentDetailDto getPaymentInfo( Map<String,Object> param ) {
 		return sqlSession.selectOne("Payment.getPaymentInfo", param);
@@ -211,7 +216,7 @@ public class PaymentService {
   		int result = 0;
   		try{
   			
-  			result = sqlSession.delete("Payment.paymentDelete", param);
+  			result = sqlSession.update("Payment.paymentDelete", param);
   			
   			transactionManager_sample.commit(status);
   			logger.info("========== 주문 삭제 완료 : {}", result);
