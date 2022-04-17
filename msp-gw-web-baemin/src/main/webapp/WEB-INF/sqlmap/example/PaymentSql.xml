@@ -38,7 +38,7 @@
 	
 	<!-- 주문내역 상세정보 -->
 	<select id="getPaymentDetail" parameterType="map" resultType="edu.example.dto.PaymentDetailDto">
-		select m.member_num memberNum, mem_address memAddress, mem_phone memPhone, 
+		select m.member_num memberNum, mem_address memAddress, mem_phone memPhone, store_addr storeAddr,
 		pa.order_num orderNum, to_char(order_time,'YYYY-MM-DD') orderTime, payment_category paymentCategory, store_request storeRequest, 
         order_total_price orderTotalPrice, order_status orderStatus, delivery_request deliveryRequest,
 		store_name storeName, store_addr storeAddr, store_phone storePhone, delivery_price deliveryPrice
@@ -61,76 +61,102 @@
 	
 	<select id="getPaymentMember" parameterType="map" resultType="edu.example.dto.OrderViewDto">
 		SELECT 
-		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MENU_QTY, 
+		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM,
 		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
 		regexp_replace(listagg(OBJECT_IMAGE,',') within group (order by OBJECT_IMAGE), '([^,]+)(,\1)+', '\1') objectImage,
-		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (order by ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum
+		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (order by ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum,
+		regexp_replace(listagg(MENU_QTY,',') within group (order by MENU_QTY), '([^,]+)(,\1)+', '\1') menuQty
 		FROM PAYMENT p, OBJECT ob, STORE s, MEMBER m, purchase_list pu
 		WHERE pu.object_num = ob.object_num and p.STORE_NUM = s.STORE_NUM 
         and m.MEMBER_NUM = p.MEMBER_NUM and p.order_num = pu.order_num 
         and m.MEMBER_NUM = #{memberNum}
-		group by p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MENU_QTY
+		group by p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM
 		order by order_time desc
 	</select>
 	
 	<!-- 사장 자신의 가게에 들어온 총 주문 목록 -->
 	<select id="getPaymentStore" parameterType="map" resultType="edu.example.dto.OrderViewDto">
 		SELECT 
-		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MENU_QTY,
+		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MEM_ADDRESS, dr.DELIVERY_NUM, 
 		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
 		regexp_replace(listagg(OBJECT_IMAGE,',') within group (order by OBJECT_IMAGE), '([^,]+)(,\1)+', '\1') objectImage,
-		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (order by ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum
-		FROM PAYMENT p, OBJECT ob, STORE s, MEMBER m, purchase_list pu
+		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (order by ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum,
+		regexp_replace(listagg(MENU_QTY,',') within group (order by MENU_QTY), '([^,]+)(,\1)+', '\1') menuQty
+		FROM PAYMENT p, OBJECT ob, STORE s, MEMBER m, purchase_list pu, DELIVERYREQUEST dr, DELIVERY d
 		WHERE pu.object_num = ob.object_num AND p.STORE_NUM = s.STORE_NUM 
-        AND m.MEMBER_NUM = p.MEMBER_NUM and p.order_num = pu.order_num 
+        AND m.MEMBER_NUM = p.MEMBER_NUM AND p.ORDER_NUM = pu.ORDER_NUM
+        AND dr.order_num = p.order_num AND d.delivery_num = dr.delivery_num
         AND s.STORE_NUM = #{storeNum}
-		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MENU_QTY
+		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MEM_ADDRESS, dr.DELIVERY_NUM
 		ORDER BY ORDER_TIME DESC
 	</select>
 	
 	<!-- 현재 사장 자신의 가게에 들어온 주문 목록 (승인할 수 있고 취소할 수도 있다)-->
 	<select id="getPaymentStoreNow" parameterType="map" resultType="edu.example.dto.OrderViewDto">
 		SELECT 
-		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MENU_QTY,
+		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM,
 		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
 		regexp_replace(listagg(OBJECT_IMAGE,',') within group (order by OBJECT_IMAGE), '([^,]+)(,\1)+', '\1') objectImage,
-		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (order by ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum
+		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (order by ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum,
+		regexp_replace(listagg(MENU_QTY,',') within group (order by MENU_QTY), '([^,]+)(,\1)+', '\1') menuQty
 		FROM PAYMENT p, OBJECT ob, STORE s, MEMBER m, PURCHASE_LIST pu
 		WHERE pu.object_num = ob.object_num AND p.STORE_NUM = s.STORE_NUM 
         AND m.MEMBER_NUM = p.MEMBER_NUM AND p.ORDER_NUM = pu.ORDER_NUM
         AND s.STORE_NUM = #{storeNum} AND ORDER_STATUS ='주문 완료'
-		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MENU_QTY
+		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM
 		ORDER BY ORDER_TIME DESC
 	</select>
 	
-	<!-- 라이더가 지금까지 배달한 주문 목록 -->
+	<!-- 라이더의 총 주문 목록 -->
 	<select id="getPaymentDelivery" parameterType="map" resultType="edu.example.dto.OrderViewDto">
 		SELECT 
-		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MENU_QTY, d.DELIVERY_NUM,
+		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, d.DELIVERY_NUM,
 		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
 		regexp_replace(listagg(OBJECT_IMAGE,',') within group (order by OBJECT_IMAGE), '([^,]+)(,\1)+', '\1') objectImage,
-		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (order by ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum
+		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (order by ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum,
+		regexp_replace(listagg(MENU_QTY,',') within group (order by MENU_QTY), '([^,]+)(,\1)+', '\1') menuQty
 		FROM PAYMENT p, OBJECT ob, STORE s, MEMBER m, PURCHASE_LIST pu, DELIVERYREQUEST dr, DELIVERY d
 		WHERE pu.object_num = ob.object_num AND p.STORE_NUM = s.STORE_NUM 
         AND m.MEMBER_NUM = p.MEMBER_NUM AND p.ORDER_NUM = pu.ORDER_NUM
         AND dr.delivery_num = d.delivery_num AND p.order_num = dr.order_num
-        AND d.DELIVERY_NUM = #{deliveryNum} AND ORDER_STATUS ='배달 완료'
-		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MENU_QTY, d.DELIVERY_NUM
+        AND d.DELIVERY_NUM = #{deliveryNum}
+		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, d.DELIVERY_NUM
 		ORDER BY ORDER_TIME DESC
+	</select>
+	
+	<!-- 라이더가 현재 배달 중인 주문 목록 -->
+	<select id="getPaymentDeliverying" parameterType="map" resultType="edu.example.dto.OrderViewDto" >
+		select d.delivery_num, dr.order_num, order_status, p.member_num, p.store_num, mem_address, order_time,
+		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
+		regexp_replace(listagg(pu.object_num,',') within group (order by pu.object_num), '([^,]+)(,\1)+', '\1') objectNum,
+		regexp_replace(listagg(object_image,',') within group (order by object_image), '([^,]+)(,\1)+', '\1') objectImage,
+        regexp_replace(listagg(menu_qty,',') within group (order by menu_qty), '([^,]+)(,\1)+', '\1') menuQty,
+		store_name
+		from delivery d, deliveryrequest dr, 
+		payment p, purchase_list pu, object o, store s
+		where d.delivery_num = dr.delivery_num
+		and pu.object_num = o.object_num
+		and p.store_num = s.store_num
+		and pu.order_num = p.order_num
+		and dr.order_num = p.order_num
+		and (order_status = '배달 중' or order_status = '배달대기중') and d.delivery_num = #{deliveryNum}
+		group by d.delivery_num, store_addr, dr.order_num, order_status, store_name, p.member_num, p.store_num, mem_address, order_time
+		order by order_num desc
 	</select>
 	
 	<!-- 라이더가 배달할 수 있는 주문 목록 -->
 	<select id="getPaymentDeliveryNow" parameterType="map" resultType="edu.example.dto.OrderViewDto">
 		SELECT 
-		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MENU_QTY,
+		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM,
 		regexp_replace(listagg(object_name,',') within group (ORDER BY OBJECT_NAME), '([^,]+)(,\1)+', '\1') objectName,
 		regexp_replace(listagg(OBJECT_IMAGE,',') within group (ORDER BY OBJECT_IMAGE), '([^,]+)(,\1)+', '\1') objectImage,
-		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (ORDER BY ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum
+		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (ORDER BY ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum,
+		regexp_replace(listagg(MENU_QTY,',') within group (order by MENU_QTY), '([^,]+)(,\1)+', '\1') menuQty
 		FROM PAYMENT p, OBJECT ob, STORE s, MEMBER m, PURCHASE_LIST pu
 		WHERE pu.object_num = ob.object_num AND p.STORE_NUM = s.STORE_NUM 
         AND m.MEMBER_NUM = p.MEMBER_NUM AND p.ORDER_NUM = pu.ORDER_NUM
-        AND ORDER_STATUS ='조리완료'
-		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MENU_QTY
+        AND ORDER_STATUS ='조리 완료'
+		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM
 		ORDER BY ORDER_TIME DESC
 	</select>
 	
