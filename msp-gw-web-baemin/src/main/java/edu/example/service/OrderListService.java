@@ -38,7 +38,7 @@ public class OrderListService {
        return sqlSession.selectList("OrderList.selectAll", param);
     }
     
-    //장바구니 배달/포장 여부
+    //장바구니 배달/포장 여부 체크
     public String staCheck( Map<String,Object> param ) {
 		return sqlSession.selectOne("OrderList.staCheck", param);
 	}
@@ -119,7 +119,7 @@ public class OrderListService {
           int result = 0;
           try{
              
-             result = sqlSession.update("OrderList.updateOrder", param);
+              result = sqlSession.update("OrderList.updateOrder", param);
               transactionManager_sample.commit(status);
               logger.info("========== 수정 완료 : {}", result);
               

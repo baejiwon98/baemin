@@ -8,7 +8,7 @@ public class OrderViewDto {
 	private String objectName;
 	private String objectImg;
 	private String storeName;
-	private Integer menuQty;
+	private String menuQty;
 	private String storeNum;
 	private String memberNum;
 	private String deliveryNum;
@@ -134,14 +134,14 @@ public class OrderViewDto {
 	}
 
 
-	public Integer getMenuQty() {
+	public String getMenuQty() {
 		return menuQty;
 	}
 
 
 
 
-	public void setMenuQty(Integer menuQty) {
+	public void setMenuQty(String menuQty) {
 		this.menuQty = menuQty;
 	}
 

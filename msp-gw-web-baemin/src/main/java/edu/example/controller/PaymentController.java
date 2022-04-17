@@ -236,7 +236,79 @@ public class PaymentController {
 		return mv;
 	}
 	
-	// 주문 내역 전체 보기(라이더)
+	// 현재 사장이 승인할 수 있는 주문 목록
+	@RequestMapping( method = RequestMethod.POST, value = "/api/payment/paymentStoreNow" )
+	public ModelAndView paymentStoreNow( HttpServletRequest request, HttpServletResponse response ) {
+				
+		Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
+		Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
+		Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+					
+		if(reqHeadMap==null){
+			reqHeadMap = new HashMap<String, Object>();
+		}
+			
+		reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+							
+		logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+					        
+		List<OrderViewDto> list = service.paymentStoreNow(reqBodyMap);
+				
+					        
+		if( !StringUtils.isEmpty(list) ) {           
+			responseBodyMap.put("rsltCode", "0000");
+			responseBodyMap.put("rsltMsg", "Success");
+			responseBodyMap.put("list", list);
+		}else {
+			responseBodyMap.put("rsltCode", "2003");
+			responseBodyMap.put("rsltMsg", "Data not found.");
+		}
+				
+			ModelAndView mv = new ModelAndView("defaultJsonView");
+			mv.addObject(Const.HEAD,reqHeadMap);
+			mv.addObject(Const.BODY,responseBodyMap);
+				
+			return mv;
+		}
+	
+	// 라이더가 배달할 수 있는 주문 내역 전체 보기
+	@RequestMapping( method = RequestMethod.POST, value = "/api/payment/paymentDeliveryNow" )
+	public ModelAndView paymentDeliveryNow( HttpServletRequest request, HttpServletResponse response ) {
+			
+		Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
+		Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
+		Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+						
+		if(reqHeadMap==null){
+			reqHeadMap = new HashMap<String, Object>();
+		}
+
+		reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+									
+		logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+		
+		List<OrderViewDto> list = service.paymentDeliveryNow(reqBodyMap);
+
+			
+		if( !StringUtils.isEmpty(list) ) {           
+			responseBodyMap.put("rsltCode", "0000");
+			responseBodyMap.put("rsltMsg", "Success");
+			responseBodyMap.put("list", list);
+		}else {
+			responseBodyMap.put("rsltCode", "2003");
+			responseBodyMap.put("rsltMsg", "Data not found.");
+		}
+					
+		ModelAndView mv = new ModelAndView("defaultJsonView");
+		mv.addObject(Const.HEAD,reqHeadMap);
+		mv.addObject(Const.BODY,responseBodyMap);
+					
+		return mv;
+	}
+	
+	// 라이더 자신의 배달 내역 전체 보기
 	@RequestMapping( method = RequestMethod.POST, value = "/api/payment/paymentAllDelivery" )
 	public ModelAndView paymentAllDelivery( HttpServletRequest request, HttpServletResponse response ) {
 		
@@ -343,7 +415,7 @@ public class PaymentController {
 	            responseBodyMap.put("orderTotalPrice", info.getOrderTotalPrice());
 	            responseBodyMap.put("memberNum", info.getMemberNum());
 	            responseBodyMap.put("memAddress", info.getMemAddress());
-	            responseBodyMap.put("memberPhone", info.getMemberPhone());
+	            responseBodyMap.put("memPhone", info.getMemPhone());
 	            responseBodyMap.put("deliveryRequest", info.getDeliveryRequest());
 	            responseBodyMap.put("objectPrice", info.getObjectPrice());
 	            responseBodyMap.put("objectNum", info.getObjectNum());
@@ -518,10 +590,11 @@ public class PaymentController {
 			reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
 					
 			logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+			
+			int result = service.deliveryMatching( reqBodyMap );
+			result += service.statusDeliverying( reqBodyMap );
 			        
-			int result = service.statusDeliverying( reqBodyMap );
-			        
-			if( result > 0 ) {
+			if( result > 1 ) {
 				responseBodyMap.put("rsltCode", "0000");
 				responseBodyMap.put("rsltMsg", "Success");
 			} else {
@@ -587,56 +660,55 @@ public class PaymentController {
 					
 			logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
 			        
-			        int result = service.statusPickUpWait( reqBodyMap );
+			int result = service.statusPickUpWait( reqBodyMap );
 			        
-			        if( result > 0 ) {
-			        	responseBodyMap.put("rsltCode", "0000");
-			            responseBodyMap.put("rsltMsg", "Success");
-			        } else {
-			        	responseBodyMap.put("rsltCode", "2003");
-			            responseBodyMap.put("rsltMsg", "Data not found.");
-			        }
+			if( result > 0 ) {
+				responseBodyMap.put("rsltCode", "0000");
+				responseBodyMap.put("rsltMsg", "Success");
+			} else {
+				responseBodyMap.put("rsltCode", "2003");
+				responseBodyMap.put("rsltMsg", "Data not found.");
+			}
 					
-			        ModelAndView mv = new ModelAndView("defaultJsonView");
-			        mv.addObject(Const.HEAD,reqHeadMap);
-			        mv.addObject(Const.BODY,responseBodyMap);
-
-			        return mv;
-				}
+			ModelAndView mv = new ModelAndView("defaultJsonView");
+			mv.addObject(Const.HEAD,reqHeadMap);
+			mv.addObject(Const.BODY,responseBodyMap);
+			        
+			return mv;
+		}
 				
-				//픽업 완료
-				@RequestMapping( method = RequestMethod.POST, value = "/api/payment/statusPickUpEnd" )
-				public ModelAndView statusPickUpEnd( HttpServletRequest request, HttpServletResponse response ) {
+		//픽업 완료
+		@RequestMapping( method = RequestMethod.POST, value = "/api/payment/statusPickUpEnd" )
+		public ModelAndView statusPickUpEnd( HttpServletRequest request, HttpServletResponse response ) {
 					
-			        Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
-			        Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
-			        Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+			Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
+			Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
+			Map<String, Object> responseBodyMap= new HashMap<String, Object>();
 			        
-			        if(reqHeadMap==null){
-			            reqHeadMap = new HashMap<String, Object>();
-			        }
+			if(reqHeadMap==null){
+				reqHeadMap = new HashMap<String, Object>();
+			}
 			        
-			        reqHeadMap.put(Const.RESULT_CODE, Const.OK);
-			        reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+			reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+			reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
 					
-			        logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+			logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
 			        
-			        int result = service.statusPickUpEnd( reqBodyMap );
+			int result = service.statusPickUpEnd( reqBodyMap );
 			        
-			        if( result > 0 ) {
-			        	responseBodyMap.put("rsltCode", "0000");
-			            responseBodyMap.put("rsltMsg", "Success");
-			        } else {
-			        	responseBodyMap.put("rsltCode", "2003");
-			            responseBodyMap.put("rsltMsg", "Data not found.");
-			        }
+			if( result > 0 ) {
+				responseBodyMap.put("rsltCode", "0000");
+				responseBodyMap.put("rsltMsg", "Success");
+			} else {
+				responseBodyMap.put("rsltCode", "2003");
+				responseBodyMap.put("rsltMsg", "Data not found.");
+			}
 					
-			        ModelAndView mv = new ModelAndView("defaultJsonView");
-			        mv.addObject(Const.HEAD,reqHeadMap);
-			        mv.addObject(Const.BODY,responseBodyMap);
+			ModelAndView mv = new ModelAndView("defaultJsonView");
+			mv.addObject(Const.HEAD,reqHeadMap);
+			mv.addObject(Const.BODY,responseBodyMap);
 
-			        return mv;
-				}
-
-	
+			return mv;
+		}
+		
 }
