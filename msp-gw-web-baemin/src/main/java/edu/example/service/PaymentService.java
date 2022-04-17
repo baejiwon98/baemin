@@ -94,6 +94,11 @@ public class PaymentService {
     public List<OrderViewDto> paymentDeliveryNow( Map<String,Object> param ) {
     	return sqlSession.selectList("Payment.getPaymentDeliveryNow", param);
 	}
+    
+    //배달원이 현재 배달 중인 주문 내역 전체 보기
+    public List<OrderViewDto> paymentDeliverying( Map<String,Object> param ) {
+    	return sqlSession.selectList("Payment.getPaymentDeliverying", param);
+	}
 	
 	//배달 결제하기
 	public int paymentInsert( Map<String,Object> param ) {
@@ -270,7 +275,7 @@ public class PaymentService {
 			}
   		return result;
   	}
-		
+	
   	//조리 완료
   	public int statusCookEnd( Map<String,Object> param ) {
   		//트렌젝션 구현
@@ -282,7 +287,7 @@ public class PaymentService {
 					        	
   			result = sqlSession.update("Payment.statusCookEnd", param);
   			transactionManager_sample.commit(status);
-  			logger.info("========== 주문 취소 완료 : {}", result);
+  			logger.info("========== 조리 완료 : {}", result);
 				
   		}catch(Exception e){
   			logger.error("[ERROR] statusCookEnd() Fail : e : {}", e.getMessage());
@@ -303,7 +308,7 @@ public class PaymentService {
   			
   			result = sqlSession.update("Payment.statusDeliveryWait", param);
   			transactionManager_sample.commit(status);
-  			logger.info("========== 주문 취소 완료 : {}", result);
+  			logger.info("========== 배달 대기 중입니다 : {}", result);
 					            
   		}catch(Exception e){
   			logger.error("[ERROR] statusDeliveryWait() Fail : e : {}", e.getMessage());
@@ -324,7 +329,7 @@ public class PaymentService {
 					        	
   			result = sqlSession.update("Payment.deliveryMatching", param);
   			transactionManager_sample.commit(status);
-  			logger.info("========== 주문 취소 완료 : {}", result);
+  			logger.info("========== 주문 선택 완료 : {}", result);
 					            
   		}catch(Exception e){
   			logger.error("[ERROR] deliveryMatching() Fail : e : {}", e.getMessage());
@@ -384,7 +389,7 @@ public class PaymentService {
   		TransactionStatus status = transactionManager_sample.getTransaction(def);
   		int result = 0;
   		try{
-					        	
+
   			result = sqlSession.update("Payment.statusPickUpWait", param);
   			transactionManager_sample.commit(status);
   			logger.info("========== 픽업 대기 중 : {}", result);
