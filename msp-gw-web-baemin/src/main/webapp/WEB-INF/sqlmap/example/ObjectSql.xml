@@ -5,50 +5,21 @@
 
 <mapper namespace="Object">
 
+<select id="detailStoreMenu" parameterType="map" resultType="edu.example.dto.ObjectDto">
+  SELECT * FROM OBJECT WHERE OBJECT_NUM = #{objectNum}
+</select>
+
 <select id="getObjectNumInfo" resultType="String">
 select 
-concat('object', nvl(max(substr(object_num, 7)), 0) + 1)
+concat('object', nvl(max(substr(object_num, 7)), 10000) + 1)
 from object
 </select>
-
-<select id="getMenuCategoryNumInfo" resultType="String">
-select 
-concat('menuCategory_', nvl(max(substr(menu_category_num, 14)), 0) + 1)
-from category2
-</select>
-
-<!-- 	<select id="getObjectInfo" parameterType="map" resultType="edu.example.dto.ObjectDto">
-		SELECT *
-		FROM Object
-		<if test="objectName != null and objectName != '' ">
-			WHERE OBJECT_NAME = #{objectName} 
-			or OBJECT_NAME = REPLACE(#{objectName}, ' ', '')
-		</if>
-	</select> -->	
-	
-<!-- 	<select id="getStoreObjectInfo" parameterType="map" resultType="edu.example.dto.ObjectDto">
-		SELECT *
-		FROM Object
-		<if test="objectName != null and objectName != '' ">
-			WHERE 
-				(
-					OBJECT_NAME = #{objectName} 
-				 or OBJECT_NAME = REPLACE(#{objectName}, ' ', '') 
-				 or OBJECT_NAME like trim(#{objectName}) 
-				 )
-				 and store_num = #{storeNum}
-		</if>
-	</select>	 -->
 	
 <!-- 매장 내 메뉴 리스트 -->
 	<select id="getStoreObjectInfo" parameterType="map" resultType="edu.example.dto.ObjectDto">
 		SELECT *
 		FROM Object
-		<if test="objectName != null and objectName != '' ">
-			WHERE 
-					OBJECT_NAME = #{objectName}
-				and STORE_NUM = #{storeNum}
-		</if>
+			WHERE STORE_NUM = #{storeNum}
 	</select>
 
 	<insert id="insertObjectNotIncludeFiles" >
@@ -58,11 +29,10 @@ from category2
 							OBJECT_PRICE,
 							OBJECT_QTY,
 							OBJECT_ORIGIN,
-							STORE_NUM,
-							MENU_CATEGORY_NUM)
+							STORE_NUM)
 		VALUES
 	    	( #{objectNum}, #{objectName}, #{objectContent}, #{objectPrice},
-	    	  #{objectQty}, #{objectOrigin}, #{storeNum}, #{menuCategoryNum} )
+	    	  #{objectQty}, #{objectOrigin}, #{storeNum})
 	</insert>
 		
 	<insert id="insertObject" >
@@ -80,10 +50,8 @@ from category2
 		       OBJECT_CONTENT = #{objectContent},
 		       OBJECT_PRICE = #{objectPrice},
 		       OBJECT_QTY = #{objectQty},
-		       OBJECT_ORIGIN = #{objectOrigin},
-		       STORE_NUM = #{storeNum},
-		       MENU_CATEGORY_NUM = #{menuCategoryNum}
-		WHERE  OBJECT_NUM = #{objectNum}
+		       OBJECT_ORIGIN = #{objectOrigin}
+		WHERE  OBJECT_NUM = #{objectNum} and STORE_NUM= #{storeNum}
 	</update>
 		
 	<update id="updateObject" parameterType="map">
@@ -94,10 +62,8 @@ from category2
 		       OBJECT_CONTENT = #{objectContent},
 		       OBJECT_PRICE = #{objectPrice},
 		       OBJECT_QTY = #{objectQty},
-		       OBJECT_ORIGIN = #{objectOrigin},
-		       STORE_NUM = #{storeNum},
-		       MENU_CATEGORY_NUM = #{menuCategoryNum}
-		WHERE  OBJECT_NUM = #{objectNum}
+		       OBJECT_ORIGIN = #{objectOrigin}
+		WHERE  OBJECT_NUM = #{objectNum} and STORE_NUM= #{storeNum}
 	</update>
 	
 	<delete id="deleteObject">

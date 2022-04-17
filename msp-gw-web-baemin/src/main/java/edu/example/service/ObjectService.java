@@ -28,24 +28,23 @@ public class ObjectService {
     @Autowired(required=true)
     @Qualifier("transactionManager_sample")
     private DataSourceTransactionManager transactionManager_sample;
-	
     
-	/*
-	 * // 메뉴 조회 
-	 * public ObjectDto getObjectInfo(Map<String, Object> param) {
-	 * 		return sqlSession.selectOne("Object.getObjectInfo", param); }
-	 * 
-	 */	
+    
+	
+	// 메뉴 조회 
+	public ObjectDto detailStoreMenu(Map<String, Object> param) {
+	    return sqlSession.selectOne("Object.detailStoreMenu", param);
+	}
     
     // 매장 내 메뉴 리스트
 	public List<Object> getStoreObjectInfo(Map<String, Object> param) {
 		return sqlSession.selectList("Object.getStoreObjectInfo", param);
 	}
 	
-    // 매장 내 메뉴 조회
-	public ObjectDto getStoreObjectSearch(Map<String, Object> param) {
-		return sqlSession.selectOne("Object.getStoreObjectInfo", param);
-	}
+//    // 매장 내 메뉴 조회
+//	public ObjectDto getStoreObjectSearch(Map<String, Object> param) {
+//		return sqlSession.selectOne("Object.getStoreObjectInfo", param);
+//	}
 	
 	
     // 메뉴 번호 조회
