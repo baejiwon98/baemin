@@ -9,14 +9,12 @@
   var page = {
     els: {
       $backBtn: null,
-
       $modiBtn: null,
       $delBtn: null
     },
     data: {},
     init: function init() {
       this.els.$backBtn = $('#backBtn');
-
       this.els.$modiBtn = $('#modiBtn');
       this.els.$delBtn = $('#delBtn');
     },

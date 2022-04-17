@@ -39,7 +39,7 @@
             items += "<div class='review-detail'>";
             items += "<div class='fa fa-star checked' id='Allstars'></div>";
             if( item.reviewScore != null) {
-              items += "<strong>"+ item.reviewScore +"</strong>";
+              items += "<strong>"+ parseFloat(item.reviewScore).toFixed(1) +"</strong>";
             } else {
               items += "<strong>평점없음</strong>";
             }

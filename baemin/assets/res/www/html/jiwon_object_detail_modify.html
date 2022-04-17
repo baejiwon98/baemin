@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Hello! Mobile!</title>
+  <link rel="stylesheet" href="../css/morpheus-style.css" />
+  <link rel="stylesheet" href="../css/swiper.min.css" />
+  <link rel="stylesheet" href="../css/muikit.css" />
+</head>
+
+<body>
+<div class="wrapper">
+  <header class="header">
+    <!-- 하단에 라인이 있는경우 class="line"추가 -->
+    <button type="button" class="btn-back l-fix" id="backBtn">
+      뒤로가기
+    </button>
+    <h1>메뉴 상세보기</h1>
+  </header>
+  <section>
+    <section class="object-main-detail">
+      <div id="object-img" style="text-align:center">
+      </div>
+      <div class="object-main-top">
+        <div class="fa object-main-title" id="object-name">
+          <strong id="object-title">
+          </strong>
+        </div>
+        <div class="fa object-main-origin">
+          <strong>원산지</strong>
+          <strong id="object-origin"></strong>
+        </div>
+      </div>
+      <div class="object-main-content" >
+        <p id="object-content">
+        </p>
+      </div>
+      <hr>
+      <div class="object-cart-detail">
+        <strong>재고</strong>
+        <div class="object-cart-qty">
+          <div class="qty-result" id="qty-result"></div>
+        </div>
+      </div>
+    </section>
+  </section>
+  <div class="btn-wrap pd count2">
+    <button type="button" id="modiBtn" class="btn-point-color">
+      수정
+    </button>
+    <button type="button" id="delBtn" class="btn-line" class="btn-point-color">
+      삭제
+    </button>
+  </div>
+</div>
+</body>
+
+<script type="text/javascript" src="../js/mcore.min.js"></script>
+<script type="text/javascript" src="../js/ui/object_detail_modify.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</html>

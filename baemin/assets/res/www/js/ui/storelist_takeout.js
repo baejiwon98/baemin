@@ -29,27 +29,27 @@
           console.log(data);
           var items = "";
           $.each(data.list, function (index, item) {
-            items += "<li class='storelist' id='"+ item.storeNum+"'>";
+            items += "<li class='storelist' id='" + item.storeNum + "'>";
             items += "<div class='storelistbox'>";
             items += "<div class='store-info'>";
             items += "<div class='store-info-one'>";
             items += "<div class='store-name'>";
-            items += "<strong>"+ item.storeName +"</strong>";
+            items += "<strong>" + item.storeName + "</strong>";
             items += "</div>";
             items += "<div class='review-detail'>";
-            if( item.reviewScore != null) {
+            if (item.reviewScore != null) {
               items += "<div class='fa fa-star checked' id='Allstars'></div>";
-              items += "<strong>"+ item.reviewScore +"</strong>";
+              items += "<strong>" + parseFloat(item.reviewScore).toFixed(1) + "</strong>";
             }
-            if ( item.objectName != null) {
-             items += "<strong class='object-Repre'>"+ item.objectName +"</strong>";
+            if (item.objectName != null) {
+              items += "<strong class='object-Repre'>" + item.objectName + "</strong>";
             }
             items += "</div>";
             items += "<div class='review-detail'>";
             items += "<strong class='store-least'>최소주문금액&nbsp;</strong>";
             items += "<strong class='store-leastPrice'>" + item.leastPrice + "원&nbsp;</strong>";
             items += "<strong class='store-delivery'>배달팁&nbsp;</strong>";
-            items += "<strong class='store-deliveryTip'>"+ item.deliveryPrice +"원</strong>";
+            items += "<strong class='store-deliveryTip'>" + item.deliveryPrice + "원</strong>";
             items += "</div>";
             items += "</div>";
             items += "</div>";
@@ -75,15 +75,15 @@
       });
 
       this.els.$categoryChange.on('click', function () {
-        M.data.global('deliveryStatus','Y');
-        M.data.global('pickupStatus','N');
+        M.data.global('deliveryStatus', 'Y');
+        M.data.global('pickupStatus', 'N');
         M.page.replace('./jiwon_storelist_delivery.html');
       });
 
       $('#card').on('click', '.storelist', function () {
-      var storeNum = $(this).attr('id');
-      console.log(storeNum);
-      M.data.global('storeNum', storeNum);
+        var storeNum = $(this).attr('id');
+        console.log(storeNum);
+        M.data.global('storeNum', storeNum);
         M.page.html({
           url: './jiwon_store_menulist.html',
         });
@@ -91,7 +91,7 @@
 
       // top
       this.els.$topBtn.on('click', function () {
-      $('html, body').scrollTop(0);
+        $('html, body').scrollTop(0);
       });
 
     }, // end initEvent
