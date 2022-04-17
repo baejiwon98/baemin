@@ -63,6 +63,7 @@
         M.page.back();
       });
 
+      
 
     },
     next: function next() {
@@ -91,7 +92,9 @@
         M.page.html('./saetbyeol_join2_delivery.html');
       }
 
-    }
+    },
+
+    
   };
 
   window.__page__ = page;

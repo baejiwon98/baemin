@@ -1,5 +1,6 @@
 package edu.example.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -34,14 +35,21 @@ public class OrderListService {
     
     
     //내 장바구니 전체 보기
-    public List<OrderListAllDto> orderList( Map<String,Object> param ) {
-       return sqlSession.selectList("OrderList.selectAll", param);
+    public List<Object> orderList( Map<String,Object> param ) {
+       List<OrderListAllDto> dto = sqlSession.selectList("OrderList.selectAll", param);
+       List<Object> list = new ArrayList<Object>();
+       for (int i = 0; i < dto.size(); i++) {
+    	   list.add(dto);
+       }
+       return list;
     }
     
     //장바구니 배달/포장 여부 체크
     public String staCheck( Map<String,Object> param ) {
 		return sqlSession.selectOne("OrderList.staCheck", param);
 	}
+    
+    
     
     //추가
     public int insertOrder( Map<String,Object> param ) {

@@ -162,13 +162,13 @@ public class PaymentService {
 			if(result > 0) {
 				result = sqlSession.insert("Payment.insertPurchase", param);
 	            System.out.println(result + "구매리스트 추가 성공");
-	            if(result > 0) {
-	            	result += sqlSession.insert("Payment.objectQtyUpdate", param);
-	            	System.out.println(result + "상품 재고 수량 감소 성공");
+//	            if(result > 0) {
+//	            	result += sqlSession.insert("Payment.objectQtyUpdate", param);
+//	            	System.out.println(result + "상품 재고 수량 감소 성공");
 	                if(result > 0) {
 		            	result = sqlSession.delete("Payment.deleteOrder", param);
 		                System.out.println(result + "장바구니 지우기 성공");
-		            }
+//		            }
 	            }
 			}
 			transactionManager_sample.commit(status);
