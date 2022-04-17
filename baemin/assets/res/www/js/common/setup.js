@@ -23,6 +23,9 @@
         //                $("body").append("<div style=\"z-index:9999; position:fixed; bottom:.5rem; left:.5rem; font-size:1rem; background-color:#000000; color:#ffffff\">" + Global.pageName + "</div>");
       }
     }
+//        setInterval(function () { // 알림띄우기
+//          alert('반복수행');
+//        }, 5000)
 
   });
 

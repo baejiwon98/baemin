@@ -54,12 +54,12 @@
 
       // 배달신청
       this.els.$orderBtn.on('click', function () {
-        M.page.html('./eunjin_orderList_delivery.html');
+        M.page.html('./eunjin_orderList_delivery_all.html');
       });
 
       // 배달완료
       this.els.$completeBtn.on('click', function () {
-        M.page.html('./eunjin_userInfo_myOrderList_delivery.html');
+        M.page.html('./eunjin_orderList_delivery_complete.html');
       });
 
       // 내 주소

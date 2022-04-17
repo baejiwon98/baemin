@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Hello! Mobile!</title>
+  <link rel="stylesheet" href="../css/morpheus-style.css" />
+  <link rel="stylesheet" href="../css/swiper.min.css" />
+  <link rel="stylesheet" href="../css/muikit.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header line">
+      <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+      <!-- 하단에 라인이 있는경우 class="line"추가 -->
+      <h1>
+        주문 내역
+      </h1>
+      <button type="button" class="btn-back l-fix" id="backBtn">
+        뒤로가기
+      </button>
+    </header>
+    <div class="tab-menu-wrap  bg-white">
+      <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+      <ul class="tab-menu table">
+        <li id="current-category-change">
+          <span>
+            지금 들어온 주문
+          </span>
+        </li>
+        <li class="on">
+          <span>
+            전체 주문
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <div class="cart-detail-cont">
+        <ul class="noti-wrap" id="card">
+        </ul>
+      </div>
+    </div>
+    <button type="button" class="btn-top" id="top-btn">
+      top
+    </button>
+  </div>
+</body>
+
+<script type="text/javascript" src="../js/mcore.min.js"></script>
+<script type="text/javascript" src="../js/ui/orderList_employee_all.js"></script>
+
+</html>

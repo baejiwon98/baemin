@@ -71,15 +71,20 @@
             memberNum: M.data.global('memberNum'),
           },
           succ: function (data) {
-            if (data.list[0].status != status) {
-              alert('주문 방식이 다릅니다. 장바구니를 비우고 다시 담아주세요.');
+            if (data.list != null) {
+              if (data.list[0].status != status) {
+                            alert('주문 방식이 다릅니다. 장바구니를 비우고 다시 담아주세요.');
+                          } else {
+                            if (data.list[0].storeNum != M.data.global('storeNum')) {
+                              alert('동일한 가게의 메뉴만 담을 수 있습니다. 장바구니를 비우고 다시 담아주세요.');
+                            } else {
+                              self.goCart();
+                            }
+                          }
             } else {
-              if (data.list[0].storeNum != M.data.global('storeNum')) {
-                alert('동일한 가게의 메뉴만 담을 수 있습니다. 장바구니를 비우고 다시 담아주세요.');
-              } else {
-                self.goCart();
-              }
+            self.goCart();
             }
+
           },
           error: function (data) {
             console.log(data);

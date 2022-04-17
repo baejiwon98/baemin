@@ -10,13 +10,15 @@
     els: {
       $storeBtn: null,
       $reviewBtn: null,
-      $menuBtn: null
+      $menuBtn: null,
+      $storeOrderList: null,
     },
     data: {},
     init: function init() {
       this.els.$storeBtn = $('#store-category-modify');
       this.els.$reviewBtn = $('#store-review-list');
       this.els.$menuBtn = $('#menuBtn');
+      this.els.$storeOrderList = $('#store-order-list');
     },
 
     initView: function initView() {
@@ -51,6 +53,11 @@
       this.els.$menuBtn.on('click', function () {
         M.page.html({
           url: "./eunjin_userInfo_Info_employee.html",
+        });
+      });
+      this.els.$storeOrderList.on('click', function () {
+        M.page.html({
+          url: "./eunjin_orderList_employee_current.html",
         });
       });
     } // end initEvent

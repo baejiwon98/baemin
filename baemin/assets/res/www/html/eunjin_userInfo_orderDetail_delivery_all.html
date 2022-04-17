@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Hello! Mobile!</title>
+  <link rel="stylesheet" href="../css/morpheus-style.css" />
+  <link rel="stylesheet" href="../css/swiper.min.css" />
+  <link rel="stylesheet" href="../css/muikit.css" />
+</head>
+
+<body>
+<div class="wrapper">
+  <header class="header line">
+    <h1>
+      주문 상세보기
+    </h1>
+    <button type="button" class="btn-back l-fix" id="backBtn">
+      뒤로가기
+    </button>
+  </header>
+  <div class="container" style="padding: 1em; width: 100%; border-bottom: #ff7987 solid 1em;">
+    <div style="padding: 1em;">
+      <div style="color: #666; margin-bottom: 0.5em">
+        <h3 id="orderStatus"></h3>
+      </div>
+      <div style="margin-top: 0.3em">
+        <h2 id="orderStoreName" style="font-size:20px;font-weight:bold;"></h2>
+      </div>
+      <br />
+      <div>
+        <div style="color: #666; margin-bottom: 0.5em">
+          주문일시: <span id="orderDate"></span>
+        </div>
+        <div style="color: #666;">
+          주문번호: <span id="orderNum"></span>
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+  <div class="container" style="padding: 1em; width: 100%; border-bottom: #ff7987 solid 1em;">
+    <div style="padding: 1em;" id="card">
+    </div>
+    <div style="padding: 1em; border-top: 1px solid">
+      <div style="margin-bottom: 0.5em">
+        <h3><span style="font-size:15px;font-weight:bold;">총 주문 금액</span><span style="float: right;font-size:15px;"
+                                                                               id="totalOrderPrice"></span></h3>
+      </div>
+      <h3><span style="font-size:15px;font-weight:bold;">배달팁</span><span style="float: right;font-size:15px;"
+                                                                         id="deliveryTip"></span></h3>
+    </div>
+    <div style="padding: 1em; border-top: 1px solid">
+      <div style="margin-bottom: 0.5em">
+        <h3><span style="font-size:15px;font-weight:bold;">총 결제 금액</span><span style="float: right;font-size:15px;"
+                                                                               id="totalPaymentPrice"></span></h3>
+      </div>
+      <h3><span style="font-size:15px;font-weight:bold;">결제 방법</span><span style="float: right;font-size:15px;"
+                                                                           id="paymentWay"></span></h3>
+    </div>
+  </div>
+  <div class="container" style="padding: 1em; width: 100%;">
+    <div style="padding: 1em; border-bottom: 1px solid #000000" id="addr">
+    </div>
+    <div style="padding: 1em; border-bottom: 1px solid">
+      <div style="margin-bottom: 0.5em">
+        <h3 style="font-size:15px;font-weight:bold;">전화번호</h3>
+      </div>
+      <span id="memberPhone"></span>
+    </div>
+    <div style="padding: 1em; border-bottom: 1px solid">
+      <div style="margin-bottom: 0.5em">
+        <h3 style="font-size:15px;font-weight:bold;">사장님께 요청사항</h3>
+      </div>
+      <span id="storeRequest"></span>
+    </div>
+    <div style="padding: 1em;" id="deliveryRequest">
+    </div>
+  </div>
+  <div class="btn-wrap pd">
+    <button type="button" id="okBtn" class="btn-point-color">
+      <span id="btnName"></span>
+    </button>
+  </div>
+</div>
+</body>
+
+<script type="text/javascript" src="../js/mcore.min.js"></script>
+<script type="text/javascript" src="../js/ui/orderDetail_delivery_all.js"></script>
+
+</html>

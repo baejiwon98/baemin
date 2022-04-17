@@ -42,8 +42,8 @@
         self.payment();
       });
 
-      this.els.$goPaymentBtn.on('click', function () {
-        M.page.html('./jiwon_payment_ok.html');
+      this.els.$backBtn.on('click', function () {
+        M.page.back();
       });
 
       $('.payment-type').on('click', function () {
@@ -72,11 +72,10 @@
       if (paymentType == '') {
         return alert('결제 방식을 선택해주세요');
       }
-
+      console.log(phone);
       $.sendHttp({
         path: "/api/payment/paymentDelivery",
         data: {
-          memberPhone :phone,
           paymentCategory : paymentType,
           storeRequest : storeRequest,
           orderTotalPrice : M.data.param('totalPaymentPrice'),
