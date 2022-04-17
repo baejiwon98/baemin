@@ -98,7 +98,7 @@
 		FROM PAYMENT p, OBJECT ob, STORE s, MEMBER m, PURCHASE_LIST pu
 		WHERE pu.object_num = ob.object_num AND p.STORE_NUM = s.STORE_NUM 
         AND m.MEMBER_NUM = p.MEMBER_NUM AND p.ORDER_NUM = pu.ORDER_NUM
-        AND s.STORE_NUM = #{storeNum} AND ORDER_STATUS ='배달대기중'
+        AND s.STORE_NUM = #{storeNum} AND ORDER_STATUS ='주문 완료'
 		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MENU_QTY
 		ORDER BY ORDER_TIME DESC
 	</select>
@@ -129,7 +129,7 @@
 		FROM PAYMENT p, OBJECT ob, STORE s, MEMBER m, PURCHASE_LIST pu
 		WHERE pu.object_num = ob.object_num AND p.STORE_NUM = s.STORE_NUM 
         AND m.MEMBER_NUM = p.MEMBER_NUM AND p.ORDER_NUM = pu.ORDER_NUM
-        AND ORDER_STATUS ='배달대기중'
+        AND ORDER_STATUS ='조리완료'
 		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MENU_QTY
 		ORDER BY ORDER_TIME DESC
 	</select>
@@ -154,11 +154,14 @@
 	</insert>
 	
 	<insert id="insertPaymentD">
-		INSERT INTO PAYMENT
+		INSERT INTO PAYMENT(ORDER_NUM, ORDER_TIME, PAYMENT_CATEGORY, STORE_REQUEST,
+		ORDER_TOTAL_PRICE, MEMBER_NUM, ORDER_STATUS, delivery_Request, STORE_NUM, mem_Address, MEM_PHONE)
 		VALUES
 	    	( #{orderNum}, SYSDATE, #{paymentCategory}, #{storeRequest}, 
 	    	#{orderTotalPrice}, #{memberNum}, '주문 완료', #{deliveryRequest}, #{storeNum}, #{memAddress}, #{memPhone} )
 	</insert>
+	
+	
 	
 	<update id="insertMemInfo">
 		UPDATE MEMBER SET

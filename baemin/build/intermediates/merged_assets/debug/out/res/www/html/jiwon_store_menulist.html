@@ -9,6 +9,16 @@
   <link rel="stylesheet" href="../css/swiper.min.css" />
   <link rel="stylesheet" href="../css/muikit.css" />
 </head>
+<script>
+      function view(){ 
+        if($("#searchMenu").is(":visible")){ 
+          $("#searchMenu").css("display", "none"); 
+        }
+        else{ 
+          $("#searchMenu").css("display", "block"); 
+        } 
+      };
+</script>
 
 <body>
 <div class="wrapper">
@@ -17,11 +27,11 @@
     <h1 id = "headerStoreName">
       가게이름
     </h1>
+    <input type="text" style="width: 100%; display: none;" id="searchMenu"/>
     <button type="button" class="btn-back l-fix" id="backBtn">
       뒤로가기
     </button>
-
-    <button type="button" class="btn-search r-fix">
+    <button type="button" class="btn-search r-fix" style="border: none;" id="searchMenuBtn" onclick="view()">
       메뉴
     </button>
   </header>

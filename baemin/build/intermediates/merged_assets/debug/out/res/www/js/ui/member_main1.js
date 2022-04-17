@@ -9,17 +9,25 @@
   M.data.global('deliveryStatus','N');
   var page = {
     els: {
-      $deliveryBtn: null,
+      $menuKorea: null,
+      $menuChina: null,
+      $menuAmerica: null,
+      $menuJapan: null,
+      $menuSnack: null,
+      $backBtn: null,
       $userInfoBtn: null,
       $myAddressBtn: null,
-      $takeoutBtn: null,
     },
     data: {},
     init: function init() {
-      this.els.$deliveryBtn = $('#delivery-btn');
+      this.els.$menuKorea = $('#memu-korea');
+      this.els.$menuChina = $('#memu-china');
+      this.els.$menuAmerica = $('#memu-america');
+      this.els.$menuJapan = $('#memu-japan');
+      this.els.$menuSnack = $('#memu-snack');
+      this.els.$backBtn = $('#backBtn');
       this.els.$userInfoBtn = $('#userInfo-btn');
       this.els.$myAddressBtn = $('#map-title');
-      this.els.$takeoutBtn = $('#takeout-btn');
     },
     initView: function initView() {
       var self = this;
@@ -50,19 +58,7 @@
       // Dom Event 바인딩
       var self = this;
 
-      this.els.$deliveryBtn.on('click', function () {
-        M.data.global('deliveryStatus', 'Y');
-        M.page.html({
-          url : './saetbyeol_main_member2.html',
-        });
 
-      });
-      this.els.$takeoutBtn.on('click', function () {
-        M.data.global('pickupStatus', 'Y');
-        M.page.html({
-          url : './saetbyeol_main_member2.html',
-        });
-      });
       this.els.$userInfoBtn.on('click', function () {
         M.page.html({
           url: './eunjin_userInfo_info_member.html',
@@ -73,6 +69,37 @@
           url : './saetbyeol_map.html',
         });
       });
+
+        this.els.$menuKorea.on('click', function () {
+          M.data.global('storeCategoryNum', 'korea');
+          M.page.html({
+            url: './jiwon_storelist_delivery.html',
+          });
+        });
+        this.els.$menuChina.on('click', function () {
+          M.data.global('storeCategoryNum', 'china');
+          M.page.html({
+            url: './jiwon_storelist_delivery.html',
+          });
+        });
+        this.els.$menuAmerica.on('click', function () {
+          M.data.global('storeCategoryNum', 'america');
+          M.page.html({
+            url: './jiwon_storelist_delivery.html',
+          });
+        });
+        this.els.$menuJapan.on('click', function () {
+          M.data.global('storeCategoryNum', 'japan');
+          M.page.html({
+            url: './jiwon_storelist_delivery.html',
+          });
+        });
+        this.els.$menuSnack.on('click', function () {
+          M.data.global('storeCategoryNum', 'snack');
+          M.page.html({
+            url: './jiwon_storelist_delivery.html',
+          });
+        });
     },
   };
 
