@@ -122,5 +122,39 @@
 		where object_name like '%'||#{word}||'%' 
 	</select>
 	
+	<!-- 배달 검색 -->
+	<select id="storeSearchD" parameterType="map" resultType="edu.example.dto.StoreObjectDTO">
+		SELECT DISTINCT S.STORE_NUM, STORE_NAME, DELIVERY_STATUS, PICKUP_STATUS, avg(review_score) OVER (PARTITION BY  s.STORE_NUM) review_score,
+		LEAST_PRICE, DELIVERY_PRICE, STORE_CATEGORY_NUM
+		FROM STORE S, OBJECT O, REVIEW R
+		WHERE
+		S.STORE_NUM = O.STORE_NUM AND R.STORE_NUM = S.STORE_NUM AND
+		DELIVERY_STATUS = 'Y' AND (
+		STORE_NAME LIKE '%'||#{searchWord}||'%'
+		OR OBJECT_NAME LIKE '%'||#{searchWord}||'%')
+		ORDER BY S.STORE_NUM
+	</select>
+	
+	<!-- 포장 검색 -->
+	<select id="storeSearchP" parameterType="map" resultType="edu.example.dto.StoreObjectDTO">
+		SELECT DISTINCT S.STORE_NUM, STORE_NAME, DELIVERY_STATUS, PICKUP_STATUS, avg(review_score) OVER (PARTITION BY  s.STORE_NUM) review_score,
+		TO_CHAR(LEAST_PRICE), TO_CHAR(DELIVERY_PRICE), STORE_CATEGORY_NUM
+		FROM STORE S, OBJECT O, REVIEW R
+		WHERE
+		S.STORE_NUM = O.STORE_NUM AND R.STORE_NUM = S.STORE_NUM AND
+		PICKUP_STATUS = 'Y' AND (
+		STORE_NAME LIKE '%'||#{searchWord}||'%'
+		OR OBJECT_NAME LIKE '%'||#{searchWord}||'%'
+		)
+		ORDER BY S.STORE_NUM
+	</select>
+	
+	<select id="storeMenuSearch" parameterType="map" resultType="edu.example.dto.StoreObjectDTO">
+		SELECT OBJECT_NUM, OBJECT_IMAGE, OBJECT_NAME, OBJECT_CONTENT, OBJECT_PRICE, STORE_NUM
+		FROM OBJECT
+		WHERE STORE_NUM = #{storeNum} AND
+		(OBJECT_NAME LIKE '%'||#{searchWord}||'%')
+		ORDER BY OBJECT_NUM
+	</select>
 	
 </mapper>

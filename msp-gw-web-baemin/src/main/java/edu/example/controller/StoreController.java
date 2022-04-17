@@ -285,8 +285,9 @@ public class StoreController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/api/store/nameSearch", method=RequestMethod.POST)
-	public ModelAndView nameSearch(HttpServletRequest request, HttpServletResponse response) {
+	//배달 검색
+	@RequestMapping(value="/api/store/storeSearchD", method=RequestMethod.POST)
+	public ModelAndView storeSearchD(HttpServletRequest request, HttpServletResponse response) {
 		Map<String,Object> reqHeadMap = (Map<String,Object>)request.getAttribute(Const.HEAD);
         Map<String,Object> reqBodyMap = (Map<String,Object>)request.getAttribute(Const.BODY);
         Map<String, Object> responseBodyMap= new HashMap<String, Object>();
@@ -300,7 +301,7 @@ public class StoreController {
 		reqHeadMap.put(Const.RESULT_CODE, Const.OK);
 		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
 		
-		List<StoreObjectDTO> list = service.nameSearch(reqBodyMap);
+		List<StoreObjectDTO> list = service.storeSearchD(reqBodyMap);
 		
 		if (list != null)  {
 			responseBodyMap.put("rsltCode", "0000");
@@ -311,6 +312,73 @@ public class StoreController {
 			responseBodyMap.put("rsltMsg", "Data not found.");
 		}
 		
+		ModelAndView mv = new ModelAndView("defaultJsonView");
+		mv.addObject(Const.HEAD, reqHeadMap);
+		mv.addObject(Const.BODY, responseBodyMap);
+		return mv;
+	}
+	
+	//배달 검색
+	@RequestMapping(value="/api/store/storeMenuSearch", method=RequestMethod.POST)
+	public ModelAndView storeMenuSearch(HttpServletRequest request, HttpServletResponse response) {
+		Map<String,Object> reqHeadMap = (Map<String,Object>)request.getAttribute(Const.HEAD);
+		Map<String,Object> reqBodyMap = (Map<String,Object>)request.getAttribute(Const.BODY);
+		Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+		
+		logger.info("================= reqBodyMap : {} ", reqBodyMap.toString());
+			
+		if(reqHeadMap == null) {
+			reqHeadMap = new HashMap<String, Object>();
+		}
+			
+		reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+			
+		List<StoreObjectDTO> list = service.storeMenuSearch(reqBodyMap);
+			
+		if (list != null)  {
+			responseBodyMap.put("rsltCode", "0000");
+			responseBodyMap.put("rsltMsg", "Success");
+			responseBodyMap.put("list", list);
+		} else {
+			responseBodyMap.put("rsltCode", "2003");
+			responseBodyMap.put("rsltMsg", "Data not found.");
+		}
+			
+		ModelAndView mv = new ModelAndView("defaultJsonView");
+		mv.addObject(Const.HEAD, reqHeadMap);
+		mv.addObject(Const.BODY, responseBodyMap);
+		return mv;
+	}
+	
+	
+	//배달 검색
+	@RequestMapping(value="/api/store/storeSearchP", method=RequestMethod.POST)
+	public ModelAndView storeSearchP(HttpServletRequest request, HttpServletResponse response) {
+		Map<String,Object> reqHeadMap = (Map<String,Object>)request.getAttribute(Const.HEAD);
+		Map<String,Object> reqBodyMap = (Map<String,Object>)request.getAttribute(Const.BODY);
+		Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+				
+		logger.info("================= reqBodyMap : {} ", reqBodyMap.toString());
+				
+		if(reqHeadMap == null) {
+			reqHeadMap = new HashMap<String, Object>();
+		}
+				
+		reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+		reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+				
+		List<StoreObjectDTO> list = service.storeSearchP(reqBodyMap);
+				
+		if (list != null)  {
+			responseBodyMap.put("rsltCode", "0000");
+			responseBodyMap.put("rsltMsg", "Success");
+			responseBodyMap.put("list", list);
+		} else {
+			responseBodyMap.put("rsltCode", "2003");
+			responseBodyMap.put("rsltMsg", "Data not found.");
+		}
+				
 		ModelAndView mv = new ModelAndView("defaultJsonView");
 		mv.addObject(Const.HEAD, reqHeadMap);
 		mv.addObject(Const.BODY, responseBodyMap);

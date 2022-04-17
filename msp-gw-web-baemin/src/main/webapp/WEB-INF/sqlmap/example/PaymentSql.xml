@@ -36,13 +36,11 @@
 		WHERE  B.MEMBER_NUM = #{memberNum}
 	</select>
 	
+	<!-- 주문내역 상세정보 -->
 	<select id="getPaymentDetail" parameterType="map" resultType="edu.example.dto.PaymentDetailDto">
 		select m.member_num memberNum, mem_address memAddress, mem_phone memPhone, 
 		pa.order_num orderNum, to_char(order_time,'YYYY-MM-DD') orderTime, payment_category paymentCategory, store_request storeRequest, 
-        order_total_price orderTotalPrice, order_status orderStatus, delivery_request deliveryRequest, 
-		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
-		regexp_replace(listagg(pu.object_num,',') within group (order by pu.object_num), '([^,]+)(,\1)+', '\1') objectNum,
-		regexp_replace(listagg(OBJECT_PRICE,',') within group (order by OBJECT_PRICE), '([^,]+)(,\1)+', '\1') objectPrice,
+        order_total_price orderTotalPrice, order_status orderStatus, delivery_request deliveryRequest,
 		store_name storeName, store_addr storeAddr, store_phone storePhone, delivery_price deliveryPrice
 		
 		from member m, payment pa, purchase_list pu, object ob, store s
@@ -51,6 +49,14 @@
 		AND pa.order_num = #{orderNum}
 		group BY m.member_num, mem_address, mem_phone, pa.order_num, order_Time, payment_category, store_request, order_total_price, order_status,
 		delivery_request, store_name, store_addr, store_phone, delivery_price
+	</select>
+	
+	<!-- 주문내역 상세정보의 메뉴 항목 -->
+	<select id="getPaymentMenuDetail" parameterType="map" resultType="edu.example.dto.PaymentDetailDto">
+		select distinct p.object_num, menu_qty, menu_price, object_name
+		from purchase_list p, object o
+		where p.object_num = o.object_num and
+		order_num = #{orderNum}
 	</select>
 	
 	<select id="getPaymentMember" parameterType="map" resultType="edu.example.dto.OrderViewDto">
@@ -136,6 +142,8 @@
 		AND m.MEMBER_NUM = p.MEMBER_NUM AND p.order_num = dr.order_num and dr.delivery_num = d.delivery_num
 		AND d.delivery_NUM = #{deliveryNum}
 	</select> -->
+	
+	
 	
 	<insert id="insertPaymentP">
 		INSERT INTO PAYMENT(ORDER_NUM, ORDER_TIME, PAYMENT_CATEGORY, STORE_REQUEST,

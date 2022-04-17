@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
@@ -135,8 +134,19 @@ public class StoreService {
     	return result;
     }
     
-    public List<StoreObjectDTO> nameSearch(Map<String, Object> param) {
-    	return sqlSession.selectList("Store.nameSearch", param);
+    //배달 검색
+    public List<StoreObjectDTO> storeSearchD(Map<String, Object> param) {
+    	return sqlSession.selectList("Store.storeSearchD", param);
+    }
+    
+    //포장 검색
+    public List<StoreObjectDTO> storeSearchP(Map<String, Object> param) {
+    	return sqlSession.selectList("Store.storeSearchP", param);
+    }
+    
+    //매장 내에서 메뉴 검색
+    public List<StoreObjectDTO> storeMenuSearch(Map<String, Object> param) {
+    	return sqlSession.selectList("Store.storeMenuSearch", param);
     }
     
 }
