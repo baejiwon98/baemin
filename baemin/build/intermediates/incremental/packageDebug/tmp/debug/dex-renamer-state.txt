@@ -1,4 +1,4 @@
-#Sun Apr 17 22:15:58 KST 2022
+#Mon Apr 18 01:51:32 KST 2022
 base.0=C\:\\Users\\user\\Documents\\baemin\\baemin\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

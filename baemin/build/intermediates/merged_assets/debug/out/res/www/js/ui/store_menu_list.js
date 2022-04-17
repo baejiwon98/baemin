@@ -14,6 +14,9 @@
       $backBtn: null,
       $goShoppingBtn: null,
       $callBtn: null,
+      $searchIpt: null,
+      $searchBtn: null,
+
     },
     data: {},
     init: function init() {
@@ -23,10 +26,15 @@
       this.els.$backBtn = $('#backBtn');
       this.els.$goShoppingBtn = $('#go-shopping-btn');
       this.els.$callBtn = $('#call-btn');
+      this.els.$searchIpt = $('#searchIpt');
+      this.els.$searchBtn = $('.btn-search');
+      this.els.$searchIpt.val('');
+      $("#searchMenu").css("display", "none");
     },
 
     initView: function initView() {
       var self = this;
+
       $.sendHttp({
         path: "/api/store/storeInfo",
         data: {
@@ -113,6 +121,7 @@
     },
     initEvent: function initEvent() {
       // Dom Event 바인딩
+      var self = this;
       this.els.$backBtn.on('click', function () {
         M.page.back();
       });
@@ -141,6 +150,14 @@
           }
         });
       });
+      this.els.$searchBtn.on('click', function () {
+        var search = self.els.$searchIpt.val().trim();
+        M.data.global('searchWord', search);
+        M.page.html({
+          url: './jiwon_store_menulist_search.html',
+          action: 'NO_HISTORY'
+        });
+      });
     },
   };
 
@@ -154,6 +171,10 @@
     pageFunc.init(); // 최초 화면 초기화
     pageFunc.initView();
     pageFunc.initEvent();
+  });
+
+  M.onRestore(function () {
+    pageFunc.init();
   });
 
 })(jQuery, M, __page__, window);

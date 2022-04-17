@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Hello! Mobile!</title>
+  <link rel="stylesheet" href="../css/morpheus-style.css" />
+  <link rel="stylesheet" href="../css/swiper.min.css" />
+  <link rel="stylesheet" href="../css/muikit.css" />
+</head>
+
+<body>
+<div class="wrapper">
+  <header class="header" id="header">
+    <!-- 하단에 라인이 있는경우 class="line"추가 -->
+    <h1>
+      "<span id ="searchTitle"></span>" 검색 결과
+    </h1>
+    <button type="button" class="btn-back l-fix" id="backBtn">
+      뒤로가기
+    </button>
+  </header>
+  <section class="store-main">
+    <div class="store-score">
+      <div class="fa store-star-ratings">
+      </div>
+      <div class="fa store-call">
+        <button type="button" class="btn-call" id = "call-btn">
+          call
+        </button>
+      </div>
+    </div>
+    <div class = "store-main-title">
+      가게이름
+    </div>
+    <div class="store-detail">
+      <div class="fa store-btn" id="store-menulist-btn">
+        <p>
+          메뉴보기 |
+        </p>
+      </div>
+      <div class="fa store-btn" id="store-detail-btn">
+        <p >
+        | 가게 정보보기 | 
+        </p>
+      </div>
+      <div class="fa store-btn" id="store-review-btn">
+        <p>
+        | 리뷰보기
+        </p>
+      </div>
+    </div>
+    <div class="store-main-bottom">
+      <div>
+      <div class="fa store-least-price">
+        최소주문금액 
+      </div>
+      <div class="fa store-least-price">
+        <span id ="leastPrice">14000</span>원
+      </div>
+      </div>
+      <div>
+        <div class="fa store-deltip">
+          배달팁
+        </div>
+        <div class="fa store-deltip">
+          <span id = "deliveryTip">1000원 ~ 3000</span>원
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="store-middle">
+    <ul id="card">
+    </ul>
+  </section>
+    
+  <button type="button" class="btn-shopping" id="go-shopping-btn">
+    cart
+  </button>
+</div>
+</body>
+
+<script type="text/javascript" src="../js/mcore.min.js"></script>
+<script type="text/javascript" src="../js/ui/store_menu_list_search.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</html>

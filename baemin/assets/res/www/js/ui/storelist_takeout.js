@@ -10,6 +10,7 @@
       $categoryChange: null,
       $userInfoBtn: null,
       $topBtn: null,
+      $backBtn: null,
 
     },
     data: {},
@@ -17,6 +18,7 @@
       this.els.$categoryChange = $('#delivery-category-change');
       this.els.$userInfoBtn = $('#userInfo-btn');
       this.els.$topBtn = $('#top-btn');
+      this.els.$backBtn = $('#backBtn');
     },
     initView: function initView() {
       $.sendHttp({
@@ -92,6 +94,10 @@
       // top
       this.els.$topBtn.on('click', function () {
         $('html, body').scrollTop(0);
+      });
+
+      this.els.$backBtn.on('click', function () {
+        M.page.back();
       });
 
     }, // end initEvent

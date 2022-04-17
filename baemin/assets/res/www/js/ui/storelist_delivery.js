@@ -10,20 +10,22 @@
       $categoryChange: null,
       $userInfoBtn: null,
       $topBtn: null,
-
+      $backBtn: null,
     },
     data: {},
     init: function init() {
       this.els.$categoryChange = $('#takeout-category-change');
       this.els.$userInfoBtn = $('#userInfo-btn');
       this.els.$topBtn = $('#top-btn');
+      this.els.$backBtn = $('#backBtn');
+
     },
     initView: function initView() {
       $.sendHttp({
         path: "/api/store/storeList/delivery",
         data: {
           storeCategoryNum: M.data.global('storeCategoryNum'),
-          deliveryStatus: M.data.global('deliveryStatus')
+          deliveryStatus: "Y"
         },
         succ: function (data) {
           console.log(data);
@@ -96,6 +98,10 @@
       // top
       this.els.$topBtn.on('click', function () {
       $('html, body').scrollTop(0);
+      });
+
+      this.els.$backBtn.on('click', function () {
+         M.page.back();
       });
 
     }, // end initEvent

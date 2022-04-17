@@ -1,7 +1,7 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : payment_ok.js
+ * @author : 배지원
+ * @date : 2022-04-17
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
@@ -26,8 +26,8 @@
       var self = this;
 
       this.els.$goMainBtn.on('click', function () {
-              M.page.html('./saetbyeol_main_member2.html');
-            });
+        M.page.html('./saetbyeol_main_member2.html');
+      });
     },
   };
 
