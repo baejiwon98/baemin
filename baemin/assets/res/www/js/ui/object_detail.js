@@ -7,6 +7,12 @@
 (function ($, M, CONFIG, window) {
   var maxQty;
   let number;
+  var status;
+  if (M.data.global('pickupStatus') == 'Y') {
+    status = 'T';
+  } else if (M.data.global('deliveryStatus') == 'Y') {
+    status = 'D';
+  }
   var page = {
     els: {
       $goCartBtn: null,
@@ -32,7 +38,7 @@
           "objectNum": M.data.param('objectNum')
         },
         succ: function (data) {
-          if(data.objectOrigin != null) {
+          if (data.objectOrigin != null) {
             $('#object-origin').text(data.objectOrigin);
           } else {
             $('#object-origin').text('미등록');
@@ -59,7 +65,29 @@
       var self = this;
       const resultElement = document.getElementById('qty-result');
       this.els.$goCartBtn.on('click', function () {
-        self.goCart();
+        $.sendHttp({
+          path: "/api/orderList/SelectAll",
+          data: {
+            memberNum: M.data.global('memberNum'),
+          },
+          succ: function (data) {
+            if (data.list[0].status != status) {
+              alert('주문 방식이 다릅니다. 장바구니를 비우고 다시 담아주세요.');
+            } else {
+              if (data.list[0].storeNum != M.data.global('storeNum')) {
+                alert('동일한 가게의 메뉴만 담을 수 있습니다. 장바구니를 비우고 다시 담아주세요.');
+              } else {
+                self.goCart();
+              }
+            }
+          },
+          error: function (data) {
+            console.log(data);
+            alert("장바구니에 담지 못했습니다. 다시 시도해주세요.");
+          }
+        });
+
+
       });
       this.els.$backBtn.on('click', function () {
         M.page.back();
@@ -88,23 +116,21 @@
     },
     goCart: function () {
       var self = this;
-      var status;
       console.log(number);
-      if(number === undefined) { number = 1;}
-      if (M.data.global('pickupStatus') == 'Y') { status = 'T'; }
-      else if (M.data.global('deliveryStatus') == 'Y'){status = 'D';}
-
+      if (number === undefined) {
+        number = 1;
+      }
       $.sendHttp({
         path: "/api/orderList/Insert",
         data: {
-          memberNum : M.data.global('memberNum'),
-          buyQty : number,
-          status : status,
-          objectNum : M.data.param('objectNum')
+          memberNum: M.data.global('memberNum'),
+          buyQty: number,
+          status: status,
+          objectNum: M.data.param('objectNum')
         },
         succ: function (data) {
           M.page.replace({
-            url : './jiwon_cart.html',
+            url: './jiwon_cart.html',
           });
         },
         error: function (data) {
