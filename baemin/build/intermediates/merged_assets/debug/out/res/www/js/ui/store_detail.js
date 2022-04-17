@@ -47,27 +47,27 @@
           $('#deliveryTip').text(data.deliveryPrice);
 
           phone = data.storePhone;
-          if (parseFloat(data.reviewScore).toFixed(1) != null) {
-                      for (var i = 1; i <= parseFloat(data.reviewScore).toFixed(1).substring(0); i++) {
-                        items += "<div class='fa fa-star checked' id='stars'></div>";
-                      }
-                      if (parseFloat(data.reviewScore).toFixed(1).slice(-1) == '0' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '1' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '2' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '3' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '8' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '9') {
-                        items += "<div class='fa fa-star-o' id='stars'></div>";
-                      }
-                      if (parseFloat(data.reviewScore).toFixed(1).slice(-1) == '4' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '5' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '6' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '7') {
-                        items += "<div class='fa fa-star-half-o' id='stars'></div>";
-                      }
-                      for (var i = 1; i <= 5 - parseFloat(data.reviewScore).toFixed(1).substring(0); i++) {
-                        items += "<div class='fa fa-star-o' id='stars'></div>";
-                      }
-                      items += "<div class='fa store-star-score'><strong>" + parseFloat(data.reviewScore).toFixed(1) + "</strong></div>";
-                    } else {
-                      items += "<div class='fa fa-star-o' id='stars'></div>";
-                      items += "<div class='fa fa-star-o' id='stars'></div>";
-                      items += "<div class='fa fa-star-o' id='stars'></div>";
-                      items += "<div class='fa fa-star-o' id='stars'></div>";
-                      items += "<div class='fa fa-star-o' id='stars'></div>";
-                    }
+          if (data.reviewScore != null) {
+            for (var i = 1; i <= parseFloat(data.reviewScore).toFixed(1).substring(0); i++) {
+              items += "<div class='fa fa-star checked' id='stars'></div>";
+            }
+            if (parseFloat(data.reviewScore).toFixed(1).slice(-1) == '0' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '1' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '2' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '3' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '8' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '9') {
+              items += "<div class='fa fa-star-o' id='stars'></div>";
+            }
+            if (parseFloat(data.reviewScore).toFixed(1).slice(-1) == '4' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '5' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '6' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '7') {
+              items += "<div class='fa fa-star-half-o' id='stars'></div>";
+            }
+            for (var i = 1; i <= 5 - parseFloat(data.reviewScore).toFixed(1).substring(0); i++) {
+              items += "<div class='fa fa-star-o' id='stars'></div>";
+            }
+            items += "<div class='fa store-star-score'><strong>" + parseFloat(data.reviewScore).toFixed(1) + "</strong></div>";
+          } else {
+            items += "<div class='fa fa-star-o' id='stars'></div>";
+            items += "<div class='fa fa-star-o' id='stars'></div>";
+            items += "<div class='fa fa-star-o' id='stars'></div>";
+            items += "<div class='fa fa-star-o' id='stars'></div>";
+            items += "<div class='fa fa-star-o' id='stars'></div>";
+          }
 
           $(".store-star-ratings").append(items);
         },

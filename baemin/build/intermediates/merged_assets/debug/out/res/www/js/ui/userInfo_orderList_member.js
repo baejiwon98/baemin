@@ -33,7 +33,7 @@
           console.log(data);
           var items = "";
           $.each(data.list, function (index, item) {
-            items += "<li class='myOrderList' id='" + item.orderNum + "'>";
+            items += "<li class='myOrderList' id='" + item.orderNum + "' name='" + item.storeNum + "'>";
             items += "<div>";
             items += "<div style='padding: 0.5 em; padding-left: 1em;'>";
             items += "<div style='padding-bottom: 0 px;'>";
@@ -47,9 +47,13 @@
             items += "</div>";
             items += "</div>";
             items += "<div class='orderList-object-img'>";
-            if (item.objectImg != null) {
-              var img = item.reviewImage.IndexOf(',') + 1;
-              items += "<img class='orderList-object-img-detail' src='" + "http://localhost:8080/view/review/upload/" + item.reviewImage.substring(img) + "' alt='' />";
+            if (item.objectImg != null) { // 메뉴중 사진있는 것의 첫번째사진이 나와야함.
+              //              if (!item.objectImg.test(',')) {
+              //                items += "<img class='orderList-object-img-detail' src='" + "http://localhost:8080/view/review/upload/" + item.reviewImage.substring(img) + "' alt='' />";
+              //              } else {
+              //                var img = item.reviewImage.IndexOf(',') + 1;
+              //                items += "<img class='orderList-object-img-detail' src='" + "http://localhost:8080/view/review/upload/" + item.reviewImage + "' alt='' />";
+              //              }
             } else {
               items += "<img class='orderList-object-img-detail' src='../img/orderlist-default.png' alt='' />";
             }
@@ -60,7 +64,7 @@
             items += "<div class='orderList-object-price' style='padding-top: 8px;'>";
             items += "<div style='padding-right: 3em; margin-bottom: 1em;'>" + item.objectName + "</div>";
             items += "<div class='orderList-object-qty' style='margin-top:-3px;'>";
-            items += "<img src='../img/btn-review.png' style='width: 1.4em; height: 1.4em;' class='reviewWrite' id='"+ item.storeNum +"' name='" + item.orderNum + "'/>";
+            items += "<img src='../img/btn-review.png' style='width: 1.4em; height: 1.4em;' class='reviewWrite' id='" + item.storeNum + "' name='" + item.orderNum + "'/>";
             items += "</div>";
             items += "</div>";
             items += "</div>";
@@ -91,9 +95,14 @@
       });
       $('#card').on('click', '.myOrderList', function () {
         orderNum = $(this).attr('id');
+        storeNum = $(this).attr('name');
         console.log(orderNum);
+        console.log(storeNum);
         M.data.global('orderNum', orderNum);
-        M.page.html('./eunjin_userInfo_orderDetail_member.html');
+        M.data.global('storeNum', storeNum);
+        M.page.html({
+          url: './eunjin_userInfo_orderDetail_member.html',
+        });
       });
       $('#card').on('click', '.btn-orderList-delete', function (e) {
         e.stopPropagation();
@@ -119,9 +128,9 @@
         console.log(storeNum);
         M.data.global('orderNum', orderNum);
         M.page.html({
-          url : './eunjin_userInfo_reviewWrite_member.html',
-          param : {
-          "storeNum" : storeNum
+          url: './eunjin_userInfo_reviewWrite_member.html',
+          param: {
+            "storeNum": storeNum
           },
         });
       });

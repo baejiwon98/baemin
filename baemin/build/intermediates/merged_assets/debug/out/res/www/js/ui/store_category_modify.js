@@ -9,7 +9,7 @@
     els: {
       $backBtn: null,
       $topBtn: null,
-      $writeBtn : null,
+      $writeBtn: null,
     },
     data: {},
     init: function init() {
@@ -34,7 +34,7 @@
           $('.store-main-title').text(data.storeName);
           $('#leastPrice').text(data.leastPrice);
           $('#deliveryTip').text(data.deliveryPrice);
-          if (parseFloat(data.reviewScore).toFixed(1) != null) {
+          if (data.reviewScore != null) {
             for (var i = 1; i <= parseFloat(data.reviewScore).toFixed(1).substring(0); i++) {
               items += "<div class='fa fa-star checked' id='stars'></div>";
             }
@@ -121,7 +121,8 @@
         });
       });
       this.els.$writeBtn.on('click', function () {
-        $('html, body').scrollTop(0);M.page.html({
+        $('html, body').scrollTop(0);
+        M.page.html({
           url: './jiwon_store_object_write.html',
         });
       });

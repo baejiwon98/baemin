@@ -46,7 +46,7 @@
           $('#deliveryTip').text(data.deliveryPrice);
 
           phone = data.storePhone;
-          if (parseFloat(data.reviewScore).toFixed(1) != null) {
+          if (data.reviewScore != null) {
             for (var i = 1; i <= parseFloat(data.reviewScore).toFixed(1).substring(0); i++) {
               items += "<div class='fa fa-star checked' id='stars'></div>";
             }

@@ -14,7 +14,7 @@
 <div class="wrapper">
   <header class="header line">
     <h1>
-      주문 내역
+      주문 상세보기
     </h1>
     <button type="button" class="btn-back l-fix" id="backBtn">
       뒤로가기
@@ -23,72 +23,63 @@
   <div class="container" style="padding: 1em; width: 100%; border-bottom: #ff7987 solid 1em;">
     <div style="padding: 1em;">
       <div style="color: #666; margin-bottom: 0.5em">
-        <h3>배달이 완료되었습니다</h3>
+        <h3 id="orderStatus"></h3>
       </div>
       <div style="margin-top: 0.3em">
-        <h2>맘스터치 가산점</h2>
+        <h2 id="orderStoreName" style="font-size:20px;font-weight:bold;"></h2>
       </div>
       <br/>
       <div>
         <div style="color: #666; margin-bottom: 0.5em">
-          주문일시: 2022년 03년 31일
+          주문일시: <span id= "orderDate"></span>
         </div>
         <div style="color: #666;">
-          주문번호: 123456789
+          주문번호: <span id="orderNum"></span>
         </div>
     </div>
       <br/>
       <div>
-        <button style="width:50%; background-color: #ff7987; float: left; height:3em; color: #fff;">전화</button>
-        <button style="width:50%; border:solid #ff7987; height:3em; color: #ff7987;">가게 보기</button>
+        <button id="call-btn" style="width:50%; background-color: #ff7987; float: left; height:3em; color: #fff; font-size:15px;font-weight:bold;">전화걸기</button>
+        <button id="goStoreBtn" style="width:50%; border:solid #ff7987; height:3em; color: #ff7987; font-size:15px;font-weight:bold;">가게 보기</button>
       </div>
     </div>
   </div>
   <div class="container" style="padding: 1em; width: 100%; border-bottom: #ff7987 solid 1em;">
-    <div style="padding: 1em;" >
-      <b>싸이버거</b><span style="float: right;">15000원</span>
+    <div style="padding: 1em;" id="card">
     </div>
     <div style="padding: 1em; border-top: 1px solid">
       <div style="margin-bottom: 0.5em">
-        <h3><span>총 주문 금액</span><span style="float: right;">15000원</span></h3>
+        <h3><span style="font-size:15px;font-weight:bold;">총 주문 금액</span><span style="float: right;font-size:15px;" id="totalOrderPrice"></span></h3>
       </div>
-      <h3><b>배달팁</b><span style="float: right;">3000원</span></h3>
+      <h3><span style="font-size:15px;font-weight:bold;">배달팁</span><span style="float: right;font-size:15px;" id="deliveryTip"></span></h3>
     </div>
-    <div style="padding: 1em; border-top: 3px solid" >
+    <div style="padding: 1em; border-top: 1px solid" >
       <div style="margin-bottom: 0.5em">
-        <h2>총 결제 금액 <span style="float: right;">18000원</span></h2>
+        <h3><span style="font-size:15px;font-weight:bold;">총 결제 금액</span><span style="float: right;font-size:15px;" id="totalPaymentPrice"></span></h3>
       </div>
-      <h2>결제 방법 <span style="float: right;">카드결제</span></h2>
+      <h3><span style="font-size:15px;font-weight:bold;">결제 방법</span><span style="float: right;font-size:15px;" id="paymentWay">카드결제</span></h3>
     </div>
   </div>
   <div class="container" style="padding: 1em; width: 100%;">
-    <div style="padding: 1em; border-bottom: 1px solid">
-      <div style="margin-bottom: 0.5em">
-        <h3>배달 주소</h3>
-      </div>
-      <span>블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라</span>
+    <div style="padding: 1em; border-bottom: 1px solid #000000" id = "addr">
     </div>
     <div style="padding: 1em; border-bottom: 1px solid">
       <div style="margin-bottom: 0.5em">
-        <h3>전화번호</h3>
+        <h3 style="font-size:15px;font-weight:bold;">전화번호</h3>
       </div>
-      블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라
+      <span id ="memberPhone"></span>
     </div>
     <div style="padding: 1em; border-bottom: 1px solid">
       <div style="margin-bottom: 0.5em">
-        <h3>사장님께 요청사항</h3>
+        <h3 style="font-size:15px;font-weight:bold;">사장님께 요청사항</h3>
       </div>
-      블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라
+      <span id = "storeRequest"></span>
     </div>
-    <div style="padding: 1em;">
-      <div style="margin-bottom: 0.5em">
-        <h3>라이더에게 요청사항</h3>
-      </div>
-      블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라
+    <div style="padding: 1em;" id = "deliveryRequest">
     </div>
   </div>
   <div class="btn-wrap">
-    <button type="button" id="joinBtn" style="color: #fff;" class="btn-point-color">
+    <button type="button" id="deleteBtn" style="color: #fff;" class="btn-point-color">
       주문 내역 삭제하기
     </button>
   </div>
