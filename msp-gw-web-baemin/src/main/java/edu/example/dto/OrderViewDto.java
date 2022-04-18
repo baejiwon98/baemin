@@ -12,6 +12,7 @@ public class OrderViewDto {
 	private String storeNum;
 	private String memberNum;
 	private String deliveryNum;
+	private String storeAddr;
 
 	public String toString() {
 		return 	"orderNum="+orderNum
@@ -25,6 +26,7 @@ public class OrderViewDto {
 			+	"\n storeNum="+storeNum
 			+	"\n memberNum="+memberNum 
 			+	"\n deliveryNum="+deliveryNum
+			+	"\n storeAddr="+storeAddr
 		;
 	}
 
@@ -33,6 +35,20 @@ public class OrderViewDto {
 	
 	public String getDeliveryNum() {
 		return deliveryNum;
+	}
+
+
+
+
+	public String getStoreAddr() {
+		return storeAddr;
+	}
+
+
+
+
+	public void setStoreAddr(String storeAddr) {
+		this.storeAddr = storeAddr;
 	}
 
 

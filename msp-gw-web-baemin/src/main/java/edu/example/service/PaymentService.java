@@ -30,16 +30,6 @@ public class PaymentService {
     @Qualifier("transactionManager_sample")
     private DataSourceTransactionManager transactionManager_sample;
     
-    //주소 가져오기
-    public PaymentDetailDto getMemberAddr( Map<String,Object> param ) {
-		return sqlSession.selectOne("Payment.getMemberAddr", param);
-	}
-    
-    //배달팁 가져오기
-    public PaymentDetailDto getDeliveryPrice( Map<String,Object> param ) {
-		return sqlSession.selectOne("Payment.getDeliveryPrice", param);
-	}
-    
     //상품 가격 가져오기
     public Integer getObjPrice(Map<String,Object> param) {
     	return sqlSession.selectOne("Payment.getObjPrice", param);
@@ -231,7 +221,7 @@ public class PaymentService {
   			
   			transactionManager_sample.commit(status);
   			logger.info("========== 주문 삭제 완료 : {}", result);
-	            
+  			
   		}catch(Exception e){
   			logger.error("[ERROR] paymentDelete() Fail : e : {}", e.getMessage());
   			e.printStackTrace();
@@ -250,7 +240,7 @@ public class PaymentService {
   		try{
   			
   			result = sqlSession.update("Payment.statusCancel", param);
-  			if(result > 1) {
+  			if(result > 0) {
             	result += sqlSession.update("Payment.memberGoAlarm", param);
             	System.out.println(result + "주문 취소 메세지");
             }
@@ -275,9 +265,9 @@ public class PaymentService {
   		try{
 			        	
   			result = sqlSession.update("Payment.statusCooking", param);
-  			if(result > 1) {
-            	result += sqlSession.update("Payment.employeeGoAlarm", param);
-            	System.out.println(result + "주문 취소 메세지");
+  			if(result > 0) {
+            	result += sqlSession.update("Payment.memberGoAlarm", param);
+            	System.out.println(result + "주문이 승인되었습니다.");
             }
   			transactionManager_sample.commit(status);
   			logger.info("========== 메뉴가 조리되는 중입니다. : {}", result);
@@ -300,9 +290,11 @@ public class PaymentService {
   		try{
 					        	
   			result = sqlSession.update("Payment.statusCookEnd", param);
-  			if(result > 1) {
-            	result += sqlSession.update("Payment.employeeGoAlarm", param);
-            	System.out.println(result + "주문 취소 메세지");
+  			if(result > 0) {
+            	result += sqlSession.update("Payment.memberGoAlarm", param);
+            	System.out.println(result + "조리 완료 메세지");
+            	result += sqlSession.update("Payment.deliveryGoAlarm", param);
+            	System.out.println(result + "조리 완료 메세지");
             }
   			transactionManager_sample.commit(status);
   			logger.info("========== 조리 완료 : {}", result);
@@ -325,6 +317,12 @@ public class PaymentService {
   		try{
   			
   			result = sqlSession.update("Payment.statusDeliveryWait", param);
+  			if(result > 0) {
+            	result += sqlSession.update("Payment.employeeGoAlarm", param);
+            	result += sqlSession.update("Payment.memberGoAlarm", param);
+            	result += sqlSession.update("Payment.deliveryGoAlarm", param);
+            	System.out.println(result + "배달기사님과 매칭되었습니다.");
+            }
   			transactionManager_sample.commit(status);
   			logger.info("========== 배달 대기 중입니다 : {}", result);
 					            
@@ -367,6 +365,10 @@ public class PaymentService {
   		try{
 					        	
   			result = sqlSession.update("Payment.statusDeliverying", param);
+  			if(result > 0) {
+            	result += sqlSession.update("Payment.memberGoAlarm", param);
+            	System.out.println(result + "배달기사님이 출발하였습니다.");
+            }
   			transactionManager_sample.commit(status);
   			logger.info("========== 배달이 진행 중 입니다 : {}", result);
 					            
@@ -388,6 +390,12 @@ public class PaymentService {
   		try{
 					        	
   			result = sqlSession.update("Payment.statusDelvieryEnd", param);
+  			if(result > 0) {
+            	result += sqlSession.update("Payment.employeeGoAlarm", param);
+            	result += sqlSession.update("Payment.memberGoAlarm", param);
+            	result += sqlSession.update("Payment.deliveryGoAlarm", param);
+            	System.out.println(result + "배달이 완료되었습니다.");
+            }
   			transactionManager_sample.commit(status);
   			logger.info("========== 배달 완료 : {}", result);
 					            
@@ -409,6 +417,10 @@ public class PaymentService {
   		try{
 
   			result = sqlSession.update("Payment.statusPickUpWait", param);
+  			if(result > 0) {
+            	result += sqlSession.update("Payment.memberGoAlarm", param);
+            	System.out.println(result + "픽업 대기중 입니다.");
+            }
   			transactionManager_sample.commit(status);
   			logger.info("========== 픽업 대기 중 : {}", result);
 					            
@@ -430,6 +442,11 @@ public class PaymentService {
   		try{
 					        	
   			result = sqlSession.update("Payment.statusPickUpEnd", param);
+  			if(result > 0) {
+            	result += sqlSession.update("Payment.employeeGoAlarm", param);
+            	result += sqlSession.update("Payment.memberGoAlarm", param);
+            	System.out.println(result + "픽업이 완료되었습니다.");
+            }
   			transactionManager_sample.commit(status);
   			logger.info("========== 픽업 완료 : {}", result);
 					            
