@@ -61,11 +61,11 @@
           }
 
           if (data.paymentCategory == "smart") {
-            $('#paymentWay').text("간편결제");
+            $('#paymentWay').text("간편 결제");
           } else if (data.paymentCategory == "card") {
-            $('#paymentWay').text("카드결제");
+            $('#paymentWay').text("카드 결제");
           } else {
-            $('#paymentWay').text("현금결제");
+            $('#paymentWay').text("현금 결제");
           }
           $('#orderDate').text(data.orderTime.substring(0, 4) + '년 ' + data.orderTime.substring(5, 7) + "월 " + data.orderTime.substring(8, ) + "일");
           var items = "";

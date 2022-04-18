@@ -5,18 +5,21 @@
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
+  var phone;
   var status;
   var page = {
     els: {
       $backBtn: null,
       $callBtn: null,
       $okBtn: null,
+      $callBtn: null,
     },
     data: {},
     init: function init() {
       this.els.$backBtn = $('#backBtn');
       this.els.$callBtn = $('#call-btn');
       this.els.$okBtn = $('#okBtn');
+      this.els.$callBtn = $('#call-btn');
     },
 
     initView: function initView() {
@@ -28,15 +31,21 @@
         },
         succ: function (data) {
           console.log(data);
+          phone = data.storePhone;
           status = data.orderStatus;
           if (data.memAddress != null) {
             var addr = "";
             addr += "<div style='margin-bottom: 0.5em'><h3 style='font-size:15px;font-weight:bold;'>배달 주소</h3></div>";
             addr += "<span>" + data.memAddress + "</span>";
             $('#addr').append(addr);
+
             var deliveryRequest = "";
             deliveryRequest += "<div style='margin-bottom: 0.5em'><h3 style='font-size:15px;font-weight:bold;'>라이더에게 요청사항</h3></div>";
-            deliveryRequest += "<span>" + data.deliveryRequest + "</span>"
+            if (data.deliveryRequest != null || data.deliveryRequest != 'null') {
+              deliveryRequest += "<span> 라이더 요청사항 없음 </span>"
+            } else {
+              deliveryRequest += "<span>" + data.deliveryRequest + "</span>"
+            }
             $('#deliveryRequest').append(deliveryRequest);
           }
           confirm = data.memAddress;
@@ -61,7 +70,12 @@
           $('#deliveryTip').text(data.deliveryPrice + " 원");
           $('#totalPaymentPrice').text(data.orderTotalPrice + " 원");
           $('#memberPhone').text(data.memPhone);
-          $('#storeRequest').text(data.storeRequest);
+          $('#storeAddr').text(data.storeAddr)
+          if (data.storeRequest != null) {
+            $('#storeRequest').text(data.storeRequest);
+          } else {
+            $('#storeRequest').text(' 매장 요청사항 없음 ');
+          }
           if (data.paymentCategory == "smart") {
             $('#paymentWay').text("간편결제");
           } else if (data.paymentCategory == "card") {
@@ -86,6 +100,10 @@
       // Dom Event 바인딩
       var self = this;
 
+      this.els.$callBtn.on('click', function () {
+        M.sys.call(phone);
+      });
+
       this.els.$backBtn.on('click', function () {
         M.page.back();
       });
@@ -106,7 +124,7 @@
         path: "/api/payment/statusDeliveryWait",
         data: {
           'orderNum': M.data.global('orderNum'),
-          'deliveryNum' : M.data.global('deliveryNum')
+          'deliveryNum': M.data.global('deliveryNum')
         },
         succ: function (data) {
           console.log(data);
@@ -125,7 +143,7 @@
         path: "/api/payment/statusDelvieryEnd",
         data: {
           'orderNum': M.data.global('orderNum'),
-          'deliveryNum' : M.data.global('deliveryNum')
+          'deliveryNum': M.data.global('deliveryNum')
         },
         succ: function (data) {
           console.log(data);

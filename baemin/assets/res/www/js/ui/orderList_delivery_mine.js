@@ -50,7 +50,7 @@
               items += "<strong style='padding: 0;'>" + item.storeName + "</strong>";
               items += "<br/><br/></div>";
               items += "<div class='orderList-object-price' style='padding-top: 8px;'>";
-              items += "<div style='padding-right: 3em; margin-bottom: 1em;'>" + item.memAddress + "</div>";
+              items += "<div style='padding-right: 3em; margin-bottom: 1em;'>" + item.storeAddr + "</div>";
               items += "</div>";
               items += "</div>";
               items += "</li>";

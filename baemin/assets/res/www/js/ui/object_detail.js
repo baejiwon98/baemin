@@ -71,9 +71,7 @@
             memberNum: M.data.global('memberNum'),
           },
           succ: function (data) {
-            console.log(status);
-            console.log(data.list[0].status);
-            if (data.list != null) {
+            if (data.list.length != 0) {
               if (data.list[0].status != status) {
                 alert('주문 방식이 다릅니다. 장바구니를 비우고 다시 담아주세요.');
               } else {
