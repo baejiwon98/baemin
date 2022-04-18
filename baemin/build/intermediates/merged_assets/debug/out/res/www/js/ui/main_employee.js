@@ -32,6 +32,7 @@
         succ: function (data) {
           M.data.global('grade', 'store');
           M.data.global('storeNum', data.storeNum);
+          M.data.global('userNum', data.storeNum);
         },
         error: function (data) {
           console.log(data);

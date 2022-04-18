@@ -46,11 +46,16 @@
           console.log(data);
           M.data.global('phone', data.memberPhone);
           M.data.global('grade', 'member');
+          M.data.global('userNum', data.memberNum);
           M.data.global('memberNum', data.memberNum);
           M.data.global('myAddress', data.memberAddr);
           M.data.global('myAddressDetail', data.memberAddrDetail);
-          const element = document.getElementById('map-title');
-          element.innerHTML = '<strong>' + M.data.global('myAddress') + ' ' + M.data.global('myAddressDetail') + '</strong>';
+
+          if(data.memberAddr != null) {
+            $('#map').text(M.data.global('myAddress') + ' ' + M.data.global('myAddressDetail'));
+          } else {
+            $('#map').text('위치를 등록해주세요.');
+          }
         },
         error: function (data) {
           console.log(data);

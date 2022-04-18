@@ -3,7 +3,7 @@
  * @author : 
  * @date : 
  */
-(function (window, M, CONFIG, undefined) {
+(function ($, window, M, CONFIG, undefined) {
   /**
    * 페이지가 시작될때 호출된다.
    * (실제적으로 페이지가 완전히 로드후 불려진다)
@@ -23,9 +23,356 @@
         //                $("body").append("<div style=\"z-index:9999; position:fixed; bottom:.5rem; left:.5rem; font-size:1rem; background-color:#000000; color:#ffffff\">" + Global.pageName + "</div>");
       }
     }
-//        setInterval(function () { // 알림띄우기
-//          alert('반복수행');
-//        }, 5000)
+
+    setInterval(function () {
+      //          alert('반복수행');
+      $.sendHttp({
+        path: "/api/payment/AlarmChk",
+        data: {
+          'userNum': M.data.global('userNum')
+        },
+        succ: function (data) {
+          if (M.data.global('userNum').substring(0, 1) == 'm') {
+            $.each(data.list, function (index, item) {
+              if (item.memAlarm == 0 && item.empAlarm == 2) {
+                M.pop.alert({
+                  title: '주문이 승인되었습니다!',
+                  message: '주문이 승인되었습니다. 맛있게 조리해드리겠습니다. ',
+                  buttons: ['확인', '취소'],
+                  callback: function (index) {
+                    if (index == 0) {
+                      $.sendHttp({
+                        path: "/api/alarm/memberGoAlarm",
+                        data: {
+                          orderNum: item.orderNum
+                        },
+                        succ: function (data) {
+                          console.log(data);
+                        },
+                        error: function (data) {
+                          console.log(data);
+                          alert('처리실패');
+                        }
+                      });
+                    }
+                  }
+                });
+              } else if (item.memAlarm == 90) {
+                M.pop.alert({
+                  title: '주문이 취소되었습니다.',
+                  message: '주문이 취소되었습니다. 다음에 다시 주문해주세요. (확인을 안하시면 알림이 계속 울립니다.)',
+                  buttons: ['확인', '취소'],
+                  callback: function (index) {
+                    if (index == 0) {
+                      M.data.global('orderNum', item.orderNum);
+                      $.sendHttp({
+                        path: "/api/alarm/memberGoAlarm",
+                        data: {
+                          "orderNum": item.orderNum
+                        },
+                        succ: function (data) {
+                          console.log(data);
+                        },
+                        error: function (data) {
+                          console.log(data);
+                          alert('처리실패');
+                        }
+                      });
+                    }
+                  }
+                });
+              } else if (item.memAlarm == 10) {
+                M.pop.alert({
+                  title: '픽업 준비가 완료되었습니다.',
+                  message: '픽업 준비가 완료되었습니다. (확인을 안하시면 알림이 계속 울립니다.)',
+                  buttons: ['확인', '취소'],
+                  callback: function (index) {
+                    if (index == 0) {
+                      M.data.global('orderNum', item.orderNum);
+                      $.sendHttp({
+                        path: "/api/alarm/memberGoAlarm",
+                        data: {
+                          "orderNum": item.orderNum
+                        },
+                        succ: function (data) {
+                          console.log(data);
+                        },
+                        error: function (data) {
+                          console.log(data);
+                          alert('처리실패');
+                        }
+                      });
+                    }
+                  }
+                });
+              } else if (item.memAlarm == 40) {
+                M.pop.alert({
+                  title: '조리가 완료되었습니다.',
+                  message: '조리가 완료되었습니다. 라이더 매칭을 기다리고 있습니다. (확인을 안하시면 알림이 계속 울립니다.)',
+                  buttons: ['확인', '취소'],
+                  callback: function (index) {
+                    if (index == 0) {
+                      M.data.global('orderNum', item.orderNum);
+                      $.sendHttp({
+                        path: "/api/alarm/memberGoAlarm",
+                        data: {
+                          "orderNum": item.orderNum
+                        },
+                        succ: function (data) {
+                          console.log(data);
+                        },
+                        error: function (data) {
+                          console.log(data);
+                          alert('처리실패');
+                        }
+                      });
+                    }
+                  }
+                });
+              } else if (item.memAlarm == 50) {
+                M.pop.alert({
+                  title: '배달이 시작되었습니다.',
+                  message: '배달이 시작되었습니다. 조금만 기다려주세요. (확인을 안하시면 알림이 계속 울립니다.)',
+                  buttons: ['확인', '취소'],
+                  callback: function (index) {
+                    if (index == 0) {
+                      M.data.global('orderNum', item.orderNum);
+                      $.sendHttp({
+                        path: "/api/alarm/memberGoAlarm",
+                        data: {
+                          "orderNum": item.orderNum
+                        },
+                        succ: function (data) {
+                          console.log(data);
+                        },
+                        error: function (data) {
+                          console.log(data);
+                          alert('처리실패');
+                        }
+                      });
+                    }
+                  }
+                });
+              } else if (item.memAlarm == 60) {
+                M.pop.alert({
+                  title: '배달이 완료되었습니다.',
+                  message: '배달이 완료되었습니다. 맛있게드세요. (확인을 안하시면 알림이 계속 울립니다.)',
+                  buttons: ['확인', '취소'],
+                  callback: function (index) {
+                    if (index == 0) {
+                      M.data.global('orderNum', item.orderNum);
+                      $.sendHttp({
+                        path: "/api/alarm/memberGoAlarm",
+                        data: {
+                          "orderNum": item.orderNum
+                        },
+                        succ: function (data) {
+                          console.log(data);
+                        },
+                        error: function (data) {
+                          console.log(data);
+                          alert('처리실패');
+                        }
+                      });
+                    }
+                  }
+                });
+              }
+            })
+          } else if (M.data.global('userNum').substring(0, 1) == 's') {
+            $.each(data.list, function (index, item) {
+              if (item.empAlarm == 1 && item.memAlarm == 0) {
+                M.pop.alert({
+                  title: '주문이 들어왔어요!',
+                  message: '주문 승인하러 가시겠습니까? (승인을 안하시면 알림이 계속 울립니다.)',
+                  buttons: ['확인', '취소'],
+                  callback: function (index) {
+                    if (index == 0) {
+                      M.data.global('orderNum', item.orderNum);
+                      M.page.html('./eunjin_userInfo_orderDetail_employee.html');
+                    }
+                  }
+                });
+              } else if (item.empAlarm == 20) {
+                M.pop.alert({
+                  title: '픽업이 완료되었습니다.',
+                  message: '픽업이 완료되었습니다. (확인을 안하시면 알림이 계속 울립니다.)',
+                  buttons: ['확인', '취소'],
+                  callback: function (index) {
+                    if (index == 0) {
+                      M.data.global('orderNum', item.orderNum);
+                      $.sendHttp({
+                        path: "/api/alarm/employeeGoAlarm",
+                        data: {
+                          "orderNum": item.orderNum
+                        },
+                        succ: function (data) {
+                          console.log(data);
+                        },
+                        error: function (data) {
+                          console.log(data);
+                          alert('처리실패');
+                        }
+                      });
+                    }
+                  }
+                });
+              } else if (item.empAlarm == 40) {
+                M.pop.alert({
+                  title: '라이더 매칭되었습니다.',
+                  message: '라이더 매칭되었습니다. 곧 가게로 출발합니다. (확인을 안하시면 알림이 계속 울립니다.)',
+                  buttons: ['확인', '취소'],
+                  callback: function (index) {
+                    if (index == 0) {
+                      M.data.global('orderNum', item.orderNum);
+                      $.sendHttp({
+                        path: "/api/alarm/employeeGoAlarm",
+                        data: {
+                          "orderNum": item.orderNum
+                        },
+                        succ: function (data) {
+                          console.log(data);
+                        },
+                        error: function (data) {
+                          console.log(data);
+                          alert('처리실패');
+                        }
+                      });
+                    }
+                  }
+                });
+              } else if (item.empAlarm == 60) {
+                M.pop.alert({
+                  title: '배달이 완료되었습니다.',
+                  message: '배달이 완료되었습니다. (확인을 안하시면 알림이 계속 울립니다.)',
+                  buttons: ['확인', '취소'],
+                  callback: function (index) {
+                    if (index == 0) {
+                      M.data.global('orderNum', item.orderNum);
+                      $.sendHttp({
+                        path: "/api/alarm/employeeGoAlarm",
+                        data: {
+                          "orderNum": item.orderNum
+                        },
+                        succ: function (data) {
+                          console.log(data);
+                        },
+                        error: function (data) {
+                          console.log(data);
+                          alert('처리실패');
+                        }
+                      });
+                    }
+                  }
+                });
+              }
+            })
+          }
+          //          $.each(data.list, function (index, item) {
+          //            if (data.memAlarm == 0 && data.empAlarm == 1) {
+          //              if (M.data.global('userNum').substring(0, 1) == 's') {
+          //                M.pop.alert({
+          //                  title: '주문이 들어왔어요!',
+          //                  message: '주문 승인하러 가시겠습니까? (주문 처리를 안하시면 알림이 계속 울립니다.)',
+          //                  buttons: ['확인', '취소'],
+          //                  callback: function (index) {
+          //                    if (index == 0) {
+          //                      M.data.global('orderNum', item.orderNum);
+          //                      $.sendHttp({
+          //                        path: "/api/alarm/employeeGoAlarm",
+          //                        data: {
+          //                          "orderNum": item.orderNum
+          //                        },
+          //                        succ: function (data) {
+          //                          console.log(data);
+          //                        },
+          //                        error: function (data) {
+          //                          console.log(data);
+          //                          alert('처리실패');
+          //                        }
+          //                      });
+          //                      M.page.html('./eunjin_userInfo_orderDetail_employee.html');
+          //                    }
+          //                  }
+          //                });
+          //              }
+          //            }           //
+          //            } else if (data.memAlarm == 30 && data.empAlarm == 30) {
+          //              if (M.data.global('userNum').substring(0, 1) == 'm') {
+          //                M.pop.alert({
+          //                  title: '조리가 완료되었습니다.',
+          //                  message: '조리가 완료되었습니다. 라이더 매칭을 기다리고 있습니다. (확인을 안하시면 알림이 계속 울립니다.)',
+          //                  buttons: ['확인', '취소'],
+          //                  callback: function (index) {
+          //                    if (index == 0) {
+          //                      M.data.global('orderNum', item.orderNum);
+          //                      $.sendHttp({
+          //                        path: "/api/alarm/memberGoAlarm",
+          //                        data: {
+          //                          "orderNum": item.orderNum
+          //                        },
+          //                        succ: function (data) {
+          //                          console.log(data);
+          //                        },
+          //                        error: function (data) {
+          //                          console.log(data);
+          //                          alert('처리실패');
+          //                        }
+          //                      });
+          //                    }
+          //                  }
+          //                });
+          //              }
+          //            } else if (data.memAlarm == 40 && data.empAlarm == 40) {
+          //              if (M.data.global('userNum').substring(0, 1) == 's') {
+
+          //              }
+          //
+          //            } else if (data.memAlarm == 50 && data.empAlarm == 50) {
+          //              if (M.data.global('userNum').substring(0, 1) == 'm') {
+
+          //              }
+          //            } else if (data.memAlarm == 60) {
+          //              if (M.data.global('userNum').substring(0, 1) == 'm') {
+
+          //              }
+          //            } else if (data.empAlarm == 60) {
+          //              if (M.data.global('userNum').substring(0, 1) == 's') {
+          // M.pop.alert({
+          //   title: '배달이 완료되었습니다.',
+          //   message: '배달이 완료되었습니다. (확인을 안하시면 알림이 계속 울립니다.)',
+          //   buttons: ['확인', '취소'],
+          //   callback: function (index) {
+          //     if (index == 0) {
+          //       M.data.global('orderNum', item.orderNum);
+          //       $.sendHttp({
+          //         path: "/api/alarm/employeeGoAlarm",
+          //         data: {
+          //           "orderNum": item.orderNum
+          //         },
+          //         succ: function (data) {
+          //           console.log(data);
+          //         },
+          //         error: function (data) {
+          //           console.log(data);
+          //           alert('처리실패');
+          //         }
+          //       });
+          //     }
+          //   }
+          // });
+          //              }
+          //            }
+          //          })
+        },
+        error: function (data) {
+          console.log(data);
+          alert('실패! 다시 해보세요');
+        },
+
+
+      });
+    }, 10000)
 
   });
 
@@ -74,7 +421,7 @@
   M.onRestore(function (e) {
     console.log("M.onRestore");
 
-    //customizing _onRestore 함수 호출  
+    //customizing _onRestore 함수 호출
     if (typeof _onRestore != 'undefined') {
       _onRestore();
     }
@@ -141,4 +488,4 @@
       }
     });
   }
-})(window, M, __config__);
+})(jQuery, window, M, __config__);

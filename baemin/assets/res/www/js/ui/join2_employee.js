@@ -85,7 +85,7 @@
       var storeName = this.els.$storeNameIpt.val();
       var addr = this.els.$storeAddrIpt.val();
 
-      var phone = this.els.$employeePhoneIpt.val().trim();
+      var phone = this.els.$employeePhoneIpt.val();
       var storePhone = this.els.$storePhoneIpt.val().trim();
 
       var leastPrice = this.els.$leastPriceIpt.val();
@@ -155,7 +155,7 @@
           "orderArea": orderArea,
           "deliveryPrice": deliveryPrice,
           "deliveryStatus": delivery,
-          "takeoutStatus" : takeout,
+          "takeoutStatus": takeout,
           "grade": "store",
         }
       });

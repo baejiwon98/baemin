@@ -36,11 +36,15 @@
 
           M.data.global('grade', 'delivery');
           M.data.global('deliveryNum', data.deliveryNum);
+          M.data.global('userNum', data.deliveryNum);
           M.data.global('myAddress', data.deliveryAddr);
           M.data.global('myAddressDetail', data.deliveryAddrdetail);
-          const element = document.getElementById('map-title');
-          element.innerHTML = '<strong>' + M.data.global('myAddress') + ' ' + M.data.global('myAddressDetail') + '</strong>';
-          console.log(M.data.global('deliveryNum'));
+
+          if(data.deliveryAddr != null) {
+            $('#map').text(M.data.global('myAddress') + ' ' + M.data.global('myAddressDetail'));
+          } else {
+            $('#map').text('위치를 등록해주세요.');
+          }
         },
         error: function (data) {
           console.log(data);

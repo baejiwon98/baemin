@@ -112,6 +112,19 @@
           },
           succ: function (data) {
             console.log(data);
+            $.sendHttp({
+              path: "/api/alarm/employeeGoAlarm",
+              data: {
+                "orderNum": item.orderNum
+              },
+              succ: function (data) {
+                console.log(data);
+              },
+              error: function (data) {
+                console.log(data);
+                alert('처리실패');
+              }
+            });
             M.page.replace({
               path: "./eunjin_orderList_employee_all.html"
             });
@@ -128,6 +141,7 @@
           buttons: ['확인', '취소'],
           callback: function (index) {
             if (index == 0) {
+
               self.cancelOrder();
             }
           }

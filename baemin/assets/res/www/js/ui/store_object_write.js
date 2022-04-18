@@ -164,8 +164,8 @@
         body: body,
         succ: function () {
           console.log(body);
-          alert('메뉴가 수정되었습니다.');
           M.page.remove('jiwon_store_category_modify.html');
+          alert('메뉴가 수정되었습니다.');
           M.page.replace({
             url: './jiwon_store_category_modify.html',
           });
@@ -241,8 +241,8 @@
         path: "/api/object/menuCreateIncludeFiles",
         body: body,
         succ: function (body) {
-          console.log(body);
           M.page.remove('jiwon_store_category_modify.html');
+          console.log(body);
           alert('메뉴가 추가 되었습니다.');
           M.page.replace({
             url: './jiwon_store_category_modify.html',

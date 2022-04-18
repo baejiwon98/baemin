@@ -112,7 +112,7 @@
             items += "<br /><br /><br />";
             $("#card").append(items);
           } else {
-            alert('장바구니에 담은 메뉴가 없습니다.'); //이거 확인이 안되는데 확인해봐야할듯?
+            alert('장바구니에 담은 메뉴가 없습니다.');
           }
         },
         error: function (data) {

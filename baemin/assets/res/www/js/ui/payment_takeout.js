@@ -81,6 +81,7 @@
           console.log(data);
           M.page.replace({
             url: './jiwon_payment_ok.html',
+            action : 'CLEAR_TOP'
           });
         },
         error: function (data) {
