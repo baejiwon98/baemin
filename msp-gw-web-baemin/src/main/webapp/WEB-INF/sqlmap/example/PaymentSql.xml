@@ -61,16 +61,17 @@
 	
 	<select id="getPaymentMember" parameterType="map" resultType="edu.example.dto.OrderViewDto">
 		SELECT 
-		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM,
+		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, review_score, 
 		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
 		regexp_replace(listagg(OBJECT_IMAGE,',') within group (order by OBJECT_IMAGE), '([^,]+)(,\1)+', '\1') objectImage,
 		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (order by ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum,
 		regexp_replace(listagg(MENU_QTY,',') within group (order by MENU_QTY), '([^,]+)(,\1)+', '\1') menuQty
-		FROM PAYMENT p, OBJECT ob, STORE s, MEMBER m, purchase_list pu
+		FROM review r, PAYMENT p, OBJECT ob, STORE s, MEMBER m, purchase_list pu
 		WHERE pu.object_num = ob.object_num and p.STORE_NUM = s.STORE_NUM 
-        and m.MEMBER_NUM = p.MEMBER_NUM and p.order_num = pu.order_num 
+        and m.MEMBER_NUM = p.MEMBER_NUM and p.order_num = pu.order_num
+        and p.order_num = r.order_num(+)
         and m.MEMBER_NUM = #{memberNum} and cancelYN = 'N'
-		group by p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM
+		group by p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, review_score
 		order by order_time desc
 	</select>
 	

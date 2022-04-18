@@ -13,6 +13,21 @@ public class OrderViewDto {
 	private String memberNum;
 	private String deliveryNum;
 	private String storeAddr;
+	private String reviewScore;
+
+	public String getReviewScore() {
+		return reviewScore;
+	}
+
+
+
+
+	public void setReviewScore(String reviewScore) {
+		this.reviewScore = reviewScore;
+	}
+
+
+
 
 	public String toString() {
 		return 	"orderNum="+orderNum
@@ -27,6 +42,7 @@ public class OrderViewDto {
 			+	"\n memberNum="+memberNum 
 			+	"\n deliveryNum="+deliveryNum
 			+	"\n storeAddr="+storeAddr
+			+	"\n reviewScore="+reviewScore
 		;
 	}
 

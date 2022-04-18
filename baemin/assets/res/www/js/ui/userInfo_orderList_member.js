@@ -39,7 +39,7 @@
             items += "<div style='padding-bottom: 0 px;'>";
             items += "<div style='float: left;padding-right: 2em;'>" + item.orderTime.substring(0, 10) + "</div>";
             items += "<div style='text-align:left;width: auto;'>";
-            items += "<span style='font-weight:bold;'>" + item.orderStatus + "</span>>";
+            items += "<span style='font-weight:bold;'>" + item.orderStatus + "</span>";
             items += "<div style='float:right; margin-right:1rem;'>";
             items += "<img src='../img/btn-close-black.png' class='btn-orderList-delete' name='" + item.orderNum + "'/>";
             items += "</div>";
