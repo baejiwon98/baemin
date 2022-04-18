@@ -20,19 +20,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_orderDetail_delivery_all.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_orderDetail_delivery_all.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/object_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/object_detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/orderDetail_delivery_all.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/orderDetail_delivery_all.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/orderDetail_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/orderDetail_employee.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/orderDetail_employee_all.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/orderDetail_employee_all.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_delivery_all.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_delivery_all.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_delivery_complete.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_delivery_complete.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_delivery_mine.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_delivery_mine.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_employee_all.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_employee_all.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_orderDetail_member.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_orderDetail_member.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_employee_current.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_employee_current.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_orderList_member.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_orderList_member.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_orderDetail_member.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_orderDetail_member.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/outputs/apk/debug/baemin-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/outputs/apk/debug/baemin-debug.apk" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

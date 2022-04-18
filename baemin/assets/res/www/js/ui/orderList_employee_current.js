@@ -40,16 +40,7 @@
             items += "</div>";
             items += "</div>";
             items += "<div class='orderList-object-img'>";
-            if (item.objectImg != null) { // 메뉴중 사진있는 것의 첫번째사진이 나와야함.
-              //              if (!item.objectImg.test(',')) {
-              //                items += "<img class='orderList-object-img-detail' src='" + "http://localhost:8080/view/review/upload/" + item.reviewImage.substring(img) + "' alt='' />";
-              //              } else {
-              //                var img = item.reviewImage.IndexOf(',') + 1;
-              //                items += "<img class='orderList-object-img-detail' src='" + "http://localhost:8080/view/review/upload/" + item.reviewImage + "' alt='' />";
-              //              }
-            } else {
-              items += "<img class='orderList-object-img-detail' src='../img/orderlist-default.png' alt='' />";
-            }
+            items += "<img class='orderList-object-img-detail' src='../img/orderlist-default.png' alt='' />";
             items += "</div>";
             items += "<div class='orderList-object-name' style='padding-top: 0.5em;'>";
             items += "<strong style='padding: 0;'>" + item.storeName + "</strong>";
