@@ -49,8 +49,11 @@
           M.data.global('memberNum', data.memberNum);
           M.data.global('myAddress', data.memberAddr);
           M.data.global('myAddressDetail', data.memberAddrDetail);
-          const element = document.getElementById('map-title');
-          element.innerHTML = '<strong>' + M.data.global('myAddress') + ' ' + M.data.global('myAddressDetail') + '</strong>';
+          if (data.memberAddr != null) {
+            $('#myAddr').text(M.data.global('myAddress')+ ' ' + M.data.global('myAddressDetail'));
+          }else {
+            $('#myAddr').text('주소 등록이 필요합니다.');
+          }
         },
         error: function (data) {
           console.log(data);

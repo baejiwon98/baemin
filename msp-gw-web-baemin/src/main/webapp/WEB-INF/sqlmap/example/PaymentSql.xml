@@ -332,6 +332,100 @@
 		UPDATE ALARM SET
 		DELIVERY_ALARM = (DELIVERY_ALARM+1)
 		WHERE ORDER_NUM = #{orderNum}
-	</update>	
+	</update>
+		
+	<!-- 조리 중 -->
+	<update id="cooking">
+		UPDATE ALARM SET
+		MEM_ALARM = 1,
+		EMP_ALARM = 1,
+		DELIVERY_ALARM = 0
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<!-- 픽업 대기 -->
+	<update id="pickUpWait">
+		UPDATE ALARM SET
+		MEM_ALARM = 10,
+		EMP_ALARM = 10,
+		DELIVERY_ALARM = 0
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<!-- 픽업 완료 -->
+	<update id="pickUpEnd">
+		UPDATE ALARM SET
+		MEM_ALARM = 20,
+		EMP_ALARM = 20,
+		DELIVERY_ALARM = 0
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<!-- 주문 취소 -->
+	<update id="orderCancel">
+		UPDATE ALARM SET
+		MEM_ALARM = 90,
+		EMP_ALARM = 1,
+		DELIVERY_ALARM = 0
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<!-- 조리 완료 -->
+	<update id="cookingEnd">
+		UPDATE ALARM SET
+		MEM_ALARM = 30,
+		EMP_ALARM = 30,
+		DELIVERY_ALARM = 30
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<!-- 배달 대기 -->
+	<update id="deliveryWait">
+		UPDATE ALARM SET
+		MEM_ALARM = 40,
+		EMP_ALARM = 40,
+		DELIVERY_ALARM = 40
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<!-- 배달 중 -->
+	<update id="deliverying">
+		UPDATE ALARM SET
+		MEM_ALARM = 50,
+		EMP_ALARM = 50,
+		DELIVERY_ALARM = 50
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<!-- 배달 완료 -->
+	<update id="deliveryEnd">
+		UPDATE ALARM SET
+		MEM_ALARM = 60,
+		EMP_ALARM = 60,
+		DELIVERY_ALARM = 60
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	
+	<select id="AlarmChk" parameterType="map" resultType="edu.example.dto.AlarmDto">
+      select a.order_num, mem_alarm, emp_alarm, delivery_alarm
+      from alarm a, payment p
+      where a.order_num = p.order_num
+      and member_num = #{userNum}
+      
+      union
+      
+      select a.order_num, mem_alarm, emp_alarm, delivery_alarm
+      from alarm a, payment p
+      where a.order_num = p.order_num 
+      and store_num = #{userNum}
+      
+      union
+      
+      select a.order_num, mem_alarm, emp_alarm, delivery_alarm
+      from alarm a, payment p, deliveryrequest d
+      where a.order_num = p.order_num and p.order_num = d.order_num
+      and d.delivery_num = #{userNum}
+   </select>
 	
 </mapper>
