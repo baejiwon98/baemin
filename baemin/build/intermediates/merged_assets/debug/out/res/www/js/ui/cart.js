@@ -79,7 +79,7 @@
             items += "</ul>";
             totalPaymentPrice = parseInt(totalObjectPrice) + parseInt(data.deliveryPrice);
             items += "<button type='button' style='float:right;margin-right:1rem;' id='allDelete'>장바구니 비우기</button>";
-            items += "<div class='plus-icon'>";
+            items += "<div class='plus-icon' style='margin: 0%; padding:2rem ;'>";
             items += "<button type='button' class='btn-plus'>plus</button>";
             items += "</div>";
             items += "</div>";

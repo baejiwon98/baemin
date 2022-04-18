@@ -14,6 +14,7 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
+import edu.example.dto.AlarmDto;
 import edu.example.dto.OrderViewDto;
 import edu.example.dto.PaymentDetailDto;
 
@@ -241,8 +242,8 @@ public class PaymentService {
   			
   			result = sqlSession.update("Payment.statusCancel", param);
   			if(result > 0) {
-            	result += sqlSession.update("Payment.memberGoAlarm", param);
-            	System.out.println(result + "주문 취소 메세지");
+            	result += sqlSession.update("Payment.orderCancel", param);
+            	System.out.println(result + "주문이 취소되었습니다.");
             }
   			transactionManager_sample.commit(status);
   			logger.info("========== 주문 취소 완료 : {}", result);
@@ -266,12 +267,12 @@ public class PaymentService {
 			        	
   			result = sqlSession.update("Payment.statusCooking", param);
   			if(result > 0) {
-            	result += sqlSession.update("Payment.memberGoAlarm", param);
+            	result += sqlSession.update("Payment.cooking", param);
             	System.out.println(result + "주문이 승인되었습니다.");
             }
   			transactionManager_sample.commit(status);
   			logger.info("========== 메뉴가 조리되는 중입니다. : {}", result);
-			            
+
 			}catch(Exception e){
 				logger.error("[ERROR] statusCooking() Fail : e : {}", e.getMessage());
 				e.printStackTrace();
@@ -291,10 +292,8 @@ public class PaymentService {
 					        	
   			result = sqlSession.update("Payment.statusCookEnd", param);
   			if(result > 0) {
-            	result += sqlSession.update("Payment.memberGoAlarm", param);
-            	System.out.println(result + "조리 완료 메세지");
-            	result += sqlSession.update("Payment.deliveryGoAlarm", param);
-            	System.out.println(result + "조리 완료 메세지");
+            	result += sqlSession.update("Payment.cookingEnd", param);
+            	System.out.println(result + "주문이 승인되었습니다.");
             }
   			transactionManager_sample.commit(status);
   			logger.info("========== 조리 완료 : {}", result);
@@ -318,10 +317,8 @@ public class PaymentService {
   			
   			result = sqlSession.update("Payment.statusDeliveryWait", param);
   			if(result > 0) {
-            	result += sqlSession.update("Payment.employeeGoAlarm", param);
-            	result += sqlSession.update("Payment.memberGoAlarm", param);
-            	result += sqlSession.update("Payment.deliveryGoAlarm", param);
-            	System.out.println(result + "배달기사님과 매칭되었습니다.");
+            	result += sqlSession.update("Payment.deliveryWait", param);
+            	System.out.println(result + "주문이 승인되었습니다.");
             }
   			transactionManager_sample.commit(status);
   			logger.info("========== 배달 대기 중입니다 : {}", result);
@@ -355,7 +352,7 @@ public class PaymentService {
   		return result;
   	}
   	
-  //배달 중
+  	//배달 중
   	public int statusDeliverying( Map<String,Object> param ) {
   		//트렌젝션 구현
   		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
@@ -366,8 +363,7 @@ public class PaymentService {
 					        	
   			result = sqlSession.update("Payment.statusDeliverying", param);
   			if(result > 0) {
-            	result += sqlSession.update("Payment.memberGoAlarm", param);
-            	System.out.println(result + "배달기사님이 출발하였습니다.");
+            	result += sqlSession.update("Payment.deliverying", param);
             }
   			transactionManager_sample.commit(status);
   			logger.info("========== 배달이 진행 중 입니다 : {}", result);
@@ -380,7 +376,7 @@ public class PaymentService {
   		return result;
   	}
   	
-  //배달 완료
+  	//배달 완료
   	public int statusDelvieryEnd( Map<String,Object> param ) {
   		//트렌젝션 구현
   		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
@@ -391,10 +387,7 @@ public class PaymentService {
 					        	
   			result = sqlSession.update("Payment.statusDelvieryEnd", param);
   			if(result > 0) {
-            	result += sqlSession.update("Payment.employeeGoAlarm", param);
-            	result += sqlSession.update("Payment.memberGoAlarm", param);
-            	result += sqlSession.update("Payment.deliveryGoAlarm", param);
-            	System.out.println(result + "배달이 완료되었습니다.");
+            	result += sqlSession.update("Payment.deliveryEnd", param);
             }
   			transactionManager_sample.commit(status);
   			logger.info("========== 배달 완료 : {}", result);
@@ -407,7 +400,7 @@ public class PaymentService {
   		return result;
   	}
   	
-  //픽업 대기 중
+  	//픽업 대기 중
   	public int statusPickUpWait( Map<String,Object> param ) {
   		//트렌젝션 구현
   		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
@@ -418,8 +411,7 @@ public class PaymentService {
 
   			result = sqlSession.update("Payment.statusPickUpWait", param);
   			if(result > 0) {
-            	result += sqlSession.update("Payment.memberGoAlarm", param);
-            	System.out.println(result + "픽업 대기중 입니다.");
+            	result += sqlSession.update("Payment.pickUpWait", param);
             }
   			transactionManager_sample.commit(status);
   			logger.info("========== 픽업 대기 중 : {}", result);
@@ -443,9 +435,7 @@ public class PaymentService {
 					        	
   			result = sqlSession.update("Payment.statusPickUpEnd", param);
   			if(result > 0) {
-            	result += sqlSession.update("Payment.employeeGoAlarm", param);
-            	result += sqlSession.update("Payment.memberGoAlarm", param);
-            	System.out.println(result + "픽업이 완료되었습니다.");
+            	result += sqlSession.update("Payment.pickUpEnd", param);
             }
   			transactionManager_sample.commit(status);
   			logger.info("========== 픽업 완료 : {}", result);
@@ -458,7 +448,9 @@ public class PaymentService {
   		return result;
   	}
 				
-				
+    public List<AlarmDto> AlarmChk( Map<String,Object> param ) {
+		return sqlSession.selectList("Payment.AlarmChk", param);
+	}
 		
   	//구매 내역서 추가
   	public int insertPurchase( Map<String,Object> param ) {
@@ -480,4 +472,73 @@ public class PaymentService {
   		}
   		return result;
   	}
+  	
+  	
+  	
+  	
+  	
+  	
+  	/////////////////////////////////////////////////////알림
+  	
+  	public int memberGoAlarm( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
+
+  		int result = 0;
+  		try{
+  			result += sqlSession.update("Payment.memberGoAlarm", param);
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 회원 알림 추가 완료 : {}", result);
+	  	        
+  		}catch(Exception e){
+  			logger.error("[ERROR] memberGoAlarm() Fail : e : {}", e.getMessage());
+  			e.printStackTrace();
+  			transactionManager_sample.rollback(status);    	
+  		}
+  		return result;
+  	}
+  	
+  	public int employeeGoAlarm( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
+
+  		int result = 0;
+  		try{
+  			result += sqlSession.update("Payment.employeeGoAlarm", param);
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 회원 알림 추가 완료 : {}", result);
+	  	        
+  		}catch(Exception e){
+  			logger.error("[ERROR] employeeGoAlarm() Fail : e : {}", e.getMessage());
+  			e.printStackTrace();
+  			transactionManager_sample.rollback(status);    	
+  		}
+  		return result;
+  	}
+  	
+  	public int deliveryGoAlarm( Map<String,Object> param ) {
+  		//트렌젝션 구현
+  		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+  		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+  		TransactionStatus status = transactionManager_sample.getTransaction(def);
+
+  		int result = 0;
+  		try{
+  			result += sqlSession.update("Payment.deliveryGoAlarm", param);
+  			transactionManager_sample.commit(status);
+  			logger.info("========== 회원 알림 추가 완료 : {}", result);
+	  	        
+  		}catch(Exception e){
+  			logger.error("[ERROR] deliveryGoAlarm() Fail : e : {}", e.getMessage());
+  			e.printStackTrace();
+  			transactionManager_sample.rollback(status);    	
+  		}
+  		return result;
+  	}
+  	
+  	
 }

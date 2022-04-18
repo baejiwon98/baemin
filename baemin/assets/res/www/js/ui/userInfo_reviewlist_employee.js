@@ -41,7 +41,7 @@
             items += "<strong>" + item.memberNickname + "</strong>";
             items += "</div>";
             items += "<div class='review-detail'>";
-            items += "<div class='fa review-counting-stars' >";
+            items += "<div class='fa review-counting-stars' style='margin-left: 1rem;'>";
             for (var i = 1; i <= item.reviewScore; i++) {
               items += "<div class='fa fa-star checked' id='stars'></div>";
             }

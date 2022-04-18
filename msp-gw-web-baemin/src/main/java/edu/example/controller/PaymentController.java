@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.example.dto.AlarmDto;
 import edu.example.dto.OrderViewDto;
 import edu.example.dto.PaymentDetailDto;
 import edu.example.service.PaymentService;
@@ -418,6 +419,41 @@ public class PaymentController {
 
 		return mv;
 	}
+	
+	// 
+		@RequestMapping( method = RequestMethod.POST, value = "/api/payment/AlarmChk" )
+		public ModelAndView AlarmChk( HttpServletRequest request, HttpServletResponse response ) {
+			
+			Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
+			Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
+			Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+			
+			if(reqHeadMap==null){
+				reqHeadMap = new HashMap<String, Object>();
+			}
+			
+			reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+			reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+					
+			logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+
+			List<AlarmDto> list = service.AlarmChk( reqBodyMap );
+			System.out.println(reqBodyMap);    
+			if( !StringUtils.isEmpty(list) ) {
+				responseBodyMap.put("rsltCode", "0000");
+				responseBodyMap.put("rsltMsg", "Success");
+				responseBodyMap.put("list", list);
+			} else {
+				responseBodyMap.put("rsltCode", "2003");
+				responseBodyMap.put("rsltMsg", "Data not found.");
+			}
+					
+			ModelAndView mv = new ModelAndView("defaultJsonView");
+			mv.addObject(Const.HEAD,reqHeadMap);
+			mv.addObject(Const.BODY,responseBodyMap);
+
+			return mv;
+		}
 		
 		// 주문 상세 조회
 		@RequestMapping( method = RequestMethod.POST, value = "/api/payment/paymentDetail" )
@@ -743,4 +779,104 @@ public class PaymentController {
 			return mv;
 		}
 		
+		//mem_alarm +1
+		@RequestMapping( method = RequestMethod.POST, value = "/api/alarm/memberGoAlarm" )
+		public ModelAndView memberGoAlarm( HttpServletRequest request, HttpServletResponse response ) {
+							
+			Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
+			Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
+			Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+					        
+			if(reqHeadMap==null){
+				reqHeadMap = new HashMap<String, Object>();
+			}
+			
+			reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+			reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+							
+			logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+						        
+			int result = service.memberGoAlarm( reqBodyMap );
+					        
+			if( result > 0 ) {
+				responseBodyMap.put("rsltCode", "0000");
+				responseBodyMap.put("rsltMsg", "Success");
+			} else {
+				responseBodyMap.put("rsltCode", "2003");
+				responseBodyMap.put("rsltMsg", "Data not found.");
+			}
+							
+			ModelAndView mv = new ModelAndView("defaultJsonView");
+			mv.addObject(Const.HEAD,reqHeadMap);
+			mv.addObject(Const.BODY,responseBodyMap);
+
+			return mv;
+		}
+		
+		//emp_alarm +1
+		@RequestMapping( method = RequestMethod.POST, value = "/api/alarm/employeeGoAlarm" )
+		public ModelAndView employeeGoAlarm( HttpServletRequest request, HttpServletResponse response ) {
+									
+			Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
+			Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
+			Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+					
+			if(reqHeadMap==null){
+				reqHeadMap = new HashMap<String, Object>();
+			}
+							        
+			reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+			reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+									
+			logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+								        
+			int result = service.employeeGoAlarm( reqBodyMap );
+							        
+			if( result > 0 ) {
+				responseBodyMap.put("rsltCode", "0000");
+				responseBodyMap.put("rsltMsg", "Success");
+			} else {
+				responseBodyMap.put("rsltCode", "2003");
+				responseBodyMap.put("rsltMsg", "Data not found.");
+			}
+			
+			ModelAndView mv = new ModelAndView("defaultJsonView");
+			mv.addObject(Const.HEAD,reqHeadMap);
+			mv.addObject(Const.BODY,responseBodyMap);
+
+			return mv;
+		}
+		//delivery_alarm +1
+		@RequestMapping( method = RequestMethod.POST, value = "/api/alarm/deliveryGoAlarm" )
+		public ModelAndView deliveryGoAlarm( HttpServletRequest request, HttpServletResponse response ) {
+											
+			Map<String,Object> reqHeadMap =  (Map<String,Object>)request.getAttribute(Const.HEAD);
+			Map<String,Object> reqBodyMap =  (Map<String,Object>)request.getAttribute(Const.BODY);
+			Map<String, Object> responseBodyMap= new HashMap<String, Object>();
+							
+			if(reqHeadMap==null){
+				reqHeadMap = new HashMap<String, Object>();
+			}
+									        
+			reqHeadMap.put(Const.RESULT_CODE, Const.OK);
+			reqHeadMap.put(Const.RESULT_MESSAGE, Const.SUCCESS);
+											
+			logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
+										        
+			int result = service.deliveryGoAlarm( reqBodyMap );
+									        
+			if( result > 0 ) {
+				responseBodyMap.put("rsltCode", "0000");
+				responseBodyMap.put("rsltMsg", "Success");
+			} else {
+				responseBodyMap.put("rsltCode", "2003");
+				responseBodyMap.put("rsltMsg", "Data not found.");
+			}
+					
+			ModelAndView mv = new ModelAndView("defaultJsonView");
+			mv.addObject(Const.HEAD,reqHeadMap);
+			mv.addObject(Const.BODY,responseBodyMap);
+
+			return mv;
+		}
 }

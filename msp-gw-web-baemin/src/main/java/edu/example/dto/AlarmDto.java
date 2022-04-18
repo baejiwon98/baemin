@@ -6,13 +6,26 @@ public class AlarmDto {
    private Integer memAlarm;
    private Integer empAlarm;
    private Integer deliveryAlarm;
+   private Integer userNum;
    
-   public String toString() {
+   /**
+ *
+ */
+public String toString() {
       return    "orderNum="+orderNum
          +   "\n memAlarm="+memAlarm
          +   "\n empAlarm="+empAlarm
-      +   "\n deliveryAlarm="+deliveryAlarm;
+      +   "\n deliveryAlarm="+deliveryAlarm
+      +   "\n userNum="+userNum;
    }
+
+	public Integer getUserNum() {
+		return userNum;
+	}
+	
+	public void setUserNum(Integer userNum) {
+		this.userNum = userNum;
+	}
 
 	public String getOrderNum() {
 		return orderNum;

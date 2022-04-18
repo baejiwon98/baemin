@@ -70,7 +70,7 @@
 		SELECT r.order_num, review_score, to_char(review_date,'YYYY-MM-DD') reviewDate, review_content, review_image,
 		store_review, p.store_num, store_name, m.member_num, member_nickname
 		from review r, payment p, store s, member m
-		where r.order_num = p.order_num and (p.member_num = m.member_num or p.member_num = m.member_num and p.store_num = s.store_num and p.STORE_NUM = #{storeNum})
+		where r.order_num = p.order_num and (p.member_num = m.member_num or p.member_num = m.member_num) and p.store_num = s.store_num and p.STORE_NUM = #{storeNum}
 		order by review_date desc
 	</select>
 	
