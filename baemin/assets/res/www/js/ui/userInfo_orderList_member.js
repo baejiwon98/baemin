@@ -55,7 +55,9 @@
             items += "<div class='orderList-object-price' style='padding-top: 8px;'>";
             items += "<div style='padding-right: 3em; margin-bottom: 1em;'>" + item.objectName + "</div>";
             items += "<div class='orderList-object-qty' style='margin-top:-3px;'>";
-            items += "<img src='../img/btn-review.png' style='width: 1.4em; height: 1.4em;' class='reviewWrite' id='" + item.storeNum + "' name='" + item.orderNum + "'/>";
+            if (item.reviewScore == null && (item.orderStatus == '픽업 완료' || item.orderStatus == '배달 완료')) {
+              items += "<img src='../img/btn-review.png' style='width: 1.4em; height: 1.4em;' class='reviewWrite' id='" + item.storeNum + "' name='" + item.orderNum + "'/>";
+            }
             items += "</div>";
             items += "</div>";
             items += "</div>";
@@ -76,7 +78,9 @@
         M.page.back();
       });
       this.els.$myInfoBtn.on('click', function () {
-        M.page.back();
+        M.page.back({
+          animation: "SLIDE_RIGHT"
+        });
       });
       this.els.$myReviewBtn.on('click', function () {
         M.page.replace('./jiwon_userInfo_reviewlist_member.html');
@@ -91,7 +95,7 @@
         console.log(storeNum);
         M.data.global('orderNum', orderNum);
         M.data.global('storeNum', storeNum);
-        M.page.html({
+        M.page.replace({
           url: './eunjin_userInfo_orderDetail_member.html',
         });
       });
@@ -118,7 +122,7 @@
         console.log(orderNum);
         console.log(storeNum);
         M.data.global('orderNum', orderNum);
-        M.page.html({
+        M.page.replace({
           url: './eunjin_userInfo_reviewWrite_member.html',
           param: {
             "storeNum": storeNum

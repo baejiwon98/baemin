@@ -148,8 +148,10 @@
         },
         succ: function (data) {
           console.log(data);
+          var pagelist = M.info.stack();
+          M.page.remove(pagelist[1].key);
           M.page.replace({
-            path: "./eunjin_userInfo_orderDetail_employee_all.html"
+            path: "./eunjin_orderList_employee_all.html"
           });
         },
         error: function (data) {
@@ -166,8 +168,10 @@
         },
         succ: function (data) {
           console.log(data);
+          var pagelist = M.info.stack();
+          M.page.remove(pagelist[1].key);
           M.page.replace({
-            path: "./eunjin_userInfo_orderDetail_employee_all.html"
+            path: "./eunjin_orderList_employee_all.html"
           });
         },
         error: function (data) {
@@ -184,8 +188,10 @@
         },
         succ: function (data) {
           console.log(data);
+          var pagelist = M.info.stack();
+          M.page.remove(pagelist[1].key);
           M.page.replace({
-            path: "./eunjin_userInfo_orderDetail_employee_all.html"
+            path: "./eunjin_orderList_employee_all.html"
           });
         },
         error: function (data) {
@@ -202,8 +208,10 @@
         },
         succ: function (data) {
           console.log(data);
+          var pagelist = M.info.stack();
+          M.page.remove(pagelist[1].key);
           M.page.replace({
-            path: "./eunjin_userInfo_orderDetail_employee_all.html"
+            path: "./eunjin_orderList_employee_all.html"
           });
         },
         error: function (data) {
@@ -220,8 +228,10 @@
         },
         succ: function (data) {
           console.log(data);
+          var pagelist = M.info.stack();
+          M.page.remove(pagelist[1].key);
           M.page.replace({
-            path: "./eunjin_userInfo_orderDetail_employee_all.html"
+            path: "./eunjin_orderList_employee_all.html"
           });
         },
         error: function (data) {

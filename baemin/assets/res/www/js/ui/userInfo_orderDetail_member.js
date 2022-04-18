@@ -6,6 +6,7 @@
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
   var phone;
+  var status;
   var page = {
     els: {
       $backBtn: null,
@@ -75,6 +76,7 @@
           $("#card").append(items);
 
           if (data.memAddress != null) {
+            status = 'D';
             var addr = "";
             addr += "<div style='margin-bottom: 0.5em'><h3 style='font-size:15px;font-weight:bold;'>배달 주소</h3></div>";
             addr += "<span>" + data.memAddress + "</span>";
@@ -85,6 +87,7 @@
             if (data.deliveryRequest != null || data.deliveryRequest != 'null') {
               deliveryRequest += "<span> 라이더 요청사항 없음 </span>"
             } else {
+              status = 'T';
               deliveryRequest += "<span>" + data.deliveryRequest + "</span>"
             }
             $('#deliveryRequest').append(deliveryRequest);
@@ -109,7 +112,8 @@
         M.page.html({
           url: "./jiwon_store_menulist.html",
           param: {
-            'storeNum': M.data.global('storeNum')
+            'storeNum': M.data.global('storeNum'),
+            'orderlistStatus' : status
           }
         })
       });
@@ -138,7 +142,7 @@
         },
         succ: function (data) {
           console.log(data);
-          M.page.html({
+          M.page.replace({
             path: "./eunjin_userInfo_myOrderList_member.html"
           });
         },

@@ -112,22 +112,7 @@
           },
           succ: function (data) {
             console.log(data);
-            $.sendHttp({
-              path: "/api/alarm/employeeGoAlarm",
-              data: {
-                "orderNum": item.orderNum
-              },
-              succ: function (data) {
-                console.log(data);
-              },
-              error: function (data) {
-                console.log(data);
-                alert('처리실패');
-              }
-            });
-            M.page.replace({
-              path: "./eunjin_orderList_employee_all.html"
-            });
+            self.orderOk();
           },
           error: function (data) {
             alert("주문 승인에 실패했습니다. 다시 시도해주세요.");
@@ -141,13 +126,31 @@
           buttons: ['확인', '취소'],
           callback: function (index) {
             if (index == 0) {
-
               self.cancelOrder();
             }
           }
         });
       })
     },
+    orderOk: function () {
+      $.sendHttp({
+        path: "/api/alarm/employeeGoAlarm",
+        data: {
+          "orderNum": M.data.global('orderNum')
+        },
+        succ: function (data) {
+          console.log(data);
+          M.page.replace({
+            path: "./eunjin_orderList_employee_all.html"
+          });
+        },
+        error: function (data) {
+          console.log(data);
+          alert('처리실패');
+        }
+      });
+    },
+
     cancelOrder: function () {
       var self = this;
       $.sendHttp({

@@ -164,7 +164,8 @@
         body: body,
         succ: function () {
           console.log(body);
-          M.page.remove('jiwon_store_category_modify.html');
+          var pagelist = M.info.stack();
+          M.page.remove(pagelist[1].key);
           alert('메뉴가 수정되었습니다.');
           M.page.replace({
             url: './jiwon_store_category_modify.html',
@@ -241,7 +242,8 @@
         path: "/api/object/menuCreateIncludeFiles",
         body: body,
         succ: function (body) {
-          M.page.remove('jiwon_store_category_modify.html');
+          var pagelist = M.info.stack();
+          M.page.remove(pagelist[1].key);
           console.log(body);
           alert('메뉴가 추가 되었습니다.');
           M.page.replace({
@@ -307,7 +309,8 @@
           "storeNum": M.data.global('storeNum')
         },
         succ: function (data) {
-          M.page.remove('jiwon_store_category_modify.html');
+          var pagelist = M.info.stack();
+          M.page.remove(pagelist[1].key);
           alert('메뉴 수정 완료되었습니다.');
           M.page.replace({
             url: './jiwon_store_category_modify.html',
@@ -350,7 +353,9 @@
         },
         succ: function (data) {
           console.log(data);
-          M.page.remove('jiwon_store_category_modify.html');
+          var pagelist = M.info.stack();
+          M.page.remove(pagelist[1].key);
+
           alert('메뉴 등록이 완료되었습니다.');
           M.page.replace({
             url: './jiwon_store_category_modify.html',

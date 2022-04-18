@@ -128,6 +128,8 @@
         },
         succ: function (data) {
           console.log(data);
+          var pagelist = M.info.stack();
+          M.page.remove(pagelist[1].key);
           M.page.replace({
             path: "./eunjin_orderList_delivery_mine.html"
           });
@@ -147,6 +149,8 @@
         },
         succ: function (data) {
           console.log(data);
+          var pagelist = M.info.stack();
+          M.page.remove(pagelist[1].key);
           M.page.replace({
             path: "./eunjin_orderList_delivery_complete.html"
           });

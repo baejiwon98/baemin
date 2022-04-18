@@ -13,6 +13,7 @@
   var num;
   var page = {
     els: {
+      $btnBack: null,
       $goOrderBtn: null,
       $minusBtn: null,
       $plusBtn: null,
@@ -20,6 +21,7 @@
     },
     data: {},
     init: function init() {
+      this.els.$btnBack = $('#backBtn');
       this.els.$goOrderBtn = $('#go-order-btn');
       this.els.$minusBtn = $('#minus-btn');
       this.els.$plusBtn = $('#plus-btn');
@@ -35,25 +37,29 @@
         },
         succ: function (data) {
           console.log(data);
-          if (data.list != null) {
-            var items = "";
-            storeNum = data.storeNum;
-            status = data.status;
-            deliveryTip = data.deliveryPrice;
-            items += "<div class='empty-container' style='background-color: #ff7987;'></div>";
-            items += "<div class='cart-detail-tit' style='border-right: 0px;'>";
-            items += "<div class='cart-store-title' style='width:80%'>";
-            items += "<p id='store-title'>" + data.storeName + "</p>";
-            items += "</div>";
-            items += "</div>";
-            items += "<div class='cart-detail-cont'>";
-            items += "<ul id='orderList'>";
+
+          var items = "";
+          storeNum = data.storeNum;
+          status = data.status;
+          deliveryTip = data.deliveryPrice;
+          items += "<div class='empty-container' style='background-color: #ff7987;'></div>";
+          items += "<div class='cart-detail-tit' style='border-right: 0px;'>";
+          items += "<div class='cart-store-title' style='width:80%'>";
+          if (data.list == '') {
+            items += "<div style='text-align:right; font-size:20px; font-weight:bold;'>장바구니에 담은게 없습니다.</div>"
+          }
+          items += "<p id='store-title'>" + data.storeName + "</p>";
+          items += "</div>";
+          items += "</div>";
+          items += "<div class='cart-detail-cont'>";
+          items += "<ul id='orderList'>";
+          if (data.list != '') {
             $.each(data.list, function (index, item) {
               totalObjectPrice += item.objectPrice * item.buyQty;
               items += "<li class='cart-object-container' style='border-right:0px;' id='" + item.objectNum + "'>";
               items += "<div>";
               items += "<div class='cart-object-img' id='object-img'>";
-              if(item.objectImage != null) {
+              if (item.objectImage != null) {
                 items += "<img class='cart-object-img-detail' src='" + "http://localhost:8080/view/object/upload/" + item.objectImage + "' alt='' />";
               } else {
                 items += "<img class='cart-object-img-detail' src='../img/object-default.png' alt='' />";
@@ -76,44 +82,53 @@
               items += "</div>";
               items += "</li>";
             });
-            items += "</ul>";
-            totalPaymentPrice = parseInt(totalObjectPrice) + parseInt(data.deliveryPrice);
-            items += "<button type='button' style='float:right;margin-right:1rem;' id='allDelete'>장바구니 비우기</button>";
-            items += "<div class='plus-icon' style='margin: 0%; padding:2rem ;'>";
-            items += "<button type='button' class='btn-plus'>plus</button>";
-            items += "</div>";
-            items += "</div>";
-            items += "<div class='empty-container' style='background-color: #ff7987;'></div>";
-            items += "<div class='cart-price-cont'>";
-            items += "<div class='fa cart-total-price'>";
-            items += "<p>총 주문금액</p>";
-            items += "</div>";
-            items += "<div class='fa cart-total-price-number' id='total-price'>";
-            items += "<p>" + totalObjectPrice + " 원</p>";
-            items += "</div>";
-            items += "</div>";
-            items += "<div class='cart-price-cont'>";
-            items += "<div class='fa cart-total-price'>";
-            items += "<p>배달팁</p>";
-            items += "</div>";
-            items += "<div class='fa cart-total-price-number' id='delivery-price'>";
-            items += "<p>" + data.deliveryPrice + " 원</p>";
 
-            items += "</div>";
-            items += "</div>";
-            items += "<div class='cart-price-tit' style='border-right: 0px; border-left: 0px;'>";
-            items += "<div class='fa cart-total-price'>";
-            items += "<p>결제예정금액</p>";
-            items += "</div>";
-            items += "<div class='fa cart-total-price-number' id='cart-total-price-num'>";
-            items += "<p>" + totalPaymentPrice + " 원</p>";
-            items += "</div>";
-            items += "</div>";
-            items += "<br /><br /><br />";
-            $("#card").append(items);
-          } else {
-            alert('장바구니에 담은 메뉴가 없습니다.');
           }
+
+          items += "</ul>";
+          totalPaymentPrice = parseInt(totalObjectPrice) + parseInt(data.deliveryPrice);
+          items += "<button type='button' style='float:right;margin-right:1rem;' id='allDelete'>장바구니 비우기</button>";
+          items += "<div class='plus-icon' style='margin: 0%; padding:2rem ;'>";
+          items += "<button type='button' class='btn-plus'>plus</button>";
+          items += "</div>";
+          items += "</div>";
+          items += "<div class='empty-container' style='background-color: #ff7987;'></div>";
+          items += "<div class='cart-price-cont'>";
+          items += "<div class='fa cart-total-price'>";
+          items += "<p>총 주문금액</p>";
+          items += "</div>";
+          items += "<div class='fa cart-total-price-number' id='total-price'>";
+          items += "<p>" + totalObjectPrice + " 원</p>";
+          items += "</div>";
+          items += "</div>";
+          items += "<div class='cart-price-cont'>";
+          items += "<div class='fa cart-total-price'>";
+          items += "<p>배달팁</p>";
+          items += "</div>";
+          items += "<div class='fa cart-total-price-number' id='delivery-price'>";
+          if (data.deliveryPrice != '') {
+            items += "<p>" + data.deliveryPrice + " 원</p>";
+          } else {
+            items += "<p>0 원</p>";
+          }
+          items += "</div>";
+          items += "</div>";
+          items += "<div class='cart-price-tit' style='border-right: 0px; border-left: 0px;'>";
+          items += "<div class='fa cart-total-price'>";
+          items += "<p>결제예정금액</p>";
+          items += "</div>";
+          items += "<div class='fa cart-total-price-number' id='cart-total-price-num'>";
+
+          if (!isNaN(totalPaymentPrice)) {
+            items += "<p>" + totalPaymentPrice + " 원</p>";
+          } else {
+            items += "<p>0 원</p>";
+          }
+          items += "</div>";
+          items += "</div>";
+          items += "<br /><br /><br />";
+          $("#card").append(items);
+
         },
         error: function (data) {
           console.log(data);
@@ -125,14 +140,17 @@
     initEvent: function initEvent() {
       // Dom Event 바인딩
       var self = this;
+      this.els.$btnBack.on('click', function () {
+        M.page.back();
+      });
       this.els.$goOrderBtn.on('click', function () {
         if (status == 'D') {
           M.page.html({
             url: './jiwon_payment.html',
             param: {
               "totalObjectPrice": totalObjectPrice,
-              "deliveryTip" : deliveryTip,
-              "totalPaymentPrice":totalPaymentPrice,
+              "deliveryTip": deliveryTip,
+              "totalPaymentPrice": totalPaymentPrice,
             },
           });
         } else {
@@ -140,8 +158,8 @@
             url: './jiwon_payment_takeout.html',
             param: {
               "totalObjectPrice": totalObjectPrice,
-              "deliveryTip" : deliveryTip,
-              "totalPaymentPrice":totalPaymentPrice,
+              "deliveryTip": deliveryTip,
+              "totalPaymentPrice": totalPaymentPrice,
             },
           });
         }

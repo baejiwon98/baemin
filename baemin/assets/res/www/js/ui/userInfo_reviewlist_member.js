@@ -124,7 +124,9 @@
         M.page.back();
       });
       this.els.$myInfoBtn.on('click', function () {
-        M.page.back();
+        M.page.back({
+          animation: "SLIDE_RIGHT"
+        });
       });
       this.els.$myOrderListBtn.on('click', function () {
         M.page.replace('./eunjin_userInfo_myOrderList_member.html');
