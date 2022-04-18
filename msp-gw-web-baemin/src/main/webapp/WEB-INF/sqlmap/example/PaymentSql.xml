@@ -33,7 +33,7 @@
 		       INNER JOIN MEMBER B ON ( A.MEMBER_NUM = B.MEMBER_NUM )
 		       INNER JOIN OBJECT C ON ( A.OBJECT_NUM = C.OBJECT_NUM )   
 		       INNER JOIN STORE D ON ( C.STORE_NUM = D.STORE_NUM )
-		WHERE  B.MEMBER_NUM = #{memberNum}
+		WHERE  B.MEMBER_NUM = #{memberNum} and cancelYN = 'N'
 	</select>
 	
 	<!-- 주문내역 상세정보 -->
@@ -69,7 +69,7 @@
 		FROM PAYMENT p, OBJECT ob, STORE s, MEMBER m, purchase_list pu
 		WHERE pu.object_num = ob.object_num and p.STORE_NUM = s.STORE_NUM 
         and m.MEMBER_NUM = p.MEMBER_NUM and p.order_num = pu.order_num 
-        and m.MEMBER_NUM = #{memberNum}
+        and m.MEMBER_NUM = #{memberNum} and cancelYN = 'N'
 		group by p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM
 		order by order_time desc
 	</select>
@@ -115,7 +115,7 @@
 		where s.STORE_NUM = ob.STORE_NUM 
 		and ob.object_num = pu.object_num
 		and pu.order_num = p.order_num
-		and p.member_num = m.member_num
+		and p.member_num = m.member_num and cancelYN = 'N'
 		AND s.STORE_NUM = #{storeNum} AND ORDER_STATUS ='주문 완료'
 		group by p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MEM_ADDRESS
 		order by order_time desc
@@ -127,7 +127,7 @@
 		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
 		regexp_replace(listagg(pu.object_num,',') within group (order by pu.object_num), '([^,]+)(,\1)+', '\1') objectNum,
         regexp_replace(listagg(menu_qty,',') within group (order by menu_qty), '([^,]+)(,\1)+', '\1') menuQty,
-		store_name
+		store_name, store_addr
 		from delivery d, deliveryrequest dr, 
 		payment p, purchase_list pu, object o, store s
 		where d.delivery_num = dr.delivery_num
@@ -135,7 +135,9 @@
 		and p.store_num = s.store_num
 		and pu.order_num = p.order_num
 		and dr.order_num = p.order_num
-		and d.delivery_num = #{deliveryNum}
+		and p.order_status = '배달 완료'
+		and cancelYN = 'N'
+		and d.delivery_num = #{deliveryNum}		
 		group by d.delivery_num, store_addr, dr.order_num, order_status, store_name, p.member_num, p.store_num, mem_address, order_time
 		order by order_num desc
 	</select>
@@ -146,7 +148,7 @@
 		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
 		regexp_replace(listagg(pu.object_num,',') within group (order by pu.object_num), '([^,]+)(,\1)+', '\1') objectNum,
         regexp_replace(listagg(menu_qty,',') within group (order by menu_qty), '([^,]+)(,\1)+', '\1') menuQty,
-		store_name
+		store_name, store_addr
 		from delivery d, deliveryrequest dr, 
 		payment p, purchase_list pu, object o, store s
 		where d.delivery_num = dr.delivery_num
@@ -154,7 +156,8 @@
 		and p.store_num = s.store_num
 		and pu.order_num = p.order_num
 		and dr.order_num = p.order_num
-		and (order_status = '배달 중' or order_status = '배달대기중') and d.delivery_num = #{deliveryNum}
+		and cancelYN = 'N'
+		and (p.order_status = '배달 중' or p.order_status = '배달대기중') and d.delivery_num = #{deliveryNum}
 		group by d.delivery_num, store_addr, dr.order_num, order_status, store_name, p.member_num, p.store_num, mem_address, order_time
 		order by order_num desc
 	</select>
@@ -162,16 +165,16 @@
 	<!-- 라이더가 배달할 수 있는 주문 목록 -->
 	<select id="getPaymentDeliveryNow" parameterType="map" resultType="edu.example.dto.OrderViewDto">
 		SELECT 
-		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM,
+		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, store_addr,
 		regexp_replace(listagg(object_name,',') within group (ORDER BY OBJECT_NAME), '([^,]+)(,\1)+', '\1') objectName,
-		regexp_replace(listagg(OBJECT_IMAGE,',') within group (ORDER BY OBJECT_IMAGE), '([^,]+)(,\1)+', '\1') objectImage,
 		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (ORDER BY ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum,
 		regexp_replace(listagg(MENU_QTY,',') within group (order by MENU_QTY), '([^,]+)(,\1)+', '\1') menuQty
 		FROM PAYMENT p, OBJECT ob, STORE s, MEMBER m, PURCHASE_LIST pu
 		WHERE pu.object_num = ob.object_num AND p.STORE_NUM = s.STORE_NUM 
         AND m.MEMBER_NUM = p.MEMBER_NUM AND p.ORDER_NUM = pu.ORDER_NUM
-        AND ORDER_STATUS ='조리 완료'
-		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM
+        AND p.ORDER_STATUS ='조리 완료'
+        and cancelYN = 'N'
+		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, store_addr
 		ORDER BY ORDER_TIME DESC
 	</select>
 	
