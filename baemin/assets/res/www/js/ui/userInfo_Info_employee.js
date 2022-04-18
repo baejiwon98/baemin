@@ -316,8 +316,7 @@
           storeCategoryNum: storeCategory,
         },
         succ: function (data) {
-
-          M.page.html({
+          M.page.replace({
             url: "./eunjin_userInfo_Info_employee.html",
           });
         },

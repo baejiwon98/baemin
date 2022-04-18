@@ -20,6 +20,10 @@
     }, // end init
 
     initView: function initView() {
+      if(M.data.param('modify') == 'Y') {
+        $('.modify').text('수정');
+        $('.modify-btn').text('수정하기');
+      }
       var self = this;
       $.sendHttp({
         path: "/api/review/storedetail",
@@ -61,6 +65,7 @@
         },
         succ: function (data) {
           console.log(data);
+          M.page.remove("jiwon_userInfo_reviewlist_employee.html");
           M.page.replace({
             url: './jiwon_userInfo_reviewlist_employee.html',
           });

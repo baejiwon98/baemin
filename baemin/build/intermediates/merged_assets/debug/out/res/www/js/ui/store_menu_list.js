@@ -27,7 +27,7 @@
       this.els.$goShoppingBtn = $('#go-shopping-btn');
       this.els.$callBtn = $('#call-btn');
       this.els.$searchIpt = $('#searchIpt');
-      this.els.$searchBtn = $('.btn-search');
+      this.els.$searchBtn = $('#btn-search');
       this.els.$searchIpt.val('');
       $("#searchMenu").css("display", "none");
     },
@@ -55,7 +55,7 @@
             for (var i = 1; i <= parseFloat(data.reviewScore).toFixed(1).substring(0); i++) {
               items += "<div class='fa fa-star checked' id='stars'></div>";
             }
-            if (parseFloat(data.reviewScore).toFixed(1).slice(-1) == '0' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '1' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '2' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '3' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '8' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '9') {
+            if (parseFloat(data.reviewScore).toFixed(1).slice(-1) == '1' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '2' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '3' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '8' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '9') {
               items += "<div class='fa fa-star-o' id='stars'></div>";
             }
             if (parseFloat(data.reviewScore).toFixed(1).slice(-1) == '4' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '5' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '6' || parseFloat(data.reviewScore).toFixed(1).slice(-1) == '7') {
@@ -152,11 +152,15 @@
       });
       this.els.$searchBtn.on('click', function () {
         var search = self.els.$searchIpt.val().trim();
-        M.data.global('searchWord', search);
-        M.page.html({
-          url: './jiwon_store_menulist_search.html',
-          action: 'NO_HISTORY'
-        });
+        if (search == '') {
+          alert('검색어를 입력하세요.');
+        } else {
+          M.data.global('searchWord', search);
+          M.page.html({
+            url: './jiwon_store_menulist_search.html',
+            action: 'NO_HISTORY'
+          });
+        }
       });
     },
   };

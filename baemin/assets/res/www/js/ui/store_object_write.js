@@ -17,7 +17,7 @@
       $objectImgIpt: null,
       $imgSelectBtn: null,
       $modiBtn: null,
-      $delBtn: null
+      $resetBtn: null,
     },
     data: {},
     init: function init() {
@@ -30,7 +30,7 @@
       this.els.$objectImgIpt = $('#object-img');
       this.els.$imgSelectBtn = $('#imgSelectBtn');
       this.els.$modiBtn = $('#modiBtn');
-      this.els.$delBtn = $('#delBtn');
+      this.els.$resetBtn = $('#reset-btn');
     },
 
     initView: function initView() {
@@ -38,6 +38,7 @@
       var self = this;
       if (M.data.param("modify") == "Y") {
         $('#title').text('수정');
+        $('#btn-name').text('수정완료');
         $.sendHttp({
           path: "/api/object/detailStoreMenu",
           data: {
@@ -63,6 +64,12 @@
     initEvent: function initEvent() {
       // Dom Event 바인딩
       var self = this;
+      this.els.$resetBtn.on('click', function () {
+        console.log(self.data.imgPath);
+        self.data.imgPath == null;
+        self.els.$objectImgIpt.val('');
+        console.log(self.data.imgPath);
+      });
 
       this.els.$btnBack.on('click', function () {
         M.page.back();
@@ -110,15 +117,47 @@
         return alert('가격을 입력해주세요.');
       }
 
-      var body = [
-        { name:"objectNum", content: M.data.global("objectNum"), type:"TEXT"},
-        { name:"storeNum", content: M.data.global("storeNum"), type:"TEXT"},
-        { name: "objectName", content: object_name, type: "TEXT" },
-        { name: "objectOrigin", content: object_origin, type: "TEXT" },
-        { name: "objectContent", content: object_content, type: "TEXT" },
-        { name: "objectQty", content: object_qty, type: "TEXT" },
-        { name: "objectPrice", content: object_price, type: "TEXT" },
-        { name: "objectImage", content: imgPath, type: "FILE" }]
+      var body = [{
+          name: "objectNum",
+          content: M.data.global("objectNum"),
+          type: "TEXT"
+        },
+        {
+          name: "storeNum",
+          content: M.data.global("storeNum"),
+          type: "TEXT"
+        },
+        {
+          name: "objectName",
+          content: object_name,
+          type: "TEXT"
+        },
+        {
+          name: "objectOrigin",
+          content: object_origin,
+          type: "TEXT"
+        },
+        {
+          name: "objectContent",
+          content: object_content,
+          type: "TEXT"
+        },
+        {
+          name: "objectQty",
+          content: object_qty,
+          type: "TEXT"
+        },
+        {
+          name: "objectPrice",
+          content: object_price,
+          type: "TEXT"
+        },
+        {
+          name: "objectImage",
+          content: imgPath,
+          type: "FILE"
+        }
+      ]
       console.log(body);
       $.fileHttpSend({
         path: "/api/object/menuUpdateIncludeFiles",
@@ -126,6 +165,7 @@
         succ: function () {
           console.log(body);
           alert('메뉴가 수정되었습니다.');
+          M.page.remove('jiwon_store_category_modify.html');
           M.page.replace({
             url: './jiwon_store_category_modify.html',
           });
@@ -159,14 +199,42 @@
         return alert('가격을 입력해주세요.');
       }
 
-      var body = [
-        { name:"storeNum", content: M.data.global("storeNum"), type:"TEXT"},
-        { name: "objectName", content: objectName, type: "TEXT" },
-        { name: "objectOrigin", content: objectOrigin, type: "TEXT" },
-        { name: "objectContent", content: objectContent, type: "TEXT" },
-        { name: "objectQty", content: objectQty, type: "TEXT" },
-        { name: "objectPrice", content: objectPrice, type: "TEXT" },
-        { name: "objectImage", content: imgPath, type: "FILE" }]
+      var body = [{
+          name: "storeNum",
+          content: M.data.global("storeNum"),
+          type: "TEXT"
+        },
+        {
+          name: "objectName",
+          content: objectName,
+          type: "TEXT"
+        },
+        {
+          name: "objectOrigin",
+          content: objectOrigin,
+          type: "TEXT"
+        },
+        {
+          name: "objectContent",
+          content: objectContent,
+          type: "TEXT"
+        },
+        {
+          name: "objectQty",
+          content: objectQty,
+          type: "TEXT"
+        },
+        {
+          name: "objectPrice",
+          content: objectPrice,
+          type: "TEXT"
+        },
+        {
+          name: "objectImage",
+          content: imgPath,
+          type: "FILE"
+        }
+      ]
       console.log(body);
 
       $.fileHttpSend({
@@ -174,6 +242,7 @@
         body: body,
         succ: function (body) {
           console.log(body);
+          M.page.remove('jiwon_store_category_modify.html');
           alert('메뉴가 추가 되었습니다.');
           M.page.replace({
             url: './jiwon_store_category_modify.html',
@@ -229,7 +298,7 @@
       $.sendHttp({
         path: "/api/object/menuUpdateNotIncludeFiles",
         data: {
-          "objectNum" : M.data.global('objectNum'),
+          "objectNum": M.data.global('objectNum'),
           'objectName': objectName,
           'objectOrigin': objectOrigin,
           'objectContent': objectContent,
@@ -238,6 +307,7 @@
           "storeNum": M.data.global('storeNum')
         },
         succ: function (data) {
+          M.page.remove('jiwon_store_category_modify.html');
           alert('메뉴 수정 완료되었습니다.');
           M.page.replace({
             url: './jiwon_store_category_modify.html',
@@ -280,6 +350,7 @@
         },
         succ: function (data) {
           console.log(data);
+          M.page.remove('jiwon_store_category_modify.html');
           alert('메뉴 등록이 완료되었습니다.');
           M.page.replace({
             url: './jiwon_store_category_modify.html',

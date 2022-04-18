@@ -110,5 +110,4 @@
     pageFunc.initView();
     pageFunc.initEvent();
   });
-
 })(jQuery, M, __page__, window);

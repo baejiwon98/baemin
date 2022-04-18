@@ -21,7 +21,7 @@
         $.sendHttp({
           path: "/api/payment/paymentAllDelivery",
           data: {
-            "deliveryNum": M.data.global('deliveryNum');
+            "deliveryNum": M.data.global('deliveryNum'),
           },
           succ: function (data) {
             console.log(data);

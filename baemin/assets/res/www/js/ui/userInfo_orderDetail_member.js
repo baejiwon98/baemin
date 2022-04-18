@@ -54,7 +54,12 @@
           $('#deliveryTip').text(data.deliveryPrice + " 원");
           $('#totalPaymentPrice').text(data.orderTotalPrice + " 원");
           $('#memberPhone').text(data.memPhone);
-          $('#storeRequest').text(data.storeRequest);
+          if (data.storeRequest != null) {
+            $('#storeRequest').text(data.storeRequest);
+          } else {
+            $('#storeRequest').text(' 매장 요청사항 없음 ');
+          }
+
           if (data.paymentCategory == "smart") {
             $('#paymentWay').text("간편결제");
           } else if (data.paymentCategory == "card") {
@@ -77,7 +82,11 @@
 
             var deliveryRequest = "";
             deliveryRequest += "<div style='margin-bottom: 0.5em'><h3 style='font-size:15px;font-weight:bold;'>라이더에게 요청사항</h3></div>";
-            deliveryRequest += "<span>" + data.deliveryRequest + "</span>"
+            if (data.deliveryRequest != null || data.deliveryRequest != 'null') {
+              deliveryRequest += "<span> 라이더 요청사항 없음 </span>"
+            } else {
+              deliveryRequest += "<span>" + data.deliveryRequest + "</span>"
+            }
             $('#deliveryRequest').append(deliveryRequest);
           }
         },

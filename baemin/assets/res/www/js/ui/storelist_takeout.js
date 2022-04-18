@@ -5,6 +5,8 @@
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
+  M.data.global('deliveryStatus', 'N');
+  M.data.global('pickupStatus', 'Y');
   var page = {
     els: {
       $categoryChange: null,
@@ -39,12 +41,16 @@
             items += "<strong>" + item.storeName + "</strong>";
             items += "</div>";
             items += "<div class='review-detail'>";
+            items += "<div class='fa fa-star checked' id='Allstars'></div>";
             if (item.reviewScore != null) {
-              items += "<div class='fa fa-star checked' id='Allstars'></div>";
               items += "<strong>" + parseFloat(item.reviewScore).toFixed(1) + "</strong>";
+            } else {
+              items += "<strong>평점없음</strong>";
             }
             if (item.objectName != null) {
               items += "<strong class='object-Repre'>" + item.objectName + "</strong>";
+            } else {
+              items += "<strong class='object-Repre'>메뉴없음</strong>";
             }
             items += "</div>";
             items += "<div class='review-detail'>";

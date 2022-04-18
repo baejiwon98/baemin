@@ -33,13 +33,14 @@
         },
         succ: function (data) {
           console.log(data);
-          console.log(M.data.global('myAddress'));
+
           M.data.global('grade', 'delivery');
           M.data.global('deliveryNum', data.deliveryNum);
           M.data.global('myAddress', data.deliveryAddr);
           M.data.global('myAddressDetail', data.deliveryAddrdetail);
           const element = document.getElementById('map-title');
           element.innerHTML = '<strong>' + M.data.global('myAddress') + ' ' + M.data.global('myAddressDetail') + '</strong>';
+          console.log(M.data.global('deliveryNum'));
         },
         error: function (data) {
           console.log(data);

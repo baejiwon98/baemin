@@ -5,12 +5,9 @@
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
-  var SERVER_PATH = CONFIG.SERVER_PATH;
-
   var page = {
     els: {
       $goMainBtn: null,
-
     },
     data: {},
     init: function init() {
@@ -26,7 +23,10 @@
       var self = this;
 
       this.els.$goMainBtn.on('click', function () {
-        M.page.html('./saetbyeol_main_member2.html');
+        M.page.html({
+          url : './saetbyeol_main_member.html',
+          action : 'CLEAR_TOP'
+        });
       });
     },
   };

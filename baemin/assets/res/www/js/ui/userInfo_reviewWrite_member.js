@@ -13,6 +13,7 @@
       $contentIpt: null,
       $fileIpt: null,
       $fileBtn: null,
+      $resetBtn: null,
     },
     data: {},
     init: function init() {
@@ -22,6 +23,7 @@
       this.els.$contentIpt = $("#content");
       this.els.$fileIpt = $("#file");
       this.els.$fileBtn = $('#fileBtn');
+      this.els.$resetBtn = $('#reset-btn');
     },
 
     initView: function initView() {
@@ -37,8 +39,6 @@
       } else if (M.data.param('reviewScore') == 5) {
         $("input:radio[name ='rating']:input[value='5']").attr("checked", true);
       }
-      console.log(M.data.param('reviewContent'));
-      console.log(M.data.param('reviewImage'));
       if (M.data.param('reviewContent') == 'null') {
         this.els.$contentIpt.val('');
       } else {
@@ -57,6 +57,12 @@
     initEvent: function initEvent() {
       // Dom Event 바인딩
       var self = this;
+      this.els.$resetBtn.on('click', function () {
+        console.log(self.data.imgPath);
+        self.data.imgPath == null;
+        self.els.$fileIpt.val('');
+        console.log(self.data.imgPath);
+      });
       this.els.$backBtn.on('click', function () {
         M.page.back();
       });

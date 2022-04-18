@@ -205,12 +205,7 @@
       });
 
       $('#card').on('click', '.btn-plus', function () {
-        M.page.replace({
-          url: './jiwon_store_menulist.html',
-          param: {
-            'storeNum': M.data.global('storeNum')
-          },
-        });
+        M.page.back();
       });
 
       $('#card').on('click', '.btn-delete', function () {
