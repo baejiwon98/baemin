@@ -136,6 +136,11 @@ public class PaymentService {
             	result += sqlSession.delete("Payment.deleteOrder", param);
                 System.out.println(result + "장바구니 지우기 성공");
             }
+            if(result> 0) {
+            	result += sqlSession.insert("Payment.newAlarm", param);
+            	result += sqlSession.update("Payment.employeeGoAlarm", param);
+            	System.out.println(result + "알림 테스트");
+            }
 //            if(result != 3) {
 //            	transactionManager_sample.rollback(status);
 //            }
@@ -167,13 +172,14 @@ public class PaymentService {
 			if(result > 0) {
 				result = sqlSession.insert("Payment.insertPurchase", param);
 	            System.out.println(result + "구매리스트 추가 성공");
-//	            if(result > 0) {
-//	            	result += sqlSession.insert("Payment.objectQtyUpdate", param);
-//	            	System.out.println(result + "상품 재고 수량 감소 성공");
-	                if(result > 0) {
-		            	result = sqlSession.delete("Payment.deleteOrder", param);
-		                System.out.println(result + "장바구니 지우기 성공");
-//		            }
+	            if(result > 0) {
+	            	result = sqlSession.delete("Payment.deleteOrder", param);
+	            	System.out.println(result + "장바구니 지우기 성공");
+	            	 if(result > 0) {
+	            		result += sqlSession.insert("Payment.newAlarm", param);
+	            		result += sqlSession.update("Payment.employeeGoAlarm", param);
+	            		System.out.println(result + "알림 테스트");
+	            	 }
 	            }
 			}
 			transactionManager_sample.commit(status);
@@ -244,6 +250,10 @@ public class PaymentService {
   		try{
   			
   			result = sqlSession.update("Payment.statusCancel", param);
+  			if(result > 1) {
+            	result += sqlSession.update("Payment.memberGoAlarm", param);
+            	System.out.println(result + "주문 취소 메세지");
+            }
   			transactionManager_sample.commit(status);
   			logger.info("========== 주문 취소 완료 : {}", result);
   			
@@ -265,6 +275,10 @@ public class PaymentService {
   		try{
 			        	
   			result = sqlSession.update("Payment.statusCooking", param);
+  			if(result > 1) {
+            	result += sqlSession.update("Payment.employeeGoAlarm", param);
+            	System.out.println(result + "주문 취소 메세지");
+            }
   			transactionManager_sample.commit(status);
   			logger.info("========== 메뉴가 조리되는 중입니다. : {}", result);
 			            
@@ -286,6 +300,10 @@ public class PaymentService {
   		try{
 					        	
   			result = sqlSession.update("Payment.statusCookEnd", param);
+  			if(result > 1) {
+            	result += sqlSession.update("Payment.employeeGoAlarm", param);
+            	System.out.println(result + "주문 취소 메세지");
+            }
   			transactionManager_sample.commit(status);
   			logger.info("========== 조리 완료 : {}", result);
 				

@@ -76,24 +76,25 @@
 	
 	<!-- 사장 자신의 가게에 들어온 총 주문 목록 -->
 	<select id="getPaymentStore" parameterType="map" resultType="edu.example.dto.OrderViewDto">
-		SELECT 
-		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MEM_ADDRESS, dr.DELIVERY_NUM, 
-		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
-		regexp_replace(listagg(OBJECT_IMAGE,',') within group (order by OBJECT_IMAGE), '([^,]+)(,\1)+', '\1') objectImage,
+		select p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MEM_ADDRESS, 
 		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (order by ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum,
-		regexp_replace(listagg(MENU_QTY,',') within group (order by MENU_QTY), '([^,]+)(,\1)+', '\1') menuQty
-		FROM PAYMENT p, OBJECT ob, STORE s, MEMBER m, purchase_list pu, DELIVERYREQUEST dr, DELIVERY d
-		WHERE pu.object_num = ob.object_num AND p.STORE_NUM = s.STORE_NUM 
-        AND m.MEMBER_NUM = p.MEMBER_NUM AND p.ORDER_NUM = pu.ORDER_NUM
-        AND dr.order_num = p.order_num AND d.delivery_num = dr.delivery_num
-        AND s.STORE_NUM = #{storeNum}
-		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MEM_ADDRESS, dr.DELIVERY_NUM
-		ORDER BY ORDER_TIME DESC
+        listagg(object_name,',') within group (order by object_name) objectName,
+        listagg(menu_qty,',') within group (order by menu_qty) menuQty
+		FROM  STORE s, OBJECT ob, purchase_list pu, PAYMENT p,  MEMBER m
+		where s.STORE_NUM = ob.STORE_NUM 
+		and ob.object_num = pu.object_num
+		and pu.order_num = p.order_num
+		and p.member_num = m.member_num
+		and cancelYN = 'N'
+		AND s.STORE_NUM = #{storeNum}
+		group by p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MEM_ADDRESS
+		order by order_time desc
+
 	</select>
 	
 	<!-- 현재 사장 자신의 가게에 들어온 주문 목록 (승인할 수 있고 취소할 수도 있다)-->
-	<select id="getPaymentStoreNow" parameterType="map" resultType="edu.example.dto.OrderViewDto">
-		SELECT 
+	
+		<!-- SELECT 
 		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM,
 		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
 		regexp_replace(listagg(OBJECT_IMAGE,',') within group (order by OBJECT_IMAGE), '([^,]+)(,\1)+', '\1') objectImage,
@@ -104,24 +105,39 @@
         AND m.MEMBER_NUM = p.MEMBER_NUM AND p.ORDER_NUM = pu.ORDER_NUM
         AND s.STORE_NUM = #{storeNum} AND ORDER_STATUS ='주문 완료'
 		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM
-		ORDER BY ORDER_TIME DESC
+		ORDER BY ORDER_TIME DESC -->
+	<select id="getPaymentStoreNow" parameterType="map" resultType="edu.example.dto.OrderViewDto">
+		select p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MEM_ADDRESS, 
+		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (order by ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum,
+        listagg(object_name,',') within group (order by object_name) objectName,
+        regexp_replace(listagg(MENU_QTY,',') within group (order by MENU_QTY), '([^,]+)(,\1)+', '\1') menuQty
+		FROM  STORE s, OBJECT ob, purchase_list pu, PAYMENT p,  MEMBER m
+		where s.STORE_NUM = ob.STORE_NUM 
+		and ob.object_num = pu.object_num
+		and pu.order_num = p.order_num
+		and p.member_num = m.member_num
+		AND s.STORE_NUM = #{storeNum} AND ORDER_STATUS ='주문 완료'
+		group by p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, MEM_ADDRESS
+		order by order_time desc
 	</select>
 	
 	<!-- 라이더의 총 주문 목록 -->
 	<select id="getPaymentDelivery" parameterType="map" resultType="edu.example.dto.OrderViewDto">
-		SELECT 
-		p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, d.DELIVERY_NUM,
+		select d.delivery_num, dr.order_num, order_status, p.member_num, p.store_num, mem_address, order_time,
 		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
-		regexp_replace(listagg(OBJECT_IMAGE,',') within group (order by OBJECT_IMAGE), '([^,]+)(,\1)+', '\1') objectImage,
-		regexp_replace(listagg(ob.OBJECT_NUM,',') within group (order by ob.OBJECT_NUM), '([^,]+)(,\1)+', '\1') objectNum,
-		regexp_replace(listagg(MENU_QTY,',') within group (order by MENU_QTY), '([^,]+)(,\1)+', '\1') menuQty
-		FROM PAYMENT p, OBJECT ob, STORE s, MEMBER m, PURCHASE_LIST pu, DELIVERYREQUEST dr, DELIVERY d
-		WHERE pu.object_num = ob.object_num AND p.STORE_NUM = s.STORE_NUM 
-        AND m.MEMBER_NUM = p.MEMBER_NUM AND p.ORDER_NUM = pu.ORDER_NUM
-        AND dr.delivery_num = d.delivery_num AND p.order_num = dr.order_num
-        AND d.DELIVERY_NUM = #{deliveryNum}
-		GROUP BY p.ORDER_NUM, ORDER_TIME, ORDER_STATUS, STORE_NAME, s.STORE_NUM, m.MEMBER_NUM, d.DELIVERY_NUM
-		ORDER BY ORDER_TIME DESC
+		regexp_replace(listagg(pu.object_num,',') within group (order by pu.object_num), '([^,]+)(,\1)+', '\1') objectNum,
+        regexp_replace(listagg(menu_qty,',') within group (order by menu_qty), '([^,]+)(,\1)+', '\1') menuQty,
+		store_name
+		from delivery d, deliveryrequest dr, 
+		payment p, purchase_list pu, object o, store s
+		where d.delivery_num = dr.delivery_num
+		and pu.object_num = o.object_num
+		and p.store_num = s.store_num
+		and pu.order_num = p.order_num
+		and dr.order_num = p.order_num
+		and d.delivery_num = #{deliveryNum}
+		group by d.delivery_num, store_addr, dr.order_num, order_status, store_name, p.member_num, p.store_num, mem_address, order_time
+		order by order_num desc
 	</select>
 	
 	<!-- 라이더가 현재 배달 중인 주문 목록 -->
@@ -129,7 +145,6 @@
 		select d.delivery_num, dr.order_num, order_status, p.member_num, p.store_num, mem_address, order_time,
 		regexp_replace(listagg(object_name,',') within group (order by object_name), '([^,]+)(,\1)+', '\1') objectName,
 		regexp_replace(listagg(pu.object_num,',') within group (order by pu.object_num), '([^,]+)(,\1)+', '\1') objectNum,
-		regexp_replace(listagg(object_image,',') within group (order by object_image), '([^,]+)(,\1)+', '\1') objectImage,
         regexp_replace(listagg(menu_qty,',') within group (order by menu_qty), '([^,]+)(,\1)+', '\1') menuQty,
 		store_name
 		from delivery d, deliveryrequest dr, 
@@ -173,18 +188,18 @@
 	
 	<insert id="insertPaymentP">
 		INSERT INTO PAYMENT(ORDER_NUM, ORDER_TIME, PAYMENT_CATEGORY, STORE_REQUEST,
-		ORDER_TOTAL_PRICE, MEMBER_NUM, ORDER_STATUS, STORE_NUM, MEM_PHONE )
+		ORDER_TOTAL_PRICE, MEMBER_NUM, ORDER_STATUS, STORE_NUM, MEM_PHONE, cancelYN )
 		VALUES
 	    	( #{orderNum}, SYSDATE, #{paymentCategory}, #{storeRequest}, 
-	    	#{orderTotalPrice}, #{memberNum}, '주문 완료', #{storeNum}, #{memPhone} )
+	    	#{orderTotalPrice}, #{memberNum}, '주문 완료', #{storeNum}, #{memPhone}, 'N' )
 	</insert>
 	
 	<insert id="insertPaymentD">
 		INSERT INTO PAYMENT(ORDER_NUM, ORDER_TIME, PAYMENT_CATEGORY, STORE_REQUEST,
-		ORDER_TOTAL_PRICE, MEMBER_NUM, ORDER_STATUS, delivery_Request, STORE_NUM, mem_Address, MEM_PHONE)
+		ORDER_TOTAL_PRICE, MEMBER_NUM, ORDER_STATUS, delivery_Request, STORE_NUM, mem_Address, MEM_PHONE, cancelYN )
 		VALUES
 	    	( #{orderNum}, SYSDATE, #{paymentCategory}, #{storeRequest}, 
-	    	#{orderTotalPrice}, #{memberNum}, '주문 완료', #{deliveryRequest}, #{storeNum}, #{memAddress}, #{memPhone} )
+	    	#{orderTotalPrice}, #{memberNum}, '주문 완료', #{deliveryRequest}, #{storeNum}, #{memAddress}, #{memPhone}, 'N'  )
 	</insert>
 	
 	
@@ -198,12 +213,11 @@
 	
 	<update id="paymentDelete">
 		UPDATE PAYMENT SET 
-		MEMBER_NUM = concat(#{memberNum},'_')
+		cancelYN = 'Y'
 		WHERE ORDER_NUM = #{orderNum}
 	</update>
 	
-	
-	
+
 	<update id="objectQtyUpdate">
 		update object set
 		object_qty = object_qty - #{menuQty}
@@ -235,7 +249,7 @@
 	</update>
 	
 	<insert id="deliveryMatching">
-		INSERT INTO DELIVERYREQUEST
+		INSERT INTO DELIVERYREQUEST(order_Num, delivery_Num)
 		VALUES(#{orderNum}, #{deliveryNum})
 	</insert>
 	
@@ -293,5 +307,28 @@
 		SELECT STORE_NAME FROM STORE
 		WHERE STORE_NUM = #{storeNum}
 	</select>	
+	
+	<insert id="newAlarm">
+		INSERT INTO ALARM(ORDER_NUM, MEM_ALARM, EMP_ALARM, DELIVERY_ALARM)
+		VALUES(#{orderNum}, 0, 0, 0)
+	</insert>
+	
+	<update id="memberGoAlarm">
+		UPDATE ALARM SET
+		MEM_ALARM = (MEM_ALARM+1)
+		WHERE ORDER_NUM = #{orderNum}
+	</update>
+	
+	<update id="employeeGoAlarm">
+		UPDATE ALARM SET
+		EMP_ALARM = (EMP_ALARM+1)
+		WHERE ORDER_NUM = #{orderNum}
+	</update>	
+	
+	<update id="deliveryGoAlarm">
+		UPDATE ALARM SET
+		DELIVERY_ALARM = (DELIVERY_ALARM+1)
+		WHERE ORDER_NUM = #{orderNum}
+	</update>	
 	
 </mapper>

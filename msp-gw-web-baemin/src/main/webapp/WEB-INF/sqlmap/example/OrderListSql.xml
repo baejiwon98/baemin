@@ -58,9 +58,9 @@
    </select>
    
    <select id="staCheck" parameterType="map" resultType="string" >
-      SELECT STATUS FROM ORDERLIST
-      WHERE OBJECT_NUM = #{objectNum}
-      AND MEMBER_NUM = #{memberNum}
+		SELECT STATUS
+		FROM ORDERLIST
+		WHERE MEMBER_NUM = #{memberNum}
    </select>
 
 </mapper>

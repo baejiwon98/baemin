@@ -218,8 +218,7 @@ public class PaymentController {
 		logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
 				        
 		List<OrderViewDto> list = service.paymentAllStore(reqBodyMap);
-			
-				        
+			        
 		if( !StringUtils.isEmpty(list) ) {           
 			responseBodyMap.put("rsltCode", "0000");
 			responseBodyMap.put("rsltMsg", "Success");
@@ -590,9 +589,10 @@ public class PaymentController {
 					
 			logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
 			
-			int result = service.statusDeliveryWait( reqBodyMap );
-			        
-			if( result > 0 ) {
+			int result = service.deliveryMatching( reqBodyMap );
+			result += service.statusDeliveryWait( reqBodyMap );
+			
+			if( result > 1 ) {
 				responseBodyMap.put("rsltCode", "0000");
 				responseBodyMap.put("rsltMsg", "Success");
 			} else {
@@ -624,10 +624,9 @@ public class PaymentController {
 					
 			logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
 			
-			int result = service.deliveryMatching( reqBodyMap );
-			result += service.statusDeliverying( reqBodyMap );
-			        
-			if( result > 1 ) {
+			int result = service.statusDeliverying( reqBodyMap );
+			
+			if( result > 0 ) {
 				responseBodyMap.put("rsltCode", "0000");
 				responseBodyMap.put("rsltMsg", "Success");
 			} else {

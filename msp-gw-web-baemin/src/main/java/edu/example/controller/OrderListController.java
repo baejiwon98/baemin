@@ -149,27 +149,32 @@ public class OrderListController {
          
            logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
            
-           List<Object> list = service.orderList(reqBodyMap);
+           List<OrderListAllDto> list = service.orderList(reqBodyMap);
            
            Integer a = list.size();
            System.out.println("리스트의 행은 " +a);
-           
-//           String strNum = list.get(0).getStoreNum().toString();
-//           String deliPrice = list.get(0).getDeliveryPrice().toString();
-//           String memNum = list.get(0).getMemberNum().toString();
-//           String strName = list.get(0).getStoreName().toString();
-//           String status = list.get(0).getStatus().toString();
-           
+           String strNum = "";
+           String deliPrice = "";
+           String memNum = "";
+           String strName = "";
+           String status = "";
+           try {
+	           strNum = list.get(0).getStoreNum().toString();
+	           deliPrice = list.get(0).getDeliveryPrice().toString();
+	           memNum = list.get(0).getMemberNum().toString();
+	           strName = list.get(0).getStoreName().toString();
+	           status = list.get(0).getStatus().toString();
+           }catch(Exception e) {}
            
            if( !StringUtils.isEmpty(list) ) {           
               responseBodyMap.put("rsltCode", "0000");
               responseBodyMap.put("rsltMsg", "Success");
               responseBodyMap.put("list", list);
-//              responseBodyMap.put("storeNum", strNum);
-//              responseBodyMap.put("memberNum", memNum);
-//              responseBodyMap.put("deliveryPrice", deliPrice);
-//              responseBodyMap.put("storeName", strName);
-//              responseBodyMap.put("status", status);
+              responseBodyMap.put("storeNum", strNum);
+              responseBodyMap.put("memberNum", memNum);
+              responseBodyMap.put("deliveryPrice", deliPrice);
+              responseBodyMap.put("storeName", strName);
+              responseBodyMap.put("status", status);
              
            }else {
               responseBodyMap.put("rsltCode", "2003");
@@ -234,17 +239,16 @@ public class OrderListController {
 					
 			logger.info("======================= reqBodyMap : {}", reqBodyMap.toString());
 
-
 			String status = service.staCheck( reqBodyMap );			
 			System.out.println(status);
-			if( status.equals("D") ) {
+			if( status.equals("D") ||  status == null) {
 				responseBodyMap.put("rsltCode", "0000");
 				responseBodyMap.put("rsltMsg", "Success");
 				responseBodyMap.put("dupDP", "D");
 			} else {
 				responseBodyMap.put("rsltCode", "0000");
 				responseBodyMap.put("rsltMsg", "Success");
-				responseBodyMap.put("dupDP", "P");
+				responseBodyMap.put("dupDP", "T");
 			}
 					
 			ModelAndView mv = new ModelAndView("defaultJsonView");

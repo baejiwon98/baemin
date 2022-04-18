@@ -50,7 +50,8 @@ from object
 		       OBJECT_CONTENT = #{objectContent},
 		       OBJECT_PRICE = #{objectPrice},
 		       OBJECT_QTY = #{objectQty},
-		       OBJECT_ORIGIN = #{objectOrigin}
+		       OBJECT_ORIGIN = #{objectOrigin},
+		       OBJECT_IMAGE = ''
 		WHERE  OBJECT_NUM = #{objectNum} and STORE_NUM= #{storeNum}
 	</update>
 		
