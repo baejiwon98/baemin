@@ -70,7 +70,7 @@
           $('#orderDate').text(data.orderTime.substring(0, 4) + '년 ' + data.orderTime.substring(5, 7) + "월 " + data.orderTime.substring(8, ) + "일");
           var items = "";
           $.each(data.list, function (index, item) {
-            items += "<h3><span style='font-size:15px;font-weight:bold;'>" + item.objectName + "</span><span style=' float: right;font-size: 15px;'>" + item.menuPrice + " 원</span><span style='margin-right:30px;float:right; font-size:15px;font-weight:bold;color: #666;'>" + item.menuQty + " 개</span></h3>";
+            items += "<h3><span style='font-size:15px;font-weight:bold;'>" + item.objectName + "</span><span style=' float: right;font-size: 15px;'>" + item.menuPrice + " 원</span><span style='margin-left:10px; font-size:15px;font-weight:bold;color: #666;'>" + item.menuQty + " 개</span></h3>";
           });
           $("#card").append(items);
 

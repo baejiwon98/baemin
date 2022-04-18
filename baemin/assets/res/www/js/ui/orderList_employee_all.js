@@ -36,9 +36,9 @@
             items += "<div style='float: left;padding-right: 2em;'>" + item.orderTime.substring(0, 10) + "</div>";
             items += "<div style='text-align:left;width: auto;'>";
             if (item.orderStatus == "주문 완료") {
-              items += "<span style='font-weight:bold;'>주문 승인 대기중</span>>";
+              items += "<span style='font-weight:bold;'>주문 승인 대기중</span>";
             } else {
-              items += "<span style='font-weight:bold;'>" + item.orderStatus + "</span>>";
+              items += "<span style='font-weight:bold;'>" + item.orderStatus + "</span>";
             }
             items += "</div>";
             items += "</div>";

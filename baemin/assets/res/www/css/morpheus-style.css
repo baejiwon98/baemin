@@ -174,7 +174,7 @@ input.pw{padding:0 4.1rem;background:url(../img/ico-pw.png) no-repeat 0 center;b
 .txt-btn-wrap ul{overflow:hidden;display:inline-block;}
 .txt-btn-wrap li{float:left;padding:0 1.5rem;font-weight:400;color:#666;border-right:2px solid #999;}
 .txt-btn-wrap li:last-child{border:0;}
-.login .btn-wrap button{font-size:1.5rem;font-weight:bold;}
+.login .btn-wrap button{font-size:1.5rem;font-weight:bold; border-radius: 20px;}
 /* Type C */
 .login-box{position:relative;padding-right:8.5rem;}
 .login-box .ipt-form-col{width:100%;margin-right:.5rem;}
@@ -380,7 +380,7 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .object-detail-write {padding-top:15px;font-size:2rem;padding-bottom:15px;} 
 .object-detail-write strong {font-size:2rem;font-weight:bold;}
 .btn-wrap.pd{padding:1.5rem;}
-.btn-wrap.pd2{padding:0rem; padding-top: 1.5rem;} /* 은진 */
+.btn-wrap.pd2{padding:0rem; padding-top: 1.5rem; border-radius: 20px;} /* 은진 */
 .modify-btn-menu{right:5px;position:absolute;width:4rem;height:4rem;background:url(../img/btn-menu.png) no-repeat;background-size:100%;text-indent:-9999rem;}
 .store-object-category-title {width:100%;}
 .plus-icon {text-align:center;margin:2rem;}
