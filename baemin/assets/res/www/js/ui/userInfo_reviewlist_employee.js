@@ -143,6 +143,7 @@
           param: {
             'orderNum': reviewNum
           },
+          action : 'NO_HISTORY',
         });
       });
 
@@ -152,8 +153,10 @@
         M.page.html({
           url: './eunjin_userInfo_reviewWrite_employee.html',
           param: {
-            'orderNum': reviewNum
+            'orderNum': reviewNum,
+            'modify' : 'Y',
           },
+          action : 'NO_HISTORY',
         });
       });
 
@@ -182,7 +185,6 @@
         },
         succ: function (data) {
           console.log(data);
-          //              M.data.removeGlobal('orderNum');
           M.page.replace({
             url: './jiwon_userInfo_reviewlist_employee.html',
           });
@@ -205,6 +207,10 @@
     pageFunc.init(); // 최초 화면 초기화
     pageFunc.initView();
     pageFunc.initEvent();
+  });
+
+  M.onRestore(function () {
+    pageFunc.initView();
   });
 
 })(jQuery, M, __page__, window);

@@ -41,6 +41,14 @@
 
       $('.payment-type').on('click', function () {
         paymentType = $(this).attr('id');
+        console.log(paymentType);
+        if (paymentType = 'cash') {
+          $('#paymentWay').text('현금 결제');
+        } else if (paymentType = 'card') {
+          $('#paymentWay').text('카드 결제');
+        } else if (paymentType = 'smart') {
+          $('#paymentWay').text('간편 결제');
+        }
       });
     },
 

@@ -21,8 +21,9 @@
 
       initView: function initView() {
         $.sendHttp({
-          path: "/api/payment/paymentDeliveryNow",
+          path: "/api/payment/paymentDeliverying",
           data: {
+            deliveryNum : M.data.global('deliveryNum'),
           },
           succ: function (data) {
             console.log(data);
@@ -84,7 +85,7 @@
           orderNum = $(this).attr('id');
           M.data.global('orderNum', orderNum);
           M.page.html({
-            url: './eunjin_userInfo_orderDetail_employee_all.html',
+            url: './eunjin_userInfo_orderDetail_delivery_all.html',
           });
         });
       }

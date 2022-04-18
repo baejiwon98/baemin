@@ -5,6 +5,8 @@
  */
 // 페이지 단위 모듈
 (function ($, M, CONFIG, window) {
+  M.data.global('deliveryStatus','Y');
+  M.data.global('pickupStatus','N');
   var page = {
     els: {
       $categoryChange: null,
@@ -21,6 +23,7 @@
 
     },
     initView: function initView() {
+      M.data.global('takeout')
       $.sendHttp({
         path: "/api/store/storeList/delivery",
         data: {

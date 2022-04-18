@@ -14,40 +14,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74ed69c0-9853-4c9b-bfa4-a76e302cc75d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_myOrderList_member.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_menulist_search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_storelist_delivery_search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_storelist_takeout_search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/store_menu_list_search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/storelist_delivery_search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/res/www/js/ui/storelist_takeout_search.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/css/morpheus-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/css/morpheus-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_reviewWrite_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_reviewWrite_employee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_reviewWrite_member.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/eunjin_userInfo_reviewWrite_member.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/jiwon_payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_payment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/jiwon_payment_ok.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_payment_ok.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/jiwon_payment_takeout.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_payment_takeout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_menulist.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_menulist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_reviewlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_reviewlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_main_member.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/saetbyeol_main_member.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/member_main1.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/main_member.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_object_write.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/html/jiwon_store_object_write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/main_delivery.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/main_delivery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/main_member.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/main_member.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/object_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/object_detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/orderDetail_delivery_all.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/orderDetail_delivery_all.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_delivery_complete.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_delivery_complete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_delivery_mine.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/orderList_delivery_mine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/payment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/payment_ok.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/payment_ok.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/payment_takeout.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/payment_takeout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/store_category_modify.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/store_category_modify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/store_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/store_detail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/store_menu_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/store_menu_list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/store_object_detail.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/store_object_write.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/store_object_write.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/store_reviewlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/store_reviewlist.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/storelist_delivery.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/storelist_delivery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/storelist_delivery_search.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/storelist_delivery_search.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/storelist_takeout.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/storelist_takeout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_Info_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_Info_employee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_orderDetail_member.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_orderDetail_member.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_reviewWrite_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_reviewWrite_employee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_reviewWrite_member.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_reviewWrite_member.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_reviewlist_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/res/www/js/ui/userInfo_reviewlist_employee.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/css/morpheus-common.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/css/morpheus-common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/css/morpheus-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/css/morpheus-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/eunjin_userInfo_reviewWrite_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/eunjin_userInfo_reviewWrite_employee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/eunjin_userInfo_reviewWrite_member.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/eunjin_userInfo_reviewWrite_member.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_payment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_payment_ok.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_payment_ok.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_menulist.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_menulist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_reviewlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_reviewlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_join2_member.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_join2_member.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_main_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_main_employee.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_main_member.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/saetbyeol_main_member.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/member_main1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_object_write.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/html/jiwon_store_object_write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/payment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/payment_ok.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/payment_ok.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_category_modify.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_category_modify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_detail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_menu_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_menu_list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_reviewlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/store_reviewlist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_Info_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_Info_employee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_orderDetail_member.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_orderDetail_member.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_reviewWrite_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_reviewWrite_employee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_reviewWrite_member.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_reviewWrite_member.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_reviewlist_employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/merged_assets/debug/out/res/www/js/ui/userInfo_reviewlist_employee.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/outputs/apk/debug/baemin-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/outputs/apk/debug/baemin-debug.apk" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

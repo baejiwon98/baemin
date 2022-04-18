@@ -105,7 +105,8 @@
       $.sendHttp({
         path: "/api/payment/statusDeliveryWait",
         data: {
-          'orderNum': M.data.global('orderNum')
+          'orderNum': M.data.global('orderNum'),
+          'deliveryNum' : M.data.global('deliveryNum')
         },
         succ: function (data) {
           console.log(data);
@@ -123,7 +124,8 @@
       $.sendHttp({
         path: "/api/payment/statusDelvieryEnd",
         data: {
-          'orderNum': M.data.global('orderNum')
+          'orderNum': M.data.global('orderNum'),
+          'deliveryNum' : M.data.global('deliveryNum')
         },
         succ: function (data) {
           console.log(data);

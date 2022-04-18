@@ -423,7 +423,7 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .review-info {margin:2rem;}
 .review-store strong{font-size:1.5rem;font-weight:bold;}
 .review-date {padding-left:3px;padding-top:7px;font-size:2rem;}
-.review-counting-stars {padding-left:8px;}
+.review-counting-stars {}
 .review-counting-stars #stars{position:relative;padding-top:5px;font-size:2rem;color:orange;}
 .btn-user{float:left;width:4rem;height:4rem;background:url(../img/user-icon.png) no-repeat;background-size:100%;text-indent:-9999rem;}
 .object-review-list {margin:1rem;}

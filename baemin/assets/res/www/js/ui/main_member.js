@@ -21,6 +21,7 @@
     },
     data: {},
     init: function init() {
+
       this.els.$menuKorea = $('#memu-korea');
       this.els.$menuChina = $('#memu-china');
       this.els.$menuAmerica = $('#memu-america');
@@ -35,6 +36,7 @@
     initView: function initView() {
       var self = this;
       var id = M.data.global('myId');
+      this.els.$searchIpt.val('');
       $.sendHttp({
         path: "/api/member/info",
         data: {

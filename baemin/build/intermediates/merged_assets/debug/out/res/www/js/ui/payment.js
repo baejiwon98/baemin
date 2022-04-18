@@ -49,13 +49,20 @@
       $('.payment-type').on('click', function () {
         paymentType = $(this).attr('id');
         console.log(paymentType);
+        if (paymentType == 'cash') {
+          $('#paymentWay').text('현금 결제');
+        } else if (paymentType == 'card') {
+          $('#paymentWay').text('카드 결제');
+        } else if (paymentType == 'smart') {
+          $('#paymentWay').text('간편 결제');
+        }
       });
     },
 
     payment: function () {
       var self = this;
       var addrDetail = this.els.$addrDetailIpt.val();
-      var addr = M.data.global('myAddress')+ ' ' + addrDetail;
+      var addr = M.data.global('myAddress') + ' ' + addrDetail;
       var phone = this.els.$orderPhoneIpt.val().trim();
       var storeRequest = this.els.$storeRequestIpt.val();
       var deliveryRequest = this.els.$deliveryRequestIpt.val();
@@ -76,14 +83,14 @@
       $.sendHttp({
         path: "/api/payment/paymentDelivery",
         data: {
-          paymentCategory : paymentType,
-          storeRequest : storeRequest,
-          orderTotalPrice : M.data.param('totalPaymentPrice'),
-          memberNum : M.data.global('memberNum'),
-          deliveryRequest : deliveryRequest,
-          storeNum : M.data.global('storeNum'),
-          memAddress : addr,
-          memPhone : phone
+          paymentCategory: paymentType,
+          storeRequest: storeRequest,
+          orderTotalPrice: M.data.param('totalPaymentPrice'),
+          memberNum: M.data.global('memberNum'),
+          deliveryRequest: deliveryRequest,
+          storeNum: M.data.global('storeNum'),
+          memAddress: addr,
+          memPhone: phone
         },
         succ: function (data) {
           console.log(data);

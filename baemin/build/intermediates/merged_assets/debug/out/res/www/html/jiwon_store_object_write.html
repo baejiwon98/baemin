@@ -59,7 +59,7 @@
                     재고
                   </span>
                   <div class="ipt-form-col">
-                    <input type="text" pattern="[^0-9]" placeholder="5" id="object-qty" maxlength="3" />
+                    <input type="number" pattern="[^0-9]" placeholder="5" id="object-qty" maxlength="3" />
                   </div>
                 </div>
                 <div class="ipt-form-type-right">
@@ -67,13 +67,13 @@
                     가격
                   </span>
                   <div class="ipt-form-col">
-                    <input type="text" pattern="[^0-9]" placeholder="39900" id="object-price" />
+                    <input type="number" pattern="[^0-9]" placeholder="39900" id="object-price" />
                   </div>
                 </div>
               </div>
               <div class="ipt-form-type2">
                 <span>
-                  첨부 이미지
+                  첨부 이미지<button  id= "reset-btn" type="reset" style="width: 20px; text-align: center; margin-left: 2px;"><img src="../img/btn-refresh.png"/></button>
                 </span>
                 <div class="ipt-form-row">
                   <input type="text" id="object-img" readonly placeholder="이미지 파일명 (자동입력)" />
@@ -98,12 +98,9 @@
         </div>
       </section>
     </section>
-    <div class="btn-wrap pd count2">
+    <div class="btn-wrap pd">
       <button type="button" id="modiBtn" class="btn-point-color">
-        확인
-      </button>
-      <button type="button" id="delBtn" class="btn-line" class="btn-point-color">
-        삭제
+        <span id='btn-name'>작성완료</span>
       </button>
     </div>
   </div>
