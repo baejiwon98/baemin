@@ -56,7 +56,7 @@
             items += "<div class='review-content'>";
             if (item.reviewImage != null) {
               items += "<div class='review-user-img'>";
-              items += "<img src='" + "http://192.168.0.50:8080/view/review/upload/" + item.reviewImage + "' alt='' style='width:300px; height:300px; border-radius:20px;' />";
+              items += "<img src='" + "http://192.168.0.50:8080/view/review/upload/" + item.reviewImage + "' alt='' style='width:300px; height:300px; border-radius:20px; display: table;' />";
               items += "</div>";
             }
             if (item.reviewContent != null) {
