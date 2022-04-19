@@ -21,7 +21,7 @@
     },
     data: {},
     init: function init() {
-      this.els.$btnBack = $('#btn-back');
+      this.els.$btnBack = $('.btn-back');
       this.els.$objectNameIpt = $('#object-name');
       this.els.$objectOriginIpt = $('#object-origin');
       this.els.$objectContentIpt = $('#object-content');

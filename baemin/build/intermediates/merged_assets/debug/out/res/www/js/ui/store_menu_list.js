@@ -90,9 +90,12 @@
           $.each(data.list, function (index, item) {
             items += "<li class = 'store-object' id='" + item.objectNum + "'>";
             items += "<div class='object-container'>";
+            console.log(item.objectImage);
             items += "<div class='object-imgs'>";
             if (item.objectImage != null) {
-              items += "<img align='center' class='object-img' src='" + "http://localhost:8080/view/object/upload/" + item.objectImage + "' alt='' />";
+              items += "<img align='center' class='object-img' src='" + "http://192.168.0.50:8080/view/object/upload/" + item.objectImage + "' alt='' />";
+            } else {
+              items += "<img align='center' class='object-img' src='../img/object-default.png' style='width:80%;height:80%;'alt='' />";
             }
             items += "</div>";
             items += "<div class='object-main'>";

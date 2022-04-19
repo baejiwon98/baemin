@@ -179,7 +179,7 @@
       }
     }
     var _options = {
-      url: "http://localhost:8080/" + ENV.UPLOAD_URL + options.path,
+      url: "http://192.168.0.50:8080/" + ENV.UPLOAD_URL + options.path,
       header: options.header || {},
       params: options.params || {},
       body: options.body || [],

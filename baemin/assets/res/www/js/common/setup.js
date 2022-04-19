@@ -26,6 +26,8 @@
 
     var interval = setInterval(function () {
       //          alert('반복수행');
+      if(M.data.global('userNum') != null)
+
       $.sendHttp({
         path: "/api/payment/AlarmChk",
         data: {
@@ -34,7 +36,7 @@
         succ: function (data) {
           if (M.data.global('userNum').substring(0, 1) == 'm') {
             $.each(data.list, function (index, item) {
-              if (item.memAlarm == 0 && item.empAlarm == 2) {
+              if (item.memAlarm == 1 && item.empAlarm == 1) {
                 M.pop.alert({
                   title: '주문이 승인되었습니다!',
                   message: '주문이 승인되었습니다. 맛있게 조리해드리겠습니다. ',
@@ -108,7 +110,7 @@
               } else if (item.memAlarm == 40) {
                 M.pop.alert({
                   title: '조리가 완료되었습니다.',
-                  message: '조리가 완료되었습니다. 라이더 매칭을 기다리고 있습니다. (확인을 안하시면 알림이 계속 울립니다.)',
+                  message: '조리가 완료되었습니다. 배달을 시작합니다. (확인을 안하시면 알림이 계속 울립니다.)',
                   buttons: ['확인', '취소'],
                   callback: function (index) {
                     if (index == 0) {

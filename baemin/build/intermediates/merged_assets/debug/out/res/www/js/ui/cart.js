@@ -60,7 +60,7 @@
               items += "<div>";
               items += "<div class='cart-object-img' id='object-img'>";
               if (item.objectImage != null) {
-                items += "<img class='cart-object-img-detail' src='" + "http://localhost:8080/view/object/upload/" + item.objectImage + "' alt='' />";
+                items += "<img class='cart-object-img-detail' src='" + "http://192.168.0.50:8080/view/object/upload/" + item.objectImage + "' alt='' />";
               } else {
                 items += "<img class='cart-object-img-detail' src='../img/object-default.png' alt='' />";
               }

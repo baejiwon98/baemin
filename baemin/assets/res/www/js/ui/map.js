@@ -134,6 +134,7 @@
       var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
       $('#currentBtn').click(function () {
+        $('#addrDetail').val('');
         //        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
         function getAddr(lat, lng) { // 좌표로 주소 가져오기
           let geocoder = new kakao.maps.services.Geocoder();
@@ -193,6 +194,8 @@
 
       $('#searchAddr').click(function () {
         // 버튼을 click했을때
+        var self = this;
+        $('#addrDetail').val('');
         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
         // 주소-좌표 변환 객체를 생성합니다
         var geocoder = new kakao.maps.services.Geocoder();
