@@ -42,7 +42,7 @@
           const element = document.getElementById('object-img');
           maxQty = data.objectQty;
           if (data.objectImage != null) {
-            element.innerHTML = "<img src='" + "http://192.168.0.50:8080/view/object/upload/" + data.objectImage + "' alt='' />";
+            element.innerHTML = "<img src='" + "http://192.168.0.50:8080/view/object/upload/" + data.objectImage + "' alt='' style='width:300px; height:300px; border-radius:20px;' />";
           } else {
             element.innerHTML = "<img src='../img/object-default.png' style='width:80%;height:80%;'alt='' />";
           }
