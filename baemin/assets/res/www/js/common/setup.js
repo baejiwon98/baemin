@@ -36,7 +36,7 @@
         succ: function (data) {
           if (M.data.global('userNum').substring(0, 1) == 'm') {
             $.each(data.list, function (index, item) {
-              if (item.memAlarm == 1 && item.empAlarm == 1) {
+              if (item.memAlarm == 1) {
                 M.pop.alert({
                   title: '주문이 승인되었습니다!',
                   message: '주문이 승인되었습니다. 맛있게 조리해드리겠습니다. ',
