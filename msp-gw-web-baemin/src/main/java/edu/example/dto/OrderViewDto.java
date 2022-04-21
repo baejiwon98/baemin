@@ -1,193 +1,193 @@
 package edu.example.dto;
 
 public class OrderViewDto {
-	private String orderNum;
-	private String orderTime;
-	private String orderStatus;
-	private String objectNum;
-	private String objectName;
-	private String objectImg;
-	private String storeName;
-	private String menuQty;
-	private String storeNum;
-	private String memberNum;
-	private String deliveryNum;
-	private String storeAddr;
-	private String reviewScore;
+   private String orderNum;
+   private String orderTime;
+   private String orderStatus;
+   private String objectNum;
+   private String objectName;
+   private String objectImg;
+   private String storeName;
+   private String menuQty;
+   private String storeNum;
+   private String memberNum;
+   private String deliveryNum;
+   private String storeAddr;
+   private String reviewScore;
 
-	public String getReviewScore() {
-		return reviewScore;
-	}
+   public String getReviewScore() {
+      return reviewScore;
+   }
 
 
 
 
-	public void setReviewScore(String reviewScore) {
-		this.reviewScore = reviewScore;
-	}
+   public void setReviewScore(String reviewScore) {
+      this.reviewScore = reviewScore;
+   }
 
 
 
 
-	public String toString() {
-		return 	"orderNum="+orderNum
-			+	"\n orderTime="+orderTime
-			+	"\n orderStatus="+orderStatus
-			+	"\n objectNum="+objectNum
-			+	"\n objectName="+objectName
-			+	"\n objectImg="+objectImg
-			+	"\n storeName="+storeName
-			+	"\n menuQty="+menuQty
-			+	"\n storeNum="+storeNum
-			+	"\n memberNum="+memberNum 
-			+	"\n deliveryNum="+deliveryNum
-			+	"\n storeAddr="+storeAddr
-			+	"\n reviewScore="+reviewScore
-		;
-	}
+   public String toString() {
+      return    "orderNum="+orderNum
+         +   "\n orderTime="+orderTime
+         +   "\n orderStatus="+orderStatus
+         +   "\n objectNum="+objectNum
+         +   "\n objectName="+objectName
+         +   "\n objectImg="+objectImg
+         +   "\n storeName="+storeName
+         +   "\n menuQty="+menuQty
+         +   "\n storeNum="+storeNum
+         +   "\n memberNum="+memberNum 
+         +   "\n deliveryNum="+deliveryNum
+         +   "\n storeAddr="+storeAddr
+         +   "\n reviewScore="+reviewScore
+      ;
+   }
 
 
 
-	
-	public String getDeliveryNum() {
-		return deliveryNum;
-	}
+   
+   public String getDeliveryNum() {
+      return deliveryNum;
+   }
 
 
 
 
-	public String getStoreAddr() {
-		return storeAddr;
-	}
+   public String getStoreAddr() {
+      return storeAddr;
+   }
 
 
 
 
-	public void setStoreAddr(String storeAddr) {
-		this.storeAddr = storeAddr;
-	}
+   public void setStoreAddr(String storeAddr) {
+      this.storeAddr = storeAddr;
+   }
 
 
 
 
-	public void setDeliveryNum(String deliveryNum) {
-		this.deliveryNum = deliveryNum;
-	}
+   public void setDeliveryNum(String deliveryNum) {
+      this.deliveryNum = deliveryNum;
+   }
 
 
 
 
-	public String getMemberNum() {
-		return memberNum;
-	}
+   public String getMemberNum() {
+      return memberNum;
+   }
 
 
-	public void setMemberNum(String memberNum) {
-		this.memberNum = memberNum;
-	}
+   public void setMemberNum(String memberNum) {
+      this.memberNum = memberNum;
+   }
 
-	
-	public String getOrderNum() {
-		return orderNum;
-	}
+   
+   public String getOrderNum() {
+      return orderNum;
+   }
 
 
 
 
-	public void setOrderNum(String orderNum) {
-		this.orderNum = orderNum;
-	}
+   public void setOrderNum(String orderNum) {
+      this.orderNum = orderNum;
+   }
 
 
 
 
-	public String getOrderTime() {
-		return orderTime;
-	}
+   public String getOrderTime() {
+      return orderTime;
+   }
 
 
 
 
-	public void setOrderTime(String orderTime) {
-		this.orderTime = orderTime;
-	}
+   public void setOrderTime(String orderTime) {
+      this.orderTime = orderTime;
+   }
 
 
 
 
-	public String getOrderStatus() {
-		return orderStatus;
-	}
+   public String getOrderStatus() {
+      return orderStatus;
+   }
 
 
 
-	public void setOrderStatus(String orderStatus) {
-		this.orderStatus = orderStatus;
-	}
+   public void setOrderStatus(String orderStatus) {
+      this.orderStatus = orderStatus;
+   }
 
-	public String getObjectNum() {
-		return objectNum;
-	}
+   public String getObjectNum() {
+      return objectNum;
+   }
 
 
-	public void setObjectNum(String objectNum) {
-		this.objectNum = objectNum;
-	}
+   public void setObjectNum(String objectNum) {
+      this.objectNum = objectNum;
+   }
 
 
-	public String getObjectName() {
-		return objectName;
-	}
+   public String getObjectName() {
+      return objectName;
+   }
 
 
 
-	public void setObjectName(String objectName) {
-		this.objectName = objectName;
-	}
+   public void setObjectName(String objectName) {
+      this.objectName = objectName;
+   }
 
 
-	public String getObjectImg() {
-		return objectImg;
-	}
+   public String getObjectImg() {
+      return objectImg;
+   }
 
 
-	public void setObjectImg(String objectImg) {
-		this.objectImg = objectImg;
-	}
+   public void setObjectImg(String objectImg) {
+      this.objectImg = objectImg;
+   }
 
 
-	public String getStoreName() {
-		return storeName;
-	}
+   public String getStoreName() {
+      return storeName;
+   }
 
 
-	public void setStoreName(String storeName) {
-		this.storeName = storeName;
-	}
+   public void setStoreName(String storeName) {
+      this.storeName = storeName;
+   }
 
 
-	public String getMenuQty() {
-		return menuQty;
-	}
+   public String getMenuQty() {
+      return menuQty;
+   }
 
 
 
 
-	public void setMenuQty(String menuQty) {
-		this.menuQty = menuQty;
-	}
+   public void setMenuQty(String menuQty) {
+      this.menuQty = menuQty;
+   }
 
 
 
 
-	public String getStoreNum() {
-		return storeNum;
-	}
+   public String getStoreNum() {
+      return storeNum;
+   }
 
 
 
 
-	public void setStoreNum(String storeNum) {
-		this.storeNum = storeNum;
-	}
+   public void setStoreNum(String storeNum) {
+      this.storeNum = storeNum;
+   }
 }
